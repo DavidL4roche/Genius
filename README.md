@@ -1,2 +1,1 @@
-# Genius
-Projet d'alternance LP - Serious Game - 2018-2019
+﻿# Genius## Projet d'alternance LP - Serious Game - 2018-2019_Serious game donné en sujet d'alternance pour la licence professionnelle WEB DEV (2018-2019).Continuité du travail de Nathan Bernard-Roux du jeu Genius._Professeur responsable : Mickaël Martin-Nevot### Version v1.0- Mise en place du projet- Récupération du travail de Nathan Bernard-Roux### Version v2.0
