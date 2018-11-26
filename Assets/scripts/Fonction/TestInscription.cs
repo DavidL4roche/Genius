@@ -1,7 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,27 +50,6 @@ public class TestInscription : MonoBehaviour {
                 MessageErreur.messageErreur = "Le login ou le mail existent déjà.";
                 return;
             }
-            /*
-            while (lien.Read())
-            {
-                if (lien["Total"].ToString() == "1")
-                {
-                    Joueur.IDJoueur = (int)lien["IDPCharacter"];
-                    Joueur.NomJoueur = lien["PCName"].ToString();
-                    Joueur.dateDerniereCo = (DateTime)lien["LastConnection"];
-                    ChargerLieu loading = new ChargerLieu();
-                    loading.Charger("Daedelus");
-                    Instantiate(JoueurLoge);            
-                    break;
-                }
-                else
-                {
-                    ChargerPopup.Charger("Erreur");
-                    MessageErreur.messageErreur = "Les identifiants de connexion sont incorrects";
-                    break;
-                }
-            }
-            */
             lien.Close();
         }
         catch (IOException e)
