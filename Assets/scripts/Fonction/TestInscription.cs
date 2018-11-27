@@ -20,6 +20,8 @@ public class TestInscription : MonoBehaviour {
     public Joueur JoueurLoge;
     private Connexion connexion;
 
+    private string urlComp;
+
     // Permet d'appeler l'URL pour transmettre au script PHP les informations
     public void CallFunction()
     {
@@ -32,10 +34,11 @@ public class TestInscription : MonoBehaviour {
     // Permet de créer un utilisateur dans la base
     public IEnumerator CreateUser()
     {
-        url = url + "?pseudo=" + pseudo.text + "&mail=" + mail.text + "&pass=" + pass.text;
-        download = new WWW(url);
+        urlComp = url;
+        urlComp += "?pseudo=" + pseudo.text + "&mail=" + mail.text + "&pass=" + pass.text;
+        download = new WWW(urlComp);
         yield return download;
-        print (url);
+        print (urlComp);
 
         if ((!string.IsNullOrEmpty(download.error)))
         {
