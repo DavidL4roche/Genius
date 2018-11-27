@@ -23,6 +23,16 @@ public class Connexion : MonoBehaviour {
             Debug.Log(e.ToString());
         }
     }
+
+    public MySqlConnection getConnexion()
+    {
+        return connexion;
+    }
+
+    public void stopConnexion()
+    {
+        this.getConnexion().Close();
+    }
 	
 	// Update is called once per frame
     private void OnApplicationQuit()

@@ -199,7 +199,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 79690242}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1157,6 +1157,7 @@ MonoBehaviour:
   login: {fileID: 1977634247}
   mail: {fileID: 1967047229}
   pass: {fileID: 1670862836}
+  JoueurLoge: {fileID: 0}
 --- !u!1 &1484858904
 GameObject:
   m_ObjectHideFlags: 0
