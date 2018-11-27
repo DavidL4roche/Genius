@@ -1,11 +1,8 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using SimpleJSON;
+using SimpleJSON; // Permet un meilleur traitement du JSON
 
 public class TestConnexion : MonoBehaviour {
     // Paramètres
@@ -52,7 +49,7 @@ public class TestConnexion : MonoBehaviour {
             monNode = JSON.Parse(monJson);
 
             // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
-            String utilisateur = monNode["utilisateur"][0]["pseudo"].Value;
+            string utilisateur = monNode["utilisateur"][0]["pseudo"].Value;
 
             if (utilisateur == "")
             {

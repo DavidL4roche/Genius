@@ -1,7 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.IO;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using SimpleJSON; // Permet un meilleur traitement du JSON
 using System.Collections;
@@ -19,6 +16,9 @@ public class TestInscription : MonoBehaviour {
     
     public Joueur JoueurLoge;
     private Connexion connexion;
+
+    private string monJson;
+    private JSONNode monNode;
 
     private string urlComp;
 
@@ -43,7 +43,6 @@ public class TestInscription : MonoBehaviour {
         urlComp += "?pseudo=" + pseudo.text + "&mail=" + mail.text + "&pass=" + pass.text;
         download = new WWW(urlComp);
         yield return download;
-        print (urlComp);
 
         if ((!string.IsNullOrEmpty(download.error)))
         {
@@ -51,13 +50,32 @@ public class TestInscription : MonoBehaviour {
         }
         else
         {
-            // L'inscription s'est bien déroulée
-            
-            ChargerLieu loading = new ChargerLieu();
-            loading.Charger("Login");
+            monJson = download.text;
+            print (monJson);
+            monNode = JSON.Parse(monJson);
 
-            ChargerPopup.Charger("Succes");
-            MessageErreur.messageErreur = "Votre compte a bien été crée";
+            // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
+            /*string result = monNode["result"].Value;
+
+            if (result == "false")
+            {
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = monNode["msg"].Value;
+            }
+            
+
+            // L'inscription s'est bien déroulée
+            else
+            {
+                print("ok");*/
+                /*
+                ChargerLieu loading = new ChargerLieu();
+                loading.Charger("Login");
+
+                ChargerPopup.Charger("Succes");
+                MessageErreur.messageErreur = "Votre compte a bien été crée";
+                
+            }*/
         }
     }
 }

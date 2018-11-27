@@ -12,6 +12,23 @@ class Helper {
         return new PDO('mysql:host='.HOST.';dbname='.DBNAME, USERNAME, PASS);
     }
 
+    // Transforme un tableau PHP en chaîne JSON (pour un utilisateur)
+    function ParseJson($array = array()) {
+        $r = array();
+
+        foreach ($array as $k => $v) {
+            $t = array(
+                "id" => intval($v["IDPCharacter"]),
+                "pseudo" => (string)utf8_encode($v["PCName"]),
+                "lastConnection" => (string)utf8_encode($v["LastConnection"])
+            );
+            array_push($r, $t);
+        }
+
+        $finalArray["utilisateur"] = $r;
+        return json_encode($finalArray);
+    }
+
     // Création d'utilisateur dans la base
     function CreateUser($pseudo = null, $mail = null, $pass = null) {
         // Connexion à la BD
@@ -24,7 +41,7 @@ class Helper {
             "pass" => (isset($pass) && $pass != "") ? strtolower($pass) : null
         );
 
-        $sql = "SELECT * FROM p_character WHERE PCName = '".$mySqlData["pseudo"]."' UNION SELECT * FROM p_character WHERE mail = '" . $mySqlData["mail"] . "';";
+        $sql = "SELECT DISTINCT * FROM p_character WHERE PCName = '".$mySqlData["pseudo"]."' UNION SELECT * FROM p_character WHERE mail = '" . $mySqlData["mail"] . "';";
         $result = $bdd->prepare($sql);
         $result->execute();
         $d = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -42,6 +59,7 @@ class Helper {
             $result = $bdd->prepare($sql);
             $result->execute();
             $lastID = $bdd->lastInsertId();
+            print $lastID;
 
             if ($lastID > 0) {
                 return json_encode(array(
@@ -53,29 +71,17 @@ class Helper {
         }
 
         else {
+            $errorArray = array("result" => false,
+                                "msg" => "L'utilisateur n'as pas été inscrit car son pseudo ou son mail existe déjà");
+            $finalArray["error"] = $errorArray;
+            return json_encode($finalArray);
+            /*
             return json_encode(array(
                 "result" => false,
-                "msg" => "L'utilisateur n'as pas été inscrit"
+                "msg" => "L'utilisateur n'as pas été inscrit car son pseudo ou son mail existe déjà"
             ));
+            */
         }
-
-    }
-
-    // Transforme un tableau PHP en chaîne JSON
-    function ParseJson($array = array()) {
-        $r = array();
-
-        foreach ($array as $k => $v) {
-            $t = array(
-                "id" => intval($v["IDPCharacter"]),
-                "pseudo" => (string)utf8_encode($v["PCName"]),
-                "lastConnection" => (string)utf8_encode($v["LastConnection"])
-            );
-            array_push($r, $t);
-        }
-
-        $finalArray["utilisateur"] = $r;
-        return json_encode($finalArray);
     }
 
     // Vérification connexion d'un utilisateur

@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
-using System.Data;
-using UnityEngine;
+﻿using UnityEngine;
 using MySql.Data.MySqlClient;
-using UnityEngine.UI;
 
 public class Connexion : MonoBehaviour {
     public static MySqlConnection connexion;
