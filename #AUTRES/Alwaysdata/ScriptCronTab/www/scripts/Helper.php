@@ -61,8 +61,38 @@ class Helper {
 
     }
 
+    // Transforme un tableau PHP en chaîne JSON
+    function ParseJson($array = array()) {
+        $r = array();
+
+        foreach ($array as $k => $v) {
+            $t = array(
+                "id" => intval($v["IDPCharacter"]),
+                "pseudo" => (string)utf8_encode($v["PCName"])
+            );
+            array_push($r, $t);
+        }
+
+        $finalArray["utilisateur"] = $r;
+        return json_encode($finalArray);
+    }
+
     // Vérification connexion d'un utilisateur
     function CheckConnexion($pseudo = null, $pass = null) {
+        if ($pseudo != null && $pass != null) {
+            $bdd = $this->ConnectBDD();
 
+            $sql = "SELECT * FROM p_character WHERE PCName = '" . $pseudo . "' AND Password= '" . $pass . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            return $this->ParseJson($d);
+        }
+        else {
+            return null;
+        }
     }
 }
