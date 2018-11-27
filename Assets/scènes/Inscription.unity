@@ -716,6 +716,7 @@ GameObject:
   - component: {fileID: 952457480}
   - component: {fileID: 952457479}
   - component: {fileID: 952457478}
+  - component: {fileID: 952457481}
   m_Layer: 5
   m_Name: Inscrire
   m_TagString: Untagged
@@ -781,8 +782,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1425296225}
-        m_MethodName: testInscription
+      - m_Target: {fileID: 952457481}
+        m_MethodName: CallFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -828,6 +829,21 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 952457476}
   m_CullTransparentMesh: 0
+--- !u!114 &952457481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952457476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e80df288ef40e4e827d94dcbe55f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pseudo: {fileID: 1977634247}
+  mail: {fileID: 1967047229}
+  pass: {fileID: 1670862836}
+  JoueurLoge: {fileID: 0}
 --- !u!1 &1070373319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e80df288ef40e4e827d94dcbe55f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  login: {fileID: 1977634247}
+  pseudo: {fileID: 1977634247}
   mail: {fileID: 1967047229}
   pass: {fileID: 1670862836}
   JoueurLoge: {fileID: 0}

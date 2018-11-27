@@ -3,11 +3,15 @@ using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using SimpleJSON; // Permet un meilleur traitement du JSON
+using System.Collections;
 
 public class TestInscription : MonoBehaviour {
 
     // Paramètres
-    public InputField login;
+    private string url = "http://seriousgameiut.alwaysdata.net/scripts/CreateUser.php";
+    private WWW download;
+    public InputField pseudo;
     public InputField mail;
     public InputField pass;
     private string requeteLoginMail;
@@ -16,11 +20,39 @@ public class TestInscription : MonoBehaviour {
     public Joueur JoueurLoge;
     private Connexion connexion;
 
+    // Permet d'appeler l'URL pour transmettre au script PHP les informations
+    public void CallFunction()
+    {
+        if (pseudo.text != "" && mail.text != "" && pass.text != "")
+        {
+            StartCoroutine(CreateUser());
+        }
+    }
+
+    // Permet de créer un utilisateur dans la base
+    public IEnumerator CreateUser()
+    {
+        url = url + "?pseudo=" + pseudo.text + "&mail=" + mail.text + "&pass=" + pass.text;
+        download = new WWW(url);
+        yield return download;
+        print (url);
+
+        if ((!string.IsNullOrEmpty(download.error)))
+        {
+            print("Error downloading: " + download.error);
+        }
+        else
+        {
+            print("Ok");
+        }
+    }
+
+    /*
     // Enregistre l'inscription
     public void testInscription()
     {
         // Vérification input vides
-        if (login.text=="")
+        if (pseudo.text=="")
         {
             ChargerPopup.Charger("Erreur");
             MessageErreur.messageErreur = "Veuillez spécifier un login";
@@ -67,14 +99,12 @@ public class TestInscription : MonoBehaviour {
                 commande.ExecuteReader();
 
                 // Connexion et accès au jeu
-                /*
                 Joueur.IDJoueur = (int)lien["IDPCharacter"];
                 Joueur.NomJoueur = lien["PCName"].ToString();
                 Joueur.dateDerniereCo = (DateTime)lien["LastConnection"];
                 ChargerLieu loading = new ChargerLieu();
                 loading.Charger("Daedelus");
                 Instantiate(JoueurLoge);
-                */
             }
             reader.Close();
         }
@@ -83,4 +113,5 @@ public class TestInscription : MonoBehaviour {
             Debug.Log(e);
         }
     }
+    */
 }
