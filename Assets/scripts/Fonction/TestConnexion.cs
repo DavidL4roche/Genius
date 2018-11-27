@@ -62,7 +62,13 @@ public class TestConnexion : MonoBehaviour {
             // Sinon on correspond bien à un utilisateur
             else
             {
-                
+                // On récupère les données du Joueur pour l'attribuer à notre objet
+                int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
+                Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
+                Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
+                ChargerLieu loading = new ChargerLieu();
+                loading.Charger("Daedelus");
+                Instantiate(JoueurLoge);
             }
         }
     }

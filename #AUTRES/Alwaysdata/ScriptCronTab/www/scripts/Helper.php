@@ -68,7 +68,8 @@ class Helper {
         foreach ($array as $k => $v) {
             $t = array(
                 "id" => intval($v["IDPCharacter"]),
-                "pseudo" => (string)utf8_encode($v["PCName"])
+                "pseudo" => (string)utf8_encode($v["PCName"]),
+                "lastConnection" => (string)utf8_encode($v["LastConnection"])
             );
             array_push($r, $t);
         }
