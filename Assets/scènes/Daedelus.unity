@@ -462,30 +462,14 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114678496281326188, guid: 07ce778801739cc40b6ef2ccc97cd7f2,
+    - target: {fileID: 224571337794677596, guid: 07ce778801739cc40b6ef2ccc97cd7f2,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114678496281326188, guid: 07ce778801739cc40b6ef2ccc97cd7f2,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 348820590}
-    - target: {fileID: 114678496281326188, guid: 07ce778801739cc40b6ef2ccc97cd7f2,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Charger
+      propertyPath: m_SizeDelta.y
+      value: 427
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07ce778801739cc40b6ef2ccc97cd7f2, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &348820590 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114108513588094290, guid: 07ce778801739cc40b6ef2ccc97cd7f2,
-    type: 2}
-  m_PrefabInternal: {fileID: 348820589}
-  m_Script: {fileID: 11500000, guid: f967581a98870e6478d7d33b7c154915, type: 3}
 --- !u!1 &450864555
 GameObject:
   m_ObjectHideFlags: 0
