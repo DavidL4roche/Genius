@@ -38,7 +38,7 @@ class Helper {
         $mySqlData = array(
             "pseudo" => (isset($pseudo) && $pseudo != "") ? strtolower($pseudo) : null,
             "mail" => (isset($mail) && $mail != "") ? strtolower($mail) : null,
-            "pass" => (isset($pass) && $pass != "") ? strtolower($pass) : null
+            "pass" => (isset($pass) && $pass != "") ? password_hash($pass, PASSWORD_DEFAULT) : null // Hachage du mot de passe
         );
 
         $sql = "SELECT DISTINCT * FROM p_character WHERE PCName = '".$mySqlData["pseudo"]."' UNION SELECT * FROM p_character WHERE mail = '" . $mySqlData["mail"] . "';";
@@ -80,19 +80,51 @@ class Helper {
     // Vérification connexion d'un utilisateur
     function CheckConnexion($pseudo = null, $pass = null) {
         if ($pseudo != null && $pass != null) {
+
+            // Vérification utilisateur dans la base
             $bdd = $this->ConnectBDD();
 
-            $sql = "SELECT * FROM p_character WHERE PCName = '" . $pseudo . "' AND Password= '" . $pass . "'";
+            $sql = "SELECT * FROM p_character WHERE PCName = '" . $pseudo . "'";
 
             $result = $bdd->prepare($sql);
             $result->execute();
 
             $d = $result->fetchAll(PDO::FETCH_ASSOC);
 
-            return $this->ParseJson($d);
+            // L'utilisateur existe
+            if (count($d) > 0) {
+
+                // On vérifie si le mot de passe correspond
+                $sql2 = "SELECT Password FROM p_character WHERE PCName = '" . $pseudo . "'";
+
+                $result2 = $bdd->prepare($sql2);
+                $result2->execute();
+
+                $d2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+
+                // Si le mot de passe correspond bien on renvoit l'utilisateur correspondant
+                if (count($d2) != 0 && password_verify($pass, $d2[0]["Password"])) {
+                    return $this->ParseJson($d);
+                }
+                else {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "Le mot de passe ne correspond pas"
+                    ));
+                }
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "L'utilisateur renseigné n'existe pas"
+                ));
+            }
         }
         else {
-            return null;
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Veuillez renseigner un identifiant et un mot de passe"
+            ));
         }
     }
 }
