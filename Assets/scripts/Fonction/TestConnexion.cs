@@ -62,6 +62,12 @@ public class TestConnexion : MonoBehaviour {
                 // On vérifie si c'est la première connection de l'utilisateur
                 if (monNode["utilisateur"][0]["isFirstConnection"] == 1)
                 {
+                    // On change le booléen isFirstConnection du joueur en faux (0)
+                    string urlStat = "http://seriousgameiut.alwaysdata.net/scripts/ChangePlayerStats.php";
+                    urlStat += "?stat=isFirstConnection&value=0&id=" + monNode["utilisateur"][0]["id"].Value;
+                    download = new WWW(urlStat);
+                    yield return download;
+
                     loading.Charger("Tutoriel");
                 }
                 else
