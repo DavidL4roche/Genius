@@ -57,8 +57,17 @@ public class TestConnexion : MonoBehaviour {
                 Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
                 Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
                 ChargerLieu loading = new ChargerLieu();
-                loading.Charger("Daedelus");
                 Instantiate(JoueurLoge);
+
+                // On vérifie si c'est la première connection de l'utilisateur
+                if (monNode["utilisateur"][0]["isFirstConnection"] == 1)
+                {
+                    loading.Charger("Tutoriel");
+                }
+                else
+                {
+                    loading.Charger("Daedelus");
+                }
             }
         }
     }

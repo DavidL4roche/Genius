@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: "Assets/sc\xE8nes/Index.unity"
+    guid: 13aa4edb39385414ebbe091056ff6354
+  - enabled: 1
     path: "Assets/sc\xE8nes/Login.unity"
     guid: 4cdf99a2befd44e478fe88c5b013de44
   - enabled: 1
@@ -14,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/sc\xE8nes/ReseauSocial.unity"
     guid: 636406b948b5c6143adf747d177c54ff
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Tutoriel.unity"
+    guid: f1312baf13eba7e42a3ce259b14405df
   - enabled: 1
     path: "Assets/sc\xE8nes/Inscription.unity"
     guid: ce3ffc70ba9d4914bb6da74e479458d2
@@ -155,7 +161,4 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/sc\xE8nes/ResultatActionSociale.unity"
     guid: 98e6d29d6ec0f2445bf97e869213dfa5
-  - enabled: 1
-    path: "Assets/sc\xE8nes/Index.unity"
-    guid: 13aa4edb39385414ebbe091056ff6354
   m_configObjects: {}

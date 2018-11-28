@@ -20,7 +20,8 @@ class Helper {
             $t = array(
                 "id" => intval($v["IDPCharacter"]),
                 "pseudo" => (string)utf8_encode($v["PCName"]),
-                "lastConnection" => (string)utf8_encode($v["LastConnection"])
+                "lastConnection" => (string)utf8_encode($v["LastConnection"]),
+                "isFirstConnection" =>intval($v["isFirstConnection"])
             );
             array_push($r, $t);
         }
@@ -131,6 +132,66 @@ class Helper {
             return json_encode(array(
                 "result" => false,
                 "msg" => "Veuillez renseigner un identifiant et un mot de passe"
+            ));
+        }
+    }
+
+    // Changement de stat d'un joueur
+    function SetPlayerStat($stat, $value, $id) {
+        if ($stat != null && $value != null && $id != null) {
+
+            if ($stat != "IDPCharacter") {
+                // Vérification stat dans la base
+                $bdd = $this->ConnectBDD();
+
+                $sql = "SELECT " . $stat . " FROM p_character";
+
+                $result = $bdd->prepare($sql);
+                $result->execute();
+
+                $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                // La stat à changer existe
+                if (count($d) > 0) {
+                    $sql = "UPDATE p_character SET " . $stat . " = '" . $value . "' WHERE IDPCharacter = " . $id . ";";
+                    print $sql;
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    $sql = "SELECT " . $stat . " FROM p_character WHERE " . $stat . " = '" . $value . "' AND IDPCharacter = " . $id . ";";
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    $d = $result->fetchAll(PDO::FETCH_ASSOC);
+                    if (count($d) > 0) {
+                        return json_encode(array(
+                            "result" => true,
+                            "msg" => "La donnée a bien été changée"
+                        ));
+                    } else {
+                        return json_encode(array(
+                            "result" => false,
+                            "msg" => "La donnée demandée n'a pas pu être changé, erreur de saisie de donnée"
+                        ));
+                    }
+                } else {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "La donnée demandée n'existe pas"
+                    ));
+                }
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "Impossible de changer l'id du joueur"
+                ));
+            }
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Veuillez renseigner les champs demandés (stat, nouvelle stat et id joueur)"
             ));
         }
     }
