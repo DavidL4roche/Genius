@@ -1,33 +1,38 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using SimpleJSON; // Permet un meilleur traitement du JSON
+using System.Collections;
 
-public class TestConnexion : MonoBehaviour {
+public class TestInscription : MonoBehaviour {
+
     // Paramètres
-    private string url = "http://seriousgameiut.alwaysdata.net/scripts/CheckConnection.php";
+    private string url = "http://seriousgameiut.alwaysdata.net/scripts/CreateUser.php";
     private WWW download;
-
     public InputField pseudo;
+    public InputField mail;
     public InputField pass;
+    private string requeteLoginMail;
+    private string requeteInscription;
+    
     public Joueur JoueurLoge;
-    string requete;
-    private string urlComp;
+    private Connexion connexion;
 
     private string monJson;
     private JSONNode monNode;
 
+    private string urlComp;
+
     // Permet d'appeler l'URL pour transmettre au script PHP les informations
     public void CallFunction()
     {
-        StartCoroutine(CheckConnection());
+        StartCoroutine(CreateUser());
     }
 
     // Permet de créer un utilisateur dans la base
-    public IEnumerator CheckConnection()
+    public IEnumerator CreateUser()
     {
-        urlComp = url + "?pseudo=" + pseudo.text + "&pass=" + pass.text;
+        urlComp = url;
+        urlComp += "?pseudo=" + pseudo.text + "&mail=" + mail.text + "&pass=" + pass.text;
         download = new WWW(urlComp);
         yield return download;
 
@@ -48,17 +53,15 @@ public class TestConnexion : MonoBehaviour {
                 ChargerPopup.Charger("Erreur");
                 MessageErreur.messageErreur = monNode["msg"].Value;
             }
-
-            // Sinon on correspond bien à un utilisateur
+            
+            // L'inscription s'est bien déroulée
             else
             {
-                // On récupère les données du Joueur pour l'attribuer à notre objet
-                int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
-                Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
-                Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
                 ChargerLieu loading = new ChargerLieu();
-                loading.Charger("Daedelus");
-                Instantiate(JoueurLoge);
+                loading.Charger("Login");
+
+                ChargerPopup.Charger("Succes");
+                MessageErreur.messageErreur = "Votre compte a bien été crée";
             }
         }
     }
