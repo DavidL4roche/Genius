@@ -43,7 +43,6 @@ public class TestInscription : MonoBehaviour {
         else
         {
             monJson = download.text;
-            print (monJson);
             monNode = JSON.Parse(monJson);
 
             // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
