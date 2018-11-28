@@ -25,15 +25,7 @@ public class TestInscription : MonoBehaviour {
     // Permet d'appeler l'URL pour transmettre au script PHP les informations
     public void CallFunction()
     {
-        if (pseudo.text != "" && mail.text != "" && pass.text != "")
-        {
-            StartCoroutine(CreateUser());
-        }
-        else
-        {
-            ChargerPopup.Charger("Erreur");
-            MessageErreur.messageErreur = "Veuillez saisir les informations demandées";
-        }
+        StartCoroutine(CreateUser());
     }
 
     // Permet de créer un utilisateur dans la base
@@ -55,27 +47,23 @@ public class TestInscription : MonoBehaviour {
             monNode = JSON.Parse(monJson);
 
             // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
-            /*string result = monNode["result"].Value;
+            string result = monNode["result"].Value;
 
-            if (result == "false")
+            if (result.ToLower() == "false")
             {
                 ChargerPopup.Charger("Erreur");
                 MessageErreur.messageErreur = monNode["msg"].Value;
             }
             
-
             // L'inscription s'est bien déroulée
             else
             {
-                print("ok");*/
-                /*
                 ChargerLieu loading = new ChargerLieu();
                 loading.Charger("Login");
 
                 ChargerPopup.Charger("Succes");
                 MessageErreur.messageErreur = "Votre compte a bien été crée";
-                
-            }*/
+            }
         }
     }
 }

@@ -31,48 +31,55 @@ class Helper {
 
     // Création d'utilisateur dans la base
     function CreateUser($pseudo = null, $mail = null, $pass = null) {
-        // Connexion à la BD
-        $bdd = $this->ConnectBDD();
 
-        // Vérification données
-        $mySqlData = array(
-            "pseudo" => (isset($pseudo) && $pseudo != "") ? strtolower($pseudo) : null,
-            "mail" => (isset($mail) && $mail != "") ? strtolower($mail) : null,
-            "pass" => (isset($pass) && $pass != "") ? password_hash($pass, PASSWORD_DEFAULT) : null // Hachage du mot de passe
-        );
+        if ($pseudo != null && $pass != null) {
+            // Connexion à la BD
+            $bdd = $this->ConnectBDD();
 
-        $sql = "SELECT DISTINCT * FROM p_character WHERE PCName = '".$mySqlData["pseudo"]."' UNION SELECT * FROM p_character WHERE mail = '" . $mySqlData["mail"] . "';";
-        $result = $bdd->prepare($sql);
-        $result->execute();
-        $d = $result->fetchAll(PDO::FETCH_ASSOC);
+            // Vérification données
+            $mySqlData = array(
+                "pseudo" => (isset($pseudo) && $pseudo != "") ? strtolower($pseudo) : null,
+                "mail" => (isset($mail) && $mail != "") ? strtolower($mail) : null,
+                "pass" => (isset($pass) && $pass != "") ? password_hash($pass, PASSWORD_DEFAULT) : null // Hachage du mot de passe
+            );
 
-        if (count($d) == 0) {
-            $sql = "INSERT INTO p_character(PCName, mail, Password) VALUES(";
-            foreach ($mySqlData as $k => $v) {
-                if ($v != null) {
-                    $sql .= "'".$v."',";
-                }
-            }
-            $sql = substr($sql, 0, strlen($sql)-1);
-            $sql .= ");";
-
+            $sql = "SELECT DISTINCT * FROM p_character WHERE PCName = '" . $mySqlData["pseudo"] . "' UNION SELECT * FROM p_character WHERE mail = '" . $mySqlData["mail"] . "';";
             $result = $bdd->prepare($sql);
             $result->execute();
-            $lastID = $bdd->lastInsertId();
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
 
-            if ($lastID > 0) {
+            if (count($d) == 0) {
+                $sql = "INSERT INTO p_character(PCName, mail, Password) VALUES(";
+                foreach ($mySqlData as $k => $v) {
+                    if ($v != null) {
+                        $sql .= "'" . $v . "',";
+                    }
+                }
+                $sql = substr($sql, 0, strlen($sql) - 1);
+                $sql .= ");";
+
+                $result = $bdd->prepare($sql);
+                $result->execute();
+                $lastID = $bdd->lastInsertId();
+
+                if ($lastID > 0) {
+                    return json_encode(array(
+                        "result" => true,
+                        "msg" => "Utilisateur crée avec succès",
+                        "id" => $lastID
+                    ));
+                }
+            } else {
                 return json_encode(array(
-                    "result" => true,
-                    "msg" => "Utilisateur crée avec succès",
-                    "id" => $lastID
+                    "result" => false,
+                    "msg" => "L'utilisateur n'as pas été inscrit car son pseudo ou son mail existe déjà"
                 ));
             }
         }
-
         else {
             return json_encode(array(
                 "result" => false,
-                "msg" => "L'utilisateur n'as pas été inscrit car son pseudo ou son mail existe déjà"
+                "msg" => "Veuillez renseigner les champs spécifiés"
             ));
         }
     }

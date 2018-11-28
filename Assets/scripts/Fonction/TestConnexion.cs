@@ -21,15 +21,7 @@ public class TestConnexion : MonoBehaviour {
     // Permet d'appeler l'URL pour transmettre au script PHP les informations
     public void CallFunction()
     {
-        if (pseudo.text != "" && pass.text != "")
-        {
-            StartCoroutine(CheckConnection());
-        }
-        else {
-            ChargerPopup.Charger("Erreur");
-            MessageErreur.messageErreur = "Veuillez saisir les identifiants de connexion";
-            return;
-        }
+        StartCoroutine(CheckConnection());
     }
 
     // Permet de créer un utilisateur dans la base
@@ -49,13 +41,14 @@ public class TestConnexion : MonoBehaviour {
             monNode = JSON.Parse(monJson);
 
             // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
-            string utilisateur = monNode["utilisateur"][0]["pseudo"].Value;
+            string result = monNode["result"].Value;
 
-            if (utilisateur == "")
+            if (result.ToLower() == "false")
             {
                 ChargerPopup.Charger("Erreur");
-                MessageErreur.messageErreur = "Votre identifiant ou votre mot de passe n'a pas été saisi correctement";
+                MessageErreur.messageErreur = monNode["msg"].Value;
             }
+
             // Sinon on correspond bien à un utilisateur
             else
             {
