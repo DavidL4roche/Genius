@@ -8,7 +8,7 @@
         $mail = $_GET["mail"];
         $pass = $_GET["pass"];
 
-        $helper->CreateUser($pseudo, $mail, $pass);
+        echo $helper->CreateUser($pseudo, $mail, $pass);
     }
     else {
         echo "Erreur, veuillez saisir tous les champs";

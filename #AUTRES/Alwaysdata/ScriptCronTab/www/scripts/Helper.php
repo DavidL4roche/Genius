@@ -59,7 +59,6 @@ class Helper {
             $result = $bdd->prepare($sql);
             $result->execute();
             $lastID = $bdd->lastInsertId();
-            print $lastID;
 
             if ($lastID > 0) {
                 return json_encode(array(
@@ -71,16 +70,10 @@ class Helper {
         }
 
         else {
-            $errorArray = array("result" => false,
-                                "msg" => "L'utilisateur n'as pas été inscrit car son pseudo ou son mail existe déjà");
-            $finalArray["error"] = $errorArray;
-            return json_encode($finalArray);
-            /*
             return json_encode(array(
                 "result" => false,
                 "msg" => "L'utilisateur n'as pas été inscrit car son pseudo ou son mail existe déjà"
             ));
-            */
         }
     }
 
