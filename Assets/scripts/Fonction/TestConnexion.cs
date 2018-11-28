@@ -1,53 +1,65 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using SimpleJSON; // Permet un meilleur traitement du JSON
 
 public class TestConnexion : MonoBehaviour {
-    public InputField login;
-    public InputField passe;
-    string requete;
+    // Paramètres
+    private string url = "http://seriousgameiut.alwaysdata.net/scripts/CheckConnection.php";
+    private WWW download;
+
+    public InputField pseudo;
+    public InputField pass;
     public Joueur JoueurLoge;
-    public void testconnexion()
+    string requete;
+    private string urlComp;
+
+    private string monJson;
+    private JSONNode monNode;
+
+    // Permet d'appeler l'URL pour transmettre au script PHP les informations
+    public void CallFunction()
     {
-        if (login.text=="" || passe.text=="")
+        StartCoroutine(CheckConnection());
+    }
+
+    // Permet de créer un utilisateur dans la base
+    public IEnumerator CheckConnection()
+    {
+        urlComp = url + "?pseudo=" + pseudo.text + "&pass=" + pass.text;
+        download = new WWW(urlComp);
+        yield return download;
+
+        if ((!string.IsNullOrEmpty(download.error)))
         {
-            ChargerPopup.Charger("Erreur");
-            MessageErreur.messageErreur = "Les identifiants de connexion sont incorrects";
-            return;
+            print("Error downloading: " + download.error);
         }
-        requete = "SELECT count(*) AS Total, IDPCharacter, PCName, LastConnection from p_character where PCName='"+login.text+"' and Password='"+passe.text+"';";
-        try
+        else
         {
-            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-            MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
+            monJson = download.text;
+            monNode = JSON.Parse(monJson);
+
+            // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
+            string result = monNode["result"].Value;
+
+            if (result.ToLower() == "false")
             {
-                if (lien["Total"].ToString() == "1")
-                {
-                    Joueur.IDJoueur = (int)lien["IDPCharacter"];
-                    Joueur.NomJoueur = lien["PCName"].ToString();
-                    Joueur.dateDerniereCo = (DateTime)lien["LastConnection"];
-                    ChargerLieu loading = new ChargerLieu();
-                    loading.Charger("Daedelus");
-                    Instantiate(JoueurLoge);            
-                    break;
-                }
-                else
-                {
-                    ChargerPopup.Charger("Erreur");
-                    MessageErreur.messageErreur = "Les identifiants de connexion sont incorrects";
-                    break;
-                }
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = monNode["msg"].Value;
             }
-            lien.Close();
-        }
-        catch (IOException e)
-        {
-            Debug.Log(e);
+
+            // Sinon on correspond bien à un utilisateur
+            else
+            {
+                // On récupère les données du Joueur pour l'attribuer à notre objet
+                int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
+                Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
+                Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
+                ChargerLieu loading = new ChargerLieu();
+                loading.Charger("Daedelus");
+                Instantiate(JoueurLoge);
+            }
         }
     }
 }
