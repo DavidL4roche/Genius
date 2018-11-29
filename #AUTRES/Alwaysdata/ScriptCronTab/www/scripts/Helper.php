@@ -201,42 +201,28 @@ class Helper {
 
         print $destinataire . "\n";
 
-            // Plusieurs destinataires
-        $to  = $destinataire; // notez la virgule
+        ini_set( 'display_errors', 1 );
+        error_reporting( E_ALL );
 
-        // Sujet
-        $subject = 'Calendrier des anniversaires pour Août';
+        $from = "contact.genius@genius.com";
+        $to = $destinataire;
+        $subject = "Inscription à Genius reussie !";
 
-        // message
-        $message = '
-         <html>
+        $message = "
+        <html>
           <head>
-           <title>Calendrier des anniversaires pour Août</title>
+           <title>Bienvenue sur Genius !</title>
           </head>
           <body>
-           <p>Voici les anniversaires à venir au mois d\'Août !</p>
-           <table>
-            <tr>
-             <th>Personne</th><th>Jour</th><th>Mois</th><th>Année</th>
-            </tr>
-            <tr>
-             <td>Josiane</td><td>3</td><td>Août</td><td>1970</td>
-            </tr>
-            <tr>
-             <td>Emma</td><td>26</td><td>Août</td><td>1973</td>
-            </tr>
-           </table>
+           <p>Félicitations, vous vous êtes inscrit avec succès sur Genius.</p>
           </body>
          </html>
-         ';
+        ";
 
-        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-        $headers  = 'MIME-Version: 1.0'."\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1'."\n\n";
+        $headers = "From:" . $from;
 
-        // Envoi
-        if (mail($to, $subject, $message, $headers)) {
-            print "mail envoyé";
-        }
+        mail($to,$subject,$message, $headers);
+
+        echo "L'email a été envoyé.";
     }
 }
