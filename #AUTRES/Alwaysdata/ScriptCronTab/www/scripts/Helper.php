@@ -208,16 +208,7 @@ class Helper {
         $to = $destinataire;
         $subject = "Inscription à Genius reussie !";
 
-        $message = "
-        <html>
-          <head>
-           <title>Bienvenue sur Genius !</title>
-          </head>
-          <body>
-           <p>Félicitations, vous vous êtes inscrit avec succès sur Genius.</p>
-          </body>
-         </html>
-        ";
+        $message = "PHP mail marche";
 
         $headers = "From:" . $from;
 
