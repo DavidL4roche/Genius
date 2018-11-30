@@ -20,7 +20,8 @@ class Helper {
             $t = array(
                 "id" => intval($v["IDPCharacter"]),
                 "pseudo" => (string)utf8_encode($v["PCName"]),
-                "lastConnection" => (string)utf8_encode($v["LastConnection"])
+                "lastConnection" => (string)utf8_encode($v["LastConnection"]),
+                "isFirstConnection" =>intval($v["isFirstConnection"])
             );
             array_push($r, $t);
         }
@@ -135,47 +136,84 @@ class Helper {
         }
     }
 
+    // Changement de stat d'un joueur
+    function SetPlayerStat($stat, $value, $id) {
+        if ($stat != null && $value != null && $id != null) {
+
+            if ($stat != "IDPCharacter") {
+                // Vérification stat dans la base
+                $bdd = $this->ConnectBDD();
+
+                $sql = "SELECT " . $stat . " FROM p_character";
+
+                $result = $bdd->prepare($sql);
+                $result->execute();
+
+                $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                // La stat à changer existe
+                if (count($d) > 0) {
+                    $sql = "UPDATE p_character SET " . $stat . " = '" . $value . "' WHERE IDPCharacter = " . $id . ";";
+                    print $sql;
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    $sql = "SELECT " . $stat . " FROM p_character WHERE " . $stat . " = '" . $value . "' AND IDPCharacter = " . $id . ";";
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    $d = $result->fetchAll(PDO::FETCH_ASSOC);
+                    if (count($d) > 0) {
+                        return json_encode(array(
+                            "result" => true,
+                            "msg" => "La donnée a bien été changée"
+                        ));
+                    } else {
+                        return json_encode(array(
+                            "result" => false,
+                            "msg" => "La donnée demandée n'a pas pu être changé, erreur de saisie de donnée"
+                        ));
+                    }
+                } else {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "La donnée demandée n'existe pas"
+                    ));
+                }
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "Impossible de changer l'id du joueur"
+                ));
+            }
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Veuillez renseigner les champs demandés (stat, nouvelle stat et id joueur)"
+            ));
+        }
+    }
+
     // Envoi de mails
     function sendMail($destinataire) {
 
         print $destinataire . "\n";
 
-            // Plusieurs destinataires
-        $to  = $destinataire; // notez la virgule
+        ini_set( 'display_errors', 1 );
+        error_reporting( E_ALL );
 
-        // Sujet
-        $subject = 'Calendrier des anniversaires pour Août';
+        $from = "contact.genius@genius.com";
+        $to = $destinataire;
+        $subject = "Inscription à Genius reussie !";
 
-        // message
-        $message = '
-         <html>
-          <head>
-           <title>Calendrier des anniversaires pour Août</title>
-          </head>
-          <body>
-           <p>Voici les anniversaires à venir au mois d\'Août !</p>
-           <table>
-            <tr>
-             <th>Personne</th><th>Jour</th><th>Mois</th><th>Année</th>
-            </tr>
-            <tr>
-             <td>Josiane</td><td>3</td><td>Août</td><td>1970</td>
-            </tr>
-            <tr>
-             <td>Emma</td><td>26</td><td>Août</td><td>1973</td>
-            </tr>
-           </table>
-          </body>
-         </html>
-         ';
+        $message = "PHP mail marche";
 
-        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-        $headers  = 'MIME-Version: 1.0'."\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1'."\n\n";
+        $headers = "From:" . $from;
 
-        // Envoi
-        if (mail($to, $subject, $message, $headers)) {
-            print "mail envoyé";
-        }
+        mail($to,$subject,$message, $headers);
+
+        echo "L'email a été envoyé.";
     }
 }
