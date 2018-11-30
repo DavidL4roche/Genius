@@ -15,7 +15,6 @@ public class TestInscription : MonoBehaviour {
     private string requeteInscription;
     
     public Joueur JoueurLoge;
-    private Connexion connexion;
 
     private string monJson;
     private JSONNode monNode;
