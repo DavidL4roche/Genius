@@ -221,8 +221,13 @@ class Helper {
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-        mail($to,$subject,$message, $headers);
-
-        echo "L'email a été envoyé.";
+        if(mail($to,$subject,$message, $headers))
+        {
+            echo "L'email a été envoyé !";
+        }
+        else
+        {
+            echo "L'email n'a pas été envoyé.";
+        }
     }
 }
