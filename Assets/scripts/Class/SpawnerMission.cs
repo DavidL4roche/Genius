@@ -18,9 +18,9 @@ public class SpawnerMission : MonoBehaviour {
     public static Mission[] LesMissions;
     public static MissionDivertissement SonDivertissement;
     public static PNJPrésent SonPNJ;
-    int ecrangauche = 350;
-    int ecrandroite = 590;
-    int ecranhaut = 280;
+    int ecrangauche = 0;
+    int ecrandroite = 0;
+    int ecranhaut = 280;    // TODO: Fait crasher Unity quand la valeur est plus petite, conflit ?
     int ecranbas = 20;
     static float[] tabPositionX;
     static float[] tabPositionY;
@@ -126,10 +126,6 @@ public class SpawnerMission : MonoBehaviour {
                 {
                     superpose = true;
                     break;
-                }
-                else
-                {
-
                 }
             }
             if (!superpose)
