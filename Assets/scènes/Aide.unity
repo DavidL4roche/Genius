@@ -572,7 +572,6 @@ GameObject:
   - component: {fileID: 1013129096}
   - component: {fileID: 1013129100}
   - component: {fileID: 1013129099}
-  - component: {fileID: 1013129101}
   m_Layer: 5
   m_Name: FenetreAide
   m_TagString: Untagged
@@ -680,21 +679,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 1
---- !u!114 &1013129101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1013129094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7858b7b6ec69842a868ec9f923d9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Artefact: {fileID: 114624389275787526, guid: 82ed12135e5a15d4e9fdb4f3ad2810cc, type: 2}
-  NomJoueur: {fileID: 0}
-  instance: {fileID: 0}
-  totalArtefact: 0
 --- !u!1 &1167350005
 GameObject:
   m_ObjectHideFlags: 0
