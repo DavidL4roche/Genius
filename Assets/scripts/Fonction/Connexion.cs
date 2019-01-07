@@ -4,7 +4,8 @@ using MySql.Data.MySqlClient;
 public class Connexion : MonoBehaviour {
     public static MySqlConnection connexion;
     // Use this for initialization
-    void Start() {
+    public void CallFunction()
+    {
         try
         {
             DontDestroyOnLoad(gameObject);

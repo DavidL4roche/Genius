@@ -54,8 +54,6 @@ public class TestConnexion : MonoBehaviour {
             // Sinon on correspond bien à un utilisateur
             else
             {
-                // On effectue la connexion à la base de données
-
                 // On récupère les données du Joueur pour l'attribuer à notre objet
                 int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
                 Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
