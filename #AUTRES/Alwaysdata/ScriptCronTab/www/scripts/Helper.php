@@ -64,6 +64,8 @@ class Helper {
                 $lastID = $bdd->lastInsertId();
 
                 if ($lastID > 0) {
+                    $this->sendMail($mail);
+
                     return json_encode(array(
                         "result" => true,
                         "msg" => "Utilisateur crée avec succès",
@@ -206,14 +208,26 @@ class Helper {
 
         $from = "contact.genius@genius.com";
         $to = $destinataire;
-        $subject = "Inscription à Genius reussie !";
+        $subject = "Inscription à Genius réussie !";
 
-        $message = "PHP mail marche";
+        $message = '<html><body>';
+        $message .= '<h1>';
+        $message .= "Félicitations, vous vous êtes bien inscrit sur Genius !" . "\n" . "\n";
+        $message .= '</h1>';
+        $message .= "L'équipe Genius";
+        $message .= '</body></html>';
 
         $headers = "From:" . $from;
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-        mail($to,$subject,$message, $headers);
-
-        echo "L'email a été envoyé.";
+        if(mail($to,$subject,$message, $headers))
+        {
+            echo "L'email a été envoyé !";
+        }
+        else
+        {
+            echo "L'email n'a pas été envoyé.";
+        }
     }
 }
