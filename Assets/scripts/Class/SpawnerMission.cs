@@ -20,8 +20,8 @@ public class SpawnerMission : MonoBehaviour {
     public static PNJPrésent SonPNJ;
     int ecrangauche = -140;
     int ecrandroite = 140;
-    int ecranhaut = 240;    // TODO: Fait crasher Unity quand la valeur est plus petite, conflit ?
-    int ecranbas = -280;
+    int ecranhaut = 230;
+    int ecranbas = -260;
     static float[] tabPositionX;
     static float[] tabPositionY;
     bool superpose;
