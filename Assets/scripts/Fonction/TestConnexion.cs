@@ -15,7 +15,7 @@ public class TestConnexion : MonoBehaviour {
     string requete;
     private string urlComp;
 
-    public Connexion connexion;
+    private Connexion connexion;
 
     private string monJson;
     private JSONNode monNode;

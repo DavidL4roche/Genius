@@ -829,7 +829,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 952457484}
-        m_MethodName: CallFunction
+        m_MethodName: Start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -890,7 +890,6 @@ MonoBehaviour:
   pass: {fileID: 1670862836}
   JoueurLoge: {fileID: 114138689797450794, guid: 2a9a625fb9662214ba7e8e972133a748,
     type: 2}
-  connexion: {fileID: 0}
 --- !u!114 &952457482
 MonoBehaviour:
   m_ObjectHideFlags: 0

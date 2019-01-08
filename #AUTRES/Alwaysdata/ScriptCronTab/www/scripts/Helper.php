@@ -287,4 +287,65 @@ class Helper {
             ));
         }
     }
+
+    // Vérifier l'IP et renvoyer le compte correspondant
+    function checkIP($ip) {
+
+        // Vérification IP dans la base
+        $bdd = $this->ConnectBDD();
+
+        $sql = "SELECT playerId FROM association_ip_pc WHERE ip = '" . $ip . "'";
+
+        $result = $bdd->prepare($sql);
+        $result->execute();
+
+        $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        // L'IP existe
+        if (count($d) > 0) {
+            return json_encode(array(
+                "result" => true,
+                "msg" => $d[0]["playerId"]
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "L'IP n'a pas de compte lié"
+            ));
+        }
+    }
+
+    // Connection par id
+    function ConnectById($id){
+        if ($id != null) {
+
+            // Vérification utilisateur dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT * FROM p_character WHERE IDPCharacter = '" . $id . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // L'utilisateur existe
+            if (count($d) > 0) {
+                return $this->ParseJson($d);
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "L'id ne correspond à aucun compte"
+                ));
+            }
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer l'adresse IP"
+            ));
+        }
+    }
 }
