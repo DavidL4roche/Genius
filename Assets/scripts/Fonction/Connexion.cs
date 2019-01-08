@@ -40,7 +40,7 @@ public class Connexion : MonoBehaviour {
         }
         if (connexion != null && connexion.State.ToString() != "Close")
         {
-            Debug.Log("Fermeture de la connexion, champion");
+            Debug.Log("Fermeture de la connexion");
             connexion.Close();
         }  
     }

@@ -348,4 +348,76 @@ class Helper {
             ));
         }
     }
+
+    // Change l'attribut isConnected pour un id de joueur donné
+    function connectOnIP($connect, $ip) {
+        if ($connect != null && $ip != null) {
+            if ($connect == "true" || $connect == "false") {
+                // Vérification dans la base
+                $bdd = $this->ConnectBDD();
+
+                $sql = "SELECT isConnected FROM association_ip_pc WHERE ip = '" . $ip . "'";
+
+                $result = $bdd->prepare($sql);
+                $result->execute();
+
+                $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                // La stat à changer existe
+                if (count($d) > 0) {
+                    $sql = "UPDATE association_ip_pc SET isConnected = " . ($connect == "true" ? 1 : 0 ) . " WHERE ip = '" . $ip . "';";
+                    print $sql;
+
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    return json_encode(array(
+                        "result" => true,
+                        "msg" => "La donnée a bien été changée"
+                    ));
+                }
+                else {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "La donnée demandée n'existe pas"
+                    ));
+                }
+            } else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "Veuillez renseigner les champs demandés"
+                ));
+            }
+        }
+    }
+
+    // Renvoie l'attribut isConnected pour un id de joueur donné
+    function getConnectOnIP($ip) {
+        if ($ip != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT isConnected FROM association_ip_pc WHERE ip = '" . $ip . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // isConnected existe
+            if (count($d) > 0) {
+
+                return json_encode(array(
+                    "result" => true,
+                    "msg" => $d[0]["isConnected"]
+                ));
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "isConnected n'existe pas pour cet IP"
+                ));
+            }
+        }
+    }
 }
