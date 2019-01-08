@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Deconnexion : MonoBehaviour {
 
     private WWW download;
-    string ipLocal = DemarrageGenius.LocalIPAddress();
+    string ipLocal = DemarrageGenius2.LocalIPAddress();
 
     public void Deconnection () {
         

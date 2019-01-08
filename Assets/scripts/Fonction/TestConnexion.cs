@@ -30,7 +30,7 @@ public class TestConnexion : MonoBehaviour {
     // Permet de créer un utilisateur dans la base
     public IEnumerator CheckConnection()
     {
-        string ipLocal = DemarrageGenius.LocalIPAddress();
+        string ipLocal = DemarrageGenius2.LocalIPAddress();
 
         urlComp = url + "?pseudo=" + pseudo.text + "&pass=" + pass.text;
         download = new WWW(urlComp);
