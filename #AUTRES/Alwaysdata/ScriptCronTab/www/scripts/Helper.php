@@ -201,13 +201,30 @@ class Helper {
     // Réninitalise le mot de passe
     function reinitiatePassword($mail) {
 
-        $this->sendReinitialisationMail($mail);
+        // Vérification mail dans la base
+        $bdd = $this->ConnectBDD();
+
+        $sql = "SELECT * FROM p_character WHERE mail = '" . $mail . "'";
+
+        $result = $bdd->prepare($sql);
+        $result->execute();
+
+        $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        // L'utilisateur existe
+        if (count($d) > 0) {
+            return $this->sendReinitialisationMail($mail);
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Ce mail n'existe pas."
+            ));
+        }
     }
 
     // Envoi de mails
     function sendMail($destinataire) {
-
-        print $destinataire . "\n";
 
         ini_set( 'display_errors', 1 );
         error_reporting( E_ALL );
@@ -240,8 +257,6 @@ class Helper {
     // Envoi de mails
     function sendReinitialisationMail($destinataire) {
 
-        print $destinataire . "\n";
-
         ini_set( 'display_errors', 1 );
         error_reporting( E_ALL );
 
@@ -249,19 +264,15 @@ class Helper {
         $to = $destinataire;
         $subject = "Demande de changement de mot de passe";
 
-        $message = '<html><body>';
-        $message .= '<h1>';
-        $message .= "Vous avez demandé à changer votre mot de passe, veuillez le changer en cliquant sur le lien ci dessous." . "\n" . "\n";
-        $message .= '</h1>';
-        $message .= "Lien";
+        $message = "Vous avez demandé à changer votre mot de passe, veuillez le changer en cliquant sur le lien ci dessous." . "\n" . "\n";
+        $message .= "Lien" . "\n" . "\n";
         $message .= "L'équipe Genius";
-        $message .= '</body></html>';
 
         $headers = "From:" . $from;
         $headers .= "MIME-Version: 1.0\r\n";
         // $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-        if(mail($to,$subject,$message, $headers))
+        if(mail($to,$subject,$message))
         {
             return json_encode(array(
                 "result" => true,

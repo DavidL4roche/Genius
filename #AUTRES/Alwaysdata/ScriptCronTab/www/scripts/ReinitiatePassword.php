@@ -3,14 +3,13 @@
 
     $helper = new Helper();
 
-    if (isset($_GET["mail"])) {
+    if (isset($_GET["mail"]) && $_GET["mail"] != "") {
         $mail = $_GET["mail"];
-
         echo $helper->reinitiatePassword($mail);
     }
     else {
-        return json_encode(array(
+        echo json_encode(array(
             "result" => false,
-            "msg" => "Veuillez saisir un mail"
+            "msg" => "Veuillez saisir un mail."
         ));
     }

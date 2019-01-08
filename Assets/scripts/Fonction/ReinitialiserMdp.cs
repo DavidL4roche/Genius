@@ -1,23 +1,28 @@
-﻿using SimpleJSON;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using SimpleJSON; // Permet un meilleur traitement du JSON
 
-public class ReinitialiserMdp : MonoBehaviour
-{
+public class ReinitialiserMdp : MonoBehaviour {
     // Paramètres
     private string url = "http://seriousgameiut.alwaysdata.net/scripts/ReinitiatePassword.php";
     private WWW download;
+
     public InputField mail;
-    private string requeteLoginMail;
+    private string requete;
+    private string urlComp;
 
     private string monJson;
     private JSONNode monNode;
 
-    private string urlComp;
+    // Permet d'appeler l'URL pour transmettre au script PHP les informations
+    public void CallFunction()
+    {
+        StartCoroutine(Reinitialiser());
+    }
 
-    // Reinitialiser le mot de passe
+    // Permet de réinitialiser le mot de passe
     public IEnumerator Reinitialiser()
     {
         urlComp = url;
@@ -46,11 +51,12 @@ public class ReinitialiserMdp : MonoBehaviour
             // La réinitialisation s'est bien déroulée
             else
             {
-                ChargerLieu loading = new ChargerLieu();
-                loading.Charger("Index2");
-
                 ChargerPopup.Charger("Succes");
                 MessageErreur.messageErreur = monNode["msg"].Value;
+
+                // On efface le contenu de l'inputfield
+                mail.Select();
+                mail.text = "";
             }
         }
     }

@@ -662,6 +662,7 @@ GameObject:
   - component: {fileID: 952457480}
   - component: {fileID: 952457479}
   - component: {fileID: 952457478}
+  - component: {fileID: 952457481}
   m_Layer: 5
   m_Name: "R\xE9initialiser"
   m_TagString: Untagged
@@ -764,6 +765,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 952457476}
   m_CullTransparentMesh: 0
+--- !u!114 &952457481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952457476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d3a30d339e4b24da9ea009c951ada2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mail: {fileID: 0}
 --- !u!1 &1070373319
 GameObject:
   m_ObjectHideFlags: 0

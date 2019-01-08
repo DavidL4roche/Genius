@@ -9,6 +9,7 @@ public class DémarrageGenius : MonoBehaviour {
     void Start()
     {
         StartCoroutine(MyCoroutine());
+        LocalIPAddress();
     }
 
     IEnumerator MyCoroutine()
@@ -32,6 +33,16 @@ public class DémarrageGenius : MonoBehaviour {
                 break;
             }
         }
+
+        if (localIP != null)
+        {
+            Debug.Log(localIP);
+        }
+        else
+        {
+            Debug.Log("IP : null");
+        }
+
         return localIP;
     }
 }
