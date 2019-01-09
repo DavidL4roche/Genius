@@ -50,7 +50,6 @@ public class DemarrageGenius2 : MonoBehaviour {
             // Si l'adresse IP ne correspond à aucun compte
             if (result.ToLower() == "false")
             {
-                Debug.Log("Adresse IP ne correspond à aucun compte");
                 // On redirige vers la connexion
                 ChargerLieu charger = new ChargerLieu();
                 charger.Charger("Index2");
@@ -59,6 +58,9 @@ public class DemarrageGenius2 : MonoBehaviour {
             // L'adresse correspond à un compte
             else
             {
+                // On définit l'identifiant du compte lié
+                int playerId = monNode["msg"];
+
                 // On vérifie si l'utilisateur s'est déconnecté
                 urlComp = url3 + "?ip=" + ip;
                 download = new WWW(urlComp);
@@ -72,8 +74,6 @@ public class DemarrageGenius2 : MonoBehaviour {
                 {
                     monJson = download.text;
                     monNode = JSON.Parse(monJson);
-
-                    Debug.Log(monNode["msg"].Value);
 
                     // On vérifie si le JSON renvoyé est rempli (est-ce qu'une réponse est renvoyé)
                     string result3 = monNode["result"].Value;
@@ -91,8 +91,8 @@ public class DemarrageGenius2 : MonoBehaviour {
                         if (monNode["msg"].Value == "1")
                         {
                             // On connecte automatiquement au compte lié
-                            string id = monNode["msg"].Value;
-                            urlComp2 = url2 + "?id=" + id;
+                            //string id = monNode["msg"].Value;
+                            urlComp2 = url2 + "?id=" + playerId;
 
                             download = new WWW(urlComp2);
                             yield return download;
@@ -128,20 +128,8 @@ public class DemarrageGenius2 : MonoBehaviour {
                                     ChargerLieu loading = new ChargerLieu();
                                     Instantiate(JoueurLoge);
 
-                                    // On vérifie si c'est la première connection de l'utilisateur
-                                    if (monNode["msg"]["utilisateur"][0]["isFirstConnection"] == 1)
-                                    {
-                                        // On change le booléen isFirstConnection du joueur en faux (0)
-                                        string urlStat = "http://seriousgameiut.alwaysdata.net/scripts/ChangePlayerStats.php";
-                                        urlStat += "?stat=isFirstConnection&value=0&id=" + monNode["msg"]["utilisateur"][0]["id"].Value;
-                                        download = new WWW(urlStat);
-                                        yield return download;
-                                        loading.Charger("Tutoriel");
-                                    }
-                                    else
-                                    {
-                                        loading.Charger("Daedelus");
-                                    }
+                                    // On charge la carte
+                                    loading.Charger("Daedelus");
                                 }
                             }
                         }
@@ -156,8 +144,6 @@ public class DemarrageGenius2 : MonoBehaviour {
                 }
             }
         }
-
-        
     }
 
     // Récupère l'adresse IP du support local

@@ -9,7 +9,7 @@ public class Connexion : MonoBehaviour {
     {
         try
         {
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
             string constr = "Server=" + Configuration.host + "; Port=3306; Database=" + Configuration.database + "; Uid=" + Configuration.login + "; Pwd=" + Configuration.password + ";";
             connexion = new MySqlConnection(constr);
             connexion.Open();
