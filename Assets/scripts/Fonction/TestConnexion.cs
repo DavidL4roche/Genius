@@ -7,6 +7,7 @@ using SimpleJSON; // Permet un meilleur traitement du JSON
 public class TestConnexion : MonoBehaviour {
     // Paramètres
     private string url = "http://seriousgameiut.alwaysdata.net/scripts/CheckConnection.php";
+    private string url2 = "http://seriousgameiut.alwaysdata.net/scripts/AddIP.php";
     private WWW download;
     private WWW download2;
 
@@ -27,7 +28,7 @@ public class TestConnexion : MonoBehaviour {
         StartCoroutine(CheckConnection());
     }
 
-    // Permet de créer un utilisateur dans la base
+    // Permet de se connecter
     public IEnumerator CheckConnection()
     {
         string ipLocal = DemarrageGenius2.LocalIPAddress();
@@ -57,6 +58,11 @@ public class TestConnexion : MonoBehaviour {
             // Sinon on correspond bien à un utilisateur
             else
             {
+                // On ajoute l'IP du téléphone au joueur
+                string urlComp2 = url2 + "?ip=" + ipLocal + "&playerId=" + monNode["utilisateur"][0]["id"];
+                download = new WWW(urlComp2);
+                yield return download;
+
                 // On change le booléen isConnected de l'adresse IP du joueur en vrai (1)
                 string urlIP = "http://seriousgameiut.alwaysdata.net/scripts/ConnectOnIP.php";
                 urlIP += "?connect=true&playerId=" + ipLocal;
