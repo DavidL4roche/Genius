@@ -354,7 +354,6 @@ public class RessourcesBdD : MonoBehaviour
             }
         }
         lien.Close();
-        Debug.Log(listeDesQuartiers);
     }
     private static void RecupObjet()
     {
