@@ -18,33 +18,36 @@ public class RessourcesJoueur : MonoBehaviour {
 	void Update () {
         if(!stop)
         {
-            for (int i = 0; i < Joueur.MesRessources.Length; ++i)
+            if (Joueur.MesRessources != null)
             {
-                switch (RessourcesBdD.listeDesRessources[i].NomRessource)
+                for (int i = 0; i < Joueur.MesRessources.Length; ++i)
                 {
-                    // SOCIAL
-                    case "Social":
-                        barres[0].value = (Joueur.MesRessources[i]);
-                        textes[0].text = Joueur.MesRessources[i].ToString() + "%";
-                        break;
+                    switch (RessourcesBdD.listeDesRessources[i].NomRessource)
+                    {
+                        // SOCIAL
+                        case "Social":
+                            barres[0].value = (Joueur.MesRessources[i]);
+                            textes[0].text = Joueur.MesRessources[i].ToString() + "%";
+                            break;
 
-                    // DIVERTISSEMENT
-                    case "Divertissement":
-                        barres[1].value = (Joueur.MesRessources[i]);
-                        textes[1].text = Joueur.MesRessources[i].ToString() + "%";
-                        break;
+                        // DIVERTISSEMENT
+                        case "Divertissement":
+                            barres[1].value = (Joueur.MesRessources[i]);
+                            textes[1].text = Joueur.MesRessources[i].ToString() + "%";
+                            break;
 
-                    //ORCUS
-                    case "Orcus":
-                        textes[2].text = Joueur.MesRessources[i].ToString();
-                        break;
+                        //ORCUS
+                        case "Orcus":
+                            textes[2].text = Joueur.MesRessources[i].ToString();
+                            break;
 
-                    // MATIERE IA
-                    case "IA":
-                        textes[3].text = Joueur.MesRessources[i].ToString();
-                        break;
-                    default:
-                        break;
+                        // MATIERE IA
+                        case "IA":
+                            textes[3].text = Joueur.MesRessources[i].ToString();
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }

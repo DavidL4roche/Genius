@@ -19,6 +19,7 @@ public class Joueur : MonoBehaviour {
     public static DateTime DateActuel = System.DateTime.Now;
     public static int DateActuelMinute = System.DateTime.Now.Minute;
     public static int DateActuelSeconde = System.DateTime.Now.Second;
+
     // Use this for initialization
     public void Start() {
         DontDestroyOnLoad(gameObject);

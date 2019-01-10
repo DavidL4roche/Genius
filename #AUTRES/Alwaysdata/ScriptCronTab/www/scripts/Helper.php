@@ -198,10 +198,33 @@ class Helper {
         }
     }
 
+    // Réninitalise le mot de passe
+    function reinitiatePassword($mail) {
+
+        // Vérification mail dans la base
+        $bdd = $this->ConnectBDD();
+
+        $sql = "SELECT * FROM p_character WHERE mail = '" . $mail . "'";
+
+        $result = $bdd->prepare($sql);
+        $result->execute();
+
+        $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        // L'utilisateur existe
+        if (count($d) > 0) {
+            return $this->sendReinitialisationMail($mail);
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Ce mail n'existe pas."
+            ));
+        }
+    }
+
     // Envoi de mails
     function sendMail($destinataire) {
-
-        print $destinataire . "\n";
 
         ini_set( 'display_errors', 1 );
         error_reporting( E_ALL );
@@ -219,7 +242,7 @@ class Helper {
 
         $headers = "From:" . $from;
         $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        // $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         if(mail($to,$subject,$message, $headers))
         {
@@ -228,6 +251,173 @@ class Helper {
         else
         {
             echo "L'email n'a pas été envoyé.";
+        }
+    }
+
+    // Envoi de mails
+    function sendReinitialisationMail($destinataire) {
+
+        ini_set( 'display_errors', 1 );
+        error_reporting( E_ALL );
+
+        $from = "contact.genius@genius.com";
+        $to = $destinataire;
+        $subject = "Demande de changement de mot de passe";
+
+        $message = "Vous avez demandé à changer votre mot de passe, veuillez le changer en cliquant sur le lien ci dessous." . "\n" . "\n";
+        $message .= "Lien" . "\n" . "\n";
+        $message .= "L'équipe Genius";
+
+        $headers = "From:" . $from;
+        $headers .= "MIME-Version: 1.0\r\n";
+        // $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+        if(mail($to,$subject,$message))
+        {
+            return json_encode(array(
+                "result" => true,
+                "msg" => "Un mail vient de vous être envoyé."
+            ));
+        }
+        else
+        {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Le mail de changement n'a pas été envoyé. Veuillez réessayer ultérieurement."
+            ));
+        }
+    }
+
+    // Vérifier l'IP et renvoyer le compte correspondant
+    function checkIP($ip) {
+
+        // Vérification IP dans la base
+        $bdd = $this->ConnectBDD();
+
+        $sql = "SELECT playerId FROM association_ip_pc WHERE ip = '" . $ip . "'";
+
+        $result = $bdd->prepare($sql);
+        $result->execute();
+
+        $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        // L'IP existe
+        if (count($d) > 0) {
+            return json_encode(array(
+                "result" => true,
+                "msg" => $d[0]["playerId"]
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "L'IP n'a pas de compte lié"
+            ));
+        }
+    }
+
+    // Connection par id
+    function ConnectById($id){
+        if ($id != null) {
+
+            // Vérification utilisateur dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT * FROM p_character WHERE IDPCharacter = '" . $id . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // L'utilisateur existe
+            if (count($d) > 0) {
+                return $this->ParseJson($d);
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "L'id ne correspond à aucun compte"
+                ));
+            }
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer l'adresse IP"
+            ));
+        }
+    }
+
+    // Change l'attribut isConnected pour un id de joueur donné
+    function connectOnIP($connect, $ip) {
+        if ($connect != null && $ip != null) {
+            if ($connect == "true" || $connect == "false") {
+                // Vérification dans la base
+                $bdd = $this->ConnectBDD();
+
+                $sql = "SELECT isConnected FROM association_ip_pc WHERE ip = '" . $ip . "'";
+
+                $result = $bdd->prepare($sql);
+                $result->execute();
+
+                $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                // La stat à changer existe
+                if (count($d) > 0) {
+                    $sql = "UPDATE association_ip_pc SET isConnected = " . ($connect == "true" ? 1 : 0 ) . " WHERE ip = '" . $ip . "';";
+                    print $sql;
+
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    return json_encode(array(
+                        "result" => true,
+                        "msg" => "La donnée a bien été changée"
+                    ));
+                }
+                else {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "La donnée demandée n'existe pas"
+                    ));
+                }
+            } else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "Veuillez renseigner les champs demandés"
+                ));
+            }
+        }
+    }
+
+    // Renvoie l'attribut isConnected pour un id de joueur donné
+    function getConnectOnIP($ip) {
+        if ($ip != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT isConnected FROM association_ip_pc WHERE ip = '" . $ip . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // isConnected existe
+            if (count($d) > 0) {
+
+                return json_encode(array(
+                    "result" => true,
+                    "msg" => $d[0]["isConnected"]
+                ));
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "isConnected n'existe pas pour cet IP"
+                ));
+            }
         }
     }
 }
