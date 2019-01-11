@@ -52,7 +52,7 @@ public class FBholder : MonoBehaviour {
                 Debug.Log(perm);
             }
 
-            FB.API ("/me?fields=id,first_name,last_name", HttpMethod.GET, GetFacebookInfo, new Dictionary<string, string> () { });
+            FB.API ("/me?fields=id,first_name,last_name,email", HttpMethod.GET, GetFacebookInfo, new Dictionary<string, string> () { });
         }
         else
         {
@@ -68,6 +68,8 @@ public class FBholder : MonoBehaviour {
             Debug.Log("Id : " + result.ResultDictionary["id"].ToString());
             Debug.Log("Prénom : " + result.ResultDictionary["first_name"].ToString());
             Debug.Log("Nom : " + result.ResultDictionary["last_name"].ToString());
+            // Token : EAAdpipzaYAsBAG4yZBlz21LZB0TygWutihi9RXZAAyniwg70UUTkiPgoaYhTss7ZBqBAKtH1AdqPNsmFjCGEFBk0LqNObkJOrOrIF40LlyjxQz28fSjq0YdH4ghWUgQ5hv0eHpF3WxrT11R5kZCqvlX2BqlzwDvmabFfZAhY44TD7Q7FSg62KpDveSJribrFIZBbhaCJcMc5gZDZD
+            Debug.Log("Email : " + result.ResultDictionary["email"].ToString());
         }
         else
         {
