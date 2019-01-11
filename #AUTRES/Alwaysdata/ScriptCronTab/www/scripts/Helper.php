@@ -138,6 +138,57 @@ class Helper {
         }
     }
 
+    // Vérification connexion d'un utilisateur par mail
+    function CheckConnexionByMail($mail = null, $pass = null) {
+        if ($mail != null && $pass != null) {
+
+            // Vérification utilisateur dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT * FROM p_character WHERE mail = '" . $mail . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // L'utilisateur existe
+            if (count($d) > 0) {
+
+                // On vérifie si le mot de passe correspond
+                $sql2 = "SELECT Password FROM p_character WHERE mail = '" . $mail . "'";
+
+                $result2 = $bdd->prepare($sql2);
+                $result2->execute();
+
+                $d2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+
+                // Si le mot de passe correspond bien on renvoit l'utilisateur correspondant
+                if (count($d2) != 0 && password_verify($pass, $d2[0]["Password"])) {
+                    return $this->ParseJson($d);
+                }
+                else {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "Le mot de passe ne correspond pas"
+                    ));
+                }
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "L'utilisateur renseigné n'existe pas"
+                ));
+            }
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Veuillez renseigner un mail et un mot de passe"
+            ));
+        }
+    }
+
     // Changement de stat d'un joueur
     function SetPlayerStat($stat, $value, $id) {
         if ($stat != null && $value != null && $id != null) {
@@ -316,6 +367,76 @@ class Helper {
         }
     }
 
+    // Ajoute l'adresse IP et le compte correspondant
+    function addIP($ip, $playerId) {
+        if ($ip != null && $playerId != null) {
+            // Connexion à la BD
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT * FROM association_ip_pc WHERE ip = '" . $ip . "';";
+            $result = $bdd->prepare($sql);
+            $result->execute();
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // L'IP n'existe pas dans la base
+            if (count($d) == 0) {
+                $sql2 = "INSERT INTO association_ip_pc(ip, playerId, isConnected) VALUES('" . $ip . "', " . $playerId . ", 0)";
+
+                $result = $bdd->prepare($sql2);
+                $result->execute();
+
+                $result = $bdd->prepare($sql);
+                $result->execute();
+                $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                if (count($d) == 0) {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "L'IP n'a pas pu être relié au compte"
+                    ));
+                }
+                else {
+                    return json_encode(array(
+                        "result" => true,
+                        "msg" => "L'IP" . $ip . "a été relié au compte du joueur " . $playerId
+                    ));
+                }
+            }
+            // L'IP existe dans la base
+            else {
+                // On met à jour l'id Player de l'IP
+                $sql2 = "UPDATE association_ip_pc SET playerid = " . $playerId . " WHERE ip = '" . $ip . "';";
+                print $sql2;
+                $result = $bdd->prepare($sql2);
+                $result->execute();
+
+                $sql = "SELECT * FROM association_ip_pc WHERE ip = '" . $ip . "' AND playerId = " . $playerId . ";";
+                $result = $bdd->prepare($sql);
+                $result->execute();
+                $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                if (count($d) == 0) {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "L'idPlayer est non existant, impossible de mettre à jour l'IP"
+                    ));
+                }
+                else {
+                    return json_encode(array(
+                        "result" => true,
+                        "msg" => "L'id " . $playerId . "a été mis-à-jour pour l'IP " . $ip
+                    ));
+                }
+            }
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Veuillez renseigner les champs spécifiés"
+            ));
+        }
+    }
+
     // Connection par id
     function ConnectById($id){
         if ($id != null) {
@@ -366,7 +487,6 @@ class Helper {
                 // La stat à changer existe
                 if (count($d) > 0) {
                     $sql = "UPDATE association_ip_pc SET isConnected = " . ($connect == "true" ? 1 : 0 ) . " WHERE ip = '" . $ip . "';";
-                    print $sql;
 
                     $result = $bdd->prepare($sql);
                     $result->execute();
