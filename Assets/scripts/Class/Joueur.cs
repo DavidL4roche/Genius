@@ -113,7 +113,6 @@ public class Joueur : MonoBehaviour {
     }
     public static void transfertEnBase()
     {
-        
         // Les compétences 
         for (int i = 0; i < MesValeursCompetences.Length;  ++i)
         {
