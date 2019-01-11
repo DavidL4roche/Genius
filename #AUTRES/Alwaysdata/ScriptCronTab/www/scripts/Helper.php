@@ -138,6 +138,57 @@ class Helper {
         }
     }
 
+    // Vérification connexion d'un utilisateur par mail
+    function CheckConnexionByMail($mail = null, $pass = null) {
+        if ($mail != null && $pass != null) {
+
+            // Vérification utilisateur dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT * FROM p_character WHERE mail = '" . $mail . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // L'utilisateur existe
+            if (count($d) > 0) {
+
+                // On vérifie si le mot de passe correspond
+                $sql2 = "SELECT Password FROM p_character WHERE mail = '" . $mail . "'";
+
+                $result2 = $bdd->prepare($sql2);
+                $result2->execute();
+
+                $d2 = $result2->fetchAll(PDO::FETCH_ASSOC);
+
+                // Si le mot de passe correspond bien on renvoit l'utilisateur correspondant
+                if (count($d2) != 0 && password_verify($pass, $d2[0]["Password"])) {
+                    return $this->ParseJson($d);
+                }
+                else {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "Le mot de passe ne correspond pas"
+                    ));
+                }
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "L'utilisateur renseigné n'existe pas"
+                ));
+            }
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Veuillez renseigner un mail et un mot de passe"
+            ));
+        }
+    }
+
     // Changement de stat d'un joueur
     function SetPlayerStat($stat, $value, $id) {
         if ($stat != null && $value != null && $id != null) {

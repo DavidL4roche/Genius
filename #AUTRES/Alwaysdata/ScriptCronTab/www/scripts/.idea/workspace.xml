@@ -22,8 +22,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="369" column="96" selection-start-line="369" selection-start-column="96" selection-end-line="369" selection-end-column="96" />
+            <state relative-caret-position="147">
+              <caret line="147" column="76" lean-forward="true" selection-start-line="147" selection-start-column="76" selection-end-line="147" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CheckConnectionByMail.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="57" lean-forward="true" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -51,15 +60,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="16" column="5" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="16" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CheckIP.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -126,6 +126,8 @@
       <find>ParseJson</find>
       <find>id</find>
       <find>insert</find>
+      <find>UPDATE</find>
+      <find>CheckCon</find>
     </findStrings>
     <replaceStrings>
       <replace>ip</replace>
@@ -151,11 +153,12 @@
         <option value="$PROJECT_DIR$/getConnectOnIP.php" />
         <option value="$PROJECT_DIR$/GetConnectOnIP.php" />
         <option value="$PROJECT_DIR$/AddIP.php" />
+        <option value="$PROJECT_DIR$/CheckConnectionByMail.php" />
         <option value="$PROJECT_DIR$/Helper.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="3922" />
     <option name="y" value="-44" />
     <option name="width" value="484" />
@@ -188,6 +191,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\NOUVEAU\Desktop\Genius\#AUTRES\Alwaysdata\ScriptCronTab\www\scripts" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -224,15 +232,15 @@
       <workItem from="1546965575187" duration="626000" />
       <workItem from="1546984762336" duration="740000" />
       <workItem from="1547017462375" duration="596000" />
-      <workItem from="1547111273918" duration="3747000" />
+      <workItem from="1547111273918" duration="4126000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53183000" />
+    <option name="totallyTimeSpent" value="53562000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3192" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="3192" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10714286" />
@@ -366,10 +374,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CheckConnectionByMail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="57" lean-forward="true" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="369" column="96" selection-start-line="369" selection-start-column="96" selection-end-line="369" selection-end-column="96" />
+        <state relative-caret-position="147">
+          <caret line="147" column="76" lean-forward="true" selection-start-line="147" selection-start-column="76" selection-end-line="147" selection-end-column="76" />
         </state>
       </provider>
     </entry>
