@@ -2,9 +2,11 @@
 using MySql.Data.MySqlClient;
 
 public class Connexion : MonoBehaviour {
+
     public static MySqlConnection connexion;
-    // Use this for initialization
-    void Start() {
+
+    public void Start()
+    {
         try
         {
             DontDestroyOnLoad(gameObject);
@@ -38,7 +40,7 @@ public class Connexion : MonoBehaviour {
         }
         if (connexion != null && connexion.State.ToString() != "Close")
         {
-            Debug.Log("Fermeture de la connexion, champion");
+            Debug.Log("Fermeture de la connexion");
             connexion.Close();
         }  
     }

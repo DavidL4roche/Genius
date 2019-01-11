@@ -13,10 +13,10 @@ public class SpawnerExam : MonoBehaviour {
     public static bool stop;
     static int nbExam = 0;
     public static Examen[] LesExam;
-    int ecrangauche = 350;
-    int ecrandroite = 590;
-    int ecranhaut = 280;
-    int ecranbas = 20;
+    int ecrangauche = -140;
+    int ecrandroite = 140;
+    int ecranhaut = 230;
+    int ecranbas = -260;
     static float[] tabPositionX;
     static float[] tabPositionY;
     bool superpose;
