@@ -6,7 +6,7 @@ using System.Collections;
 public class TestInscription : MonoBehaviour {
 
     // Paramètres
-    private string url = "http://seriousgameiut.alwaysdata.net/scripts/CreateUser.php";
+    private string url = Configuration.url + "scripts/CreateUser.php";
     private WWW download;
     public InputField pseudo;
     public InputField mail;

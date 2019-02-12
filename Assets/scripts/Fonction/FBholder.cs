@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class FBholder : MonoBehaviour {
 
-    private string urlCheckConnection = "http://seriousgameiut.alwaysdata.net/scripts/CheckConnectionByMail.php";
-    private string urlAddIP = "http://seriousgameiut.alwaysdata.net/scripts/AddIP.php";
-    private string urlCreateUser = "http://seriousgameiut.alwaysdata.net/scripts/CreateUser.php";
+    private string urlCheckConnection = Configuration.url + "scripts/CheckConnectionByMail.php";
+    private string urlAddIP = Configuration.url + "scripts/AddIP.php";
+    private string urlCreateUser = Configuration.url + "scripts/CreateUser.php";
     private WWW download;
     private WWW download2;
 

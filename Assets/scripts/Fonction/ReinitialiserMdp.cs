@@ -6,7 +6,7 @@ using SimpleJSON; // Permet un meilleur traitement du JSON
 
 public class ReinitialiserMdp : MonoBehaviour {
     // Paramètres
-    private string url = "http://seriousgameiut.alwaysdata.net/scripts/ReinitiatePassword.php";
+    private string url = Configuration.url + "scripts/ReinitiatePassword.php";
     private WWW download;
 
     public InputField mail;

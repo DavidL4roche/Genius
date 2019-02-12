@@ -6,8 +6,8 @@ using SimpleJSON; // Permet un meilleur traitement du JSON
 
 public class TestConnexion : MonoBehaviour {
     // Paramètres
-    private string url = "http://seriousgameiut.alwaysdata.net/scripts/CheckConnection.php";
-    private string url2 = "http://seriousgameiut.alwaysdata.net/scripts/AddIP.php";
+    private string url = Configuration.url + "scripts/CheckConnection.php";
+    private string url2 = Configuration.url + "scripts/AddIP.php";
     private WWW download;
     private WWW download2;
 

@@ -9,9 +9,9 @@ using UnityEngine;
 public class DemarrageGenius2 : MonoBehaviour {
 
     // Paramètres
-    private string url = "http://seriousgameiut.alwaysdata.net/scripts/CheckIP.php";
-    private string url2 = "http://seriousgameiut.alwaysdata.net/scripts/ConnectById.php";
-    private string url3 = "http://seriousgameiut.alwaysdata.net/scripts/GetConnectOnIP.php";
+    private string url = Configuration.url + "scripts/CheckIP.php";
+    private string url2 = Configuration.url + "scripts/ConnectById.php";
+    private string url3 = Configuration.url + "scripts/GetConnectOnIP.php";
     private WWW download;
     
     string requete;
