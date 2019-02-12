@@ -1,0 +1,5 @@
+# Crontab                                                                                                                                                                      
+                                                                                                                                                                               
+*/10 * * * * php -f www/scripts/scriptartefact.php                                                                                                                             
+*/10 * * * * php -f www/scripts/scriptboutique.php                                                                                                                             
+*/10 * * * * php -f www/scripts/scriptmission.php

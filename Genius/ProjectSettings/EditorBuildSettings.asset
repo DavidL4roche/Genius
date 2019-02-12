@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Index.unity"
+    guid: 13aa4edb39385414ebbe091056ff6354
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Index1.unity"
+    guid: 2ef3b884ad2e528459b6dc69a81a67b5
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Index2.unity"
+    guid: 80fd32133a1091a47acef30bdaadee24
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Login.unity"
+    guid: 4cdf99a2befd44e478fe88c5b013de44
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Daedelus.unity"
+    guid: f6fb872572a885842a50e8527e9ed36a
+  - enabled: 1
+    path: "Assets/sc\xE8nes/ReseauSocial.unity"
+    guid: 636406b948b5c6143adf747d177c54ff
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Tutoriel.unity"
+    guid: 793380354b1e0c24690326df24da1b56
+  - enabled: 1
+    path: "Assets/sc\xE8nes/MotDePasseOublie.unity"
+    guid: bc113d709cd1de94695e903e4fa52b00
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Inscription.unity"
+    guid: ce3ffc70ba9d4914bb6da74e479458d2
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Aide.unity"
+    guid: 53ef6e9b132c6154091b24d5d518b62e
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Annuaire.unity"
+    guid: 5b78c78ba9a2e2147b52fb052c6f376c
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Succes.unity"
+    guid: 7a5cdf7a88ecfc14a9727a3bf1bf3ce3
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Industrie.unity"
+    guid: ac864d60c2763184eaa97c53176fd325
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Commerce.unity"
+    guid: 4c6b6f9d8dc0afd4ba6fbe06f8f2c9b1
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Administration.unity"
+    guid: a36bcfd1af6a5e74f8ddd21320245ec7
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Campagne.unity"
+    guid: bc9d67a9bfeb0af47957ec121373a674
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Campus.unity"
+    guid: 57a7f07c0caf1294183e003946a72546
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Creatif.unity"
+    guid: 650b50937db30e24a8af1ae74e42bfe8
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Mission.unity"
+    guid: 901ab6adef8045846a34f351d86aab76
+  - enabled: 1
+    path: "Assets/sc\xE8nes/AffaireDroit.unity"
+    guid: 1e173627095ba15428673707b8a66fc6
+  - enabled: 1
+    path: "Assets/sc\xE8nes/IUT.unity"
+    guid: c97ac9092a0184a46ad47241a83ad6a3
+  - enabled: 1
+    path: "Assets/sc\xE8nes/InformationCommunication.unity"
+    guid: 2a2cf39c7b81dd44e9f146005f10db2e
+  - enabled: 1
+    path: "Assets/sc\xE8nes/SalleExamCBP.unity"
+    guid: 42adf95ef02da7547a762d147ea905a2
+  - enabled: 1
+    path: "Assets/sc\xE8nes/SalleExamCMM.unity"
+    guid: def6a935f77207a4f9a7e80eaa8dcd11
+  - enabled: 1
+    path: "Assets/sc\xE8nes/SalleExamEIMP.unity"
+    guid: d07f95e54c2eeac4eae8b5e50f5246b3
+  - enabled: 1
+    path: "Assets/sc\xE8nes/SalleExamGCML.unity"
+    guid: b5d9df38bf5999446814c6fd2d6c1ba5
+  - enabled: 1
+    path: "Assets/sc\xE8nes/SalleExamSEA.unity"
+    guid: 8022b3e15490c7d48a7387ce1306252e
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Examen.unity"
+    guid: 7f8f282cb9746c548b0fc02e17616e54
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Profil.unity"
+    guid: 392d9048f9a5f284baea64ac3a9fac0a
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Parametres.unity"
+    guid: afb053e895b6d1547839814256d64105
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Themes.unity"
+    guid: c5e6429a0b66c534bbd88f6d8cca0555
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Magasin.unity"
+    guid: 428b3bee0b2e28c4ab1f40007ca2ff2a
+  - enabled: 1
+    path: "Assets/sc\xE8nes/PreRequis.unity"
+    guid: 97342d83e61166446b3a18ab73a856a4
+  - enabled: 1
+    path: "Assets/sc\xE8nes/AmeliorerMission.unity"
+    guid: d12c38ff2cc0b874998e4c3b61a29344
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Competences.unity"
+    guid: 5f2cfacfbfc926745887b3229f66f506
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Diplomes.unity"
+    guid: 89fdc12160747134e937e4e7ac00a269
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Objets.unity"
+    guid: c1e9d24190906fb419bac1618a7f9b51
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Trophees.unity"
+    guid: 05e4c9e4c588bb5488739529a4b5f7b7
+  - enabled: 1
+    path: "Assets/sc\xE8nes/AjouterAmi.unity"
+    guid: 9ba338748f603d1419a6ff6c7c6184d7
+  - enabled: 1
+    path: "Assets/sc\xE8nes/SupprimerAmi.unity"
+    guid: 9020a57587360c84bbee50bdf9ead036
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Resultat.unity"
+    guid: 52839eddabb0a9f48921d934ed15240f
+  - enabled: 1
+    path: "Assets/sc\xE8nes/MissionSociale.unity"
+    guid: 5daf30acb932de74d838e872fbe0c578
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Erreur.unity"
+    guid: b20f33ef51db7ad4eae291cc3f8b4add
+  - enabled: 1
+    path: "Assets/sc\xE8nes/AjoutObjet.unity"
+    guid: ca501666a82c96a44acdf0e104b50baf
+  - enabled: 1
+    path: "Assets/sc\xE8nes/PreRequisExam.unity"
+    guid: 40c16a675e5c7754a89590e5f8eb48a8
+  - enabled: 1
+    path: "Assets/sc\xE8nes/ResultatExam.unity"
+    guid: ef8a59ab68eedc84aab468b00c87e745
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Divertissement.unity"
+    guid: 161cdf1f965a8a84d8db11f929bf2de0
+  - enabled: 1
+    path: "Assets/sc\xE8nes/PreRequisDIvertissement.unity"
+    guid: 20a2c20089b53344e9dcdcbcd7586bac
+  - enabled: 1
+    path: "Assets/sc\xE8nes/ResultatDivertissement.unity"
+    guid: 2439c132a68ba454a82558e6282838dc
+  - enabled: 1
+    path: "Assets/sc\xE8nes/MissionPNJ.unity"
+    guid: d7ab9eb0358fdd8499f9d81d184b95e4
+  - enabled: 1
+    path: "Assets/sc\xE8nes/PreRequisPNJ.unity"
+    guid: 456e3f5740e65dc4299e020d3bd5d17c
+  - enabled: 1
+    path: "Assets/sc\xE8nes/ResultatPNJ.unity"
+    guid: 35472185789575e46bc239c79da8d126
+  - enabled: 1
+    path: "Assets/sc\xE8nes/AutreProfil.unity"
+    guid: f196d5d72dc612a4182abb1f9b6c3a46
+  - enabled: 1
+    path: "Assets/sc\xE8nes/ActionSociale.unity"
+    guid: 0b2c42690fc970c4da49026782a7e69d
+  - enabled: 1
+    path: "Assets/sc\xE8nes/ResultatActionSociale.unity"
+    guid: 98e6d29d6ec0f2445bf97e869213dfa5
+  m_configObjects: {}
