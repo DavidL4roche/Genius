@@ -657,7 +657,7 @@ public class RessourcesBdD : MonoBehaviour
             {
                 int total = Int32.Parse(lien["Total"].ToString());
                 listeDesMissionsPrésentes = new MissionPrésente[(int)total];
-                Debug.Log("Total de mission jouables " + total);
+                Debug.Log("Total de mission jouables : " + total);
             }
             lien.Close();
             requete = "SELECT * FROM present_missions WHERE IDMission NOT IN (SELECT IDMission from present_missions_done WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
@@ -813,18 +813,27 @@ public class RessourcesBdD : MonoBehaviour
         }
         else
         {
-
+            Debug.Log("Aucun PNJ jouable ?");
         }
     }
     public static bool testSiPNJJouable()
     {
+        Debug.Log("Liste des diplomes : " + listeDesDiplomes);
         bool test = false;
-        for(int i = 0;i<RessourcesBdD.listeDesDiplomes.Length; ++i)
+
+        for (int i = 0; i < RessourcesBdD.listeDesDiplomes.Length; ++i)
         {
-            if (Joueur.MesDiplomes[i] == true && RessourcesBdD.listeDesDiplomes[i].SonRang.NomRang =="B")
+            if (RessourcesBdD.listeDesDiplomes[i] != null)
             {
-                test = true;
-                break;
+                if (Joueur.MesDiplomes[i] == true && RessourcesBdD.listeDesDiplomes[i].SonRang.NomRang == "B")
+                {
+                    test = true;
+                    break;
+                }
+            }
+            else
+            {
+                Debug.Log("Aucun diplome trouvé");
             }
         }
         return test;

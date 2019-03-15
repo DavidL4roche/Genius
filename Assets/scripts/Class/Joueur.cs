@@ -22,6 +22,7 @@ public class Joueur : MonoBehaviour {
 
     // Use this for initialization
     public void Start() {
+        Debug.Log("Instanciation du joueur en cours");
         DontDestroyOnLoad(gameObject);
         majdepuisBDD();
         PendantAbsence();
@@ -29,7 +30,9 @@ public class Joueur : MonoBehaviour {
         RessourcesBdD.recupDivertJouable();
         RessourcesBdD.recupPNJJouable();
         RessourcesBdD.RecupArtefactJouable();
+        Debug.Log("ON ARRIVE LA");
         RessourcesBdD.RecupObjetMagasin();
+        Debug.Log("ON ARRIVE ICI");
         RessourcesBdD.RecupDeLaListeDesJoueurs();
         RessourcesBdD.RecupMesAmis();
         StartCoroutine(IncrementationRessources());
