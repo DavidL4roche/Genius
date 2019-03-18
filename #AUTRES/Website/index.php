@@ -47,7 +47,7 @@
 <main role="main">
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron rounded-0">
         <div class="container">
             <h1 class="display-3">Bienvenue sur Genius !</h1>
             <p>Genius est un jeu mobile développé par l'IUT d'Aix-Marseille afin d'aider les lycées et étudiants à
@@ -76,7 +76,7 @@
     <div class="container" id="liensUtiles">
         <div class="row">
             <h2>Liens utiles</h2>
-            <div class="col-md-12">
+            <div class="col-md-12 mt-2">
                 <div class="list-group">
                     <a target="_blank" href="https://github.com/DavidL4roche/Genius"
                        class="list-group-item list-group-item-action">
@@ -85,6 +85,11 @@
                     <a target="_blank" href="https://appetize.io/app/0tz29rdt699tech4b5ytaxgcj8"
                        class="list-group-item list-group-item-action">
                         <img class="linkLogo mr-2" src="https://appetize.io/images/logo1_colored_tight.png">Appetize.io
+                    </a>
+                    <a target="_blank" href="https://xd.adobe.com/view/93503f1d-517c-4a44-7d43-d2b8701185c4-e561/"
+                       class="list-group-item list-group-item-action">
+                        <img class="linkLogo mr-2"
+                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/2000px-Adobe_XD_CC_icon.svg.png">Prototype
                     </a>
                 </div>
             </div>
@@ -95,31 +100,33 @@
     <div class="container" id="images">
         <h2>Images du jeu</h2>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 mt-2">
                 <div class="card mb-4 shadow-sm">
-                    <img class="w-100 m-0" src="media/menu.PNG">
+                    <img class="w-100 m-0 rounded" src="media/menu.PNG">
                     <div class="card-body">
                         <p class="card-text">Voici l'écran principal, votre téléphone. Vous pouvez avoir accès à la
-                            carte (Daedalus), à votre profil et à d'autres menus utiles du jeu.</p>
+                            carte (<span class="font-italic">Daedalus</span>), à votre profil et à d'autres menus utiles
+                            du jeu.</p>
                         <div class="d-flex justify-content-between align-items-center">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mt-2">
                 <div class="card mb-4 shadow-sm">
-                    <img class="w-100 m-0" src="media/daedalus.PNG">
+                    <img class="w-100 m-0 rounded" src="media/daedalus.PNG">
                     <div class="card-body">
-                        <p class="card-text">Voici Daedalus, la ville principale du jeu. Vous pouvez accéder à tout les
+                        <p class="card-text">Voici <span class="font-italic">Daedalus</span>, la ville principale du
+                            jeu. Vous pouvez accéder à tout les
                             quartiers présents pour effectuer des missions ou passer des examens.</p>
                         <div class="d-flex justify-content-between align-items-center">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mt-2">
                 <div class="card mb-4 shadow-sm">
-                    <img class="w-100 m-0" src="media/quartier.PNG">
+                    <img class="w-100 m-0 rounded" src="media/quartier.PNG">
                     <div class="card-body">
                         <p class="card-text">Voici le quartier Administration. Plusieurs missions sont présentes. Leur
                             rang indique que ces missions demandent plus ou moins de ressources et de compétences.</p>
@@ -129,6 +136,10 @@
                 </div>
             </div>
         </div>
+        <p class="text-center">
+            <a href="https://xd.adobe.com/view/93503f1d-517c-4a44-7d43-d2b8701185c4-e561/"
+               class="btn btn-outline-primary mx-auto" target="_blank">Voir plus</a>
+        </p>
     </div>
     <hr>
 
@@ -136,8 +147,8 @@
         <div class="row">
             <h2>Informations utiles</h2>
             <p>
-                <span class="font-italic">Genius</span> a été developpé par David LAROCHE et Nathan BERNARD en 2019 dans le cadre d'un projet
-                d'alternance en Licence Professionnelle (Web Dev).
+                <span class="font-italic">Genius</span> a été developpé par David LAROCHE et Nathan BERNARD en 2019 dans
+                le cadre d'un projet d'alternance en Licence Professionnelle (Web Dev).
             </p>
         </div>
         <hr>
@@ -151,6 +162,13 @@
 </footer>
 
 <style>
+    .jumbotron {
+        background: linear-gradient(to left, transparent, black), url("media/daedalus2.png") no-repeat;
+        background-size: 100%;
+        color: white;
+        text-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    }
+
     .logo {
         width: 50px;
     }
