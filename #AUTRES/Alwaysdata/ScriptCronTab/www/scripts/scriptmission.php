@@ -1,183 +1,255 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nathan BERNARD
- * Date: 05/06/2018
- * Time: 10:04
- */
+
 require_once "configuration.php";
 
-//Connexion à la base de Données
+// Paramètre et fonction de debogage (afficher avec echo ou non)
+// Changer le paramètre $debug en true pour avoir tout les affichages
+function echoDebug($string)
+{
+    $debug = true;
+    echo($debug == true ? $string . "\n" : null);
+}
 
-$connexion = mysqli_connect($host,$login,$password,$database);
+//Connexion à la base de Données
+$connexion = mysqli_connect($host, $login, $password, $database);
+
 if (!$connexion) {
     die('Erreur de connexion : ' . mysqli_connect_error());
 }
+
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Connection échouée: %s\n", mysqli_connect_error());
+    exit();
+}
+
+if (mysqli_ping($connexion)) {
+    printf("La connection est ok !\n");
+} else {
+    printf("Erreur : %s\n", mysqli_error($connexion));
+}
+
 //Supprime toutes les missions présentes
 $requete = "DELETE FROM `present_missions` WHERE 1";
-if($result = mysqli_query($connexion,$requete)){
-    echo "ça a marché la suppression <br><br>";
+echoDebug("• Etape 1 : Suppression des missions présentes");
+//echo ($debug == true ? "Etape 1 : Suppression des missions présentes \n" : null);
+if ($result = mysqli_query($connexion, $requete)) {
+    echoDebug("Suppression effectuée");
+} else {
+    echoDebug("La suppression ne s'est pas effectuée");
 }
-else{
-    echo "ça a pas marché <br><br>";
-}
-$requete="DELETE FROM present_missions_done WHERE 1";
-if($result = mysqli_query($connexion,$requete))
-{
 
+// Supprime tout les divertissements
+$requete = "DELETE FROM entertainment_done WHERE 1";
+echoDebug("• Etape 2 : Suppression des divertissements présents");
+if ($result = mysqli_query($connexion, $requete)) {
+    echoDebug("Suppression effectuée");
+} else {
+    echoDebug("La suppression ne s'est pas effectuée");
 }
-else
-{
-}
-$requete="DELETE FROM entertainment_done WHERE 1";
-if($result = mysqli_query($connexion,$requete))
-{
-	
-}
-else
-{
-}
+
+
 //Récupère tout les ID de chaque mission
 $listeMissions = array();
-$requete = "SELECT * FROM mission";
-if($result = mysqli_query($connexion,$requete)){
-    while ($tuple = mysqli_fetch_assoc($result)){
-        array_push($listeMissions,$tuple['IDMission']);
-	//echo "ID = ".$tuple['IDMission'];
+$requete = "SELECT IDMission FROM mission ORDER BY IDMission";
+echoDebug("• Etape 3 : Récupération des ID de missions");
+if ($result = mysqli_query($connexion, $requete)) {
+    while ($tuple = mysqli_fetch_assoc($result)) {
+        array_push($listeMissions, $tuple['IDMission']);
+        //echo "ID = ".$tuple['IDMission'];
     }
-}
-else{
-    echo "ça a pas marché dans la query";
+    // Affichage du tableau
+    $res = "";
+    foreach ($listeMissions as $result) {
+        $res .= $result . ' - ';
+    }
+    echoDebug($res);
+} else {
+    echoDebug("Récupération des ID échouée");
 }
 
-//Récupère nombre total de quartier
-$requete = "SELECT Count(*) AS Total, IDDistrict FROM district";
-if($result = mysqli_query($connexion,$requete)){
-    while ($tuple = mysqli_fetch_assoc($result)){
-        $totalquartier = (int)$tuple['Total'];
-        //echo $totalquartier." nombre total de quartier<br><br>";
-    }
+//Récupère nombre total de quartiers
+$requete = "SELECT COUNT(*) AS Total FROM district";
+echoDebug("• Etape 4 : Récupération du nombre de quartiers");
+if ($result = mysqli_query($connexion, $requete)) {
+    $totalquartier = $result->fetch_assoc();
+    echoDebug("Nombre total de quartiers : " . $totalquartier['Total']);
+} else {
+    echoDebug("La requête a échouée");
 }
-else{
-    echo "ça a pas marché dans la query";
-}
-// on génère et place les pnj
+
+// Génération et placement des PNJ
 $requete = "DELETE FROM `npc_present` WHERE 1";
-if($result = mysqli_query($connexion,$requete)){
-    echo "ça a marché le drop table de npc<br><br>";
-}
-else{
-    echo "ça a pas marché le drop table de npc<br><br>";
+echoDebug("• Etape 5 : Génération et placement des PNJ");
+if ($result = mysqli_query($connexion, $requete)) {
+    echoDebug("Suppression des PNJ présents effectuée");
+} else {
+    echoDebug("La suppression des PNJ présents est un échec");
 }
 
+// Récupération des missions de rang A
 $tabmissionA = array();
-$tabmissionA2 = array();
+echoDebug("• Etape 6 : Récupération missions de rang A");
 $requete = "SELECT IDMission FROM mission WHERE IDRank in (Select IDRank from rank WHERE RankName ='A');";
-if($result = mysqli_query($connexion,$requete)){
-    while ($tuple = mysqli_fetch_assoc($result)){
+if ($result = mysqli_query($connexion, $requete)) {
+    while ($tuple = mysqli_fetch_assoc($result)) {
         array_push($tabmissionA, $tuple['IDMission']);
     }
+    // Affichage du tableau
+    $res = "";
+    foreach ($tabmissionA as $result) {
+        $res .= $result . ' - ';
+    }
+    echoDebug($res);
+} else {
+    echoDebug("La récupération est un échec");
 }
-else{
 
-}
-for($i =0 ;$i < $totalquartier ; ++$i)
-{
-    if($i !=0){
-        $rand = rand(0,100);
-        if($rand < 5){
-	    echo "<br>".sizeof($tabmissionA)."taille du premier tableau <br>";           
-	    $tabmissionA2 = array_values($tabmissionA);
-            $randmissionA = rand(0,sizeof($tabmissionA2)-1);
-            $requete = "INSERT INTO npc_present SELECT IDNPCharacter,IDMission from np_character,mission where IDNPCharacter IN (Select IDNPCharacter from association_district_npc WHERE IDDistrict =".$i.") AND IDMission =".$tabmissionA2[$randmissionA].";";
-            if($result = mysqli_query($connexion,$requete)){
-                unset($tabmissionA[$randmissionA]);
-                echo "ça a marché <br><br>";
-            }
-            else{
-                echo "ça a pas marché l'insertion de npc<br><br>";
+// Parcours des quartiers et génération des PNJ (missions de rang A?)
+$tabmissionA2 = array();
+$tabmissionA2 = array_values($tabmissionA);
+echoDebug("• Etape 7 : Parcours des quartiers et insertion des npc");
+if (!empty($totalquartier) && !empty($tabmissionA2)) {
+    for ($i = 0; $i < $totalquartier['Total']; ++$i) {
+        if (empty($tabmissionA2)) {
+            break;
+        }
+
+        if ($i != 0) {
+            $rand = rand(0, 100);
+
+            // Probabilité de 5/100 de générer une mission de rang A
+            if ($rand < 5) {
+                $randmissionA = rand(0, sizeof($tabmissionA2) - 1);
+
+                $requete = "INSERT INTO npc_present SELECT IDNPCharacter,IDMission 
+                                                    FROM np_character,mission 
+                                                    WHERE IDNPCharacter IN (SELECT IDNPCharacter 
+                                                                            FROM association_district_npc 
+                                                                            WHERE IDDistrict =" . $i . ") 
+                                                    AND IDMission =" . $tabmissionA2[$randmissionA] . ";";
+
+                if ($result = mysqli_query($connexion, $requete)) {
+                    unset($tabmissionA2[$randmissionA]);
+                    echoDebug("Insertion missions réussie");
+                } else {
+                    echoDebug("L'insertion des missions a échouée");
+                }
             }
         }
     }
 }
 
-//Génère et récupère le nombre de missions par quartier
+
+// Génère et récupère le nombre de missions par quartier
 $totaldemissions = 0;
 $tabNbMissionParQuartier = array();
-for($i = 0 ; $i<$totalquartier; ++$i)
-{
-    if($i ==0){
+echoDebug("• Etape 8 : Génération du nombre de missions par quartier");
+for ($i = 0; $i < $totalquartier['Total']; ++$i) {
+    if ($i == 0) {
         $randomNbMission = 0;
-    }
-    else{
-        $randomNbMission = random_int(1,4);
+    } else {
+        $randomNbMission = random_int(1, 4);
     }
     $tabNbMissionParQuartier[$i] = $randomNbMission;
-    echo "Nombre de missions = ".$randomNbMission." pour le quartier ->".$i."<br><br>";
     $totaldemissions += $randomNbMission;
 }
 
-$missiondejala = array();
+if (!empty($tabNbMissionParQuartier)) {
+    echoDebug("Nombre de missions générées par quartier réussie (total : " . $totaldemissions . ")");
+} else {
+    echoDebug("La génération du nombre de missions par quartier a échouée");
+}
 
-for($i=0; $i<sizeof($tabNbMissionParQuartier) ; ++$i)
-{
-    while ($tabNbMissionParQuartier[$i]>0)
-    {
-        $dejala = false;
-        $randMission = rand(0,sizeof($listeMissions));
-        $missionchoisi = $listeMissions[$randMission];
-        for ($j = 0; $j<sizeof($missiondejala); ++$j)
-        {
-            if($missionchoisi == $missiondejala[$j]){
-                $dejala = true;
-                break;
-            }
+// Tableau des missions présentes
+$missionsPresentes = array();
+
+// Pour chaque quartier
+for ($i = 1; $i < sizeof($tabNbMissionParQuartier); ++$i) {
+
+    echoDebug("------ Nouvelle itération for : " . $i);
+
+    // Jusqu'à ce qu'il n'y ait plus de missions à générer dans le quartier
+    while ($tabNbMissionParQuartier[$i] > 0) {
+
+        // On vérifie que toutes les missions ne soient pas déjà générées
+        if (sizeof($missionsPresentes) == sizeof($listeMissions)) {
+            echoDebug("Plus de missions restantes");
+            $tabNbMissionParQuartier[$i] -= 1;
+            break;
         }
-        if ($dejala == true)
-        {
+
+        $dejala = false;
+        $randMission = rand(0, sizeof($listeMissions) - 1);
+        $missionchoisi = $listeMissions[$randMission];
+        //echoDebug("Mission choisie : " . $missionchoisi);
+
+        if (in_array($missionchoisi, $missionsPresentes)) {
+            $dejala = true;
+            //echoDebug("Mission déjà existante");
             continue;
         }
-        else
-        {
-            array_push($missiondejala,$missionchoisi);
-            $identreprise = trouverUneEntreprise($i,$host,$login,$password,$database);
-            $requete = "INSERT INTO present_missions(IDDistrict,IDMission,IDCompany) VALUE (".$i.",".$missionchoisi.",".$identreprise.");";
-            if($result = mysqli_query($connexion,$requete)){
-                echo "ça a marché <br><br>";
-            }
-            else{
-                echo "ça a pas marché <br><br>";
-            }
-            $tabNbMissionParQuartier[$i] -= 1;
+
+        array_push($missionsPresentes, $missionchoisi);
+
+        // Trouve une entreprise (id) dans le quartier en cours
+        $identreprise = trouverUneEntreprise($i, $host, $login, $password, $database);
+        //echoDebug("Id entreprise : " . $identreprise);
+
+        // Insertion de la nouvelle mission
+        $requete = "INSERT INTO present_missions(IDDistrict,IDMission,IDCompany) VALUE (" . $i . "," . $missionchoisi . "," . $identreprise . ");";
+        if ($result = mysqli_query($connexion, $requete)) {
+            echoDebug("Insertion des missions actuelles réussie");
+        } else {
+            echoDebug("L'insertion des missions actuelles a échouée");
         }
+
+        $tabNbMissionParQuartier[$i] -= 1;
+        //echoDebug("Nb missions du quartier : " . $tabNbMissionParQuartier[$i]);
     }
 }
 
-function trouverUneEntreprise($idquartier,$host,$login,$password,$database){
-    $connexion = mysqli_connect($host,$login,$password,$database);
+// Affichage du tableau
+$res = "";
+foreach ($missionsPresentes as $result) {
+    $res .= $result . ' - ';
+}
+echoDebug("Missions présentes : " . $res);
+
+function trouverUneEntreprise($idquartier, $host, $login, $password, $database)
+{
+    $connexion = mysqli_connect($host, $login, $password, $database);
+
     $tableauentreprise = array();
-    $randomtailleentreprise = rand(0,100);
-    $tailleEntreprise=0;
-    if($randomtailleentreprise<50){
-        $tailleEntreprise=1;
+    $randomtailleentreprise = rand(0, 100);
+
+    // On choisit aléatoirement la taille de l'entreprise (1, 2 ou 4)
+    if ($randomtailleentreprise < 50) {
+        $tailleEntreprise = 1;
+    } elseif ($randomtailleentreprise > 94) {
+        $tailleEntreprise = 4;
+    } else {
+        $tailleEntreprise = 2;
     }
-    elseif($randomtailleentreprise>94){
-        $tailleEntreprise=4;
-    }
-    else{
-        $tailleEntreprise=2;
-    }
-    $requete = "SELECT * from association_company_district WHERE IDDistrict =".$idquartier." AND IDCompany IN (SELECT IDCompany From company WHERE Size =".$tailleEntreprise.")";
-    if($result = mysqli_query($connexion,$requete)){
-        echo "ça a marché la recherche d'entreprise<br><br>";
-        while ($tuple = mysqli_fetch_assoc($result)){
+    $requete = "SELECT * from association_company_district WHERE IDDistrict =" . $idquartier . " AND IDCompany IN (SELECT IDCompany From company WHERE Size =" . $tailleEntreprise . ")";
+    //echoDebug($requete);
+    if ($result = mysqli_query($connexion, $requete)) {
+        //echoDebug("Recherche d'entreprise réussie");
+        while ($tuple = mysqli_fetch_assoc($result)) {
             array_push($tableauentreprise, $tuple['IDCompany']);
         }
-        $identrepriserandom = $tableauentreprise[rand(0,sizeof($tableauentreprise)-1)];
+
+        // Affichage du tableau
+        $res = "";
+        foreach ($tableauentreprise as $result) {
+            $res .= $result . ' - ';
+        }
+        //echoDebug($res);
+
+        $identrepriserandom = $tableauentreprise[rand(0, sizeof($tableauentreprise) - 1)];
         return $identrepriserandom;
-    }
-    else{
-        echo "la recherche d'entreprise a pas marché :'(<br><br>";
+    } else {
+        echoDebug("La recherche d'entreprise a échouée");
         return 0;
     }
 }

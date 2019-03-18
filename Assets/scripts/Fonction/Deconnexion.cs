@@ -36,7 +36,7 @@ public class Deconnexion : MonoBehaviour {
     public IEnumerator ChangeIsConnected()
     {
         // On change le booléen isConnected de l'adresse IP du joueur en vrai (1)
-        string urlIP = "http://seriousgameiut.alwaysdata.net/scripts/ConnectOnIP.php";
+        string urlIP = Configuration.url + "scripts/ConnectOnIP.php";
         urlIP += "?connect=false&playerId=" + ipLocal;
         download = new WWW(urlIP);
         yield return download;

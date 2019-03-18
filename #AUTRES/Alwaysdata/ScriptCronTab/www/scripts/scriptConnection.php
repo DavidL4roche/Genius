@@ -1,0 +1,22 @@
+<?php
+
+require_once "configuration.php";
+
+//Connexion à la base de Données
+$connexion = mysqli_connect($host, $login, $password, $database);
+
+if (!$connexion) {
+    die('Erreur de connexion : ' . mysqli_connect_error());
+}
+
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Connection échouée: %s\n", mysqli_connect_error());
+    exit();
+}
+
+if (mysqli_ping($connexion)) {
+    printf("La connection est ok !\n");
+} else {
+    printf("Erreur : %s\n", mysqli_error($connexion));
+}

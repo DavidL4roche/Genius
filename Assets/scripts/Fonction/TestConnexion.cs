@@ -6,8 +6,8 @@ using SimpleJSON; // Permet un meilleur traitement du JSON
 
 public class TestConnexion : MonoBehaviour {
     // Paramètres
-    private string url = "http://seriousgameiut.alwaysdata.net/scripts/CheckConnection.php";
-    private string url2 = "http://seriousgameiut.alwaysdata.net/scripts/AddIP.php";
+    private string url = Configuration.url + "scripts/CheckConnection.php";
+    private string url2 = Configuration.url + "scripts/AddIP.php";
     private WWW download;
     private WWW download2;
 
@@ -74,7 +74,6 @@ public class TestConnexion : MonoBehaviour {
                 Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
                 Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
                 ChargerLieu loading = new ChargerLieu();
-                Instantiate(JoueurLoge);
 
                 // On vérifie si c'est la première connection de l'utilisateur
                 if (monNode["utilisateur"][0]["isFirstConnection"] == 1)
@@ -86,10 +85,12 @@ public class TestConnexion : MonoBehaviour {
                     yield return download;
 
                     loading.Charger("Tutoriel");
+                    Instantiate(JoueurLoge);
                 }
                 else
                 {
                     loading.Charger("Daedelus");
+                    Instantiate(JoueurLoge);
                 }
             }
         }
