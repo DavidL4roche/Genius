@@ -52,7 +52,7 @@
             <h1 class="display-3">Bienvenue sur Genius !</h1>
             <p>Genius est un jeu mobile développé par l'IUT d'Aix-Marseille afin d'aider les lycées et étudiants à
                 trouver leur voie à l'IUT.</p>
-            <p><a class="btn btn-primary btn-lg" href="#scenario" role="button">En savoir plus &raquo;</a></p>
+            <p><a class="btn btn-primary btn-lg" href="media/Genius_v0.2.4.apk" download="Genius.apk">Télécharger le jeu (APK) &raquo;</a></p>
         </div>
     </div>
 
