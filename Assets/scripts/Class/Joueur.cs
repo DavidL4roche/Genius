@@ -30,9 +30,7 @@ public class Joueur : MonoBehaviour {
         RessourcesBdD.recupDivertJouable();
         RessourcesBdD.recupPNJJouable();
         RessourcesBdD.RecupArtefactJouable();
-        Debug.Log("ON ARRIVE LA");
         RessourcesBdD.RecupObjetMagasin();
-        Debug.Log("ON ARRIVE ICI");
         RessourcesBdD.RecupDeLaListeDesJoueurs();
         RessourcesBdD.RecupMesAmis();
         StartCoroutine(IncrementationRessources());
