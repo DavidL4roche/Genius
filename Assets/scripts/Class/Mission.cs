@@ -17,6 +17,8 @@ public class Mission : MonoBehaviour
     public int NiveauDeLaMission;
     public Mission(int id, string nom, int idrang, int idcomp1, int idcomp2, int idcomp3, int idcomp4, int idcomp5)
     {
+        Debug.Log("Création mission -------------");
+        Debug.Log("Compétences : " + idcomp1 + ", " + idcomp2 + ", " + idcomp3 + ", " + idcomp4 + ", " + idcomp5);
         IDMission = id;
         NomMission = nom;
         RangMission = Rang.trouverSonRang(idrang);
