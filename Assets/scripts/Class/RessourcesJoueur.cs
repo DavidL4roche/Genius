@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RessourcesJoueur : MonoBehaviour {
-    public Slider[] barres = new Slider[2];
+    //public Slider[] barres = new Slider[2];
     public Text[] textes = new Text[4];
     static public bool stop = false;
 	// Use this for initialization
@@ -26,13 +26,13 @@ public class RessourcesJoueur : MonoBehaviour {
                     {
                         // SOCIAL
                         case "Social":
-                            barres[0].value = (Joueur.MesRessources[i]);
+                            //barres[0].value = (Joueur.MesRessources[i]);
                             textes[0].text = Joueur.MesRessources[i].ToString() + "%";
                             break;
 
                         // DIVERTISSEMENT
                         case "Divertissement":
-                            barres[1].value = (Joueur.MesRessources[i]);
+                            //barres[1].value = (Joueur.MesRessources[i]);
                             textes[1].text = Joueur.MesRessources[i].ToString() + "%";
                             break;
 
