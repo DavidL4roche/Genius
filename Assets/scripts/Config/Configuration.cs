@@ -15,5 +15,6 @@ public class Configuration : MonoBehaviour {
     public static string login = "171322";
     public static string password = "azerty12345";
 
-    public static string url = "10.193.15.36/private/";
+    //public static string url = "10.193.15.36/private/";
+    public static string url = "http://seriousgameiut.alwaysdata.net/";
 }

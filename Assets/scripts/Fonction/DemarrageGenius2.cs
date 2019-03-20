@@ -38,6 +38,8 @@ public class DemarrageGenius2 : MonoBehaviour {
         if ((!string.IsNullOrEmpty(download.error)))
         {
             print("Error downloading: " + download.error);
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Connexion impossible, veuillez réessayer plus tard";
         }
         else
         {
