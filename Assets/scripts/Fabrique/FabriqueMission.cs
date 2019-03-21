@@ -16,18 +16,20 @@ public class FabriqueMission : MonoBehaviour {
     public Text NomEntreprise;
     public Text NomTuple;
     public Text ValeurTupleTexte;
+    public Text ValeurMetier;
     public Slider ValeurTupleSlider;
     public Image ImageTuple;
     public RawImage ImageRang;
     GameObject instance;
     private void Start()
     {
-        //Debug.Log(VerificationMission.MissionChoisi);
         Gain.calculDesGains(mr);
         NomRang.text = mr.RangMission.NomRang;
         ImageRang.texture = mr.RangMission.texture;
         NomEntreprise.text = mr.MissionEntreprise.NomEntreprise;
         NomTemps.text = mr.SaDurée.NomDuree;
+        //Debug.Log("Métier : " + mr.MetierAssocie);
+        ValeurMetier.text = mr.MetierAssocie;
         blockdesgains();
     }
     public void blockdesgains()

@@ -300,7 +300,7 @@ public class RessourcesBdD : MonoBehaviour
         {
             while (lien.Read())
             {
-                listeDesCompétences[i] = new Compétence((int)lien["IDSkill"], lien["SkillName"].ToString());
+                listeDesCompétences[i] = new Compétence((int)lien["IDSkill"], lien["SkillName"].ToString(), lien["SkillDescription"].ToString());
                 ++i;
             }
         }
@@ -638,7 +638,7 @@ public class RessourcesBdD : MonoBehaviour
                         tableauidskill[j - 1] = 0;
                     }
                 }
-                listeDesMissions[i] = new Mission((int)lien["IDMission"], lien["MissionName"].ToString(), (int)lien["IDRank"], tableauidskill[0], tableauidskill[1], tableauidskill[2], tableauidskill[3], tableauidskill[4]); 
+                listeDesMissions[i] = new Mission((int)lien["IDMission"], lien["MissionName"].ToString(), (int)lien["IDRank"], tableauidskill[0], tableauidskill[1], tableauidskill[2], tableauidskill[3], tableauidskill[4], lien["AssociatedJob"].ToString());
                 ++i;
             } 
         }
