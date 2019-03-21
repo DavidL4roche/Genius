@@ -12,6 +12,7 @@ public class FabriqueMission : MonoBehaviour {
     public RawImage IconeTupleObjet;
     public GameObject Tuple;
     public Text NomTemps;
+    public Text TitreMission;
     public Text NomRang;
     public Text NomEntreprise;
     public Text NomTuple;
@@ -24,6 +25,7 @@ public class FabriqueMission : MonoBehaviour {
     private void Start()
     {
         Gain.calculDesGains(mr);
+        TitreMission.text = mr.NomMission;
         NomRang.text = mr.RangMission.NomRang;
         ImageRang.texture = mr.RangMission.texture;
         NomEntreprise.text = mr.MissionEntreprise.NomEntreprise;
