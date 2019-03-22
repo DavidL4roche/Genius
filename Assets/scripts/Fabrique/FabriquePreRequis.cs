@@ -23,6 +23,15 @@ public class FabriquePreRequis : MonoBehaviour
     {
         Perte.calculDesPertes(mr);
         blockdesprerequis();
+        /*
+        // Si l'objet competence (bouton dans la liste) est trouvé
+        if (competence != null)
+        {
+            competence.onClick.AddListener(TaskOnClick);
+            //Destroy(competence);
+        }
+        
+        competence.onClick.AddListener(TaskOnClick);*/
     }
     public void blockdesprerequis()
     {
@@ -42,6 +51,8 @@ public class FabriquePreRequis : MonoBehaviour
             instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
             instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
             instance.transform.name = "Tuple " + (i + 1);
+            instance.tag = "competence";
+
             ++decalage;
         }
         decalage = 0;
@@ -60,6 +71,14 @@ public class FabriquePreRequis : MonoBehaviour
                 instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
                 instance.transform.name = "Tuple " + (i + 1);
                 ++decalage;
+
+                // On supprime les boutons du tuple
+                Button[] buttons = instance.GetComponentsInChildren<Button>();
+                foreach (Button button in buttons)
+                {
+                    button.onClick.AddListener(TaskOnClick);
+                    DestroyImmediate(button);
+                }
             }
             else
             {
@@ -67,6 +86,13 @@ public class FabriquePreRequis : MonoBehaviour
             }
         }
     }
+
+    public void TaskOnClick()
+    {
+        //Output this to console when Button1 or Button3 is clicked
+        Debug.Log("You have clicked the button!");
+    }
+
     public void verificationCompAvecJoueur(int idComp,int valeur)
     {
         int i = 0;
