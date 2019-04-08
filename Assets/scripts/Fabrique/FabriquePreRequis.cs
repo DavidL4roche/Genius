@@ -9,6 +9,7 @@ public class FabriquePreRequis : MonoBehaviour
     Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
     public GameObject Tuple;
     public Text nomTuple;
+    public Text ID;
     public Text ValeurTupleTexte;
     public Slider ValeurTupleSlider;
     public Text SliderTexte;
@@ -41,6 +42,7 @@ public class FabriquePreRequis : MonoBehaviour
         for (int i = 0; i < mr.CompétencesRequises.Length; ++i)
         {
             Text Texte = nomTuple;
+            ID.text = mr.CompétencesRequises[i].ID.ToString();
             Texte.text = mr.CompétencesRequises[i].NomCompétence;
             ValeurTupleSlider.gameObject.SetActive(true);
             ValeurTupleTexte.gameObject.SetActive(false);
