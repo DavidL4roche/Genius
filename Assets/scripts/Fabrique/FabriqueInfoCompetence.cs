@@ -7,22 +7,23 @@ using UnityEngine.UI;
 
 
 public class FabriqueInfoCompetence : MonoBehaviour {
-    Mission mission = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
+    Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie];
 
     // Elements graphiques de la fenêtre
     public Text titreCompetence;
     public Text niveauActuel;
     public Text niveauRequis;
+    public TextMeshPro competenceDetail;
 
     public void Start()
     {
         // On récupère le champ de description de la compétence
-        TextMeshPro competence = GetComponent<TextMeshPro>();
+        //TextMeshPro competence = GetComponent<TextMeshPro>();
 
         // On attribue les valeurs de la compétence aux champs respectifs
-        titreCompetence.text = "Titre de la compétence";
-        niveauActuel.text = "99%";
-        niveauRequis.text = "98%";
-        competence.text = "Une petite description des familles.";
+        titreCompetence.text = competence.NomCompétence;
+        niveauActuel.text = "98%";
+        niveauRequis.text = competence.Valeur + "%";
+        competenceDetail.text = "Une petite description des familles.";
     }
 }
