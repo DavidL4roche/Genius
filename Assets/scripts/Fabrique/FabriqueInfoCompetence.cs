@@ -13,7 +13,7 @@ public class FabriqueInfoCompetence : MonoBehaviour {
     public Text titreCompetence;
     public Text niveauActuel;
     public Text niveauRequis;
-    public TextMeshPro competenceDetail;
+    public TextMeshProUGUI competenceDetail;
 
     public void Start()
     {
@@ -24,6 +24,7 @@ public class FabriqueInfoCompetence : MonoBehaviour {
         titreCompetence.text = competence.NomCompétence;
         niveauActuel.text = "98%";
         niveauRequis.text = competence.Valeur + "%";
-        competenceDetail.text = "Une petite description des familles.";
+        //competenceDetail = GetComponent<TextMeshProUGUI>();
+        competenceDetail.text = competence.Description;
     }
 }
