@@ -23,6 +23,7 @@ public class FabriqueInfoCompetence : MonoBehaviour {
         // On attribue les valeurs de la compétence aux champs respectifs
         titreCompetence.text = competence.NomCompétence;
         niveauActuel.text = "98%";
+        Debug.Log("Valeur compétence : " + competence.Valeur);
         niveauRequis.text = competence.Valeur + "%";
         //competenceDetail = GetComponent<TextMeshProUGUI>();
         competenceDetail.text = competence.Description;

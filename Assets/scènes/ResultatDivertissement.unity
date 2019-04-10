@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 255364658}
   - component: {fileID: 255364660}
   - component: {fileID: 255364659}
+  - component: {fileID: 255364661}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -332,6 +333,47 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 255364657}
   m_CullTransparentMesh: 0
+--- !u!114 &255364661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255364657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1504499078}
+          m_MethodName: Fermer
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: ResultatDivertissement
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1937495931}
+          m_MethodName: Recharger
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &636240932
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +682,6 @@ GameObject:
   - component: {fileID: 657785116}
   - component: {fileID: 657785115}
   - component: {fileID: 657785114}
-  - component: {fileID: 657785113}
   m_Layer: 5
   m_Name: Terminer
   m_TagString: Untagged
@@ -670,47 +711,6 @@ RectTransform:
   m_AnchoredPosition: {x: 79.149994, y: -156}
   m_SizeDelta: {x: -169.3, y: -201}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &657785113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 657785111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1504499078}
-          m_MethodName: Fermer
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ResultatDivertissement
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1937495931}
-          m_MethodName: Recharger
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &657785114
 MonoBehaviour:
   m_ObjectHideFlags: 0

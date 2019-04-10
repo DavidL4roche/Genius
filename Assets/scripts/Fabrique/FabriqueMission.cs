@@ -28,7 +28,7 @@ public class FabriqueMission : MonoBehaviour {
         TitreMission.text = mr.NomMission;
         NomRang.text = mr.RangMission.NomRang;
         ImageRang.texture = mr.RangMission.texture;
-        NomEntreprise.text = mr.MissionEntreprise.NomEntreprise;
+        NomEntreprise.text = mr.MissionEntreprise.NomEntreprise.ToUpper();
         NomTemps.text = mr.SaDurée.NomDuree;
         //Debug.Log("Métier : " + mr.MetierAssocie);
         ValeurMetier.text = mr.MetierAssocie;
@@ -48,6 +48,13 @@ public class FabriqueMission : MonoBehaviour {
                 instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
                 instance.transform.parent = GameObject.Find("VerticalLayout").transform;
                 instance.transform.name = "Tuple " + (i + 1);
+
+                // On supprime les boutons du tuple
+                Button[] buttons = instance.GetComponentsInChildren<Button>();
+                foreach (Button button in buttons)
+                {
+                    DestroyImmediate(button);
+                }
             }     
         }
         for ( int i = 0;i< mr.SesObjets.Length;++i)
@@ -59,6 +66,13 @@ public class FabriqueMission : MonoBehaviour {
             instance = Instantiate(TupleObjet, new Vector3(0F, 0F, 0F), TupleObjet.transform.rotation);
             instance.transform.parent = GameObject.Find("VerticalLayout").transform;
             instance.transform.name = "Tuple " + (i + 1);
+
+            // On supprime les boutons du tuple
+            Button[] buttons = instance.GetComponentsInChildren<Button>();
+            foreach (Button button in buttons)
+            {
+                DestroyImmediate(button);
+            }
         }
     }
 }
