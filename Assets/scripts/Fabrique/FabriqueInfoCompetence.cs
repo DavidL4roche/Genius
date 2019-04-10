@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class FabriqueInfoCompetence : MonoBehaviour {
     Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie];
+    Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
 
     // Elements graphiques de la fenêtre
     public Text titreCompetence;
@@ -17,15 +18,23 @@ public class FabriqueInfoCompetence : MonoBehaviour {
 
     public void Start()
     {
-        // On récupère le champ de description de la compétence
-        //TextMeshPro competence = GetComponent<TextMeshPro>();
-
         // On attribue les valeurs de la compétence aux champs respectifs
         titreCompetence.text = competence.NomCompétence;
-        niveauActuel.text = "98%";
-        Debug.Log("Valeur compétence : " + competence.Valeur);
-        niveauRequis.text = competence.Valeur + "%";
-        //competenceDetail = GetComponent<TextMeshProUGUI>();
+
         competenceDetail.text = competence.Description;
+
+        // On cherche la compétence correspondante dans les compétences requises de la mission
+        int idComp = 0;
+        foreach (Compétence m in mr.CompétencesRequises)
+        {
+            if(m.ID == competence.ID)
+            {
+                break;
+            }
+            ++idComp;
+        }
+
+        niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
+        niveauActuel.text = Joueur.MesValeursCompetences[idComp] + "%";
     }
 }

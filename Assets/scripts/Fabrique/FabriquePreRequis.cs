@@ -16,6 +16,7 @@ public class FabriquePreRequis : MonoBehaviour
     public GameObject BlockComp;
     public GameObject BlockRess;
     public Image ImageTuple;
+    public GameObject BlockRecap;
     public Button lancer;
     public Button ameliorer;
     GameObject instance;
@@ -34,16 +35,20 @@ public class FabriquePreRequis : MonoBehaviour
         
         competence.onClick.AddListener(TaskOnClick);*/
     }
+
+    // Permet de remplir le bloc des prérequis
     public void blockdesprerequis()
     {
         lancer.interactable = true;
         ameliorer.interactable = true;
+        BlockRecap.SetActive(false);
+
         int decalage = 0;
         for (int i = 0; i < mr.CompétencesRequises.Length; ++i)
         {
             Text Texte = nomTuple;
             ID.text = mr.CompétencesRequises[i].ID.ToString();
-            Texte.text = mr.CompétencesRequises[i].NomCompétence;
+            Texte.text = ">_" + mr.CompétencesRequises[i].NomCompétence;
             ValeurTupleSlider.gameObject.SetActive(true);
             ValeurTupleTexte.gameObject.SetActive(false);
             int valeurr = mr.CompétencesRequises[i].Valeur;
@@ -78,7 +83,6 @@ public class FabriquePreRequis : MonoBehaviour
                 Button[] buttons = instance.GetComponentsInChildren<Button>();
                 foreach (Button button in buttons)
                 {
-                    button.onClick.AddListener(TaskOnClick);
                     DestroyImmediate(button);
                 }
             }
@@ -89,12 +93,7 @@ public class FabriquePreRequis : MonoBehaviour
         }
     }
 
-    public void TaskOnClick()
-    {
-        //Output this to console when Button1 or Button3 is clicked
-        Debug.Log("You have clicked the button!");
-    }
-
+    // Vérifie les compétences du joueur avec celles demandées et affiche le tuple avec la couleur correspondante
     public void verificationCompAvecJoueur(int idComp,int valeur)
     {
         int i = 0;
@@ -107,16 +106,20 @@ public class FabriquePreRequis : MonoBehaviour
         }
         if(Joueur.MesValeursCompetences[i] >= valeur)
         {
-            ImageTuple.color = new Color(0F, 1F, 0F, 1F);
+            ImageTuple.color = changeColor(true);
         }
         else
         {
-            ImageTuple.color = new Color(1F, 0F, 0F, 1F);
-            Destroy(GameObject.Find("Lancer"));
-            Destroy(GameObject.Find("Ameliorer"));
-            
+            ImageTuple.color = changeColor(false);
+            //Destroy(GameObject.Find("Lancer"));
+            //Destroy(GameObject.Find("Ameliorer"));
+            lancer.interactable = false;
+            ameliorer.interactable = false;
+            // TODO : Changer les couleurs des boutons pour montrer qu'ils ne sont pas cliquables
         }
     }
+
+    // Vérifie les ressources du joueur avec celles demandées et affiche le tuple avec la couleur correspondante
     public void verificationRessAvecJoueur(int valeurressource , string nomPrerequis)
     {
         for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
@@ -125,15 +128,30 @@ public class FabriquePreRequis : MonoBehaviour
             {
                 if (Joueur.MesRessources[i] >= valeurressource)
                 {
-                    ImageTuple.color = new Color(0F, 1F, 0F, 1F);
+                    ImageTuple.color = changeColor(true);
                 }
                 else
                 {
-                    ImageTuple.color = new Color(1F, 0F, 0F, 1F);
+                    ImageTuple.color = changeColor(false);
                     lancer.interactable = false;
                     ameliorer.interactable = false;
                 }
             }
         }   
+    }
+
+    // Renvoie la couleur (Color) si la condition est vraie ou fausse
+    public Color changeColor(bool color)
+    {
+        if (color)
+        {
+            Color myColor = new Color32(57,119,155, 255);
+            return myColor;
+        }
+        else
+        {
+            Color myColor = new Color32(55,57,75, 255);
+            return myColor;
+        }
     }
 }
