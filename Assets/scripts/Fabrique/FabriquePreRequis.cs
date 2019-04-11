@@ -49,11 +49,13 @@ public class FabriquePreRequis : MonoBehaviour
             Text Texte = nomTuple;
             ID.text = mr.CompétencesRequises[i].ID.ToString();
             Texte.text = ">_" + mr.CompétencesRequises[i].NomCompétence;
-            ValeurTupleSlider.gameObject.SetActive(true);
+            //ValeurTupleSlider.gameObject.SetActive(true);
             ValeurTupleTexte.gameObject.SetActive(false);
             int valeurr = mr.CompétencesRequises[i].Valeur;
+            /*
             ValeurTupleSlider.value = valeurr;
             SliderTexte.text = valeurr.ToString();
+            */
             verificationCompAvecJoueur(mr.CompétencesRequises[i].ID, valeurr);
             instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
             instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
@@ -104,13 +106,15 @@ public class FabriquePreRequis : MonoBehaviour
                 break;
             }
         }
-        if(Joueur.MesValeursCompetences[i] >= valeur)
+        Debug.Log("Valeur joueur : " + Joueur.MesValeursCompetences[i] + " - Valeur demandée : " + valeur);
+        if (Joueur.MesValeursCompetences[i] >= valeur)
         {
             ImageTuple.color = changeColor(true);
         }
         else
         {
             ImageTuple.color = changeColor(false);
+            //nomTuple.color = new Color32(153,154,164,255);
             //Destroy(GameObject.Find("Lancer"));
             //Destroy(GameObject.Find("Ameliorer"));
             lancer.interactable = false;
