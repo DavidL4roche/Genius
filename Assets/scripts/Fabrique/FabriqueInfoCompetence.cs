@@ -20,7 +20,6 @@ public class FabriqueInfoCompetence : MonoBehaviour {
     {
         // On attribue les valeurs de la compétence aux champs respectifs
         titreCompetence.text = competence.NomCompétence;
-
         competenceDetail.text = competence.Description;
 
         // On cherche la compétence correspondante dans les compétences requises de la mission

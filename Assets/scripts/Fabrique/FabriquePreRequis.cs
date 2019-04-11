@@ -11,8 +11,8 @@ public class FabriquePreRequis : MonoBehaviour
     public Text nomTuple;
     public Text ID;
     public Text ValeurTupleTexte;
-    public Slider ValeurTupleSlider;
-    public Text SliderTexte;
+    public Text Divert;
+    public Text Social;
     public GameObject BlockComp;
     public GameObject BlockRess;
     public Image ImageTuple;
@@ -48,7 +48,7 @@ public class FabriquePreRequis : MonoBehaviour
         {
             Text Texte = nomTuple;
             ID.text = mr.CompétencesRequises[i].ID.ToString();
-            Texte.text = ">_" + mr.CompétencesRequises[i].NomCompétence;
+            Texte.text = ">_" + truncateString(mr.CompétencesRequises[i].NomCompétence, 26);
             //ValeurTupleSlider.gameObject.SetActive(true);
             ValeurTupleTexte.gameObject.SetActive(false);
             int valeurr = mr.CompétencesRequises[i].Valeur;
@@ -73,6 +73,20 @@ public class FabriquePreRequis : MonoBehaviour
                 Text Texte = nomTuple;
                 Texte.text = mr.SesPertes[i].NomPerte;
                 ValeurTupleTexte.gameObject.SetActive(true);
+
+                switch(mr.SesPertes[i].NomPerte)
+                {
+                    case "Divertissement":
+                        Divert.text = "-" + mr.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                        break;
+                    case "Social":
+                        Social.text = "-" + mr.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                        break;
+                    default:
+                        break;
+                }
+                
+                /*
                 ValeurTupleSlider.gameObject.SetActive(false);
                 ValeurTupleTexte.text = mr.SesPertes[i].ValeurDeLaPerte.ToString();
                 verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte);    
@@ -87,6 +101,7 @@ public class FabriquePreRequis : MonoBehaviour
                 {
                     DestroyImmediate(button);
                 }
+                */
             }
             else
             {
@@ -106,8 +121,7 @@ public class FabriquePreRequis : MonoBehaviour
                 break;
             }
         }
-        Debug.Log("Valeur joueur : " + Joueur.MesValeursCompetences[i] + " - Valeur demandée : " + valeur);
-        if (Joueur.MesValeursCompetences[i] >= valeur)
+        if(Joueur.MesValeursCompetences[i] >= valeur)
         {
             ImageTuple.color = changeColor(true);
         }
@@ -157,5 +171,11 @@ public class FabriquePreRequis : MonoBehaviour
             Color myColor = new Color32(55,57,75, 255);
             return myColor;
         }
+    }
+
+    public string truncateString(string myStr, int trun)
+    {
+        // Si la chaine est supérieur en taille au paramètre trun alors on ajoute "..." à la fin
+        return myStr.Substring(0, trun-4) + ((myStr.Length-1 >= trun) ? "..." : "");
     }
 }

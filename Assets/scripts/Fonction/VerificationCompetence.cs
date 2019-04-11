@@ -7,10 +7,9 @@ public class VerificationCompetence : MonoBehaviour {
     public static int CompetenceChoisie;
     public void Cliquer()
     {
-        Debug.Log("Ca clique");
-
         Text nomCompetence = gameObject.GetComponentInChildren<Text>();
-        CompetenceChoisie = System.Int32.Parse(nomCompetence.text);
+        CompetenceChoisie = System.Int32.Parse(nomCompetence.text)-1;
+        // TODO : Vérifier ce qui est faux (non correspondance avec fenêtre Prérequis)
 
         /*
         Debug.Log(gameObject.name);
