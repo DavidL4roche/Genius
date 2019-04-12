@@ -176,7 +176,6 @@ public class FabriquePreRequis : MonoBehaviour
 
     public string truncateString(string myStr, int trun)
     {
-        Debug.Log("On rentre dans truncateString, string : " + myStr);
         // Si la chaine est supérieur en taille au paramètre trun alors on ajoute "..." à la fin
         if (myStr.Length >= trun-4)
         {
