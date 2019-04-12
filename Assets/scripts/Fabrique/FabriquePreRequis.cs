@@ -9,7 +9,7 @@ public class FabriquePreRequis : MonoBehaviour
     Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
     public GameObject Tuple;
     public Text nomTuple;
-    public Text ID;
+    public GameObject IDGO;
     public Text ValeurTupleTexte;
     public Text Divert;
     public Text Social;
@@ -47,6 +47,7 @@ public class FabriquePreRequis : MonoBehaviour
         for (int i = 0; i < mr.CompétencesRequises.Length; ++i)
         {
             Text Texte = nomTuple;
+            Text ID = IDGO.GetComponentInChildren<Text>();
             ID.text = mr.CompétencesRequises[i].ID.ToString();
             Texte.text = ">_" + truncateString(mr.CompétencesRequises[i].NomCompétence, 26);
             //ValeurTupleSlider.gameObject.SetActive(true);
@@ -175,7 +176,15 @@ public class FabriquePreRequis : MonoBehaviour
 
     public string truncateString(string myStr, int trun)
     {
+        Debug.Log("On rentre dans truncateString, string : " + myStr);
         // Si la chaine est supérieur en taille au paramètre trun alors on ajoute "..." à la fin
-        return myStr.Substring(0, trun-4) + ((myStr.Length-1 >= trun) ? "..." : "");
+        if (myStr.Length >= trun-4)
+        {
+            return myStr.Substring(0, trun - 4) + ((myStr.Length - 1 >= trun) ? "..." : "");
+        }
+        else
+        {
+            return myStr;
+        }
     }
 }

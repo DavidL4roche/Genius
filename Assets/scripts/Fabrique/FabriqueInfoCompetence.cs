@@ -18,6 +18,8 @@ public class FabriqueInfoCompetence : MonoBehaviour {
 
     public void Start()
     {
+        Debug.Log("Competénce : " + VerificationCompetence.CompetenceChoisie);
+
         // On attribue les valeurs de la compétence aux champs respectifs
         titreCompetence.text = competence.NomCompétence;
         competenceDetail.text = competence.Description;
