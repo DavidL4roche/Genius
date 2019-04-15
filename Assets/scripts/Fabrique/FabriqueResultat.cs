@@ -65,6 +65,8 @@ public class FabriqueResultat : MonoBehaviour {
             }
         }
     }
+
+    // Calcul des gains du joueur et affectation de ses stats
 	void AGagner () {
         for (int i = 0; i< mission.SesGains.Length; ++i)
         {
@@ -90,6 +92,8 @@ public class FabriqueResultat : MonoBehaviour {
             }
         }   
     }
+
+    // Ajoute la valeur dans la compétence du joueur
     void gainComp(int valeur)
     {
         for (int i = 0; i<mission.CompétencesRequises.Length; ++i)
@@ -111,6 +115,8 @@ public class FabriqueResultat : MonoBehaviour {
             }
         }
     }
+
+    // Augmente la ressource du joueur avec la valeur souhaitée
     void gainRess(string NomRess, int valeur)
     {
         for(int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
@@ -125,6 +131,8 @@ public class FabriqueResultat : MonoBehaviour {
             }
         }
     }
+
+    // Augmente la quantité d'un objet du joueur de +1
     void gainObjet()
     {
         for (int i = 0; i < mission.SesObjets.Length; ++i)
@@ -140,6 +148,8 @@ public class FabriqueResultat : MonoBehaviour {
             }
         }
     }
+
+    // Calcul des pertes du joueur et affectation de ses stats
     void APerdu()
     {
         //Ressources
