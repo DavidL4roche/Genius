@@ -14,11 +14,11 @@ public class FabriqueInfoCompetence : MonoBehaviour {
     public Text titreCompetence;
     public Text niveauActuel;
     public Text niveauRequis;
-    public TextMeshProUGUI competenceDetail;
+    public Text competenceDetail;
 
     public void Start()
     {
-        Debug.Log("Competénce : " + VerificationCompetence.CompetenceChoisie);
+        //Debug.Log("Competénce : " + VerificationCompetence.CompetenceChoisie);
 
         // On attribue les valeurs de la compétence aux champs respectifs
         titreCompetence.text = competence.NomCompétence;
