@@ -42,6 +42,8 @@ public class Joueur : MonoBehaviour {
         DateActuelMinute = System.DateTime.Now.Minute;
         DateActuelSeconde = System.DateTime.Now.Second;
     }
+
+    // Fais la mise à jour depuis la base de toutes les données importantes
     void majdepuisBDD()
     { 
         majRessources();
@@ -51,6 +53,7 @@ public class Joueur : MonoBehaviour {
         majTrophee();
         majArtefact();
     }
+
     void majObjet()
     {
         string requete = "SELECT IDItem, Quantity FROM item_pc WHERE IDPCharacter=" + IDJoueur;
@@ -69,6 +72,7 @@ public class Joueur : MonoBehaviour {
         }
         lien.Close();
     }
+
     void majComp()
     {
         string requete = "SELECT * FROM skill_pc WHERE IDPCharacter=" + IDJoueur;
@@ -112,6 +116,71 @@ public class Joueur : MonoBehaviour {
         }
         lien.Close();
     }
+
+    void majDiplome()
+    {
+        string requete = "SELECT * FROM diplom_pc WHERE IDPCharacter=" + IDJoueur;
+        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+        MySqlDataReader lien = commande.ExecuteReader();
+        while (lien.Read())
+        {
+            for (int i = 0; i < RessourcesBdD.listeDesDiplomes.Length; ++i)
+            {
+                if ((int)lien["IDDiplom"] == RessourcesBdD.listeDesDiplomes[i].IDDiplome)
+                {
+                    MesDiplomes[i] = true;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        lien.Close();
+    }
+    void majTrophee()
+    {
+        string requete = "SELECT * FROM trophy_pc WHERE IDPCharacter=" + IDJoueur;
+        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+        MySqlDataReader lien = commande.ExecuteReader();
+        while (lien.Read())
+        {
+            for (int i = 0; i < RessourcesBdD.listeDesTrophees.Length; ++i)
+            {
+                if ((int)lien["IDTrophy"] == RessourcesBdD.listeDesTrophees[i].IDTrophee)
+                {
+                    MesTrophees[i] = true;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        lien.Close();
+    }
+    void majArtefact()
+    {
+        string requete = "SELECT * FROM artefact_pc WHERE IDPCharacter=" + IDJoueur;
+        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+        MySqlDataReader lien = commande.ExecuteReader();
+        while (lien.Read())
+        {
+            for (int i = 0; i < RessourcesBdD.listeDesArtefacts.Length; ++i)
+            {
+                if ((int)lien["IDArtefact"] == RessourcesBdD.listeDesArtefacts[i].IDArtefact)
+                {
+                    MesArtefacts[i] = true;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        lien.Close();
+    }
+
     public static void transfertEnBase()
     {
         // Les compétences 
@@ -223,69 +292,6 @@ public class Joueur : MonoBehaviour {
             }
             
         }   
-    }
-    void majDiplome()
-    {
-        string requete = "SELECT * FROM diplom_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            for (int i = 0; i < RessourcesBdD.listeDesDiplomes.Length; ++i)
-            {
-                if ((int)lien["IDDiplom"] == RessourcesBdD.listeDesDiplomes[i].IDDiplome)
-                {
-                    MesDiplomes[i] = true;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-        }
-        lien.Close();
-    }
-    void majTrophee()
-    {
-        string requete = "SELECT * FROM trophy_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            for (int i = 0; i < RessourcesBdD.listeDesTrophees.Length; ++i)
-            {
-                if ((int)lien["IDTrophy"] == RessourcesBdD.listeDesTrophees[i].IDTrophee)
-                {
-                    MesTrophees[i] = true;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-        }
-        lien.Close();
-    }
-    void majArtefact()
-    {
-        string requete = "SELECT * FROM artefact_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            for (int i = 0; i < RessourcesBdD.listeDesArtefacts.Length; ++i)
-            {
-                if ((int)lien["IDArtefact"] == RessourcesBdD.listeDesArtefacts[i].IDArtefact)
-                {
-                    MesArtefacts[i] = true;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-        }
-        lien.Close();
     }
     void PendantAbsence()
     {
