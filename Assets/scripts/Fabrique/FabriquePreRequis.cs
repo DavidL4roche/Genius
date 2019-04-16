@@ -122,12 +122,15 @@ public class FabriquePreRequis : MonoBehaviour
                 break;
             }
         }
+
         if(Joueur.MesValeursCompetences[i] >= valeur)
         {
+            //Debug.Log("Joueur : " + Joueur.MesValeursCompetences[i] + " - Valeur demandée : " + valeur);
             ImageTuple.color = changeColor(true);
         }
         else
         {
+            //Debug.Log("Joueur : " + Joueur.MesValeursCompetences[i] + " - Valeur demandée : " + valeur);
             ImageTuple.color = changeColor(false);
             //nomTuple.color = new Color32(153,154,164,255);
             //Destroy(GameObject.Find("Lancer"));

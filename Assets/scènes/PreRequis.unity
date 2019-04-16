@@ -1995,7 +1995,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -2, y: 65.18}
   m_SizeDelta: {x: 0, y: 154.2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2743,7 +2743,7 @@ MonoBehaviour:
   Social: {fileID: 10289175}
   BlockComp: {fileID: 269140998}
   BlockRess: {fileID: 2111785992}
-  ImageTuple: {fileID: 114755735448332268, guid: 3d2a1f113e58acf4d9bd5b5da4b0114c,
+  ImageTuple: {fileID: 114755735448332268, guid: 16e369ce3fe11b8449e07bc68b22cee1,
     type: 2}
   BlockRecap: {fileID: 265222512}
   lancer: {fileID: 1016151169}

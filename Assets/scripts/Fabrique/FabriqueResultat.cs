@@ -13,6 +13,7 @@ public class FabriqueResultat : MonoBehaviour {
     public Text SliderTexte;
     public Image ImageTuple;
     GameObject instance;
+
     public void Start()
     {
         //mission.voirRessources();
@@ -21,7 +22,9 @@ public class FabriqueResultat : MonoBehaviour {
         blockdesprerequis();
         ValeurTupleTexte.color = new Color(1F, 1F, 1F,1F);
         ReloadMissions();
+        Joueur.transfertEnBase();
     }
+
     public void blockdesprerequis()
     {
         for (int i = 0; i < mission.SesGains.Length; ++i)

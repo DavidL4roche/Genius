@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 
 public class FabriqueInfoCompetence : MonoBehaviour {
-    Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie];
+    Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie-1];
     Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
 
     // Elements graphiques de la fenêtre
@@ -18,7 +18,12 @@ public class FabriqueInfoCompetence : MonoBehaviour {
 
     public void Start()
     {
-        //Debug.Log("Competénce : " + VerificationCompetence.CompetenceChoisie);
+        /*
+        foreach (Compétence c in mr.CompétencesRequises)
+        {
+            Debug.Log("Compétence " + c.ID + " : " + c.NomCompétence);
+        }
+        */
 
         // On attribue les valeurs de la compétence aux champs respectifs
         titreCompetence.text = competence.NomCompétence;
@@ -26,16 +31,24 @@ public class FabriqueInfoCompetence : MonoBehaviour {
 
         // On cherche la compétence correspondante dans les compétences requises de la mission
         int idComp = 0;
-        foreach (Compétence m in mr.CompétencesRequises)
+        for (; idComp < mr.CompétencesRequises.Length; ++idComp)
         {
-            if(m.ID == competence.ID)
+            if (mr.CompétencesRequises[idComp].ID == competence.ID)
             {
                 break;
             }
-            ++idComp;
         }
 
+        int idJoueur = 0;
+        for (; idJoueur < RessourcesBdD.listeDesCompétences.Length; ++idJoueur)
+        {
+            if (competence.ID == RessourcesBdD.listeDesCompétences[idJoueur].ID)
+            {
+                break;
+            }
+        }
+
+        niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
         niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
-        niveauActuel.text = Joueur.MesValeursCompetences[idComp] + "%";
     }
 }
