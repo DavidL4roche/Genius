@@ -9,6 +9,8 @@ public class FabriquePreRequisExam : MonoBehaviour {
     public GameObject Tuple;
     public Text nomTuple;
     public Text ValeurTupleTexte;
+    public Text Divert;
+    public Text Social;
     public Slider ValeurTupleSlider;
     public Text SliderTexte;
     public Image ImageTuple;
@@ -24,6 +26,7 @@ public class FabriquePreRequisExam : MonoBehaviour {
     {
         lancer.interactable = true;
         int decalage = 0;
+
         for (int i = 0; i < examen.CompétencesRequises.Length; ++i)
         {
             Text Texte = nomTuple;
@@ -48,6 +51,20 @@ public class FabriquePreRequisExam : MonoBehaviour {
                 Text Texte = nomTuple;
                 Texte.text = examen.SesPertes[i].NomPerte;
                 ValeurTupleTexte.gameObject.SetActive(true);
+
+                switch (examen.SesPertes[i].NomPerte)
+                {
+                    case "Divertissement":
+                        Divert.text = "-" + examen.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                        break;
+                    case "Social":
+                        Social.text = "-" + examen.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                        break;
+                    default:
+                        break;
+                }
+
+                /*
                 ValeurTupleSlider.gameObject.SetActive(false);
                 ValeurTupleTexte.text = examen.SesPertes[i].ValeurDeLaPerte.ToString();
                 verificationRessAvecJoueur(examen.SesPertes[i].ValeurDeLaPerte, examen.SesPertes[i].NomPerte);
@@ -55,6 +72,7 @@ public class FabriquePreRequisExam : MonoBehaviour {
                 instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
                 instance.transform.name = "Tuple " + (i + 1);
                 ++decalage;
+                */
             }
             else
             {
