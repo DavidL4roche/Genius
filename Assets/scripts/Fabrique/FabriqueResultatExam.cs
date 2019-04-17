@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FabriqueResultatExam : MonoBehaviour {
-    Examen examen = SpawnerExam.LesExam[VerificationExamen.ExamChoisi];
+    Examen examen = RessourcesBdD.listeDesExamens[VerificationExamen.ExamChoisi];
     public GameObject Tuple;
     public Text nomTuple;
     public Text ValeurTupleTexte;

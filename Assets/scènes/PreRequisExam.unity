@@ -1736,6 +1736,7 @@ GameObject:
   - component: {fileID: 1590769749}
   - component: {fileID: 1590769748}
   - component: {fileID: 1590769747}
+  - component: {fileID: 1590769750}
   m_Layer: 5
   m_Name: Lancer
   m_TagString: Untagged
@@ -1804,18 +1805,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Charger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Resultat
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 847509689}
         m_MethodName: Fermer
         m_Mode: 5
         m_Arguments:
@@ -1823,7 +1813,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PreRequis
+          m_StringArgument: PreRequisExam
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1590769750}
+        m_MethodName: Charger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ResultatExam
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1862,6 +1863,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1590769745}
   m_CullTransparentMesh: 0
+--- !u!114 &1590769750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1590769745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f967581a98870e6478d7d33b7c154915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1599327036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1950,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 847509689}
         m_MethodName: Fermer
         m_Mode: 5
         m_Arguments:
@@ -1946,7 +1958,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PreRequis
+          m_StringArgument: PreRequisExam
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2194,6 +2206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973570584}
   - component: {fileID: 1973570585}
+  - component: {fileID: 1973570586}
   m_Layer: 5
   m_Name: Retour
   m_TagString: Untagged
@@ -2260,7 +2273,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 847509689}
         m_MethodName: Fermer
         m_Mode: 5
         m_Arguments:
@@ -2271,7 +2284,7 @@ MonoBehaviour:
           m_StringArgument: PreRequis
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1973570586}
         m_MethodName: Charger
         m_Mode: 5
         m_Arguments:
@@ -2279,11 +2292,22 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Mission
+          m_StringArgument: Examen
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1973570586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973570583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f967581a98870e6478d7d33b7c154915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2032523516
 GameObject:
   m_ObjectHideFlags: 0
