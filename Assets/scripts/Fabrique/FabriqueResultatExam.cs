@@ -21,6 +21,7 @@ public class FabriqueResultatExam : MonoBehaviour {
         blockdesprerequis();
         ValeurTupleTexte.color = new Color(1F, 1F, 1F, 1F);
         ReloadMissions();
+        Joueur.transfertEnBase();
     }
     public void blockdesprerequis()
     {

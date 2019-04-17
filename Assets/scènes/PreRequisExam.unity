@@ -2064,7 +2064,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Co\xFBt de la mission"
+  m_Text: "Co\xFBt de l'examen"
 --- !u!222 &1668814670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2322,7 +2322,7 @@ GameObject:
   - component: {fileID: 2032523519}
   - component: {fileID: 2032523518}
   m_Layer: 5
-  m_Name: FenetrePrerequis2
+  m_Name: FenetrePrerequis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
