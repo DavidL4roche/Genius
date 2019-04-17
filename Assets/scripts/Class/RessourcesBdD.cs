@@ -813,12 +813,12 @@ public class RessourcesBdD : MonoBehaviour
         }
         else
         {
-            Debug.Log("Aucun PNJ jouable ?");
+            //Debug.Log("Aucun PNJ jouable ?");
         }
     }
     public static bool testSiPNJJouable()
     {
-        Debug.Log("Liste des diplomes : " + listeDesDiplomes);
+        //Debug.Log("Liste des diplomes : " + listeDesDiplomes);
         bool test = false;
 
         for (int i = 0; i < RessourcesBdD.listeDesDiplomes.Length; ++i)
@@ -833,7 +833,7 @@ public class RessourcesBdD : MonoBehaviour
             }
             else
             {
-                Debug.Log("Aucun diplome trouvé");
+                //Debug.Log("Aucun diplome trouvé");
             }
         }
         return test;

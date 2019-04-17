@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FabriquePreRequisExam : MonoBehaviour {
     //MissionRessources mission = ListeMissions.listeDeMissions[VerifQuartier.IDQuartier].missions[VerificationMission.MissionChoisi];
-    Examen examen = SpawnerExam.LesExam[VerificationExamen.ExamChoisi];
+    Examen examen = RessourcesBdD.listeDesExamens[VerificationExamen.ExamChoisi];
     public GameObject Tuple;
     public Text nomTuple;
     public Text ValeurTupleTexte;
