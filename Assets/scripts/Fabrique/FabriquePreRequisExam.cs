@@ -99,7 +99,6 @@ public class FabriquePreRequisExam : MonoBehaviour {
             ImageTuple.color = new Color(1F, 0F, 0F, 1F);
             Destroy(GameObject.Find("Lancer"));
             Destroy(GameObject.Find("Ameliorer"));
-
         }
     }
     public void verificationRessAvecJoueur(int valeurressource, string nomPrerequis)

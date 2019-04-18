@@ -4,26 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FabriqueExamen : MonoBehaviour {
-    //Examen examen = SpawnerExam.LesExam[VerificationExamen.ExamChoisi];
     Examen examen = RessourcesBdD.listeDesExamens[VerificationExamen.ExamChoisi];
     public GameObject Tuple;
     public Text NomExamen;
-    //public Text NomRang;
     public Text NomTuple;
+    public Text Divert;
+    public Text Social;
     public Text ValeurTupleTexte;
     public Image ImageTuple;
-    public RawImage ImageRang;
+    public Slider ValeurTupleSlider;
+    public Text SliderTexte;
+    public Button lancer;
     GameObject instance;
+
     private void Start()
     {
         Debug.Log("Nom examen : " + examen.NomExamen);
         //Debug.Log(VerificationMission.MissionChoisi);
         Gain.calculDesGains(examen);
         NomExamen.text = examen.NomExamen;
-        //NomRang.text = examen.RangExamen.NomRang;
-        ImageRang.texture = examen.RangExamen.texture;
-        blockdesgains();
+        //blockdesgains();
     }
+
     public void blockdesgains()
     {
         ImageTuple.color = new Color(1F, 1F, 1F, 1F);
