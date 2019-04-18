@@ -16,6 +16,7 @@ public class RessourcesBdD : MonoBehaviour
     public static Trophee[] listeDesTrophees;
     public static Examen[] listeDesExamens;
     public static ExamenPrésent[] listeDesExamensPrésents;
+    public static int[] listeDesExamensNonJouables;
     public static PNJ[] listeDesPNJ;
     public static Entreprise[] listeDesEntreprises;
     public static Mission[] listeDesMissions;
@@ -736,7 +737,6 @@ public class RessourcesBdD : MonoBehaviour
     }
     public static void recupExamJouable()
     {
-        listeDesExamensPrésents = new ExamenPrésent[0];
         string requete = "SELECT count(*) AS Total,IDExam from association_place_exam where IDExam NOT IN(Select IDExam from exam where IDDiplom IN (SELECT IDDiplom from diplom_pc where IDPCharacter = " + Joueur.IDJoueur + ")) AND(IDExam IN(Select IDExam from exam where IDDiplom IN(SELECT IDDiplom from association_diploms WHERE IDDiplomRequiered IN(SELECT IDDiplom from diplom_pc WHERE IDPCharacter = " + Joueur.IDJoueur + ")))OR IDExam IN(SELECT IDExam FROM exam WHERE IDDiplom NOT IN(Select IDDiplom from association_diploms) AND IDDiplom NOT IN(Select IDDiplom FROM diplom_pc WHERE IDPCharacter = " + Joueur.IDJoueur + "))); ";
         MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
         MySqlDataReader lien = commande.ExecuteReader();
@@ -759,6 +759,36 @@ public class RessourcesBdD : MonoBehaviour
         }
         lien.Close();
     }
+
+    public static void recupExamensNonJouables()
+    {
+        // On réinitialise notre tableau d'examens
+        listeDesExamensNonJouables = new int[0];
+
+        // Requête permettant de définir une taille à notre tableau d'examens jouables
+        string requete = "SELECT count(*) AS Total, IDExam FROM exam WHERE IDDiplom IN (SELECT IDDiplom FROM diplom_pc WHERE IDPCharacter = '" + Joueur.IDJoueur + "')";
+        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+        MySqlDataReader lien = commande.ExecuteReader();
+        while (lien.Read())
+        {
+            int total = Int32.Parse(lien["Total"].ToString());
+            listeDesExamensNonJouables = new int[(int)total];
+        }
+        lien.Close();
+
+        // Requête permettant de récupérer les ID des examens jouables (ceux pas déjà passés par le joueur)
+        requete = "SELECT IDExam FROM exam WHERE IDDiplom IN (SELECT IDDiplom FROM diplom_pc WHERE IDPCharacter = '" + Joueur.IDJoueur + "')";
+        commande = new MySqlCommand(requete, Connexion.connexion);
+        lien = commande.ExecuteReader();
+        int i = 0;
+        while (lien.Read())
+        {
+            listeDesExamensNonJouables[i] = (int)lien["IDExam"];
+            ++i;
+        }
+        lien.Close();
+    }
+
     public static void recupDivertJouable()
     {
         listeDesDivertissementsPrésents = new MissionDivertissementPrésente[0];
