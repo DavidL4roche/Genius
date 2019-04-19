@@ -9,6 +9,7 @@ public class FabriquePreRequisExam : MonoBehaviour
     Examen examen = RessourcesBdD.listeDesExamens[VerificationExamen.ExamChoisi];
     public GameObject Tuple;
     public Text nomTuple;
+    public GameObject IDGO;
     public Text ValeurTupleTexte;
     public Text Divert;
     public Text Social;
@@ -32,6 +33,8 @@ public class FabriquePreRequisExam : MonoBehaviour
         for (int i = 0; i < examen.CompétencesRequises.Length; ++i)
         {
             Text Texte = nomTuple;
+            Text ID = IDGO.GetComponentInChildren<Text>();
+            ID.text = examen.CompétencesRequises[i].ID.ToString();
             Texte.text = examen.CompétencesRequises[i].NomCompétence;
             ValeurTupleTexte.gameObject.SetActive(false);
             int valeurr = examen.CompétencesRequises[i].Valeur;
