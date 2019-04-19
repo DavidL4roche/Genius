@@ -46,7 +46,6 @@ public class FabriquePreRequis : MonoBehaviour
         int decalage = 0;
         for (int i = 0; i < mr.CompétencesRequises.Length; ++i)
         {
-            Debug.Log("On rentre dans la boucle " + decalage);
             Text Texte = nomTuple;
             Text ID = IDGO.GetComponentInChildren<Text>();
             ID.text = mr.CompétencesRequises[i].ID.ToString();

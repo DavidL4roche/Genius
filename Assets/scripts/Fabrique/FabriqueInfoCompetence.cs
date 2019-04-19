@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class FabriqueInfoCompetence : MonoBehaviour {
+public class FabriqueInfoCompetence : MonoBehaviour
+{
     Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie - 1];
+    Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
 
     // Elements graphiques de la fenêtre
     public Text titreCompetence;
@@ -21,60 +23,26 @@ public class FabriqueInfoCompetence : MonoBehaviour {
         titreCompetence.text = competence.NomCompétence;
         competenceDetail.text = competence.Description;
 
-        // Dans le cas où c'est une mission
-        if (VerificationMission.MissionChoisi != 0)
+        // On cherche la compétence correspondante dans les compétences requises de la mission
+        int idComp = 0;
+        for (; idComp < mr.CompétencesRequises.Length; ++idComp)
         {
-            Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
-
-            // On cherche la compétence correspondante dans les compétences requises de la mission
-            int idComp = 0;
-            for (; idComp < mr.CompétencesRequises.Length; ++idComp)
+            if (mr.CompétencesRequises[idComp].ID == competence.ID)
             {
-                if (mr.CompétencesRequises[idComp].ID == competence.ID)
-                {
-                    break;
-                }
+                break;
             }
-
-            int idJoueur = 0;
-            for (; idJoueur < RessourcesBdD.listeDesCompétences.Length; ++idJoueur)
-            {
-                if (competence.ID == RessourcesBdD.listeDesCompétences[idJoueur].ID)
-                {
-                    break;
-                }
-            }
-
-            niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
-            niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
         }
 
-        // Dans le cas où c'est un examen
-        else
+        int idJoueur = 0;
+        for (; idJoueur < RessourcesBdD.listeDesCompétences.Length; ++idJoueur)
         {
-            Examen examen = RessourcesBdD.listeDesExamens[VerificationExamen.ExamChoisi];
-
-            // On cherche la compétence correspondante dans les compétences requises de l'examen
-            int idComp = 0;
-            for (; idComp < examen.CompétencesRequises.Length; ++idComp)
+            if (competence.ID == RessourcesBdD.listeDesCompétences[idJoueur].ID)
             {
-                if (examen.CompétencesRequises[idComp].ID == competence.ID)
-                {
-                    break;
-                }
+                break;
             }
-
-            int idJoueur = 0;
-            for (; idJoueur < RessourcesBdD.listeDesCompétences.Length; ++idJoueur)
-            {
-                if (competence.ID == RessourcesBdD.listeDesCompétences[idJoueur].ID)
-                {
-                    break;
-                }
-            }
-
-            niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
-            niveauRequis.text = examen.CompétencesRequises[idComp].Valeur + "%";
         }
+
+        niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
+        niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
     }
 }
