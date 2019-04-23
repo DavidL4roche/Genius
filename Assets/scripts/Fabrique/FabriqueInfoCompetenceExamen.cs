@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class FabriqueInfoCompetence : MonoBehaviour
+public class FabriqueInfoCompetenceExamen : MonoBehaviour
 {
     //Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie - 1];
-    Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
+    Examen examen = RessourcesBdD.listeDesExamens[VerificationExamen.ExamChoisi];
 
     // Elements graphiques de la fenêtre
     public Text titreCompetence;
@@ -37,9 +37,9 @@ public class FabriqueInfoCompetence : MonoBehaviour
 
         // On cherche la compétence correspondante dans les compétences requises de la mission
         int idComp = 0;
-        for (; idComp < mr.CompétencesRequises.Length; ++idComp)
+        for (; idComp < examen.CompétencesRequises.Length; ++idComp)
         {
-            if (mr.CompétencesRequises[idComp].ID == competence.ID)
+            if (examen.CompétencesRequises[idComp].ID == competence.ID)
             {
                 break;
             }
@@ -55,6 +55,6 @@ public class FabriqueInfoCompetence : MonoBehaviour
         }
 
         niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
-        niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
+        niveauRequis.text = examen.CompétencesRequises[idComp].Valeur + "%";
     }
 }
