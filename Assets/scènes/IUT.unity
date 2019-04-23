@@ -867,9 +867,9 @@ GameObject:
   m_Component:
   - component: {fileID: 980451411}
   - component: {fileID: 980451415}
-  - component: {fileID: 980451414}
   - component: {fileID: 980451413}
   - component: {fileID: 980451412}
+  - component: {fileID: 980451414}
   m_Layer: 5
   m_Name: Retour2
   m_TagString: Untagged
@@ -944,7 +944,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 980451414}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -964,8 +964,7 @@ MonoBehaviour:
 --- !u!114 &980451414
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114063510214535932, guid: 1869c2f56e4ba4a4e9680b458a9ea530,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980451410}
   m_Enabled: 1

@@ -16,7 +16,7 @@ public class FabriquePreRequisExam : MonoBehaviour
     public GameObject ValeurBarre;
     public Image ImageTuple;
     public Button lancer;
-    public Image fondLancer;
+    public Text fondLancer;
     GameObject instance;
 
     public void Start()
@@ -35,7 +35,7 @@ public class FabriquePreRequisExam : MonoBehaviour
             Text Texte = nomTuple;
             Text ID = IDGO.GetComponentInChildren<Text>();
             ID.text = examen.CompétencesRequises[i].ID.ToString();
-            Texte.text = examen.CompétencesRequises[i].NomCompétence;
+            Texte.text = ">_" + truncateString(examen.CompétencesRequises[i].NomCompétence, 26);
             ValeurTupleTexte.gameObject.SetActive(false);
             int valeurr = examen.CompétencesRequises[i].Valeur;
             /*
@@ -133,6 +133,19 @@ public class FabriquePreRequisExam : MonoBehaviour
         {
             Color myColor = new Color32(55, 57, 75, 255);
             return myColor;
+        }
+    }
+
+    public string truncateString(string myStr, int trun)
+    {
+        // Si la chaine est supérieur en taille au paramètre trun alors on ajoute "..." à la fin
+        if (myStr.Length >= trun - 4)
+        {
+            return myStr.Substring(0, trun - 4) + ((myStr.Length - 1 >= trun) ? "..." : "");
+        }
+        else
+        {
+            return myStr;
         }
     }
 }
