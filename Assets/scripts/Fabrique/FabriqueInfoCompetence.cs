@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class FabriqueInfoCompetence : MonoBehaviour
 {
-    Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie - 1];
+    //Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie - 1];
     Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
 
     // Elements graphiques de la fenêtre
@@ -19,6 +19,18 @@ public class FabriqueInfoCompetence : MonoBehaviour
 
     public void Start()
     {
+        Compétence competence = null;
+
+        // On recherche la compétence cliquée
+        for (int i=0; i < RessourcesBdD.listeDesCompétences.Length; ++i)
+        {
+            if (RessourcesBdD.listeDesCompétences[i].ID == VerificationCompetence.CompetenceChoisie)
+            {
+                competence = RessourcesBdD.listeDesCompétences[i];
+                break;
+            }
+        }
+
         // On attribue les valeurs de la compétence aux champs respectifs
         titreCompetence.text = competence.NomCompétence;
         competenceDetail.text = competence.Description;
@@ -27,6 +39,7 @@ public class FabriqueInfoCompetence : MonoBehaviour
         int idComp = 0;
         for (; idComp < mr.CompétencesRequises.Length; ++idComp)
         {
+            Debug.Log("ID compétence requise : " + mr.CompétencesRequises[idComp].ID);
             if (mr.CompétencesRequises[idComp].ID == competence.ID)
             {
                 break;
