@@ -17,7 +17,13 @@ public class FabriquePreRequis : MonoBehaviour
     public GameObject BlockRess;
     public Image ImageTuple;
     public GameObject BlockRecap;
+
     public Button lancer;
+    public Text textLancer;
+    public RawImage Icone;
+    public RawImage IconeIA;
+    public Text IA;
+
     public Button ameliorer;
     GameObject instance;
 
@@ -42,6 +48,7 @@ public class FabriquePreRequis : MonoBehaviour
         lancer.interactable = true;
         ameliorer.interactable = true;
         BlockRecap.SetActive(false);
+        changeColorLancer(true);
 
         int decalage = 0;
         for (int i = 0; i < mr.CompétencesRequises.Length; ++i)
@@ -157,6 +164,7 @@ public class FabriquePreRequis : MonoBehaviour
                     ImageTuple.color = changeColor(false);
                     lancer.interactable = false;
                     ameliorer.interactable = false;
+                    changeColorLancer(false);
                 }
             }
         }   
@@ -187,6 +195,17 @@ public class FabriquePreRequis : MonoBehaviour
         else
         {
             return myStr;
+        }
+    }
+
+    public void changeColorLancer(bool boolean)
+    {
+        if (boolean)
+        {
+            textLancer.color = new Color32(43, 152, 26, 255);
+            Icone.color = new Color32(43, 152, 26, 255);
+            IconeIA.color = new Color32(43, 152, 26, 255);
+            IA.color = new Color32(43, 152, 26, 255);
         }
     }
 }

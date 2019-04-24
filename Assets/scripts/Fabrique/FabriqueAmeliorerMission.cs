@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class FabriqueAmeliorerMission : MonoBehaviour {
     Mission mission = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
-    Color vert = new Color(0.596F, 1.0F, 0.61F);
-    Color blanc = new Color(1.0F, 1.0F, 1.0F);
+    Color vert = new Color32(255, 255, 255, 255);
+    Color blanc = new Color32(255, 255, 255, 0);
     public Slider sliderConcentration;
     public void Start()
     {
@@ -33,7 +33,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
                 IARequis = 4000;
                 break;
         }
-        Debug.Log(bout.image.color + " et le vert " + vert);
+        //Debug.Log(bout.image.color + " et le vert " + vert);
         if (bout.image.color == vert)
         {
             bout.image.color = blanc;
@@ -69,7 +69,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         for (int i = 1; i < 4; ++i)
         {
             GameObject obj = GameObject.Find("Bouton" + i);
-            obj.GetComponent<Button>().image.color = new Color(255, 255, 255);
+            obj.GetComponent<Button>().image.color = blanc;
         }
         for (int i = 0; i < mission.SesPertes.Length; ++i)
         {
