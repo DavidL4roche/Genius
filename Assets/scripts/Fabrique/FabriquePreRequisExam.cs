@@ -26,6 +26,7 @@ public class FabriquePreRequisExam : MonoBehaviour
     }
     public void blockdesprerequis()
     {
+        fondLancer.color = new Color32(0, 0, 0, 255);
         lancer.interactable = true;
         ValeurBarre.SetActive(false);
         int decalage = 0;
@@ -104,7 +105,7 @@ public class FabriquePreRequisExam : MonoBehaviour
         {
             ImageTuple.color = changeColor(false);
             lancer.interactable = false;
-            fondLancer.color = new Color(255, 255, 255, 125);
+            fondLancer.color = new Color32(87, 87, 87, 255);
         }
     }
     public void verificationRessAvecJoueur(int valeurressource, string nomPrerequis)

@@ -12,9 +12,6 @@ public class FabriqueExamen : MonoBehaviour {
     public Text Social;
     public Text ValeurTupleTexte;
     public Image ImageTuple;
-    public Slider ValeurTupleSlider;
-    public Text SliderTexte;
-    public Button lancer;
     GameObject instance;
 
     private void Start()

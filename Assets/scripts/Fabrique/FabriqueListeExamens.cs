@@ -31,7 +31,7 @@ public class FabriqueListeExamens : MonoBehaviour {
             // Définition nom et id examen
             Examen examen = RessourcesBdD.listeDesExamens[i];
             Text Texte = nomExamen;
-            Texte.text = examen.NomExamen;
+            Texte.text = truncateString(examen.NomExamen, 15);
             Text examenID = examenIDGO.GetComponentInChildren<Text>();
             examenID.text = (examen.IDExamen-1).ToString();
 
@@ -50,6 +50,19 @@ public class FabriqueListeExamens : MonoBehaviour {
             instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
             instance.transform.parent = GameObject.Find("ListeExamens").transform;
             instance.transform.name = "TupleExamen" + (i + 1);
+        }
+    }
+
+    public string truncateString(string myStr, int trun)
+    {
+        // Si la chaine est supérieur en taille au paramètre trun alors on ajoute "..." à la fin
+        if (myStr.Length >= trun - 4)
+        {
+            return myStr.Substring(0, trun - 4) + ((myStr.Length - 1 >= trun) ? "..." : "");
+        }
+        else
+        {
+            return myStr;
         }
     }
 }
