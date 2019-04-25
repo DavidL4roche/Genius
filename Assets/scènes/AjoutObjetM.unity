@@ -432,9 +432,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listede4: {fileID: 1282916232647532, guid: 57b00a61692b4924a84f1cef70f8553e, type: 2}
-  objet: {fileID: 1038529329711572, guid: cedc1095f8143db42af92e5ee01c67e6, type: 2}
-  idobjet: {fileID: 114607679968235964, guid: cedc1095f8143db42af92e5ee01c67e6, type: 2}
-  quantite: {fileID: 114256332865588146, guid: cedc1095f8143db42af92e5ee01c67e6, type: 2}
+  objet: {fileID: 1038529329711572, guid: c282aa20563c0a041bdc1f1357540390, type: 2}
+  idobjet: {fileID: 114607679968235964, guid: c282aa20563c0a041bdc1f1357540390, type: 2}
+  quantite: {fileID: 114256332865588146, guid: c282aa20563c0a041bdc1f1357540390, type: 2}
   VerticalLayout: {fileID: 1967340496}
 --- !u!1 &1339941438
 GameObject:
@@ -725,7 +725,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.2}
   m_AnchoredPosition: {x: 0, y: 103.16}
   m_SizeDelta: {x: 7.53, y: 206.32}
   m_Pivot: {x: 0.5, y: 0.5}

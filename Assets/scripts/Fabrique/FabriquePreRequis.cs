@@ -16,7 +16,11 @@ public class FabriquePreRequis : MonoBehaviour
     public GameObject BlockComp;
     public GameObject BlockRess;
     public Image ImageTuple;
+
     public GameObject BlockRecap;
+    public Text IDObjet;
+    public Text Multi;
+    public Text Concentration;
 
     public Button lancer;
     public Text textLancer;
@@ -25,12 +29,15 @@ public class FabriquePreRequis : MonoBehaviour
     public Text IA;
 
     public Button ameliorer;
+    public Image fondAmeliorer;
+
     GameObject instance;
 
     public void Start()
     {
         Perte.calculDesPertes(mr);
         blockdesprerequis();
+
         /*
         // Si l'objet competence (bouton dans la liste) est trouvé
         if (competence != null)
@@ -45,10 +52,8 @@ public class FabriquePreRequis : MonoBehaviour
     // Permet de remplir le bloc des prérequis
     public void blockdesprerequis()
     {
-        lancer.interactable = true;
-        ameliorer.interactable = true;
-        BlockRecap.SetActive(false);
-        changeColorLancer(true);
+        // On rend les éléments de lancement de mission actifs
+        rendreActifLancer(true);
 
         int decalage = 0;
         for (int i = 0; i < mr.CompétencesRequises.Length; ++i)
@@ -116,6 +121,20 @@ public class FabriquePreRequis : MonoBehaviour
                 continue;
             }
         }
+
+        Multi.text = "x" + FicheAmélioration.Optimisation.ToString();
+        Concentration.text = (FicheAmélioration.Concentration) ? "On" : "Off";
+
+        //Objet
+        if (FicheAmélioration.IDObjetUtilise == 0)
+        {
+            IDObjet.text = "X";
+        }
+        else
+        {
+            IDObjet.text = FicheAmélioration.IDObjetUtilise.ToString();
+        }
+
     }
 
     // Vérifie les compétences du joueur avec celles demandées et affiche le tuple avec la couleur correspondante
@@ -132,19 +151,12 @@ public class FabriquePreRequis : MonoBehaviour
 
         if(Joueur.MesValeursCompetences[i] >= valeur)
         {
-            //Debug.Log("Joueur : " + Joueur.MesValeursCompetences[i] + " - Valeur demandée : " + valeur);
             ImageTuple.color = changeColor(true);
         }
         else
         {
-            //Debug.Log("Joueur : " + Joueur.MesValeursCompetences[i] + " - Valeur demandée : " + valeur);
-            ImageTuple.color = changeColor(false);
-            //nomTuple.color = new Color32(153,154,164,255);
-            //Destroy(GameObject.Find("Lancer"));
-            //Destroy(GameObject.Find("Ameliorer"));
-            lancer.interactable = false;
-            ameliorer.interactable = false;
-            // TODO : Changer les couleurs des boutons pour montrer qu'ils ne sont pas cliquables
+            // On rend les éléments de lancement de mission inactifs
+            rendreActifLancer(false);
         }
     }
 
@@ -161,10 +173,8 @@ public class FabriquePreRequis : MonoBehaviour
                 }
                 else
                 {
-                    ImageTuple.color = changeColor(false);
-                    lancer.interactable = false;
-                    ameliorer.interactable = false;
-                    changeColorLancer(false);
+                    // On rend les éléments de lancement de mission inactifs
+                    rendreActifLancer(false);
                 }
             }
         }   
@@ -202,10 +212,29 @@ public class FabriquePreRequis : MonoBehaviour
     {
         if (boolean)
         {
-            textLancer.color = new Color32(43, 152, 26, 255);
-            Icone.color = new Color32(43, 152, 26, 255);
-            IconeIA.color = new Color32(43, 152, 26, 255);
-            IA.color = new Color32(43, 152, 26, 255);
+            Color32 vert = new Color32(32, 34, 52, 255);
+            textLancer.color = vert;
+            Icone.color = vert;
+            IconeIA.color = vert;
+            IA.color = vert;
         }
+        else
+        {
+            Color32 black = new Color32(147, 147, 147, 255);
+            textLancer.color = black;
+            Icone.color = black;
+            IconeIA.color = black;
+            IA.color = black;
+        }
+    }
+
+    public void rendreActifLancer(bool boolean)
+    {
+        ImageTuple.color = changeColor(boolean);
+        lancer.interactable = boolean;
+        BlockRecap.SetActive(boolean);
+        changeColorLancer(boolean);
+        ameliorer.interactable = boolean;
+        fondAmeliorer.color = changeColor(boolean);
     }
 }

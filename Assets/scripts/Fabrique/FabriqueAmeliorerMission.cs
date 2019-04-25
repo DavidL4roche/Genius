@@ -9,11 +9,14 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
     Mission mission = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
     Color vert = new Color32(255, 255, 255, 255);
     Color blanc = new Color32(255, 255, 255, 0);
+
     public Slider sliderConcentration;
+
     public void Start()
     {
         VerificationAmelioration();
     }
+
     public void cliqueGainComp(Button bout)
     {
         int IARequis=0;
@@ -24,15 +27,18 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
                 Valeur = 1.1F;
                 IARequis = 500;
                 break;
+
             case "Bouton2":
                 Valeur = 1.2F;
                 IARequis = 1500;
                 break;
+
             case "Bouton3":
                 Valeur = 1.5F;
                 IARequis = 4000;
                 break;
         }
+
         //Debug.Log(bout.image.color + " et le vert " + vert);
         if (bout.image.color == vert)
         {
@@ -120,7 +126,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         }
 
         //concentration
-        if (FicheAmélioration.Concentration == 1)
+        if (FicheAmélioration.Concentration == false)
         {
             sliderConcentration.value = 0;
         }
@@ -128,15 +134,18 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         {
             sliderConcentration.value = 1;
         }
+
+        boutonOnOff();
+
         //Objet
         if  (FicheAmélioration.IDObjetUtilise == 0)
         {
-            GameObject.Find("BoutonObjet").GetComponent<Button>().image.color = blanc;
+            GameObject.Find("BoutonObjet").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
             GameObject.Find("TexteObjet").GetComponent<Text>().text = "X";
         }
         else
         {
-            GameObject.Find("BoutonObjet").GetComponent<Button>().image.color = vert;
+            GameObject.Find("BoutonObjet").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
             GameObject.Find("TexteObjet").GetComponent<Text>().text = FicheAmélioration.IDObjetUtilise.ToString();
         }
     }
@@ -144,15 +153,15 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
     {
         if(sliderConcentration.value == 1)
         {
-            sliderConcentration.value = 0;
-            FicheAmélioration.Concentration = 1;
+            //sliderConcentration.value = 0;
+            FicheAmélioration.Concentration = false;
             Gain.calculDesGains(mission);
             Perte.calculDesPertes(mission);
         }
         else
         {
-            sliderConcentration.value = 1;
-            FicheAmélioration.Concentration = 2;
+            //sliderConcentration.value = 1;
+            FicheAmélioration.Concentration = true;
             Gain.calculDesGains(mission);
             Perte.calculDesPertes(mission);
         }

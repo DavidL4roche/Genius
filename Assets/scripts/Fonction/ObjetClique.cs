@@ -15,7 +15,7 @@ public class ObjetClique : MonoBehaviour {
             objetid = "0";
         }
         //mission.IDObjetUtilise = objetid;
-        Debug.Log("Tu as cliqué sur l'objet n." + objetid);
+        //Debug.Log("Tu as cliqué sur l'objet n." + objetid);
         FicheAmélioration.IDObjetUtilise = Int32.Parse(objetid);
         FicheAmélioration.attribuerBonusObjets();
         Gain.calculDesGains(mission);

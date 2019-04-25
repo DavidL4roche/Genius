@@ -33,6 +33,12 @@ public class FabriqueMission : MonoBehaviour {
         //Debug.Log("Métier : " + mr.MetierAssocie);
         ValeurMetier.text = mr.MetierAssocie;
         blockdesgains();
+
+        // On rend les éléments de lancement de mission nuls
+        FicheAmélioration.Optimisation = 1.0F;
+        FicheAmélioration.IDObjetUtilise = 0;
+        FicheAmélioration.Concentration = false;
+
     }
     public void blockdesgains()
     {
