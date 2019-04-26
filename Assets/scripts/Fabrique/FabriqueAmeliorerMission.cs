@@ -105,6 +105,8 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         }
         return Ok;
     }
+
+    // On change les champs de la fenêtre en fonction des valeurs d'amélioration déjà saisies
     void VerificationAmelioration()
     {
         //Boutons compétence
@@ -120,11 +122,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         {
             GameObject.Find("Bouton3").GetComponent<Button>().image.color = vert;
         }
-        else
-        {
-
-        }
-
+        
         //concentration
         if (FicheAmélioration.Concentration == false)
         {
@@ -134,8 +132,6 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         {
             sliderConcentration.value = 1;
         }
-
-        boutonOnOff();
 
         //Objet
         if  (FicheAmélioration.IDObjetUtilise == 0)
@@ -149,19 +145,20 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
             GameObject.Find("TexteObjet").GetComponent<Text>().text = FicheAmélioration.IDObjetUtilise.ToString();
         }
     }
+
     public void boutonOnOff()
     {
         if(sliderConcentration.value == 1)
         {
             //sliderConcentration.value = 0;
-            FicheAmélioration.Concentration = false;
+            FicheAmélioration.Concentration = true;
             Gain.calculDesGains(mission);
             Perte.calculDesPertes(mission);
         }
         else
         {
             //sliderConcentration.value = 1;
-            FicheAmélioration.Concentration = true;
+            FicheAmélioration.Concentration = false;
             Gain.calculDesGains(mission);
             Perte.calculDesPertes(mission);
         }
