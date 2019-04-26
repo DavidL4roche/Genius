@@ -6,22 +6,31 @@ using UnityEngine.UI;
 public class FabriqueMission : MonoBehaviour {
     //MissionRessources mission = ListeMissions.listeDeMissions[VerifQuartier.IDQuartier].missions[VerificationMission.MissionChoisi];
     Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
+
+    public Text NomTemps;
+    public Text TitreMission;
+    public Text NomRang;
+    public Text NomEntreprise;
+    public Text ValeurMetier;
+    public RawImage ImageRang;
+
+    public Text GainsOrcus;
+    public Text GainsIA;
+
+    /*
     public GameObject TupleObjet;
     public Text TupleNomObjet;
     public Text TupleQuantiteObjet;
     public RawImage IconeTupleObjet;
     public GameObject Tuple;
-    public Text NomTemps;
-    public Text TitreMission;
-    public Text NomRang;
-    public Text NomEntreprise;
     public Text NomTuple;
     public Text ValeurTupleTexte;
-    public Text ValeurMetier;
     public Slider ValeurTupleSlider;
     public Image ImageTuple;
-    public RawImage ImageRang;
+    */
+
     GameObject instance;
+
     private void Start()
     {
         Gain.calculDesGains(mr);
@@ -34,7 +43,7 @@ public class FabriqueMission : MonoBehaviour {
         ValeurMetier.text = mr.MetierAssocie;
         blockdesgains();
 
-        // On rend les éléments de lancement de mission nuls
+        // On rend les éléments d'amélioration de mission (fenêtre suivante : prérequis) nuls
         FicheAmélioration.Optimisation = 1.0F;
         FicheAmélioration.IDObjetUtilise = 0;
         FicheAmélioration.Concentration = false;
@@ -42,9 +51,22 @@ public class FabriqueMission : MonoBehaviour {
     }
     public void blockdesgains()
     {
-        ImageTuple.color = new Color(1F, 1F, 1F, 1F);
+        //ImageTuple.color = new Color(1F, 1F, 1F, 1F);
         for (int i = 0; i< mr.SesGains.Length; ++i)
         {
+            switch(mr.SesGains[i].NomGain)
+            {
+                case "IA":
+                    GainsIA.text = mr.SesGains[i].ValeurDuGain.ToString();
+                    break;
+                case "Orcus":
+                    GainsOrcus.text = mr.SesGains[i].ValeurDuGain.ToString();
+                    break;
+                default:
+                    break;
+            }
+
+            /*
             if (mr.SesGains[i].ValeurDuGain > 0 && mr.SesGains[i].NomGain !="Objet")
             {
                 ValeurTupleSlider.gameObject.SetActive(false);
@@ -62,7 +84,10 @@ public class FabriqueMission : MonoBehaviour {
                     DestroyImmediate(button);
                 }
             }     
+            */
         }
+
+        /*
         for ( int i = 0;i< mr.SesObjets.Length;++i)
         {
             ValeurTupleSlider.gameObject.SetActive(false);
@@ -80,5 +105,6 @@ public class FabriqueMission : MonoBehaviour {
                 DestroyImmediate(button);
             }
         }
+        */
     }
 }
