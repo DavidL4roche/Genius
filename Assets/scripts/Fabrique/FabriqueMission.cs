@@ -7,12 +7,12 @@ public class FabriqueMission : MonoBehaviour {
     //MissionRessources mission = ListeMissions.listeDeMissions[VerifQuartier.IDQuartier].missions[VerificationMission.MissionChoisi];
     Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
 
-    public Text NomTemps;
     public Text TitreMission;
     public Text NomRang;
-    public Text NomEntreprise;
-    public Text ValeurMetier;
     public RawImage ImageRang;
+    public Text NomEntreprise;
+    public Text NomTemps;
+    public Text ValeurMetier;
 
     public Text GainsOrcus;
     public Text GainsIA;

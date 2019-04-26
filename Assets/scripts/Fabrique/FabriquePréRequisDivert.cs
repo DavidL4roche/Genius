@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class FabriquePréRequisDivert : MonoBehaviour {
     //MissionRessources mission = ListeMissions.listeDeMissions[VerifQuartier.IDQuartier].missions[VerificationMission.MissionChoisi];
     MissionDivertissement divert = SpawnerMission.SonDivertissement;
-    public GameObject Tuple;
-    public Text nomTuple;
-    public Text ValeurTupleTexte;
-    public Slider ValeurTupleSlider;
-    public Text SliderTexte;
-    public GameObject BlockRess;
-    public Image ImageTuple;
+
+    public Text coutIA;
+    
     public Button lancer;
+    public Text textLancer;
+    public RawImage Icone;
+    public RawImage IconeIA;
+    public Text IA;
+
     GameObject instance;
 
     public void Start()
@@ -27,52 +28,69 @@ public class FabriquePréRequisDivert : MonoBehaviour {
         for (int i = 0; i < divert.SesPertes.Length; ++i)
         {
             //Debug.Log(mission.tabprerequis[i] + " = " + mission.tabValeurPrerequis[i]);
-            if (divert.SesPertes[i].ValeurDeLaPerte != 0 && divert.SesPertes[i].NomPerte =="Orcus")
+            if (divert.SesPertes[i].NomPerte =="Orcus")
             {
-                Text Texte = nomTuple;
-                Texte.text = divert.SesPertes[i].NomPerte;
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = divert.SesPertes[i].ValeurDeLaPerte.ToString();
-                verificationRessAvecJoueur(divert.SesPertes[i].ValeurDeLaPerte, divert.SesPertes[i].NomPerte);
-                instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
-                instance.transform.parent = GameObject.Find("VerticalLayout").transform;
-                instance.transform.name = "Tuple " + (i + 1);
-            }
-            else if (divert.SesPertes[i].NomPerte == "Orcus")
-            {
-                Text Texte = nomTuple;
-                Texte.text = divert.SesPertes[i].NomPerte;
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = divert.SesPertes[i].ValeurDeLaPerte.ToString();
-                verificationRessAvecJoueur(divert.SesPertes[i].ValeurDeLaPerte, divert.SesPertes[i].NomPerte);
-                instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
-                instance.transform.parent = GameObject.Find("VerticalLayout").transform;
-                instance.transform.name = "Tuple " + (i + 1);
-            }
-            else
-            {
-                continue;
+                coutIA.text = ((divert.SesPertes[i].ValeurDeLaPerte > 0) ? "-" : "") + divert.SesPertes[i].ValeurDeLaPerte.ToString();
+                verificationRessAvecJoueur(divert.SesPertes[i].ValeurDeLaPerte, "Orcus");
             }
         }
     }
+
+    // Vérifie les ressources du joueur avec celles demandées et affiche le tuple avec la couleur correspondante
     public void verificationRessAvecJoueur(int valeurressource, string nomPrerequis)
     {
         for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
         {
             if (nomPrerequis == RessourcesBdD.listeDesRessources[i].NomRessource)
             {
-                if (Joueur.MesRessources[i] >= valeurressource)
+                Debug.Log("Orcus Joueur : " + Joueur.MesRessources[i]);
+                Debug.Log("Orcus Divert : " + valeurressource);
+
+                if (Joueur.MesRessources[i] < valeurressource)
                 {
-                    ImageTuple.color = new Color(0F, 1F, 0F, 1F);
-                }
-                else
-                {
-                    ImageTuple.color = new Color(1F, 0F, 0F, 1F);
-                    lancer.interactable = false;
+                    // On rend les éléments de lancement de mission inactifs
+                    rendreActifLancer(false);
                 }
             }
         }
+    }
+
+    public string truncateString(string myStr, int trun)
+    {
+        // Si la chaine est supérieur en taille au paramètre trun alors on ajoute "..." à la fin
+        if (myStr.Length >= trun - 4)
+        {
+            return myStr.Substring(0, trun - 4) + ((myStr.Length - 1 >= trun) ? "..." : "");
+        }
+        else
+        {
+            return myStr;
+        }
+    }
+
+    public void changeColorLancer(bool boolean)
+    {
+        if (boolean)
+        {
+            Color32 vert = new Color32(32, 34, 52, 255);
+            textLancer.color = vert;
+            Icone.color = vert;
+            IconeIA.color = vert;
+            IA.color = vert;
+        }
+        else
+        {
+            Color32 black = new Color32(147, 147, 147, 255);
+            textLancer.color = black;
+            Icone.color = black;
+            IconeIA.color = black;
+            IA.color = black;
+        }
+    }
+
+    public void rendreActifLancer(bool boolean)
+    {
+        lancer.interactable = boolean;
+        changeColorLancer(boolean);
     }
 }
