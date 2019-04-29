@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FicheAmélioration : MonoBehaviour {
-    public static int Concentration = 1;
+    public static bool Concentration = false;
     public static int IDObjetUtilise = 0;
     public static int BonusOOrcus = 0;
     public static int BonusODuree = 0;

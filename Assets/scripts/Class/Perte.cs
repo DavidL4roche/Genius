@@ -44,7 +44,7 @@ public class Perte : MonoBehaviour {
     }
     static int calculPerteSocial(Mission mission)
     {
-        return (1 - mission.MissionEntreprise.TailleEntreprise / 6) * mission.SaDurée.ValeurDuree * FicheAmélioration.Concentration * mission.NiveauDeLaMission / 100;
+        return (1 - mission.MissionEntreprise.TailleEntreprise / 6) * mission.SaDurée.ValeurDuree * ((FicheAmélioration.Concentration) ? 2 : 1) * mission.NiveauDeLaMission / 100;
     }
     static int calculPerteSocial(Examen ex)
     {
@@ -94,7 +94,7 @@ public class Perte : MonoBehaviour {
     }
     static int calculPerteDivertissement(Mission mission)
     {
-        return (int)(mission.SaDurée.ValeurDuree * FicheAmélioration.Concentration / (1 - (float)mission.NiveauDeLaMission / (600F)));
+        return (int)(mission.SaDurée.ValeurDuree * ((FicheAmélioration.Concentration) ? 2 : 1) / (1 - (float)mission.NiveauDeLaMission / (600F)));
     }
     public static void calculDesPertes(Examen examen)
     {
