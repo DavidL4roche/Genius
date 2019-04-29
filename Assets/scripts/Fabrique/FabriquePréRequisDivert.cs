@@ -43,9 +43,6 @@ public class FabriquePréRequisDivert : MonoBehaviour {
         {
             if (nomPrerequis == RessourcesBdD.listeDesRessources[i].NomRessource)
             {
-                Debug.Log("Orcus Joueur : " + Joueur.MesRessources[i]);
-                Debug.Log("Orcus Divert : " + valeurressource);
-
                 if (Joueur.MesRessources[i] < valeurressource)
                 {
                     // On rend les éléments de lancement de mission inactifs

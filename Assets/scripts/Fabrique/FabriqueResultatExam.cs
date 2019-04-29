@@ -6,12 +6,11 @@ using UnityEngine.UI;
 
 public class FabriqueResultatExam : MonoBehaviour {
     Examen examen = RessourcesBdD.listeDesExamens[VerificationExamen.ExamChoisi];
-    public GameObject Tuple;
-    public Text nomTuple;
-    public Text ValeurTupleTexte;
-    public Slider ValeurTupleSlider;
-    public Text SliderTexte;
-    public Image ImageTuple;
+
+    public Text Diplome;
+    public Text perteDivert;
+    public Text perteSocial;
+
     GameObject instance;
     public void Start()
     {
@@ -19,7 +18,6 @@ public class FabriqueResultatExam : MonoBehaviour {
         AGagner();
         APerdu();
         blockdesprerequis();
-        ValeurTupleTexte.color = new Color(1F, 1F, 1F, 1F);
         ReloadMissions();
         Joueur.transfertEnBase();
     }
@@ -27,42 +25,25 @@ public class FabriqueResultatExam : MonoBehaviour {
     {
         for (int i = 0; i < examen.SesGains.Length; ++i)
         {
-            if (examen.SesGains[i].ValeurDuGain != 0)
+            if (examen.SesGains[i].NomGain == "Diplome")
             {
-                Text Texte = nomTuple;
-                Texte.text = examen.SesGains[i].NomGain;
-                ValeurTupleTexte.color = new Color(0F, 1F, 0F, 1F);
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = "+" + examen.SesGains[i].ValeurDuGain.ToString();
-                ImageTuple.color = new Color(0F, 1F, 0F, 1F);
-                instance = Instantiate(Tuple);
-                instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
-                instance.transform.name = "Tuple " + (i + 1);
+                Diplome.text = examen.NomExamen;
             }
-            else
+            else if (examen.SesGains[i].NomGain == "Compétence")
             {
-                continue;
+                //Debug.Log("Compétence !");
+                //Diplome.text = "+" + examen.SesGains[i].ValeurDuGain.ToString();
             }
         }
         for (int i = 0; i < examen.SesPertes.Length; ++i)
         {
-            if (examen.SesPertes[i].ValeurDeLaPerte != 0)
+            if (examen.SesPertes[i].NomPerte == "Divertissement")
             {
-                Text Texte = nomTuple;
-                Texte.text = examen.SesPertes[i].NomPerte;
-                ValeurTupleTexte.color = new Color(1F, 0F, 0F, 1F);
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = "-" + examen.SesPertes[i].ValeurDeLaPerte.ToString();
-                ImageTuple.color = new Color(1F, 0F, 0F, 1F);
-                instance = Instantiate(Tuple);
-                instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
-                instance.transform.name = "Tuple " + (i + 1);
+                perteDivert.text = "-" + examen.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
             }
-            else
+            else if (examen.SesPertes[i].NomPerte == "Social")
             {
-                continue;
+                perteSocial.text = "-" + examen.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
             }
         }
     }
