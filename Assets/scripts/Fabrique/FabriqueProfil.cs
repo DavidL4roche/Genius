@@ -4,26 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FabriqueProfil : MonoBehaviour {
-    public Button Artefact;
+    public Button ArtefactOrcus;
+    public Button ArtefactIA;
+    public Button ArtefactObjet;
+    public Button ArtefactBoutique;
+    public Button ArtefactSocial;
+    public Button ArtefactDivertissement;
+
     public Text NomJoueur;
-    public Button instance;
-    public int totalArtefact;
+
     public void Start()
     {
-        totalArtefact = 0;
+        int totalArtefact = 0;
         NomJoueur.text = Joueur.NomJoueur;
         for (int i = 0; i < RessourcesBdD.listeDesArtefactsJouables.Length; ++i)
         {
-            instance = Instantiate(Artefact, new Vector3(0, 0, 0), Artefact.transform.rotation);
-            instance.transform.name = "Artefact n." + i;
-            if (totalArtefact < 4)
+            switch(RessourcesBdD.listeDesArtefactsJouables[i].IDArtefact)
             {
-                instance.transform.parent = GameObject.Find("Ranger1").transform;
-                ++totalArtefact;
-            }
-            else
-            {
-                instance.transform.parent = GameObject.Find("Ranger2").transform;
+                case 1:
+                    ArtefactOrcus.interactable = true;
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                default:
+                    break;
+
             }
         }
     }
