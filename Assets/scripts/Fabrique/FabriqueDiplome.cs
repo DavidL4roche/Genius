@@ -19,7 +19,7 @@ public class FabriqueDiplome : MonoBehaviour
         {
             if (Joueur.MesDiplomes[i] == true)
             {
-                TexteDuNom.text = RessourcesBdD.listeDesDiplomes[i].NomDiplome;
+                TexteDuNom.text = RessourcesBdD.listeDesDiplomes[i].NomDiplome.ToUpper();
                 instance = Instantiate(LeTuple, new Vector3(0.0F, 0.0F, 0.0F), LeTuple.transform.rotation);
                 instance.transform.parent = GameObject.Find("VerticalLayout").transform;
                 instance.transform.name = "Tuple " + (i + 1);
