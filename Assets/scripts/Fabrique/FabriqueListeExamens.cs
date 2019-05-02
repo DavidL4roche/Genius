@@ -42,7 +42,7 @@ public class FabriqueListeExamens : MonoBehaviour {
                 if (id == examen.IDExamen)
                 {
                     examenIDGO.interactable = false;
-                    imageTuple.color = new Color32(43, 152, 26, 255);
+                    imageTuple.color = new Color32(6, 212, 168, 255);
                 }
             }
 

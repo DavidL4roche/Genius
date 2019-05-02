@@ -52,7 +52,7 @@ public class FabriqueCompétence : MonoBehaviour {
 
                 if (RessourcesBdD.listeDesExamens[i].CompétencesRequises[valComp].Valeur < Joueur.MesValeursCompetences[valJoueur])
                 {
-                    colorTupleComp.color = new Color32(43, 152, 26, 255);
+                    colorTupleComp.color = new Color32(6, 212, 168, 255);
                 }
                 else
                 {
