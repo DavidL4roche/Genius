@@ -5,25 +5,47 @@ using UnityEngine.UI;
 
 public class ListeObjetFicheP: MonoBehaviour
 {
-    public GameObject LeTuple;
-    public RawImage Icone;
-    public Text LeTexteQuantite;
-    public Text TexteDuNom;
-    GameObject instance;
+    public GameObject Tuple;
+    public Text NomObjet;
+    public Text Quantite;
 
+    public GameObject logoPuzzle;
+    public GameObject FondQuantite;
+
+    GameObject instance;
 
     private void Start()
     {
         for (int i = 0; i < RessourcesBdD.listeDesObjets.Length; ++i)
         {
+            NomObjet.text = RessourcesBdD.listeDesObjets[i].Nom;
+            logoPuzzle.SetActive(true);
+            FondQuantite.SetActive(true);
+
             if (Joueur.MesObjets[i] > 0)
             {
-                TexteDuNom.text = RessourcesBdD.listeDesObjets[i].Nom;
-                LeTexteQuantite.text = Joueur.MesObjets[i].ToString();
-                instance = Instantiate(LeTuple, new Vector3(0.0F, 0.0F, 0.0F), LeTuple.transform.rotation);
+                Quantite.text = Joueur.MesObjets[i].ToString();
+                instance = Instantiate(Tuple, new Vector3(0.0F, 0.0F, 0.0F), Tuple.transform.rotation);
                 instance.transform.parent = GameObject.Find("VerticalLayout").transform;
                 instance.transform.name = "Tuple " + (i + 1);
-            }   
+            }
+        }
+
+        for (int i = 0; i < RessourcesBdD.listeDesObjets.Length; ++i)
+        {
+            NomObjet.text = RessourcesBdD.listeDesObjets[i].Nom;
+            logoPuzzle.SetActive(true);
+            FondQuantite.SetActive(true);
+
+            if (Joueur.MesObjets[i] == 0)
+            {
+                Quantite.text = "";
+                logoPuzzle.SetActive(false);
+                FondQuantite.SetActive(false);
+                instance = Instantiate(Tuple, new Vector3(0.0F, 0.0F, 0.0F), Tuple.transform.rotation);
+                instance.transform.parent = GameObject.Find("VerticalLayout").transform;
+                instance.transform.name = "Tuple " + (i + 1);
+            }
         }
     }
 }
