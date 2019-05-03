@@ -28,6 +28,5 @@ public class ChargerLieu : MonoBehaviour {
     {
         RessourcesBdD.listeDesArtefactsJouables = new Artefact[0];
         RessourcesBdD.RecupArtefactJouable();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 }
