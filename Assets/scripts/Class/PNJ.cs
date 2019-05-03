@@ -35,7 +35,7 @@ public class PNJ : MonoBehaviour
     public void associerSonQuartier(int id)
     {
         SonQuartier = Quartier.trouverSonQuartier(id);
-        voirPNJ();
+        //voirPNJ();
     }
     public void voirPNJ()
     {

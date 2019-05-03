@@ -78,7 +78,7 @@ if ($result = mysqli_query($connexion, $requete)) {
     echoDebug("La requête a échouée");
 }
 
-// Génération et placement des PNJ
+// Supprresion des PNJ présents
 $requete = "DELETE FROM `npc_present` WHERE 1";
 echoDebug("• Etape 5 : Génération et placement des PNJ");
 if ($result = mysqli_query($connexion, $requete)) {

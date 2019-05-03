@@ -6,12 +6,16 @@ public class Compétence : MonoBehaviour {
     public int ID;
     public string NomCompétence;
     public int Valeur = 0;
-    public Compétence(int id, string nomcomp)
+    public string Description;
+    public Compétence(int id, string nomcomp, string description)
     {
         ID = id;
         NomCompétence = nomcomp;
         Valeur = 0;
+        Description = description;
     }
+
+    // Permet d'attribuer une valeur à une compétence existante
     public Compétence(Compétence comp, int val)
     {
         ID = comp.ID;

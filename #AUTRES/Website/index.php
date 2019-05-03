@@ -52,7 +52,7 @@
             <h1 class="display-3">Bienvenue sur Genius !</h1>
             <p>Genius est un jeu mobile développé par l'IUT d'Aix-Marseille afin d'aider les lycées et étudiants à
                 trouver leur voie à l'IUT.</p>
-            <p><a class="btn btn-primary btn-lg" href="media/Genius_v0.2.4.apk" download="Genius.apk">Télécharger le jeu (APK) &raquo;</a></p>
+            <p><a class="btn btn-primary btn-lg" href="media/Genius.apk" download="Genius.apk">Télécharger le jeu (APK) &raquo;</a></p>
         </div>
     </div>
 
@@ -82,7 +82,7 @@
                        class="list-group-item list-group-item-action">
                         <img class="linkLogo mr-2" src="https://image.flaticon.com/icons/svg/25/25231.svg">GitHub
                     </a>
-                    <a target="_blank" href="https://appetize.io/app/0tz29rdt699tech4b5ytaxgcj8"
+                    <a target="_blank" href="https://appetize.io/app/d9njz9e8ajqa5vv8mvnv4pew88"
                        class="list-group-item list-group-item-action">
                         <img class="linkLogo mr-2" src="https://appetize.io/images/logo1_colored_tight.png">Appetize.io
                     </a>

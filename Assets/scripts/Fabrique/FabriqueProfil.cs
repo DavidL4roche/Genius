@@ -4,26 +4,49 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FabriqueProfil : MonoBehaviour {
-    public Button Artefact;
+    public Button ArtefactOrcus;
+    public Button ArtefactIA;
+    public Button ArtefactObjet;
+    public Button ArtefactBoutique;
+    public Button ArtefactSocial;
+    public Button ArtefactDivertissement;
+
     public Text NomJoueur;
-    public Button instance;
-    public int totalArtefact;
+
     public void Start()
     {
-        totalArtefact = 0;
         NomJoueur.text = Joueur.NomJoueur;
         for (int i = 0; i < RessourcesBdD.listeDesArtefactsJouables.Length; ++i)
         {
-            instance = Instantiate(Artefact, new Vector3(0, 0, 0), Artefact.transform.rotation);
-            instance.transform.name = "Artefact n." + i;
-            if (totalArtefact < 4)
+            switch(RessourcesBdD.listeDesArtefactsJouables[i].IDArtefact)
             {
-                instance.transform.parent = GameObject.Find("Ranger1").transform;
-                ++totalArtefact;
-            }
-            else
-            {
-                instance.transform.parent = GameObject.Find("Ranger2").transform;
+                // Artéfact Orcus
+                case 1:
+                    ArtefactOrcus.interactable = true;
+                    break;
+                // Artéfact Boutique
+                case 2:
+                    ArtefactBoutique.interactable = true;
+                    break;
+                // Artéfact IA
+                case 3:
+                    ArtefactIA.interactable = true;
+                    break;
+                // Artéfact Objet
+                case 4:
+                    ArtefactObjet.interactable = true;
+                    break;
+                // Artéfact Divertissement
+                case 5:
+                    ArtefactDivertissement.interactable = true;
+                    break;
+                // Artéfact Social
+                case 6:
+                    ArtefactSocial.interactable = true;
+                    break;
+                default:
+                    break;
+
             }
         }
     }

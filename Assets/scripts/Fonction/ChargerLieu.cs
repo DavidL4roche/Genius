@@ -11,7 +11,7 @@ public class ChargerLieu : MonoBehaviour {
         SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
         return;
     }
-    public void Recharger()
+    public IEnumerable Recharger()
     {
         StopCoroutine(RessourcesBdD.recupMissionJouable());
         SpawnerMission.DestroySpawn();
@@ -21,13 +21,12 @@ public class ChargerLieu : MonoBehaviour {
         RessourcesBdD.recupExamJouable();
         RessourcesBdD.recupDivertJouable();
         RessourcesBdD.recupPNJJouable();
-        StartCoroutine(RessourcesBdD.recupMissionJouable());
+        yield return StartCoroutine(RessourcesBdD.recupMissionJouable());
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
     public void rechargerArtefact()
     {
         RessourcesBdD.listeDesArtefactsJouables = new Artefact[0];
         RessourcesBdD.RecupArtefactJouable();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 }

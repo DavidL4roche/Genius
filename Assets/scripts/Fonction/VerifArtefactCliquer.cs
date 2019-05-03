@@ -1,15 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VerifArtefactCliquer : MonoBehaviour {
     public static int ArtefactChoisi;
+
     public void Cliquer()
     {
-        //Debug.Log(gameObject.name);
-        char[] nomArtefact = gameObject.name.ToCharArray();
-        ArtefactChoisi = (int)System.Char.GetNumericValue(nomArtefact[(nomArtefact.Length - 1)]);
-        Debug.Log("tu as cliquer sur l'artefact ->"+ArtefactChoisi);
+        // On fait correspondre l'artefact
+        foreach(Artefact art in RessourcesBdD.listeDesArtefacts)
+        {
+            if (art.IDArtefact == VerifArtefact.ArtefactChoisi)
+            {
+                for (int i = 0; i < RessourcesBdD.listeDesArtefactsJouables.Length; ++i)
+                {
+                    if (RessourcesBdD.listeDesArtefactsJouables[i].IDArtefact == art.IDArtefact)
+                    {
+                        ArtefactChoisi = i;
+                    }
+                }
+            }
+        }
+        
+        Debug.Log("Artefact utilisé : " + RessourcesBdD.listeDesArtefactsJouables[ArtefactChoisi].NomArtefact);
+        
         Gain.utiliserUnArtefact();
         ChargerLieu charger = new ChargerLieu();
         charger.rechargerArtefact();

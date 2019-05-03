@@ -6,6 +6,7 @@ public class Mission : MonoBehaviour
 {
     public int IDMission;
     public string NomMission;
+    public string MetierAssocie;
     public Rang RangMission;
     public Entreprise MissionEntreprise;
     public Compétence[] CompétencesRequises;
@@ -15,7 +16,7 @@ public class Mission : MonoBehaviour
     public Objet[] SesObjets;
     public Artefact SonArtefact;
     public int NiveauDeLaMission;
-    public Mission(int id, string nom, int idrang, int idcomp1, int idcomp2, int idcomp3, int idcomp4, int idcomp5)
+    public Mission(int id, string nom, int idrang, int idcomp1, int idcomp2, int idcomp3, int idcomp4, int idcomp5, string metierAssocie)
     {
         IDMission = id;
         NomMission = nom;
@@ -23,6 +24,7 @@ public class Mission : MonoBehaviour
         CompétencesRequises = trouverSesCompétences(idcomp1,idcomp2,idcomp3,idcomp4,idcomp5);
         SaDurée = Duree.genereTemps();
         NiveauDeLaMission = calculDuNiveau();
+        MetierAssocie = metierAssocie;
     }
     Compétence[] trouverSesCompétences(int comp1, int comp2, int comp3, int comp4, int comp5)
     {
@@ -75,6 +77,7 @@ public class Mission : MonoBehaviour
         IDMission = mission.IDMission;
         NomMission = mission.NomMission;
         RangMission = mission.RangMission;
+        MetierAssocie = mission.MetierAssocie;
         MissionEntreprise = mission.MissionEntreprise;
         CompétencesRequises = mission.CompétencesRequises;
         SaDurée = mission.SaDurée;
@@ -90,5 +93,10 @@ public class Mission : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
     }
 }

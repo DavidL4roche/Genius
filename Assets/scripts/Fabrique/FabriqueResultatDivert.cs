@@ -6,12 +6,10 @@ using UnityEngine.UI;
 
 public class FabriqueResultatDivert : MonoBehaviour {
     MissionDivertissement divert = SpawnerMission.SonDivertissement;
-    public GameObject Tuple;
-    public Text nomTuple;
-    public Text ValeurTupleTexte;
-    public Slider ValeurTupleSlider;
-    public Text SliderTexte;
-    public Image ImageTuple;
+
+    public Text gainDivert;
+    public Text perteOrcus;
+
     GameObject instance;
     public void Start()
     {
@@ -19,45 +17,22 @@ public class FabriqueResultatDivert : MonoBehaviour {
         AGagner();
         APerdu();
         blockdesprerequis();
-        ValeurTupleTexte.color = new Color(1F, 1F, 1F, 1F);
         ReloadMissions();
     }
     public void blockdesprerequis()
     {
         for (int i = 0; i < divert.SesGains.Length; ++i)
         {
-            if (divert.SesGains[i].ValeurDuGain != 0)
+            if (divert.SesGains[i].NomGain == "Divertissement")
             {
-                Text Texte = nomTuple;
-                Texte.text = divert.SesGains[i].NomGain;
-                ValeurTupleTexte.color = new Color(0F, 1F, 0F, 1F);
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = "+" + divert.SesGains[i].ValeurDuGain.ToString();
-                ImageTuple.color = new Color(0F, 1F, 0F, 1F);
-                instance = Instantiate(Tuple);
-                instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
-                instance.transform.name = "Tuple " + (i + 1);
-            }
-            else
-            {
-                continue;
+                gainDivert.text = "+" + divert.SesGains[i].ValeurDuGain.ToString() + "%";
             }
         }
         for (int i = 0; i < divert.SesPertes.Length; ++i)
         {
-            if (divert.SesPertes[i].ValeurDeLaPerte != 0)
+            if (divert.SesPertes[i].NomPerte == "Orcus")
             {
-                Text Texte = nomTuple;
-                Texte.text = divert.SesPertes[i].NomPerte;
-                ValeurTupleTexte.color = new Color(1F, 0F, 0F, 1F);
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = "-" + divert.SesPertes[i].ValeurDeLaPerte.ToString();
-                ImageTuple.color = new Color(1F, 0F, 0F, 1F);
-                instance = Instantiate(Tuple);
-                instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
-                instance.transform.name = "Tuple " + (i + 1);
+                perteOrcus.text = "-" + divert.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
             }
             else
             {
