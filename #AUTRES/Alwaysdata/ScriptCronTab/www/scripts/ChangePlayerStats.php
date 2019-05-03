@@ -6,7 +6,14 @@
 
     if (isset($_GET["stat"]) && isset($_GET["value"]) && isset($_GET["id"])) {
         $stat = $_GET["stat"];
-        $value = $_GET["value"];
+
+        if ($stat == "Password") {
+            $value = password_hash($_GET["value"], PASSWORD_DEFAULT);
+        }
+        else {
+            $value = $_GET["value"];
+        }
+
         $id = $_GET["id"];
         echo $helper->SetPlayerStat($stat, $value, $id);
     }
