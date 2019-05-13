@@ -40,7 +40,7 @@ public class FabriqueMagasin : MonoBehaviour {
             valeurIA.text = RessourcesJoueur.getPriceInK(obj.SonPrixIA);
             nomObjet.text = obj.SonObjet.Nom;
             instance = Instantiate(tupleObjet, new Vector3(0, 0, 0), tupleObjet.transform.rotation);
-            instance.transform.parent = GameObject.Find("VerticalLayout").transform;
+            instance.transform.parent = GameObject.Find("HorizontalLayout").transform;
             instance.transform.name = "Objet " + i;
         }
 
