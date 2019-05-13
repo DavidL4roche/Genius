@@ -12,8 +12,6 @@ public class FabriquePréRequisDivert : MonoBehaviour {
     public Button lancer;
     public Text textLancer;
     public RawImage Icone;
-    public RawImage IconeIA;
-    public Text IA;
 
     GameObject instance;
 
@@ -72,16 +70,12 @@ public class FabriquePréRequisDivert : MonoBehaviour {
             Color32 vert = new Color32(32, 34, 52, 255);
             textLancer.color = vert;
             Icone.color = vert;
-            IconeIA.color = vert;
-            IA.color = vert;
         }
         else
         {
             Color32 black = new Color32(147, 147, 147, 255);
             textLancer.color = black;
             Icone.color = black;
-            IconeIA.color = black;
-            IA.color = black;
         }
     }
 
