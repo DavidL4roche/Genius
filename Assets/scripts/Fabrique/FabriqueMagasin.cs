@@ -33,8 +33,8 @@ public class FabriqueMagasin : MonoBehaviour {
         {
             ObjetPrésent obj = listeobjets[i];
             rangtexture.texture = obj.SonObjet.RangObjet.texture;
-            valeurOrcus.text = obj.SonPrixOrcus.ToString();
-            valeurIA.text = obj.SonPrixIA.ToString();
+            valeurOrcus.text = getPriceInK(obj.SonPrixOrcus);
+            valeurIA.text = getPriceInK(obj.SonPrixIA);
             nomObjet.text = obj.SonObjet.Nom;
             instance = Instantiate(tupleObjet, new Vector3(0, 0, 0), tupleObjet.transform.rotation);
             instance.transform.parent = GameObject.Find("VerticalLayout").transform;
@@ -57,5 +57,18 @@ public class FabriqueMagasin : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    public string getPriceInK(int price)
+    {
+        if (price >= 10000)
+        {
+            string kPrice = price.ToString();
+            return kPrice.Substring(0, 2) + "k";
+        }
+        else
+        {
+            return price.ToString();
+        }
     }
 }
