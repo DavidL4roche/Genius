@@ -12,6 +12,9 @@ public class FabriqueMagasin : MonoBehaviour {
     public Text valeurOrcus;
     public Text valeurIA;
     public Text nomObjet;
+    
+    public Text[] textes = new Text[4];
+
     GameObject instance;
     public void Start()
     {
@@ -33,14 +36,18 @@ public class FabriqueMagasin : MonoBehaviour {
         {
             ObjetPrésent obj = listeobjets[i];
             rangtexture.texture = obj.SonObjet.RangObjet.texture;
-            valeurOrcus.text = getPriceInK(obj.SonPrixOrcus);
-            valeurIA.text = getPriceInK(obj.SonPrixIA);
+            valeurOrcus.text = RessourcesJoueur.getPriceInK(obj.SonPrixOrcus);
+            valeurIA.text = RessourcesJoueur.getPriceInK(obj.SonPrixIA);
             nomObjet.text = obj.SonObjet.Nom;
             instance = Instantiate(tupleObjet, new Vector3(0, 0, 0), tupleObjet.transform.rotation);
             instance.transform.parent = GameObject.Find("VerticalLayout").transform;
             instance.transform.name = "Objet " + i;
         }
+
+        // On affiche les ressources du joueur dans la zone appropriée
+        getRessources();
     }
+
     public bool testsiArtefactMagasin()
     {
         int total = 0;
@@ -59,16 +66,39 @@ public class FabriqueMagasin : MonoBehaviour {
         return false;
     }
 
-    public string getPriceInK(int price)
+    public void getRessources()
     {
-        if (price >= 10000)
+        if (Joueur.MesRessources != null)
         {
-            string kPrice = price.ToString();
-            return kPrice.Substring(0, 2) + "k";
+            for (int i = 0; i < Joueur.MesRessources.Length; ++i)
+            {
+                switch (RessourcesBdD.listeDesRessources[i].NomRessource)
+                {
+                    // SOCIAL
+                    case "Social":
+                        //barres[0].value = (Joueur.MesRessources[i]);
+                        textes[0].text = Joueur.MesRessources[i].ToString() + "%";
+                        break;
+
+                    // DIVERTISSEMENT
+                    case "Divertissement":
+                        //barres[1].value = (Joueur.MesRessources[i]);
+                        textes[1].text = Joueur.MesRessources[i].ToString() + "%";
+                        break;
+
+                    //ORCUS
+                    case "Orcus":
+                        textes[2].text = Joueur.MesRessources[i].ToString();
+                        break;
+
+                    // MATIERE IA
+                    case "IA":
+                        textes[3].text = Joueur.MesRessources[i].ToString();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
-        else
-        {
-            return price.ToString();
-        }
-    }
+    }    
 }
