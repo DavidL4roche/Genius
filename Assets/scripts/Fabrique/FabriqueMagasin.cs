@@ -12,6 +12,9 @@ public class FabriqueMagasin : MonoBehaviour {
     public Text valeurOrcus;
     public Text valeurIA;
     public Text nomObjet;
+    public Button objetIDGO;
+
+    public HorizontalLayoutGroup horizontal;
     
     public Text[] textes = new Text[4];
 
@@ -39,6 +42,10 @@ public class FabriqueMagasin : MonoBehaviour {
             valeurOrcus.text = RessourcesJoueur.getPriceInK(obj.SonPrixOrcus);
             valeurIA.text = RessourcesJoueur.getPriceInK(obj.SonPrixIA);
             nomObjet.text = obj.SonObjet.Nom;
+
+            Text objetID = objetIDGO.GetComponentInChildren<Text>();
+            objetID.text = i.ToString();
+
             instance = Instantiate(tupleObjet, new Vector3(0, 0, 0), tupleObjet.transform.rotation);
             instance.transform.parent = GameObject.Find("HorizontalLayout").transform;
             instance.transform.name = "Objet " + i;

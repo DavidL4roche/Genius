@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HorizontalLayout: {fileID: 486711752}
+  decalage: 348
 --- !u!224 &229798508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -769,8 +770,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 915.75, y: 0.000061035156}
-  m_SizeDelta: {x: 2393.9, y: 0}
+  m_AnchoredPosition: {x: -140.6, y: 0.000061035156}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486711751
 MonoBehaviour:
@@ -784,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
+  m_HorizontalFit: 2
   m_VerticalFit: 0
 --- !u!114 &486711752
 MonoBehaviour:
@@ -804,7 +805,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
@@ -1064,6 +1065,9 @@ MonoBehaviour:
     type: 2}
   valeurIA: {fileID: 114773658438023538, guid: ad97521f05ddcac499e4578d439860d2, type: 2}
   nomObjet: {fileID: 114600209666903308, guid: ad97521f05ddcac499e4578d439860d2, type: 2}
+  objetIDGO: {fileID: 114377531038080012, guid: ad97521f05ddcac499e4578d439860d2,
+    type: 2}
+  horizontal: {fileID: 486711752}
   textes:
   - {fileID: 526529359}
   - {fileID: 1130503600}

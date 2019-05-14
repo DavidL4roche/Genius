@@ -6,7 +6,7 @@ using UnityEngine;
 public class AchatEnMagasin : MonoBehaviour {
 	// Use this for initialization
 	public void Achat () {
-        ObjetPrésent obj = RessourcesBdD.LeMagasin[VerifObjetAchete.ObjetAchete];
+        ObjetPrésent obj = RessourcesBdD.LeMagasin[VerificationObjet.ObjetChoisi];
         bool testsijoueurpeutacheter = testSiAssezDeRessource(obj);
         if (testsijoueurpeutacheter)
         {
@@ -78,6 +78,10 @@ public class AchatEnMagasin : MonoBehaviour {
         MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
         MySqlDataReader lien = commande.ExecuteReader();
         lien.Close();
+
+        // On envoie les données de ressources du joueur dans la base
+        Joueur.transfertRessourcesEnBase();
+
         FermerUneFenetre fermer = new FermerUneFenetre();
         fermer.Fermer("Magasin");
         RessourcesBdD.LeMagasin = new ObjetPrésent[0];
