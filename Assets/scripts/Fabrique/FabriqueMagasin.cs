@@ -8,11 +8,15 @@ using UnityEngine.UI;
 public class FabriqueMagasin : MonoBehaviour {
     ObjetPrésent[] listeobjets;
     public GameObject tupleObjet;
+    public RawImage imageObjet;
     public RawImage rangtexture;
     public Text valeurOrcus;
     public Text valeurIA;
     public Text nomObjet;
     public Button objetIDGO;
+
+    public RawImage fondBoutonAcheter;
+    public Text texteAcheter;
 
     public HorizontalLayoutGroup horizontal;
     
@@ -37,6 +41,11 @@ public class FabriqueMagasin : MonoBehaviour {
         }
         for (int i = 0; i<listeobjets.Length;++i)
         {
+            // On réinitialise les couleurs
+            fondBoutonAcheter.color = new Color32(160, 160, 160, 255);
+            texteAcheter.color = new Color32(160, 160, 160, 255);
+            objetIDGO.interactable = false;
+
             ObjetPrésent obj = listeobjets[i];
             rangtexture.texture = obj.SonObjet.RangObjet.texture;
             valeurOrcus.text = RessourcesJoueur.getPriceInK(obj.SonPrixOrcus);
@@ -45,6 +54,16 @@ public class FabriqueMagasin : MonoBehaviour {
 
             Text objetID = objetIDGO.GetComponentInChildren<Text>();
             objetID.text = i.ToString();
+
+            Debug.Log("IA Joueur : " + Joueur.MesRessources[1]);
+            Debug.Log("Orcus Joueur : " + Joueur.MesRessources[0]);
+            if (Joueur.MesRessources[0] >= obj.SonPrixOrcus && Joueur.MesRessources[1] >= obj.SonPrixIA)
+            {
+                fondBoutonAcheter.color = new Color32(83, 203, 255, 255);
+                texteAcheter.color = new Color32(83, 203, 255, 255);
+
+                objetIDGO.interactable = true;
+            }
 
             instance = Instantiate(tupleObjet, new Vector3(0, 0, 0), tupleObjet.transform.rotation);
             instance.transform.parent = GameObject.Find("HorizontalLayout").transform;

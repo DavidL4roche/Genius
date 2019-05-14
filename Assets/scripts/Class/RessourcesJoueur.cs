@@ -54,12 +54,17 @@ public class RessourcesJoueur : MonoBehaviour {
     }
 
     // Return the k price, example : 12000 -> 12k
-    public static string getPriceInK(int price)
+    public static string getPriceInK(int price) 
     {
         if (price >= 10000)
         {
             string kPrice = price.ToString();
             return kPrice.Substring(0, 2) + "k";
+        }
+        else if(price >= 1000)
+        {
+            string kPrice = price.ToString();
+            return kPrice.Substring(0, 1) + "k";
         }
         else
         {
