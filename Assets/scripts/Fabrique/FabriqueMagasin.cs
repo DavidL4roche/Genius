@@ -48,6 +48,7 @@ public class FabriqueMagasin : MonoBehaviour {
 
             ObjetPrésent obj = listeobjets[i];
             rangtexture.texture = obj.SonObjet.RangObjet.texture;
+            imageObjet.texture = Resources.Load<Texture>("icones/Item" + i);
             valeurOrcus.text = RessourcesJoueur.getPriceInK(obj.SonPrixOrcus);
             valeurIA.text = RessourcesJoueur.getPriceInK(obj.SonPrixIA);
             nomObjet.text = obj.SonObjet.Nom;
@@ -55,8 +56,8 @@ public class FabriqueMagasin : MonoBehaviour {
             Text objetID = objetIDGO.GetComponentInChildren<Text>();
             objetID.text = i.ToString();
 
-            Debug.Log("IA Joueur : " + Joueur.MesRessources[1]);
-            Debug.Log("Orcus Joueur : " + Joueur.MesRessources[0]);
+            //Debug.Log("IA Joueur : " + Joueur.MesRessources[1]);
+            //Debug.Log("Orcus Joueur : " + Joueur.MesRessources[0]);
             if (Joueur.MesRessources[0] >= obj.SonPrixOrcus && Joueur.MesRessources[1] >= obj.SonPrixIA)
             {
                 fondBoutonAcheter.color = new Color32(83, 203, 255, 255);
