@@ -8,5 +8,6 @@ public class VerifTupleActionSocial : MonoBehaviour {
     {
          char[] nomtuple = gameObject.name.ToCharArray();
          TupleChoisieActionSocial = (int)System.Char.GetNumericValue(nomtuple[(nomtuple.Length - 1)]);
+         Debug.Log(TupleChoisieActionSocial);
     }
 }
