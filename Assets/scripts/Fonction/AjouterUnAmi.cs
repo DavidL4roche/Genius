@@ -33,6 +33,12 @@ public class AjouterUnAmi : MonoBehaviour {
                 ChargerPopup.Charger("Erreur");
                 MessageErreur.messageErreur = "Ce joueur est déjà votre ami";
             }
+            // On vérifie si ce n'est pas le joueur en cours
+            else if(ami.SonID == Joueur.IDJoueur)
+            {
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = "Vous ne pouvez pas vous ajouter en tant qu'ami";
+            }
             else
             {
                 // Insertion en base
