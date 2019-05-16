@@ -9,7 +9,7 @@ public class ListeObjetFicheP: MonoBehaviour
     public Text NomObjet;
     public Text Quantite;
 
-    public GameObject logoPuzzle;
+    public RawImage logoPuzzle;
     public GameObject FondQuantite;
 
     GameObject instance;
@@ -19,7 +19,9 @@ public class ListeObjetFicheP: MonoBehaviour
         for (int i = 0; i < RessourcesBdD.listeDesObjets.Length; ++i)
         {
             NomObjet.text = RessourcesBdD.listeDesObjets[i].Nom;
-            logoPuzzle.SetActive(true);
+            //logoPuzzle.SetActive(true);
+
+            logoPuzzle.texture = Resources.Load<Texture>("icones/Item" + i);
             FondQuantite.SetActive(true);
 
             if (Joueur.MesObjets[i] > 0)
@@ -31,21 +33,24 @@ public class ListeObjetFicheP: MonoBehaviour
             }
         }
 
+        /*
         for (int i = 0; i < RessourcesBdD.listeDesObjets.Length; ++i)
         {
             NomObjet.text = RessourcesBdD.listeDesObjets[i].Nom;
-            logoPuzzle.SetActive(true);
+            //logoPuzzle.SetActive(true);
             FondQuantite.SetActive(true);
 
             if (Joueur.MesObjets[i] == 0)
             {
+                Debug.Log("Objet non détenu : " + i);
                 Quantite.text = "";
-                logoPuzzle.SetActive(false);
+                //logoPuzzle.SetActive(false);
                 FondQuantite.SetActive(false);
                 instance = Instantiate(Tuple, new Vector3(0.0F, 0.0F, 0.0F), Tuple.transform.rotation);
                 instance.transform.parent = GameObject.Find("VerticalLayout").transform;
                 instance.transform.name = "Tuple " + (i + 1);
             }
         }
+        */
     }
 }

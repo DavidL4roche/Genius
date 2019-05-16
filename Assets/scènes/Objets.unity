@@ -641,7 +641,8 @@ MonoBehaviour:
   Tuple: {fileID: 1113104496538354, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
   NomObjet: {fileID: 114555355255049188, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
   Quantite: {fileID: 114919638674333796, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
-  logoPuzzle: {fileID: 1595903302809748, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
+  logoPuzzle: {fileID: 114895261315601632, guid: 105939a83ef6d334cba60fe29cbba833,
+    type: 2}
   FondQuantite: {fileID: 1295393995944052, guid: 105939a83ef6d334cba60fe29cbba833,
     type: 2}
 --- !u!222 &1157149724
@@ -726,8 +727,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 518523586}
   m_HandleRect: {fileID: 518523585}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.23214436
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1192,6 +1193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1976462747}
   - component: {fileID: 1976462748}
+  - component: {fileID: 1976462749}
   m_Layer: 0
   m_Name: VerticalLayout
   m_TagString: Untagged
@@ -1214,9 +1216,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.0075, y: -457.44995}
-  m_SizeDelta: {x: 208.6, y: 1191.5}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.0074921, y: 138.3}
+  m_SizeDelta: {x: 208.6, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1976462748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1234,11 +1236,24 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 35
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+--- !u!114 &1976462749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976462746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1992807551
 GameObject:
   m_ObjectHideFlags: 0

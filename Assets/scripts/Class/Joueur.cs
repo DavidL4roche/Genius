@@ -208,30 +208,8 @@ public class Joueur : MonoBehaviour {
             lien.Close();
         }
 
-        //Ressources
-        for (int i = 0; i < MesRessources.Length; ++i)
-        {
-            int Total = 0;
-            string requete = "SELECT Count(*) AS Total, IDRessource from association_ressource_pc WHERE IDPCharacter=" + IDJoueur+" AND IDRessource="+RessourcesBdD.listeDesRessources[i].ID;
-            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-            MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                Total = Int32.Parse(lien["Total"].ToString());
-            }
-            lien.Close();
-            if (Total == 0)
-            {
-                requete = "INSERT INTO association_ressource_pc VALUES (" + RessourcesBdD.listeDesRessources[i].ID + "," + IDJoueur + "," + MesRessources[i] + ");";
-            }
-            else
-            {
-                requete = "UPDATE association_ressource_pc SET Value=" + MesRessources[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDRessource=" + RessourcesBdD.listeDesRessources[i].ID;
-            }
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            lien.Close();
-        }
+        // Les ressources
+        transfertRessourcesEnBase();
 
         //date de dernière connexion
         string requete2 = "UPDATE `p_character` SET `LastConnection`=LOCALTIMESTAMP WHERE `IDPCharacter`=" + Joueur.IDJoueur+";";
@@ -264,6 +242,35 @@ public class Joueur : MonoBehaviour {
             lien.Close();
         }
     }
+
+    public static void transfertRessourcesEnBase()
+    {
+        //Ressources
+        for (int i = 0; i < MesRessources.Length; ++i)
+        {
+            int Total = 0;
+            string requete = "SELECT Count(*) AS Total, IDRessource from association_ressource_pc WHERE IDPCharacter=" + IDJoueur + " AND IDRessource=" + RessourcesBdD.listeDesRessources[i].ID;
+            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+            MySqlDataReader lien = commande.ExecuteReader();
+            while (lien.Read())
+            {
+                Total = Int32.Parse(lien["Total"].ToString());
+            }
+            lien.Close();
+            if (Total == 0)
+            {
+                requete = "INSERT INTO association_ressource_pc VALUES (" + RessourcesBdD.listeDesRessources[i].ID + "," + IDJoueur + "," + MesRessources[i] + ");";
+            }
+            else
+            {
+                requete = "UPDATE association_ressource_pc SET Value=" + MesRessources[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDRessource=" + RessourcesBdD.listeDesRessources[i].ID;
+            }
+            commande = new MySqlCommand(requete, Connexion.connexion);
+            lien = commande.ExecuteReader();
+            lien.Close();
+        }
+    }
+
     IEnumerator IncrementationRessources()
     {
         bool stop = false;

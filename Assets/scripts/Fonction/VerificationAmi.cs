@@ -8,6 +8,5 @@ public class VerificationAmi : MonoBehaviour {
     {
         char[] nomAmi= gameObject.name.ToCharArray();
         AmiChoisi = (int)System.Char.GetNumericValue(nomAmi[(nomAmi.Length - 1)]);
-        Debug.Log("Vous avez choisi l'ami numéro " + AmiChoisi);
     }
 }
