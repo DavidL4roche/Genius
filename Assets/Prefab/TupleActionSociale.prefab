@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 224388359424462872}
   - component: {fileID: 222545006380801422}
   - component: {fileID: 114484142294051642}
+  - component: {fileID: 114397888033461960}
   - component: {fileID: 114650465725295834}
   m_Layer: 5
-  m_Name: 72
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +184,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '>_Gestion de crise'
+  m_Text: "Encyclop\xE9die"
+--- !u!114 &114397888033461960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081015459954380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58848af76be6fdd4cb36bebf512eba05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114458189314277618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -234,7 +246,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114397888033461960}
         m_MethodName: Cliquer
         m_Mode: 1
         m_Arguments:
@@ -347,7 +359,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: b38a8049d9cfad54c8677a58ccdd3b22, type: 3}
+  m_Texture: {fileID: 2800000, guid: ff0117ce2fcca274d85d7e25cad7a91c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

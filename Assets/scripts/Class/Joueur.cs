@@ -183,30 +183,8 @@ public class Joueur : MonoBehaviour {
 
     public static void transfertEnBase()
     {
-        // Les compétences 
-        for (int i = 0; i < MesValeursCompetences.Length;  ++i)
-        {
-            int Total = 0;
-            string requete = "SELECT Count(*) AS Total, IDSkill from skill_pc WHERE IDPCharacter=" + IDJoueur+" AND IDSkill="+RessourcesBdD.listeDesCompétences[i].ID;
-            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-            MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                Total = Int32.Parse(lien["Total"].ToString());
-            }
-            lien.Close();
-            if(Total == 0)
-            {
-                requete = "INSERT INTO skill_pc VALUES ("+RessourcesBdD.listeDesCompétences[i].ID+","+IDJoueur+","+MesValeursCompetences[i]+");";
-            }
-            else
-            {
-                requete = "UPDATE skill_pc SET SkillLevel="+MesValeursCompetences[i]+" WHERE IDPCharacter="+IDJoueur + " AND IDSkill=" + RessourcesBdD.listeDesCompétences[i].ID + ";";
-            }
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            lien.Close();
-        }
+        // Les compétences
+        transfertCompetencesEnBase();
 
         // Les ressources
         transfertRessourcesEnBase();
@@ -218,31 +196,10 @@ public class Joueur : MonoBehaviour {
         lien2.Close();
 
         //Objets
-        for (int i = 0; i < MesObjets.Length; ++i)
-        {
-            int Total = 0;
-            string requete = "SELECT Count(*) AS Total, IDItem AS Total from item_pc WHERE IDPCharacter=" + IDJoueur + " AND IDItem=" + RessourcesBdD.listeDesObjets[i].ID;
-            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-            MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                Total = Int32.Parse(lien["Total"].ToString());
-            }
-            lien.Close();
-            if (Total == 0)
-            {
-                requete = "INSERT INTO item_pc VALUES (" + RessourcesBdD.listeDesObjets[i].ID + "," + IDJoueur + "," + MesObjets[i] + ");";
-            }
-            else
-            {
-                requete = "UPDATE item_pc SET Quantity=" +MesObjets[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDItem=" + RessourcesBdD.listeDesObjets[i].ID;
-            }
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            lien.Close();
-        }
+        transfertObjetsEnBase();
     }
 
+    // Transfert des ressources en base
     public static void transfertRessourcesEnBase()
     {
         //Ressources
@@ -264,6 +221,62 @@ public class Joueur : MonoBehaviour {
             else
             {
                 requete = "UPDATE association_ressource_pc SET Value=" + MesRessources[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDRessource=" + RessourcesBdD.listeDesRessources[i].ID;
+            }
+            commande = new MySqlCommand(requete, Connexion.connexion);
+            lien = commande.ExecuteReader();
+            lien.Close();
+        }
+    }
+
+    // Transfert des compétences en base
+    public static void transfertCompetencesEnBase()
+    {
+        for (int i = 0; i < MesValeursCompetences.Length; ++i)
+        {
+            int Total = 0;
+            string requete = "SELECT Count(*) AS Total, IDSkill from skill_pc WHERE IDPCharacter=" + IDJoueur + " AND IDSkill=" + RessourcesBdD.listeDesCompétences[i].ID;
+            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+            MySqlDataReader lien = commande.ExecuteReader();
+            while (lien.Read())
+            {
+                Total = Int32.Parse(lien["Total"].ToString());
+            }
+            lien.Close();
+            if (Total == 0)
+            {
+                requete = "INSERT INTO skill_pc VALUES (" + RessourcesBdD.listeDesCompétences[i].ID + "," + IDJoueur + "," + MesValeursCompetences[i] + ");";
+            }
+            else
+            {
+                requete = "UPDATE skill_pc SET SkillLevel=" + MesValeursCompetences[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDSkill=" + RessourcesBdD.listeDesCompétences[i].ID + ";";
+            }
+            commande = new MySqlCommand(requete, Connexion.connexion);
+            lien = commande.ExecuteReader();
+            lien.Close();
+        }
+    }
+
+    // Transfert des objets en base
+    public static void transfertObjetsEnBase()
+    {
+        for (int i = 0; i < MesObjets.Length; ++i)
+        {
+            int Total = 0;
+            string requete = "SELECT Count(*) AS Total, IDItem AS Total from item_pc WHERE IDPCharacter=" + IDJoueur + " AND IDItem=" + RessourcesBdD.listeDesObjets[i].ID;
+            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+            MySqlDataReader lien = commande.ExecuteReader();
+            while (lien.Read())
+            {
+                Total = Int32.Parse(lien["Total"].ToString());
+            }
+            lien.Close();
+            if (Total == 0)
+            {
+                requete = "INSERT INTO item_pc VALUES (" + RessourcesBdD.listeDesObjets[i].ID + "," + IDJoueur + "," + MesObjets[i] + ");";
+            }
+            else
+            {
+                requete = "UPDATE item_pc SET Quantity=" + MesObjets[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDItem=" + RessourcesBdD.listeDesObjets[i].ID;
             }
             commande = new MySqlCommand(requete, Connexion.connexion);
             lien = commande.ExecuteReader();

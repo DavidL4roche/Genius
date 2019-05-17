@@ -38,6 +38,10 @@ public class FabriqueResultatSocial : MonoBehaviour {
                 // On ajoute les gains en Social et en Objet au Joueur
                 GainSocial(Social);
                 GainObjet(obj);
+
+                // On envoie les objets et les ressources (Social) en base
+                Joueur.transfertRessourcesEnBase();
+                Joueur.transfertObjetsEnBase();
                 break;
 
             case "Compétence":
@@ -61,6 +65,10 @@ public class FabriqueResultatSocial : MonoBehaviour {
                 // On ajoute les gains en Social et en Compétence au Joueur
                 GainSocial(gaincompetsocial[1]);
                 GainComp(gaincompetsocial[0], RessourcesBdD.listeDesCompétences[VerifTupleActionSocial.TupleChoisieActionSocial].ID);
+
+                // On envoie les compétences et les ressources (Social) en base
+                Joueur.transfertRessourcesEnBase();
+                Joueur.transfertCompetencesEnBase();
                 break;
 
             default:
