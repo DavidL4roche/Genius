@@ -10,6 +10,9 @@ public class FabriqueActionSociale : MonoBehaviour {
     public Text LeNomDuJoueur;
     public Text Question;
 
+    public GameObject TupleCatégorie;
+    public Text nomCatégorie;
+
     public GameObject Bouton;
     public GameObject tuple;
     public RawImage couleurTuple;
@@ -48,6 +51,55 @@ public class FabriqueActionSociale : MonoBehaviour {
         else
         {
             Question.text = "Quel compétence souhaitez-vous améliorer ?";
+
+            for (int i = 0; i < RessourcesBdD.listeDesExamens.Length; ++i)
+            {
+                nomCatégorie.text = RessourcesBdD.listeDesExamens[i].NomExamen;
+                instance = Instantiate(TupleCatégorie, new Vector3(0.0F, 0.0F, 0.0F), TupleCatégorie.transform.rotation);
+                instance.transform.parent = GameObject.Find("VerticalLayout").transform;
+                instance.transform.name = "TupleCatégorie " + (i + 1);
+
+                for (int j = 0; j < RessourcesBdD.listeDesExamens[i].CompétencesRequises.Length; ++j)
+                {
+                    TexteTuple.text = RessourcesBdD.listeDesExamens[i].CompétencesRequises[j].NomCompétence;
+                    imageAction.texture = Resources.Load<Texture>("icones/Icon_diplome_min");
+                    Bouton.transform.name = i.ToString();
+
+                    // On compare la valeur demandée de la compétence par l'examen avec la valeur du joueur
+                    int valComp = 0;
+                    for (; valComp < RessourcesBdD.listeDesExamens[i].CompétencesRequises.Length; ++valComp)
+                    {
+                        if (RessourcesBdD.listeDesExamens[i].CompétencesRequises[valComp].ID == RessourcesBdD.listeDesExamens[i].CompétencesRequises[j].ID)
+                        {
+                            break;
+                        }
+                    }
+
+                    int valJoueur = 0;
+                    for (; valJoueur < RessourcesBdD.listeDesCompétences.Length; ++valJoueur)
+                    {
+                        if (RessourcesBdD.listeDesExamens[i].CompétencesRequises[j].ID == RessourcesBdD.listeDesCompétences[valJoueur].ID)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (joueur.SesCompétences[valJoueur] > 75)
+                    {
+                        couleurTuple.color = new Color32(6, 212, 168, 255);
+                    }
+                    else
+                    {
+                        couleurTuple.color = new Color32(49, 97, 125, 255);
+                    }
+
+                    instance = Instantiate(tuple, new Vector3(0.0F, 0.0F, 0.0F), tuple.transform.rotation);
+                    instance.transform.parent = GameObject.Find("VerticalLayout").transform;
+                    instance.transform.name = "TupleCompétence " + (i + 1) + "-" + (j + 1);
+                }
+            }
+
+            /*
             for (int i = 0; i < RessourcesBdD.listeDesCompétences.Length; ++i)
             {
                 couleurTuple.color = new Color32(6, 212, 168, 255);
@@ -78,6 +130,7 @@ public class FabriqueActionSociale : MonoBehaviour {
                     instance.transform.parent = GameObject.Find("VerticalLayout").transform;
                 }
             }
+            */
             //couleurTuple.color = new Color32(49, 97, 125, 255);
         }
         //QuantitéObjet.gameObject.SetActive(true);
