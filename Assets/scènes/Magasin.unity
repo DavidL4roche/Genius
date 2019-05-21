@@ -266,8 +266,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -180, y: 203.2}
-  m_SizeDelta: {x: 351.5, y: 406.39}
+  m_AnchoredPosition: {x: -180, y: 221.43}
+  m_SizeDelta: {x: 351.5, y: 442.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333460608
 MonoBehaviour:
@@ -992,7 +992,7 @@ MonoBehaviour:
   tupleObjet: {fileID: 1170761814895092, guid: ad97521f05ddcac499e4578d439860d2, type: 2}
   imageObjet: {fileID: 114472709429924250, guid: ad97521f05ddcac499e4578d439860d2,
     type: 2}
-  rangtexture: {fileID: 114937568533523346, guid: ad97521f05ddcac499e4578d439860d2,
+  rangtexture: {fileID: 114630553838510326, guid: ad97521f05ddcac499e4578d439860d2,
     type: 2}
   valeurOrcus: {fileID: 114407748571692442, guid: ad97521f05ddcac499e4578d439860d2,
     type: 2}
@@ -1793,8 +1793,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000091552734, y: -88.2}
-  m_SizeDelta: {x: 0, y: -217.8}
+  m_AnchoredPosition: {x: -0.000091552734, y: -102}
+  m_SizeDelta: {x: 0, y: -197.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1673630374
 MonoBehaviour:
