@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 1271964712}
   - component: {fileID: 1271964711}
   - component: {fileID: 1271964710}
+  - component: {fileID: 1271964715}
   - component: {fileID: 1271964709}
   - component: {fileID: 1271964714}
   m_Layer: 5
@@ -594,6 +595,28 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: ResultatActionSociale
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 23148886}
+          m_MethodName: Fermer
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: AutreProfil
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1271964715}
+          m_MethodName: Charger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: AutreProfil
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -682,6 +705,17 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &1271964715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271964707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f967581a98870e6478d7d33b7c154915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1365360996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1260,7 @@ GameObject:
   - component: {fileID: 1792837544}
   - component: {fileID: 1792837543}
   - component: {fileID: 1792837545}
+  - component: {fileID: 1792837546}
   m_Layer: 5
   m_Name: Voile
   m_TagString: Untagged
@@ -1335,8 +1370,41 @@ MonoBehaviour:
           m_StringArgument: ResultatActionSociale
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 23148886}
+        m_MethodName: Fermer
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: AutreProfil
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1792837546}
+        m_MethodName: Charger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: AutreProfil
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1792837546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792837541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f967581a98870e6478d7d33b7c154915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1971148002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1514,7 @@ GameObject:
   - component: {fileID: 2048593337}
   - component: {fileID: 2048593336}
   - component: {fileID: 2048593335}
+  - component: {fileID: 2048593339}
   - component: {fileID: 2048593340}
   m_Layer: 5
   m_Name: Terminer
@@ -1499,6 +1568,28 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: ResultatActionSociale
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 23148886}
+          m_MethodName: Fermer
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: AutreProfil
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2048593339}
+          m_MethodName: Charger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: AutreProfil
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1561,6 +1652,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
+--- !u!114 &2048593339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2048593333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f967581a98870e6478d7d33b7c154915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &2048593340
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -38,10 +38,12 @@ public class FabriqueResultatSocial : MonoBehaviour {
                 // On ajoute les gains en Social et en Objet au Joueur
                 GainSocial(Social);
                 GainObjet(obj);
+                GainActionSocial();
 
                 // On envoie les objets et les ressources (Social) en base
                 Joueur.transfertRessourcesEnBase();
                 Joueur.transfertObjetsEnBase();
+                Joueur.transfertActionsSocialesEnBase();
                 break;
 
             case "Compétence":
@@ -65,10 +67,12 @@ public class FabriqueResultatSocial : MonoBehaviour {
                 // On ajoute les gains en Social et en Compétence au Joueur
                 GainSocial(gaincompetsocial[1]);
                 GainComp(gaincompetsocial[0], RessourcesBdD.listeDesCompétences[VerifTupleActionSocial.TupleChoisieActionSocial].ID);
+                GainActionSocial();
 
                 // On envoie les compétences et les ressources (Social) en base
                 Joueur.transfertRessourcesEnBase();
                 Joueur.transfertCompetencesEnBase();
+                Joueur.transfertActionsSocialesEnBase();
                 break;
 
             default:
@@ -202,6 +206,24 @@ public class FabriqueResultatSocial : MonoBehaviour {
                     Joueur.MesRessources[i] = total;
                 }
             }
+        }
+    }
+
+    // On met à jour les Actions Sociales du joueur
+    void GainActionSocial()
+    {
+        switch (VerifActionSocial.ActionSocialeChoisie)
+        {
+            case "Objet":
+                Joueur.MesActionsSocialesObjet[VerificationAmi.AmiChoisi] = true;
+                break;
+
+            case "Compétence":
+                Joueur.MesActionsSocialesSkill[VerificationAmi.AmiChoisi] = true;
+                break;
+
+            default:
+                break;
         }
     }
 }

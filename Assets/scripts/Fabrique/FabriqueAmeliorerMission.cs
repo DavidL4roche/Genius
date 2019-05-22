@@ -11,6 +11,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
     Color blanc = new Color32(255, 255, 255, 0);
 
     public Slider sliderConcentration;
+    public RawImage imageObjet;
 
     public void Start()
     {
@@ -136,13 +137,13 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         //Objet
         if  (FicheAmélioration.IDObjetUtilise == 0)
         {
-            GameObject.Find("BoutonObjet").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
-            GameObject.Find("TexteObjet").GetComponent<Text>().text = "X";
+            //GameObject.Find("Ameliorer").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
+            imageObjet.texture = Resources.Load<Texture>("icones/Icon_orcus");
         }
         else
         {
-            GameObject.Find("BoutonObjet").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
-            GameObject.Find("TexteObjet").GetComponent<Text>().text = FicheAmélioration.IDObjetUtilise.ToString();
+            //GameObject.Find("Ameliorer").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
+            imageObjet.texture = Resources.Load<Texture>("icones/Item" + FicheAmélioration.IDObjetUtilise);
         }
     }
 

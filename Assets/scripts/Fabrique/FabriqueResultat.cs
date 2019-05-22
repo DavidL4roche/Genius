@@ -22,7 +22,8 @@ public class FabriqueResultat : MonoBehaviour {
         blockdesprerequis();
         ValeurTupleTexte.color = new Color(1F, 1F, 1F,1F);
         ReloadMissions();
-        Joueur.transfertEnBase();
+        RessourcesBdD.DestroyListeMission();
+        RessourcesBdD.recupMissionJouableNow();
     }
 
     public void blockdesprerequis()

@@ -18,7 +18,7 @@ public class FabriquePreRequis : MonoBehaviour
     public Image ImageTuple;
 
     public GameObject BlockRecap;
-    public Text IDObjet;
+    public RawImage ImageObjet;
     public Text Multi;
     public Text Concentration;
 
@@ -38,16 +38,16 @@ public class FabriquePreRequis : MonoBehaviour
         Perte.calculDesPertes(mr);
         blockdesprerequis();
 
-        /*
-        // Si l'objet competence (bouton dans la liste) est trouvé
-        if (competence != null)
-        {
-            competence.onClick.AddListener(TaskOnClick);
-            //Destroy(competence);
+            /*
+            // Si l'objet competence (bouton dans la liste) est trouvé
+            if (competence != null)
+            {
+                competence.onClick.AddListener(TaskOnClick);
+                //Destroy(competence);
+            }
+
+            competence.onClick.AddListener(TaskOnClick);*/
         }
-        
-        competence.onClick.AddListener(TaskOnClick);*/
-    }
 
     // Permet de remplir le bloc des prérequis
     public void blockdesprerequis()
@@ -128,11 +128,11 @@ public class FabriquePreRequis : MonoBehaviour
         //Objet
         if (FicheAmélioration.IDObjetUtilise == 0)
         {
-            IDObjet.text = "X";
+            ImageObjet.texture = Resources.Load<Texture>("icones/Icon_orcus");
         }
         else
         {
-            IDObjet.text = FicheAmélioration.IDObjetUtilise.ToString();
+            ImageObjet.texture = Resources.Load<Texture>("icones/Item" + FicheAmélioration.IDObjetUtilise);
         }
 
     }

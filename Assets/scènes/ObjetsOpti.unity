@@ -317,7 +317,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 999
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!224 &893088350
 RectTransform:
@@ -530,16 +530,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1157149719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0dc1714ef6eeb04bb0452ffca598c03, type: 3}
+  m_Script: {fileID: 11500000, guid: f9a128231208d2c45bb0ca4e82daa070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Tuple: {fileID: 1113104496538354, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
   NomObjet: {fileID: 114555355255049188, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
   Quantite: {fileID: 114919638674333796, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
+  IDObjet: {fileID: 114620134081872334, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
   IconeRessource: {fileID: 114479048363864876, guid: 105939a83ef6d334cba60fe29cbba833,
     type: 2}
   Gain: {fileID: 114488397838026330, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
-  logoPuzzle: {fileID: 114895261315601632, guid: 105939a83ef6d334cba60fe29cbba833,
+  logoPuzzle: {fileID: 114947601786086272, guid: 105939a83ef6d334cba60fe29cbba833,
     type: 2}
   FondQuantite: {fileID: 1295393995944052, guid: 105939a83ef6d334cba60fe29cbba833,
     type: 2}
@@ -998,7 +999,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ObjetsAmi
+          m_StringArgument: ObjetsOpti
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1261,7 +1262,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ObjetsAmi
+          m_StringArgument: ObjetsOpti
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

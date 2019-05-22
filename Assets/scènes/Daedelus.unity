@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 307409176}
   - component: {fileID: 307409179}
   - component: {fileID: 307409177}
+  - component: {fileID: 307409180}
   - component: {fileID: 307409178}
   m_Layer: 5
   m_Name: QuartierCampagne
@@ -278,6 +279,17 @@ MonoBehaviour:
           m_StringArgument: Campagne
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 307409180}
+        m_MethodName: definirNomQuartier
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &307409178
@@ -313,6 +325,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 307409175}
   m_CullTransparentMesh: 0
+--- !u!114 &307409180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 307409175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &441676343 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 223581361303367872, guid: 07ce778801739cc40b6ef2ccc97cd7f2,
@@ -359,6 +382,7 @@ GameObject:
   - component: {fileID: 450864556}
   - component: {fileID: 450864559}
   - component: {fileID: 450864557}
+  - component: {fileID: 450864560}
   - component: {fileID: 450864558}
   m_Layer: 5
   m_Name: QuartierCommerce
@@ -435,6 +459,17 @@ MonoBehaviour:
           m_StringArgument: Commerce
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 307409180}
+        m_MethodName: definirNomQuartier
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &450864558
@@ -470,6 +505,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 450864555}
   m_CullTransparentMesh: 0
+--- !u!114 &450864560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 450864555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &568538330
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +656,7 @@ GameObject:
   - component: {fileID: 1134192413}
   - component: {fileID: 1134192416}
   - component: {fileID: 1134192414}
+  - component: {fileID: 1134192417}
   - component: {fileID: 1134192415}
   m_Layer: 5
   m_Name: QuartierIndustrie
@@ -686,6 +733,17 @@ MonoBehaviour:
           m_StringArgument: Industrie
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 307409180}
+        m_MethodName: definirNomQuartier
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1134192415
@@ -721,6 +779,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1134192412}
   m_CullTransparentMesh: 0
+--- !u!114 &1134192417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1134192412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1280788524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1187,7 @@ GameObject:
   - component: {fileID: 1497462781}
   - component: {fileID: 1497462784}
   - component: {fileID: 1497462782}
+  - component: {fileID: 1497462785}
   - component: {fileID: 1497462783}
   m_Layer: 5
   m_Name: QuartierAffaireDroit
@@ -1194,6 +1264,17 @@ MonoBehaviour:
           m_StringArgument: AffaireDroit
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 307409180}
+        m_MethodName: definirNomQuartier
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1497462783
@@ -1229,6 +1310,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1497462780}
   m_CullTransparentMesh: 0
+--- !u!114 &1497462785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1497462780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1547238592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1331,7 @@ GameObject:
   - component: {fileID: 1547238593}
   - component: {fileID: 1547238596}
   - component: {fileID: 1547238594}
+  - component: {fileID: 1547238597}
   - component: {fileID: 1547238595}
   m_Layer: 5
   m_Name: QuartierCreatif
@@ -1315,6 +1408,17 @@ MonoBehaviour:
           m_StringArgument: Creatif
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 307409180}
+        m_MethodName: definirNomQuartier
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1547238595
@@ -1350,6 +1454,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1547238592}
   m_CullTransparentMesh: 0
+--- !u!114 &1547238597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1547238592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1584390139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1710,7 @@ GameObject:
   - component: {fileID: 1811873142}
   - component: {fileID: 1811873145}
   - component: {fileID: 1811873143}
+  - component: {fileID: 1811873146}
   - component: {fileID: 1811873144}
   m_Layer: 5
   m_Name: QuartierAdministration
@@ -1671,6 +1787,17 @@ MonoBehaviour:
           m_StringArgument: Administration
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 307409180}
+        m_MethodName: definirNomQuartier
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1811873144
@@ -1706,6 +1833,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1811873141}
   m_CullTransparentMesh: 0
+--- !u!114 &1811873146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811873141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1960617155
 Prefab:
   m_ObjectHideFlags: 0
@@ -1863,6 +2001,7 @@ GameObject:
   - component: {fileID: 2085422350}
   - component: {fileID: 2085422353}
   - component: {fileID: 2085422351}
+  - component: {fileID: 2085422354}
   - component: {fileID: 2085422352}
   m_Layer: 5
   m_Name: QuartierInfoCom
@@ -1939,6 +2078,17 @@ MonoBehaviour:
           m_StringArgument: InformationCommunication
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 307409180}
+        m_MethodName: definirNomQuartier
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2085422352
@@ -1974,6 +2124,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2085422349}
   m_CullTransparentMesh: 0
+--- !u!114 &2085422354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2085422349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2111520710
 Prefab:
   m_ObjectHideFlags: 0

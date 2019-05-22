@@ -14,6 +14,8 @@ public class Joueur : MonoBehaviour {
     public static bool[] MesTrophees;
     public static bool[] MesArtefacts;
     public static AutreJoueur[] MesAmis;
+    public static bool[] MesActionsSocialesSkill;
+    public static bool[] MesActionsSocialesObjet;
     public static int attenteMaj;
     public static DateTime dateDerniereCo;
     public static DateTime DateActuel = System.DateTime.Now;
@@ -33,6 +35,7 @@ public class Joueur : MonoBehaviour {
         RessourcesBdD.RecupObjetMagasin();
         RessourcesBdD.RecupDeLaListeDesJoueurs();
         RessourcesBdD.RecupMesAmis();
+        RessourcesBdD.RecupActionsSociales();
         StartCoroutine(IncrementationRessources());
         StartCoroutine(RessourcesBdD.recupMissionJouable());
     }
@@ -281,6 +284,63 @@ public class Joueur : MonoBehaviour {
             commande = new MySqlCommand(requete, Connexion.connexion);
             lien = commande.ExecuteReader();
             lien.Close();
+        }
+    }
+    
+    // Transfert des actions sociales en base
+    public static void transfertActionsSocialesEnBase()
+    {
+        for (int i = 0; i < Joueur.MesAmis.Length; ++i)
+        {
+            // Si l'action Sociale (ITEM) du joueur avec cet ami est vrai (effectuée)
+            if (Joueur.MesActionsSocialesObjet[i])
+            {
+                // On vérifie si le Joueur apparait dans la base (table action_sociale) : ITEM
+                int Total = 0;
+                string requete = "SELECT Count(*) AS Total from action_sociale WHERE IDPCharacter=" + IDJoueur + " AND IDPFriend=" + Joueur.MesAmis[i].SonID + " AND Type = 'ITEM'";
+                Debug.Log(requete);
+                MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+                MySqlDataReader lien = commande.ExecuteReader();
+                while (lien.Read())
+                {
+                    Total = Int32.Parse(lien["Total"].ToString());
+                }
+                lien.Close();
+            
+                if (Total == 0)
+                {
+                    requete = "INSERT INTO action_sociale VALUES (" + IDJoueur + "," + Joueur.MesAmis[i].SonID + ",'ITEM');";
+                    Debug.Log(requete);
+                    commande = new MySqlCommand(requete, Connexion.connexion);
+                    lien = commande.ExecuteReader();
+                    lien.Close();
+                }
+            }
+
+            // Si l'action Sociale (SKILL) du joueur avec cet ami est vrai (effectuée)
+            if (Joueur.MesActionsSocialesSkill[i])
+            {
+                // On vérifie si le Joueur apparait dans la base (table action_sociale) : SKILL
+                int Total = 0;
+                string requete = "SELECT Count(*) AS Total from action_sociale WHERE IDPCharacter=" + IDJoueur + " AND IDPFriend=" + Joueur.MesAmis[i].SonID + " AND Type = 'SKILL'";
+                Debug.Log(requete);
+                MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+                MySqlDataReader lien = commande.ExecuteReader();
+                while (lien.Read())
+                {
+                    Total = Int32.Parse(lien["Total"].ToString());
+                }
+                lien.Close();
+
+                if (Total == 0)
+                {
+                    requete = "INSERT INTO action_sociale VALUES (" + IDJoueur + "," + Joueur.MesAmis[i].SonID + ",'SKILL');";
+                    Debug.Log(requete);
+                    commande = new MySqlCommand(requete, Connexion.connexion);
+                    lien = commande.ExecuteReader();
+                    lien.Close();
+                }
+            }
         }
     }
 
