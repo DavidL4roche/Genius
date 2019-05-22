@@ -49,13 +49,13 @@ public class FabriqueListeObjet : MonoBehaviour {
                 switch (RessourcesBdD.listeDesObjets[i].Bonus.NomBonus)
                 {
                     case "Orcus":
-                        IconeRessource.texture = Resources.Load<Texture>("icones/Icon_orcus_white");
+                        IconeRessource.texture = Resources.Load<Texture>("icones/IconM_orcus");
                         break;
                     case "Compétence":
-                        IconeRessource.texture = Resources.Load<Texture>("icones/Icon_comp_requis");
+                        IconeRessource.texture = Resources.Load<Texture>("icones/IconM_comp");
                         break;
                     case "Temps":
-                        IconeRessource.texture = Resources.Load<Texture>("icones/Icon_durée");
+                        IconeRessource.texture = Resources.Load<Texture>("icones/IconM_durée");
                         break;
                 }
 

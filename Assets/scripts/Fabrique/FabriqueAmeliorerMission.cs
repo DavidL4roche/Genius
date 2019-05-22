@@ -24,6 +24,10 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         float Valeur = 1.0F;
         switch (bout.transform.name)
         {
+            case "Bouton0":
+                Valeur = 1.0F;
+                IARequis = 0;
+                break;
             case "Bouton1":
                 Valeur = 1.1F;
                 IARequis = 500;
@@ -73,7 +77,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
     }
     public void nettoyerBouton()
     {
-        for (int i = 1; i < 4; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             GameObject obj = GameObject.Find("Bouton" + i);
             obj.GetComponent<Button>().image.color = blanc;
