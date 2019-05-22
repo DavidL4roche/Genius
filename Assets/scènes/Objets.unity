@@ -534,10 +534,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tuple: {fileID: 1113104496538354, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
-  TupleButton: {fileID: 114804020118883012, guid: 105939a83ef6d334cba60fe29cbba833,
-    type: 2}
   NomObjet: {fileID: 114555355255049188, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
   Quantite: {fileID: 114919638674333796, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
+  IconeRessource: {fileID: 114104716174040010, guid: 105939a83ef6d334cba60fe29cbba833,
+    type: 2}
+  Gain: {fileID: 114488397838026330, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
   logoPuzzle: {fileID: 114895261315601632, guid: 105939a83ef6d334cba60fe29cbba833,
     type: 2}
   FondQuantite: {fileID: 1295393995944052, guid: 105939a83ef6d334cba60fe29cbba833,

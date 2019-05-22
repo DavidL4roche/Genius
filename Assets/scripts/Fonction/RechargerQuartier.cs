@@ -15,8 +15,6 @@ public class RechargerQuartier : MonoBehaviour {
         {
             NomQuartier = "InformationCommunication";
         }
-
-        Debug.Log(NomQuartier);
     }
 
     public void Recharger()

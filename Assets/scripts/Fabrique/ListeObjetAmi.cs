@@ -30,7 +30,7 @@ public class ListeObjetAmi: MonoBehaviour
                 logoPuzzle.texture = Resources.Load<Texture>("icones/Item" + i);
                 FondQuantite.SetActive(true);
                 Quantite.text = Joueur.MesObjets[i].ToString();
-                Debug.Log(RessourcesBdD.listeDesObjets[i].Bonus.NomBonus);
+
                 switch(RessourcesBdD.listeDesObjets[i].Bonus.NomBonus)
                 {
                     case "Orcus":
