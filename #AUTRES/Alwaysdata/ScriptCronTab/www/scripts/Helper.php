@@ -540,4 +540,17 @@ class Helper {
             }
         }
     }
+
+    // Actualise l'attribut LastConnection d'un Joueur donné
+    function updateDateCo($id) {
+        if ($id != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "UPDATE p_character SET LastConnection = '" . date("Y-m-d H:i:s") . "' WHERE IDPCharacter = " . $id;
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+        }
+    }
 }

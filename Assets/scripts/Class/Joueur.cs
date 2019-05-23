@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using SimpleJSON;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ public class Joueur : MonoBehaviour {
     public static DateTime DateActuel = System.DateTime.Now;
     public static int DateActuelMinute = System.DateTime.Now.Minute;
     public static int DateActuelSeconde = System.DateTime.Now.Second;
+    
+    private string url = Configuration.url + "scripts/UpdateDateCo.php?id=" + IDJoueur;
+    private WWW download;
+    private string monJson;
+    private JSONNode monNode;
 
     // Use this for initialization
     public void Start() {
@@ -44,6 +50,13 @@ public class Joueur : MonoBehaviour {
 	void Update () {
         DateActuelMinute = System.DateTime.Now.Minute;
         DateActuelSeconde = System.DateTime.Now.Second;
+        StartCoroutine(UpdateDateDerniereCoEnBase());
+    }
+
+    public IEnumerator UpdateDateDerniereCoEnBase()
+    {
+        download = new WWW(url);
+        yield return download;
     }
 
     // Fais la mise à jour depuis la base de toutes les données importantes
