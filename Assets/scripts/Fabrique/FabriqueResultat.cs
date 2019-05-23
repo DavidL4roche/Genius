@@ -10,8 +10,8 @@ public class FabriqueResultat : MonoBehaviour {
     public Text nomTuple;
     public Text ValeurTupleTexte;
     public Slider ValeurTupleSlider;
-    public Text SliderTexte;
-    public Image ImageTuple;
+    //public Text SliderTexte;
+    //public Image ImageTuple;
     GameObject instance;
 
     public void Start()
@@ -43,7 +43,7 @@ public class FabriqueResultat : MonoBehaviour {
                 ValeurTupleTexte.gameObject.SetActive(true);
                 ValeurTupleSlider.gameObject.SetActive(false);
                 ValeurTupleTexte.text = "+" + mission.SesGains[i].ValeurDuGain.ToString();
-                ImageTuple.color = new Color(0F,1F,0F,1F);
+                //ImageTuple.color = new Color(0F,1F,0F,1F);
                 instance = Instantiate(Tuple);
                 instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
                 instance.transform.name = "Tuple " + (i + 1);
@@ -63,7 +63,7 @@ public class FabriqueResultat : MonoBehaviour {
                 ValeurTupleTexte.gameObject.SetActive(true);
                 ValeurTupleSlider.gameObject.SetActive(false);
                 ValeurTupleTexte.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString();
-                ImageTuple.color = new Color(1F, 0F, 0F, 1F);
+                //ImageTuple.color = new Color(1F, 0F, 0F, 1F);
                 instance = Instantiate(Tuple);
                 instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
                 instance.transform.name = "Tuple " + (i + 1);

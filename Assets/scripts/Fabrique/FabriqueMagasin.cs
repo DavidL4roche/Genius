@@ -135,12 +135,12 @@ public class FabriqueMagasin : MonoBehaviour {
 
                     //ORCUS
                     case "Orcus":
-                        textes[2].text = Joueur.MesRessources[i].ToString();
+                        textes[2].text = RessourcesJoueur.getPriceInK(Joueur.MesRessources[i]);
                         break;
 
                     // MATIERE IA
                     case "IA":
-                        textes[3].text = Joueur.MesRessources[i].ToString();
+                        textes[3].text = RessourcesJoueur.getPriceInK(Joueur.MesRessources[i]);
                         break;
                     default:
                         break;
