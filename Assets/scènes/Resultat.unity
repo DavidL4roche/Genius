@@ -159,7 +159,6 @@ GameObject:
   - component: {fileID: 126162420}
   - component: {fileID: 126162419}
   - component: {fileID: 126162418}
-  - component: {fileID: 126162417}
   - component: {fileID: 126162416}
   - component: {fileID: 126162415}
   m_Layer: 5
@@ -244,49 +243,19 @@ MonoBehaviour:
           m_StringArgument: Resultat
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1311887017}
+        m_MethodName: Recharger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &126162417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 126162413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1677818224}
-          m_MethodName: Fermer
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Resultat
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1372914948}
-          m_MethodName: Recharger
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &126162418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,10 +1282,9 @@ GameObject:
   - component: {fileID: 1311887015}
   - component: {fileID: 1311887014}
   - component: {fileID: 1311887013}
-  - component: {fileID: 1311887012}
+  - component: {fileID: 1311887016}
   - component: {fileID: 1311887018}
   - component: {fileID: 1311887017}
-  - component: {fileID: 1311887016}
   m_Layer: 5
   m_Name: Terminer
   m_TagString: Untagged
@@ -1344,47 +1312,6 @@ RectTransform:
   m_AnchoredPosition: {x: 89.67, y: -168.81}
   m_SizeDelta: {x: 172.77, y: -386.51}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1311887012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1311887010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1677818224}
-          m_MethodName: Fermer
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Resultat
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1311887018}
-          m_MethodName: Charger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Daedelus
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &1311887013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,6 +1417,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Resultat
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1311887017}
+        m_MethodName: Recharger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
