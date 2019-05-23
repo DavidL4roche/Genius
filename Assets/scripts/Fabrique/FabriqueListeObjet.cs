@@ -21,9 +21,10 @@ public class FabriqueListeObjet : MonoBehaviour {
         // On crée le premier objet (AUCUN OBJET)
         NomObjet.text = "Aucun objet";
         IconeRessource.enabled = false;
-        logoPuzzle.enabled = false;
+        //logoPuzzle.enabled = false;
         FondQuantite.SetActive(false);
         IDObjet.text = "X";
+        logoPuzzle.texture = Resources.Load<Texture>("icones/Icon_orcus");
         Quantite.text = "";
         Gain.text = "";
 

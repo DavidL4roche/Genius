@@ -24,6 +24,7 @@ public class ListeObjetAmi: MonoBehaviour
         {
             if (joueur.SesObjets[i] > 0)
             {
+                IconeRessource.enabled = true;
                 NomObjet.text = RessourcesBdD.listeDesObjets[i].Nom;
                 //logoPuzzle.SetActive(true);
 

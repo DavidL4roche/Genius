@@ -515,7 +515,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: f0b11292a35f09e48a8ce6f220805ba9, type: 3}
+  m_Texture: {fileID: 2800000, guid: bfc9c1c80dd34994bb0ef22b956a7c48, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -539,7 +539,7 @@ MonoBehaviour:
   IconeRessource: {fileID: 114104716174040010, guid: 105939a83ef6d334cba60fe29cbba833,
     type: 2}
   Gain: {fileID: 114488397838026330, guid: 105939a83ef6d334cba60fe29cbba833, type: 2}
-  logoPuzzle: {fileID: 114895261315601632, guid: 105939a83ef6d334cba60fe29cbba833,
+  logoPuzzle: {fileID: 114947601786086272, guid: 105939a83ef6d334cba60fe29cbba833,
     type: 2}
   FondQuantite: {fileID: 1295393995944052, guid: 105939a83ef6d334cba60fe29cbba833,
     type: 2}
@@ -584,8 +584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -11.2}
-  m_SizeDelta: {x: 8.71, y: 388.2}
+  m_AnchoredPosition: {x: 133, y: -10.07}
+  m_SizeDelta: {x: 8.71, y: 402.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1280995068
 MonoBehaviour:
@@ -871,7 +871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -90, y: 225}
+  m_AnchoredPosition: {x: -89, y: 234.27}
   m_SizeDelta: {x: 106.43, y: 34.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787255198
