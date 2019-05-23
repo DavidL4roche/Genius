@@ -28,7 +28,7 @@ public class ListeObjetAmi: MonoBehaviour
                 NomObjet.text = RessourcesBdD.listeDesObjets[i].Nom;
                 //logoPuzzle.SetActive(true);
 
-                logoPuzzle.texture = Resources.Load<Texture>("icones/Item" + i);
+                logoPuzzle.texture = Resources.Load<Texture>("icones/Item" + (i + 1));
                 FondQuantite.SetActive(true);
                 Quantite.text = Joueur.MesObjets[i].ToString();
 

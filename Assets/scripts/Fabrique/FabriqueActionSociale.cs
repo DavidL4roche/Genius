@@ -40,7 +40,7 @@ public class FabriqueActionSociale : MonoBehaviour {
                 {
                     //QuantitéObjet.text = joueur.SesObjets[i].ToString();
                     TexteTuple.text = RessourcesBdD.listeDesObjets[i].Nom;
-                    imageAction.texture = Resources.Load<Texture>("icones/Item" + i);
+                    imageAction.texture = Resources.Load<Texture>("icones/Item" + (i+1));
                     Bouton.transform.name = i.ToString();
                     instance = Instantiate(tuple, new Vector3(0, 0, 0), tuple.transform.rotation);
                     instance.transform.name = "Objet " + i;

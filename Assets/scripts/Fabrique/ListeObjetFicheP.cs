@@ -23,7 +23,7 @@ public class ListeObjetFicheP: MonoBehaviour
             NomObjet.text = RessourcesBdD.listeDesObjets[i].Nom;
             //logoPuzzle.SetActive(true);
 
-            logoPuzzle.texture = Resources.Load<Texture>("icones/Item" + i);
+            logoPuzzle.texture = Resources.Load<Texture>("icones/Item" + (i+1));
             FondQuantite.SetActive(true);
 
             if (Joueur.MesObjets[i] > 0)
