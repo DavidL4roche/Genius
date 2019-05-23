@@ -249,6 +249,24 @@ class Helper {
         }
     }
 
+    // Change la ressource renseignée pour un joueur donnée
+    function SetRessources($idRessource, $idJoueur, $value) {
+        if ($idRessource != null && $idJoueur != null && $value != null) {
+
+            $sql = "UPDATE association_ressource_pc SET Value = '" . $value . "' WHERE IDRessource = " . $idRessource . " AND IDPCharacter = " . $idJoueur . ";";
+
+            $bdd = $this->ConnectBDD();
+            $result = $bdd->prepare($sql);
+            $result->execute();
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Veuillez renseigner les champs demandés (idRessource, idPlayer et Valeur)"
+            ));
+        }
+    }
+
     // Réninitalise le mot de passe
     function reinitiatePassword($mail) {
 

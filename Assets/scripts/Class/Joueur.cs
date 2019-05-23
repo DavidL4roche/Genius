@@ -51,12 +51,23 @@ public class Joueur : MonoBehaviour {
         DateActuelMinute = System.DateTime.Now.Minute;
         DateActuelSeconde = System.DateTime.Now.Second;
         StartCoroutine(UpdateDateDerniereCoEnBase());
+        StartCoroutine(transfertRessourcesEnBaseScript());
     }
 
     public IEnumerator UpdateDateDerniereCoEnBase()
     {
         download = new WWW(url);
         yield return download;
+    }
+
+    public IEnumerator transfertRessourcesEnBaseScript()
+    {
+        for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+        {
+            string urlRessource = Configuration.url + "scripts/ChangeRessource.php?idRessource=" + (i+1) + "&idJoueur=" + IDJoueur + "&value=" + RessourcesBdD.listeDesRessources[i];
+            download = new WWW(urlRessource);
+            yield return download;
+        }
     }
 
     // Fais la mise à jour depuis la base de toutes les données importantes

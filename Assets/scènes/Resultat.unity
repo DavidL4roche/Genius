@@ -1314,6 +1314,7 @@ GameObject:
   - component: {fileID: 1311887014}
   - component: {fileID: 1311887013}
   - component: {fileID: 1311887012}
+  - component: {fileID: 1311887018}
   - component: {fileID: 1311887017}
   - component: {fileID: 1311887016}
   m_Layer: 5
@@ -1370,15 +1371,15 @@ MonoBehaviour:
             m_StringArgument: Resultat
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1311887017}
-          m_MethodName: Recharger
-          m_Mode: 1
+        - m_Target: {fileID: 1311887018}
+          m_MethodName: Charger
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Daedelus
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1502,6 +1503,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1311887018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1311887010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 426e7de294063cd4da3e28f8ee4b06ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1338686387
@@ -1662,7 +1674,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 1.300003, y: 39.022}
   m_SizeDelta: {x: 2.6, y: 78.044}
   m_Pivot: {x: 0.5, y: 0.5}
