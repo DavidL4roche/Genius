@@ -721,6 +721,12 @@ public class RessourcesBdD : MonoBehaviour
         listeDesMissionsPrésentes = new MissionPrésente[0];
         listeDesPNJPrésents = new PNJPrésent[0];
     }
+
+    static public void DestroyListeDivertissement()
+    {
+        listeDesDivertissementsPrésents = new MissionDivertissementPrésente[0];
+    }
+
     static Mission testMissionSpecialise(Mission mission, Quartier quartier)
     {
         bool test = false;

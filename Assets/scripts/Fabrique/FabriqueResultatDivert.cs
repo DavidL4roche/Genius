@@ -5,12 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FabriqueResultatDivert : MonoBehaviour {
-    MissionDivertissement divert = SpawnerMission.SonDivertissement;
 
+    MissionDivertissement divert = SpawnerMission.SonDivertissement;
     public Text gainDivert;
     public Text perteOrcus;
 
     GameObject instance;
+
     public void Start()
     {
         //mission.voirRessources();
@@ -18,7 +19,13 @@ public class FabriqueResultatDivert : MonoBehaviour {
         APerdu();
         blockdesprerequis();
         ReloadMissions();
+        RessourcesBdD.DestroyListeDivertissement();
+        RessourcesBdD.recupDivertJouable();
+
+        // On transfert en base
+        Joueur.transfertRessourcesEnBase();
     }
+
     public void blockdesprerequis()
     {
         for (int i = 0; i < divert.SesGains.Length; ++i)
