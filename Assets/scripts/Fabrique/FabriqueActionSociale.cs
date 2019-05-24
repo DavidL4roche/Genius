@@ -63,7 +63,7 @@ public class FabriqueActionSociale : MonoBehaviour {
                 {
                     TexteTuple.text = RessourcesBdD.listeDesExamens[i].CompétencesRequises[j].NomCompétence;
                     imageAction.texture = Resources.Load<Texture>("icones/Icon_diplome_min");
-                    Bouton.transform.name = i.ToString();
+                    Bouton.transform.name = (j+1).ToString();
 
                     // On compare la valeur demandée de la compétence par l'examen avec la valeur du joueur
                     int valComp = 0;
