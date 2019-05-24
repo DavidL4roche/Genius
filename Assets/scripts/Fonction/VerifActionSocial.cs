@@ -8,6 +8,5 @@ public class VerifActionSocial : MonoBehaviour {
     public void Cliquer()
     {
         ActionSocialeChoisie = gameObject.transform.name;
-        Debug.Log(ActionSocialeChoisie);
     }
 }

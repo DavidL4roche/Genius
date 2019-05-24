@@ -30,6 +30,12 @@ EditorBuildSettings:
     path: "Assets/sc\xE8nes/AjoutObjetM.unity"
     guid: 5c8aa6fdcd1d8864d9b74b2e46049b0b
   - enabled: 1
+    path: "Assets/sc\xE8nes/CompetencesAmi.unity"
+    guid: c1cf3c3af1d50b04a968b8dd8d11c0aa
+  - enabled: 1
+    path: "Assets/sc\xE8nes/DiplomesAmi.unity"
+    guid: b60e9b6166f59894da1ee0aa3bcb3c4d
+  - enabled: 1
     path: "Assets/sc\xE8nes/ValidMagasin.unity"
     guid: 489c944210cb68040ac85289ed8ae506
   - enabled: 1
@@ -44,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/sc\xE8nes/MotDePasseOublie.unity"
     guid: bc113d709cd1de94695e903e4fa52b00
+  - enabled: 1
+    path: "Assets/sc\xE8nes/ObjetsOpti.unity"
+    guid: 4fc175ba185336048852425da6c541a5
   - enabled: 1
     path: "Assets/sc\xE8nes/Inscription.unity"
     guid: ce3ffc70ba9d4914bb6da74e479458d2
@@ -129,8 +138,11 @@ EditorBuildSettings:
     path: "Assets/sc\xE8nes/Diplomes.unity"
     guid: 89fdc12160747134e937e4e7ac00a269
   - enabled: 1
-    path: "Assets/sc\xE8nes/Objets.unity"
+    path: "Assets/sc\xE8nes/ObjetsAmi.unity"
     guid: c1e9d24190906fb419bac1618a7f9b51
+  - enabled: 1
+    path: "Assets/sc\xE8nes/Objets.unity"
+    guid: 1b564838f7bf7fc448a0d60ddbefd588
   - enabled: 1
     path: "Assets/sc\xE8nes/Trophees.unity"
     guid: 05e4c9e4c588bb5488739529a4b5f7b7

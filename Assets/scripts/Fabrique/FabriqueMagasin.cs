@@ -47,8 +47,28 @@ public class FabriqueMagasin : MonoBehaviour {
             objetIDGO.interactable = false;
 
             ObjetPrésent obj = listeobjets[i];
-            rangtexture.texture = obj.SonObjet.RangObjet.texture;
-            imageObjet.texture = Resources.Load<Texture>("icones/Item" + i);
+
+            switch(obj.SonObjet.RangObjet.NomRang)
+            {
+                case "C":
+                case "C+":
+                    rangtexture.texture = Resources.Load<Texture>("icones/PlaqueC");
+                    break;
+                case "B":
+                case "B+":
+                    rangtexture.texture = Resources.Load<Texture>("icones/PlaqueB");
+                    break;
+                case "A":
+                case "A+":
+                    rangtexture.texture = Resources.Load<Texture>("icones/PlaqueA");
+                    break;
+                case "S":
+                case "S+":
+                    rangtexture.texture = Resources.Load<Texture>("icones/PlaqueS");
+                    break;
+            }
+            
+            imageObjet.texture = Resources.Load<Texture>("icones/ItemM_" + obj.SonObjet.ID);
             valeurOrcus.text = RessourcesJoueur.getPriceInK(obj.SonPrixOrcus);
             valeurIA.text = RessourcesJoueur.getPriceInK(obj.SonPrixIA);
             nomObjet.text = obj.SonObjet.Nom;
@@ -115,12 +135,12 @@ public class FabriqueMagasin : MonoBehaviour {
 
                     //ORCUS
                     case "Orcus":
-                        textes[2].text = Joueur.MesRessources[i].ToString();
+                        textes[2].text = RessourcesJoueur.getPriceInK(Joueur.MesRessources[i]);
                         break;
 
                     // MATIERE IA
                     case "IA":
-                        textes[3].text = Joueur.MesRessources[i].ToString();
+                        textes[3].text = RessourcesJoueur.getPriceInK(Joueur.MesRessources[i]);
                         break;
                     default:
                         break;
