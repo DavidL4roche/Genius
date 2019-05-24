@@ -15,11 +15,9 @@ public class SupprimerUnAmi : MonoBehaviour {
         RessourcesBdD.RecupMesAmis();
         FermerPopup fermerpop = new FermerPopup();
         FermerUneFenetre fermerfen = new FermerUneFenetre();
-        ChargerPopup chargerpop = new ChargerPopup();
         ChargerFenetreSupp chargerfen = new ChargerFenetreSupp();
-        fermerpop.Fermer("SupprimerAmi");
+        fermerpop.Fermer("ValidSupprimerAmi");
         fermerfen.Fermer("ReseauSocial");
         chargerfen.Charger("ReseauSocial");
-        chargerpop.ChargerNonStatique("SupprimerAmi");
     }
 }

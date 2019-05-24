@@ -385,8 +385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.000008, y: 39.000008}
-  m_SizeDelta: {x: 39.75, y: 41.8}
+  m_AnchoredPosition: {x: 32.59, y: 39.000008}
+  m_SizeDelta: {x: 70.94, y: 41.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491435803
 MonoBehaviour:
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -721,6 +721,7 @@ GameObject:
   - component: {fileID: 977282009}
   - component: {fileID: 977282008}
   - component: {fileID: 977282006}
+  - component: {fileID: 977282007}
   m_Layer: 5
   m_Name: Terminer
   m_TagString: Untagged
@@ -745,7 +746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 90, y: -116}
+  m_AnchoredPosition: {x: 88.1, y: -116}
   m_SizeDelta: {x: 160.4, y: -371.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &977282006
@@ -798,8 +799,30 @@ MonoBehaviour:
           m_StringArgument: ResultatDivertissement
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 977282007}
+        m_MethodName: Recharger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &977282007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977282004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759a8c9cf680f1449941df448fb36487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &977282008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1045,17 @@ MonoBehaviour:
           m_StringArgument: ResultatDivertissement
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 977282007}
+        m_MethodName: Recharger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1102573305
@@ -1154,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1792,7 +1826,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: bed719ad680f890489fd7dbdb3b205fb, type: 3}
+  m_Texture: {fileID: 2800000, guid: 9f50d889e9a1ec14db2fd583fb25fc58, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1838,8 +1872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23, y: 44}
-  m_SizeDelta: {x: 39.75, y: 41.8}
+  m_AnchoredPosition: {x: 31.02, y: 44}
+  m_SizeDelta: {x: 55.79, y: 41.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917631231
 MonoBehaviour:

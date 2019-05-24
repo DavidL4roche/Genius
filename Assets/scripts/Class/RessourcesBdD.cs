@@ -32,6 +32,7 @@ public class RessourcesBdD : MonoBehaviour
     public static Artefact[] listeDesArtefactsJouables;
     public static PNJPrésent[] listeDesPNJPrésents;
     public static ObjetPrésent[] LeMagasin;
+
     public static AutreJoueur[] listeDesJoueurs;
     public static bool stoprecupmission = false;
     // Use this for initialization
@@ -684,11 +685,48 @@ public class RessourcesBdD : MonoBehaviour
             StopInteractionSupp.interactionsupp = true;
         }
     }
+
+    public static void recupMissionJouableNow()
+    {
+        string requete = "SELECT COUNT(IDMission) AS Total, IDDistrict FROM present_missions WHERE IDMission NOT IN (SELECT IDMission from present_missions_done WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
+        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+        MySqlDataReader lien = commande.ExecuteReader();
+        while (lien.Read())
+        {
+            int total = Int32.Parse(lien["Total"].ToString());
+            listeDesMissionsPrésentes = new MissionPrésente[(int)total];
+            Debug.Log("Total de mission jouables : " + total);
+        }
+        lien.Close();
+        requete = "SELECT * FROM present_missions WHERE IDMission NOT IN (SELECT IDMission from present_missions_done WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
+        commande = new MySqlCommand(requete, Connexion.connexion);
+        lien = commande.ExecuteReader();
+        for (int i = 0; i < listeDesMissionsPrésentes.Length;)
+        {
+            while (lien.Read())
+            {
+                listeDesMissionsPrésentes[i] = new MissionPrésente((int)lien["IDDistrict"], (int)lien["IDMission"], (int)lien["IDCompany"]);
+                ++i;
+            }
+        }
+        lien.Close();
+        for (int i = 0; i < listeDesMissionsPrésentes.Length; ++i)
+        {
+            listeDesMissionsPrésentes[i].SaMission = testMissionSpecialise(listeDesMissionsPrésentes[i].SaMission, listeDesMissionsPrésentes[i].SonQuartier);
+        }
+    }
+
     static public void DestroyListeMission()
     {
         listeDesMissionsPrésentes = new MissionPrésente[0];
         listeDesPNJPrésents = new PNJPrésent[0];
     }
+
+    static public void DestroyListeDivertissement()
+    {
+        listeDesDivertissementsPrésents = new MissionDivertissementPrésente[0];
+    }
+
     static Mission testMissionSpecialise(Mission mission, Quartier quartier)
     {
         bool test = false;
@@ -950,6 +988,55 @@ public class RessourcesBdD : MonoBehaviour
             {
                 listeDesJoueurs[i] = new AutreJoueur((int)lien["IDPCharacter"], lien["PCName"].ToString());
                 ++i;
+            }
+        }
+        lien.Close();
+    }
+
+    public static void RecupActionsSociales()
+    {
+        // On initialise les tableaux
+        Joueur.MesActionsSocialesObjet = new bool[Joueur.MesAmis.Length];
+        Joueur.MesActionsSocialesSkill = new bool[Joueur.MesAmis.Length];
+
+        // Actions sociales d'objet
+        string requete = "SELECT * FROM action_sociale WHERE Type = 'ITEM' AND IDPCharacter=" + Joueur.IDJoueur;
+        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+        MySqlDataReader lien = commande.ExecuteReader();
+        while (lien.Read())
+        {
+            for (int i = 0; i < Joueur.MesAmis.Length; ++i)
+            {
+                if ((int)lien["IDPFriend"] == Joueur.MesAmis[i].SonID)
+                {
+                    Debug.Log("Ami ayant action sociale Objet : " + Joueur.MesAmis[i].SonNom);
+                    Joueur.MesActionsSocialesObjet[i] = true;
+                }
+                else
+                {
+                    Joueur.MesActionsSocialesObjet[i] = false;
+                }
+            }
+        }
+        lien.Close();
+
+        // Actions sociales d'objet
+        requete = "SELECT * FROM action_sociale WHERE Type = 'SKILL' AND IDPCharacter=" + Joueur.IDJoueur;
+        commande = new MySqlCommand(requete, Connexion.connexion);
+        lien = commande.ExecuteReader();
+        while (lien.Read())
+        {
+            for (int i = 0; i < Joueur.MesAmis.Length; ++i)
+            {
+                if ((int)lien["IDPFriend"] == Joueur.MesAmis[i].SonID)
+                {
+                    Debug.Log("Ami ayant action sociale Skill : " + Joueur.MesAmis[i].SonNom);
+                    Joueur.MesActionsSocialesSkill[i] = true;
+                }
+                else
+                {
+                    Joueur.MesActionsSocialesSkill[i] = false;
+                }
             }
         }
         lien.Close();

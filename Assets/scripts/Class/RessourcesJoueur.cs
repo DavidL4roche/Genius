@@ -38,18 +38,37 @@ public class RessourcesJoueur : MonoBehaviour {
 
                         //ORCUS
                         case "Orcus":
-                            textes[2].text = Joueur.MesRessources[i].ToString();
+                            textes[2].text = getPriceInK(Joueur.MesRessources[i]);
                             break;
 
                         // MATIERE IA
                         case "IA":
-                            textes[3].text = Joueur.MesRessources[i].ToString();
+                            textes[3].text = getPriceInK(Joueur.MesRessources[i]);
                             break;
                         default:
                             break;
                     }
                 }
             }
+        }
+    }
+
+    // Return the k price, example : 12000 -> 12k
+    public static string getPriceInK(int price) 
+    {
+        if (price >= 10000)
+        {
+            string kPrice = price.ToString();
+            return kPrice.Substring(0, 2) + "k";
+        }
+        else if(price >= 1000)
+        {
+            string kPrice = price.ToString();
+            return kPrice.Substring(0, 1) + "k";
+        }
+        else
+        {
+            return price.ToString();
         }
     }
 }

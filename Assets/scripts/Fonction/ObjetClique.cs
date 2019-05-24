@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ObjetClique : MonoBehaviour {
     Mission mission = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
+
     public Text texte;
     public void ObjetCliqué()
     {
@@ -20,5 +21,11 @@ public class ObjetClique : MonoBehaviour {
         FicheAmélioration.attribuerBonusObjets();
         Gain.calculDesGains(mission);
         Perte.calculDesPertes(mission);
+
+        ChargerPopup charger = new ChargerPopup();
+        FermerPopup fermer = new FermerPopup();
+
+        fermer.Fermer(VerificationGameObject.NomGameObject);
+        charger.ChargerNonStatique(VerificationGameObject.NomGameObject);
     }
 }

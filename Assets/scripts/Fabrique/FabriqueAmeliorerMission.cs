@@ -11,6 +11,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
     Color blanc = new Color32(255, 255, 255, 0);
 
     public Slider sliderConcentration;
+    public RawImage imageObjet;
 
     public void Start()
     {
@@ -23,6 +24,10 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         float Valeur = 1.0F;
         switch (bout.transform.name)
         {
+            case "Bouton0":
+                Valeur = 1.0F;
+                IARequis = 0;
+                break;
             case "Bouton1":
                 Valeur = 1.1F;
                 IARequis = 500;
@@ -72,7 +77,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
     }
     public void nettoyerBouton()
     {
-        for (int i = 1; i < 4; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             GameObject obj = GameObject.Find("Bouton" + i);
             obj.GetComponent<Button>().image.color = blanc;
@@ -136,13 +141,13 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         //Objet
         if  (FicheAmélioration.IDObjetUtilise == 0)
         {
-            GameObject.Find("BoutonObjet").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
-            GameObject.Find("TexteObjet").GetComponent<Text>().text = "X";
+            //GameObject.Find("Ameliorer").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
+            imageObjet.texture = Resources.Load<Texture>("icones/Icon_orcus");
         }
         else
         {
-            GameObject.Find("BoutonObjet").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
-            GameObject.Find("TexteObjet").GetComponent<Text>().text = FicheAmélioration.IDObjetUtilise.ToString();
+            //GameObject.Find("Ameliorer").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
+            imageObjet.texture = Resources.Load<Texture>("icones/Item" + FicheAmélioration.IDObjetUtilise);
         }
     }
 
