@@ -68,7 +68,7 @@ public class FabriqueMagasin : MonoBehaviour {
                     break;
             }
             
-            imageObjet.texture = Resources.Load<Texture>("icones/Item" + obj.SonObjet.ID);
+            imageObjet.texture = Resources.Load<Texture>("icones/ItemM_" + obj.SonObjet.ID);
             valeurOrcus.text = RessourcesJoueur.getPriceInK(obj.SonPrixOrcus);
             valeurIA.text = RessourcesJoueur.getPriceInK(obj.SonPrixIA);
             nomObjet.text = obj.SonObjet.Nom;
