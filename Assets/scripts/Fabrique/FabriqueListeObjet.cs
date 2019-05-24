@@ -24,7 +24,7 @@ public class FabriqueListeObjet : MonoBehaviour {
         //logoPuzzle.enabled = false;
         FondQuantite.SetActive(false);
         IDObjet.text = "X";
-        logoPuzzle.texture = Resources.Load<Texture>("icones/Icon_orcus");
+        logoPuzzle.texture = Resources.Load<Texture>("icones/ObjetCross");
         Quantite.text = "";
         Gain.text = "";
 

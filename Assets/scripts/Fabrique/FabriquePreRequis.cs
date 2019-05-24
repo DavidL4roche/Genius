@@ -128,7 +128,7 @@ public class FabriquePreRequis : MonoBehaviour
         //Objet
         if (FicheAmélioration.IDObjetUtilise == 0)
         {
-            ImageObjet.texture = Resources.Load<Texture>("icones/Icon_orcus");
+            ImageObjet.texture = Resources.Load<Texture>("icones/ObjetCross");
         }
         else
         {
