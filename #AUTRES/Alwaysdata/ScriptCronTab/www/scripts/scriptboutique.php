@@ -7,6 +7,15 @@ require_once "configuration.php";
 $connexion = mysqli_connect($host,$login,$password,$database);
 
 
+$requete = "DELETE FROM `item_bought` WHERE 1";
+if($result = mysqli_query($connexion,$requete)){
+    echo "ça a marché le drop table item acheté<br><br>";
+}
+else{
+    echo "ça a pas marché le drop table item acheté<br><br>";
+}
+
+/*
 // on génère  la boutique
 $requete = "DELETE FROM `association_shop_item` WHERE 1";
 if($result = mysqli_query($connexion,$requete)){
@@ -16,13 +25,6 @@ else{
     echo "ça a pas marché le drop table de la boutique<br><br>";
 }
 
-$requete = "DELETE FROM `item_bought` WHERE 1";
-if($result = mysqli_query($connexion,$requete)){
-    echo "ça a marché le drop table item acheté<br><br>";
-}
-else{
-    echo "ça a pas marché le drop table item acheté<br><br>";
-}
 //3 tirages pour les objets de rang C
 $tableauobjetrangC = array();
 $requete = "SELECT IDItem FROM item WHERE IDRank in (Select IDRank from rank WHERE RankName ='C');";
@@ -163,4 +165,4 @@ else{
     echo "<br>Objet de rang S pas inséré<br>";
 }
 
-
+*/

@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item10.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item11.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item2.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item3.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item4.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item5.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item6.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item7.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item8.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item9.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Resources/icones/Item9.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptboutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/scriptboutique.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueListeObjet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueListeObjet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMagasin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMagasin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/VerifArtefactCliquer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/VerifArtefactCliquer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriquePreRequis.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriquePreRequis.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,19 +30,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChangeRessource.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -71,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -142,11 +113,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="259" column="31" selection-start-line="259" selection-start-column="31" selection-end-line="259" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scriptboutique.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="167" column="2" selection-start-line="167" selection-start-column="2" selection-end-line="167" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -203,6 +183,7 @@
         <option value="$PROJECT_DIR$/ChangePlayerStats.php" />
         <option value="$PROJECT_DIR$/ChangeRessource.php" />
         <option value="$PROJECT_DIR$/Helper.php" />
+        <option value="$PROJECT_DIR$/scriptboutique.php" />
       </list>
     </option>
   </component>
@@ -220,6 +201,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,7 +213,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -302,17 +283,18 @@
       <workItem from="1556893643414" duration="428000" />
       <workItem from="1558599556085" duration="735000" />
       <workItem from="1558602696652" duration="1326000" />
+      <workItem from="1558706001111" duration="167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102835000" />
+    <option name="totallyTimeSpent" value="103002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16398714" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1659164" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -392,9 +374,6 @@
     <entry file="file://$PROJECT_DIR$/scriptartefact.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptboutique.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/GetConnectOnIP.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -413,6 +392,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChangeRessource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -470,20 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChangeRessource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -491,10 +477,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
+    <entry file="file://$PROJECT_DIR$/scriptboutique.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        <state relative-caret-position="576">
+          <caret line="167" column="2" selection-start-line="167" selection-start-column="2" selection-end-line="167" selection-end-column="2" />
         </state>
       </provider>
     </entry>
