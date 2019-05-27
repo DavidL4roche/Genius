@@ -10,15 +10,15 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
     public Text nomTuple;
     public Text ValeurTupleTexte;
     public Slider ValeurTupleSlider;
-    public Text SliderTexte;
-    public Image ImageTuple;
+    //public Text SliderTexte;
+    //public RawImage ImageTuple;
     public Button lancer;
     public Button ameliorer;
     GameObject instance;
 
     public void Start()
     {
-        Perte.calculDesPertes(mr);
+        Perte.calculDesPertesPNJ(mr);
         blockdesprerequis();
     }
     public void blockdesprerequis()
@@ -34,7 +34,7 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
             ValeurTupleTexte.gameObject.SetActive(false);
             int valeurr = mr.CompétencesRequises[i].Valeur;
             ValeurTupleSlider.value = valeurr;
-            SliderTexte.text = valeurr.ToString();
+            //SliderTexte.text = valeurr.ToString();
             verificationCompAvecJoueur(mr.CompétencesRequises[i].ID, valeurr);
             instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
             instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
@@ -76,11 +76,11 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
         }
         if (Joueur.MesValeursCompetences[i] >= valeur)
         {
-            ImageTuple.color = new Color(0F, 1F, 0F, 1F);
+            //ImageTuple.color = new Color(0F, 1F, 0F, 1F);
         }
         else
         {
-            ImageTuple.color = new Color(1F, 0F, 0F, 1F);
+            //ImageTuple.color = new Color(1F, 0F, 0F, 1F);
             Destroy(GameObject.Find("Lancer"));
             Destroy(GameObject.Find("Ameliorer"));
 
@@ -94,11 +94,11 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
             {
                 if (Joueur.MesRessources[i] >= valeurressource)
                 {
-                    ImageTuple.color = new Color(0F, 1F, 0F, 1F);
+                    //ImageTuple.color = new Color(0F, 1F, 0F, 1F);
                 }
                 else
                 {
-                    ImageTuple.color = new Color(1F, 0F, 0F, 1F);
+                    //ImageTuple.color = new Color(1F, 0F, 0F, 1F);
                     lancer.interactable = false;
                     ameliorer.interactable = false;
                 }

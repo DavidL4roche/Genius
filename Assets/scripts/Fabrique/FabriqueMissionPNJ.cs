@@ -17,11 +17,11 @@ public class FabriqueMissionPNJ : MonoBehaviour
     public Text NomTuple;
     public Text ValeurTupleTexte;
     public Slider ValeurTupleSlider;
-    public Image ImageTuple;
+    //public Image ImageTuple;
     GameObject instance;
     private void Start()
     {
-        Gain.calculDesGains(mr.SaMission);
+        Gain.calculDesGainsPNJ(mr.SaMission);
         Gain.attribuerUnArtefact(mr.SaMission,mr.SonPNJ.SonArtefact);
         NomArtefact.text = mr.SonPNJ.SonArtefact.NomArtefact;
         NomPnj.text = mr.SonPNJ.NomPNJ;
@@ -29,7 +29,7 @@ public class FabriqueMissionPNJ : MonoBehaviour
     }
     public void blockdesgains()
     {
-        ImageTuple.color = new Color(1F, 1F, 1F, 1F);
+        //ImageTuple.color = new Color(1F, 1F, 1F, 1F);
         for (int i = 0; i < mr.SaMission.SesGains.Length; ++i)
         {
             if (mr.SaMission.SesGains[i].ValeurDuGain > 0 && mr.SaMission.SesGains[i].NomGain != "Objet")
@@ -43,6 +43,7 @@ public class FabriqueMissionPNJ : MonoBehaviour
                 instance.transform.name = "Tuple " + (i + 1);
             }
         }
+        /*
         for (int i = 0; i < mr.SaMission.SesObjets.Length; ++i)
         {
             ValeurTupleSlider.gameObject.SetActive(false);
@@ -53,5 +54,6 @@ public class FabriqueMissionPNJ : MonoBehaviour
             instance.transform.parent = GameObject.Find("VerticalLayout").transform;
             instance.transform.name = "Tuple " + (i + 1);
         }
+        */
     }
 }

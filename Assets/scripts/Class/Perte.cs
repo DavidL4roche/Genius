@@ -42,10 +42,36 @@ public class Perte : MonoBehaviour {
         }
         mission.SesPertes = tabDePertes;
     }
+
+    public static void calculDesPertesPNJ(Mission mission)
+    {
+        Perte[] tabDePertes = new Perte[RessourcesBdD.listeDesPertes.Length];
+        for (int i = 0; i < RessourcesBdD.listeDesPertes.Length; ++i)
+        {
+            switch (RessourcesBdD.listeDesPertes[i].NomPerte)
+            {
+                case "Divertissement":
+                    tabDePertes[i] = new Perte(RessourcesBdD.listeDesPertes[i], calculPerteDivertissement(mission));
+                    break;
+                case "Social":
+                    tabDePertes[i] = new Perte(RessourcesBdD.listeDesPertes[i], calculPerteSocialPNJ());
+                    break;
+                default:
+                    tabDePertes[i] = new Perte(RessourcesBdD.listeDesPertes[i], 0);
+                    break;
+            }
+        }
+        mission.SesPertes = tabDePertes;
+    }
+
     static int calculPerteSocial(Mission mission)
     {
+        Debug.Log(mission.MissionEntreprise.TailleEntreprise);
+        Debug.Log(mission.SaDurée.ValeurDuree);
+        Debug.Log(mission.NiveauDeLaMission);
         return (1 - mission.MissionEntreprise.TailleEntreprise / 6) * mission.SaDurée.ValeurDuree * ((FicheAmélioration.Concentration) ? 2 : 1) * mission.NiveauDeLaMission / 100;
     }
+
     static int calculPerteSocial(Examen ex)
     {
         switch (ex.RangExamen.NomRang)
@@ -62,6 +88,12 @@ public class Perte : MonoBehaviour {
                 return 0;
         }
     }
+
+    static int calculPerteSocialPNJ()
+    {
+        return 50;
+    }
+
     static int calculPerteOrcus(MissionDivertissement md)
     {
         switch (md.SonRang.NomRang)
