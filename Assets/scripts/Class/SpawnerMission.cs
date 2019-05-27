@@ -63,6 +63,10 @@ public class SpawnerMission : MonoBehaviour {
         if (SonPNJ.SonPNJ.IDPNJ !=0 )
         {
             spawnerposition = genererPositionNonUtilisee();
+
+            RawImage iconePNJ = gameObject.GetComponentInChildren<RawImage>();
+            iconePNJ.texture = Resources.Load<Texture>("icones/PNJ" + SonPNJ.SonPNJ.IDPNJ);
+
             instance = Instantiate(MissionPNJ, spawnerposition, MissionPNJ.transform.rotation);
             instance.transform.parent = GameObject.Find("Decor").transform;
             instance.transform.name = "PNJ";
