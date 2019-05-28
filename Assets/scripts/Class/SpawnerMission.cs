@@ -146,10 +146,11 @@ public class SpawnerMission : MonoBehaviour {
         while (!test)
         {
             superpose = false;
+            int ecart = 85;
             spawnerposition = new Vector3(Random.Range(ecrangauche, ecrandroite), Random.Range(ecranbas, ecranhaut), 0);
             for (int j = 0; j < tabPositionX.Length; ++j)
             {
-                if (spawnerposition.x <= tabPositionX[j] + 40 && spawnerposition.x >= tabPositionX[j] - 40 && spawnerposition.y <= tabPositionY[j] + 40 && spawnerposition.y >= tabPositionY[j] - 40)
+                if (spawnerposition.x <= tabPositionX[j] + ecart && spawnerposition.x >= tabPositionX[j] - ecart && spawnerposition.y <= tabPositionY[j] + ecart && spawnerposition.y >= tabPositionY[j] - ecart)
                 {
                     superpose = true;
                     break;
