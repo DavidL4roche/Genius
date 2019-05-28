@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FabriquePreRequisPNJ : MonoBehaviour {
     //MissionRessources mission = ListeMissions.listeDeMissions[VerifQuartier.IDQuartier].missions[VerificationMission.MissionChoisi];
-    Mission mr = SpawnerMission.SonPNJ.SaMission;
+    Mission mr = RessourcesBdD.listeDesMissions[VerificationPNJ.MissionChoisi];
     public GameObject Tuple;
     public Text nomTuple;
     public GameObject IDGO;
@@ -26,6 +26,7 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
 
     public void Start()
     {
+        Gain.calculDesGainsPNJ(mr);
         Perte.calculDesPertesPNJ(mr);
         blockdesprerequis();
     }
@@ -181,7 +182,7 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
     {
         if (boolean)
         {
-            Color32 vert = new Color32(32, 34, 52, 255);
+            Color32 vert = new Color32(255, 255, 255, 255);
             textLancer.color = vert;
             Icone.color = vert;
             IconeIA.color = vert;
@@ -189,7 +190,7 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
         }
         else
         {
-            Color32 black = new Color32(147, 147, 147, 255);
+            Color32 black = new Color32(255, 255, 255, 127);
             textLancer.color = black;
             Icone.color = black;
             IconeIA.color = black;

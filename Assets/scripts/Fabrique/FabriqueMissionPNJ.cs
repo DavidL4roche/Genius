@@ -42,10 +42,10 @@ public class FabriqueMissionPNJ : MonoBehaviour
             switch(mr.SaMission.SesGains[i].NomGain)
             {
                 case "Orcus":
-                    GainOrcus.text = "+" + mr.SaMission.SesGains[i].ValeurDuGain.ToString();
+                    GainOrcus.text = RessourcesJoueur.getPriceInK(mr.SaMission.SesGains[i].ValeurDuGain).ToString();
                     break;
                 case "IA":
-                    GainIA.text = "+" + mr.SaMission.SesGains[i].ValeurDuGain.ToString();
+                    GainIA.text = RessourcesJoueur.getPriceInK(mr.SaMission.SesGains[i].ValeurDuGain).ToString();
                     break;
                 default:
                     break;
@@ -65,7 +65,7 @@ public class FabriqueMissionPNJ : MonoBehaviour
         */
     }
 
-    string trouverArtefact(int IDArtefact)
+    public static string trouverArtefact(int IDArtefact)
     {
         switch(IDArtefact)
         {

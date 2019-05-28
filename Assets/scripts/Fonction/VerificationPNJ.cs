@@ -8,6 +8,5 @@ public class VerificationPNJ : MonoBehaviour {
     public void Cliquer()
     {
         MissionChoisi = Int32.Parse(gameObject.name.Substring(3));
-        Debug.Log(MissionChoisi);
     }
 }

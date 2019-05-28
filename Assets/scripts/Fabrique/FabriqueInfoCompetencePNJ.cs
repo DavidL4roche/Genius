@@ -55,16 +55,6 @@ public class FabriqueInfoCompetencePNJ : MonoBehaviour
         }
 
         niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
-        Debug.Log(mr.IDMission);
-
-        for (int i=0; i< mr.CompétencesRequises.Length; i++)
-        {
-            Debug.Log(i + " : " + mr.CompétencesRequises[i].NomCompétence + mr.CompétencesRequises[i].ID);
-        }
-
-        Debug.Log("competenceid :" + competence.ID);
-        Debug.Log("idComp : " + idComp);
-        Debug.Log(VerificationCompetence.CompetenceChoisie);
-;        niveauRequis.text = mr.CompétencesRequises[idComp+1].Valeur + "%";
+;       niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
     }
 }

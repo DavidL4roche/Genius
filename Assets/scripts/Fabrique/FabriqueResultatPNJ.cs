@@ -5,11 +5,19 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FabriqueResultatPNJ : MonoBehaviour {
-    Mission mission = SpawnerMission.SonPNJ.SaMission;
+    Mission mission = RessourcesBdD.listeDesMissions[VerificationPNJ.MissionChoisi];
+    PNJPrésent mr = SpawnerMission.SonPNJ;
     public GameObject Tuple;
     public Text nomTuple;
     public Text ValeurTupleTexte;
     public Slider ValeurTupleSlider;
+
+    public Text GainOrcus;
+    public Text GainIA;
+    public RawImage GainArtefact;
+    public Text PerteDivert;
+    public Text PerteSocial;
+
     //public Text SliderTexte;
     //public Image ImageTuple;
     GameObject instance;
@@ -22,6 +30,7 @@ public class FabriqueResultatPNJ : MonoBehaviour {
         ValeurTupleTexte.color = new Color(1F, 1F, 1F, 1F);
         //ReloadMissions();
         Joueur.transfertEnBase();
+        transfertEnBase(mr.SonPNJ.SonArtefact.IDArtefact);
         RessourcesBdD.recupPNJJouable();
         RessourcesBdD.RecupArtefactJouable();
     }
@@ -29,42 +38,33 @@ public class FabriqueResultatPNJ : MonoBehaviour {
     {
         for (int i = 0; i < mission.SesGains.Length; ++i)
         {
-            if (mission.SesGains[i].ValeurDuGain != 0)
+            switch(mission.SesGains[i].NomGain)
             {
-                Text Texte = nomTuple;
-                Texte.text = mission.SesGains[i].NomGain;
-                ValeurTupleTexte.color = new Color(0F, 1F, 0F, 1F);
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = "+" + mission.SesGains[i].ValeurDuGain.ToString();
-                //ImageTuple.color = new Color(0F, 1F, 0F, 1F);
-                instance = Instantiate(Tuple);
-                instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
-                instance.transform.name = "Tuple " + (i + 1);
-            }
-            else
-            {
-                continue;
+                case "IA":
+                    GainIA.text = RessourcesJoueur.getPriceInK(mission.SesGains[i].ValeurDuGain).ToString();
+                    break;
+                case "Orcus":
+                    GainOrcus.text = RessourcesJoueur.getPriceInK(mission.SesGains[i].ValeurDuGain).ToString();
+                    break;
+                case "Artefact":
+                    GainArtefact.texture = Resources.Load<Texture>("icones/Artefact" + FabriqueMissionPNJ.trouverArtefact(mr.SonPNJ.SonArtefact.IDArtefact));
+                    break;
+                default:
+                    break;
             }
         }
         for (int i = 0; i < mission.SesPertes.Length; ++i)
         {
-            if (mission.SesPertes[i].ValeurDeLaPerte != 0)
+            switch(mission.SesPertes[i].NomPerte)
             {
-                Text Texte = nomTuple;
-                Texte.text = mission.SesPertes[i].NomPerte;
-                ValeurTupleTexte.color = new Color(1F, 0F, 0F, 1F);
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString();
-                //ImageTuple.color = new Color(1F, 0F, 0F, 1F);
-                instance = Instantiate(Tuple);
-                instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
-                instance.transform.name = "Tuple " + (i + 1);
-            }
-            else
-            {
-                continue;
+                case "Social":
+                    PerteSocial.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                    break;
+                case "Divertissement":
+                    PerteDivert.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -151,7 +151,7 @@ public class FabriqueResultatPNJ : MonoBehaviour {
     {
         for (int i = 0; i < RessourcesBdD.listeDesArtefacts.Length; ++i)
         {
-            if (SpawnerMission.SonPNJ.SonPNJ.SonArtefact.IDArtefact == RessourcesBdD.listeDesArtefacts[i].IDArtefact)
+            if (mr.SonPNJ.SonArtefact.IDArtefact == RessourcesBdD.listeDesArtefacts[i].IDArtefact)
             {
                 Joueur.MesArtefacts[i] = true;
                 transfertEnBase(RessourcesBdD.listeDesArtefacts[i].IDArtefact);
