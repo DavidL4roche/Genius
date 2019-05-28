@@ -63,9 +63,13 @@ public class SpawnerMission : MonoBehaviour {
         if (SonPNJ.SonPNJ.IDPNJ !=0 )
         {
             spawnerposition = genererPositionNonUtilisee();
+
+            RawImage iconePNJ = MissionPNJ.gameObject.GetComponentInChildren<RawImage>();
+            iconePNJ.texture = Resources.Load<Texture>("icones/PNJ" + SonPNJ.SonPNJ.IDPNJ);
+
             instance = Instantiate(MissionPNJ, spawnerposition, MissionPNJ.transform.rotation);
             instance.transform.parent = GameObject.Find("Decor").transform;
-            instance.transform.name = "PNJ";
+            instance.transform.name = "PNJ" + SonPNJ.SaMission.IDMission;
         }
         // Debug.Log("Je suis après la boucle des missions...");
         //MissionsDuQuartier.RandomMission();

@@ -855,9 +855,10 @@ public class RessourcesBdD : MonoBehaviour
     public static void recupPNJJouable()
     {
         listeDesPNJPrésents = new PNJPrésent[0];
-        if (testSiPNJJouable())
-        {
-            string requete = "SELECT count(*) AS Total,IDNPCharacter from npc_present WHERE IDNPCharacter NOT IN (Select IDFriend From friend WHERE IDPCharacter =" + Joueur.IDJoueur + ");";
+        //if (testSiPNJJouable())
+        //{
+            string requete = "SELECT count(*) AS Total,IDNPCharacter FROM npc_present " +
+            "WHERE IDNPCharacter NOT IN(SELECT IDNPCharacter FROM np_character WHERE IDArtefact IN (SELECT IDArtefact FROM artefact_pc WHERE IDPCharacter = " + Joueur.IDJoueur + "));";
             MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
             MySqlDataReader lien = commande.ExecuteReader();
             while (lien.Read())
@@ -878,12 +879,13 @@ public class RessourcesBdD : MonoBehaviour
                 }
             }
             lien.Close();
-        }
+        /*}
         else
         {
             //Debug.Log("Aucun PNJ jouable ?");
-        }
+        }*/
     }
+
     public static bool testSiPNJJouable()
     {
         //Debug.Log("Liste des diplomes : " + listeDesDiplomes);
@@ -891,7 +893,7 @@ public class RessourcesBdD : MonoBehaviour
 
         for (int i = 0; i < RessourcesBdD.listeDesDiplomes.Length; ++i)
         {
-            if (RessourcesBdD.listeDesDiplomes[i] != null)
+            if (RessourcesBdD.listeDesDiplomes[i].NomDiplome != null)
             {
                 if (Joueur.MesDiplomes[i] == true && RessourcesBdD.listeDesDiplomes[i].SonRang.NomRang == "B")
                 {
@@ -906,6 +908,7 @@ public class RessourcesBdD : MonoBehaviour
         }
         return test;
     }
+
     public static Objet randomObjetAvecRang(string NomRang)
     {
         Objet objetrandom = null;

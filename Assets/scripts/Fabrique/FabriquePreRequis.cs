@@ -99,10 +99,11 @@ public class FabriquePreRequis : MonoBehaviour
                         break;
                 }
                 
+                verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte);
+
                 /*
                 ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = mr.SesPertes[i].ValeurDeLaPerte.ToString();
-                verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte);    
+                ValeurTupleTexte.text = mr.SesPertes[i].ValeurDeLaPerte.ToString(); 
                 instance = Instantiate(Tuple,new Vector3(0F,0F,0F),Tuple.transform.rotation);
                 instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
                 instance.transform.name = "Tuple " + (i + 1);
