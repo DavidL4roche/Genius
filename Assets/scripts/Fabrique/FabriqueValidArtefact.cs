@@ -5,46 +5,59 @@ using UnityEngine.UI;
 
 public class FabriqueValidArtefact : MonoBehaviour {
 
+    public RawImage IconeArtefact;
     public Text NomArtefact;
-    public Text Gain;
+    public RawImage IconeGain;
+    public Text ValeurGain;
+    public Button Equiper;
 
     void Start () {
-        // On affiche le nom de l'artefact
+        Equiper.interactable = true;
+
+        // On affiche le nom et l'icone de l'artefact
         foreach (Artefact artefact in RessourcesBdD.listeDesArtefactsJouables)
         {
             if (artefact.IDArtefact == VerifArtefact.ArtefactChoisi)
             {
+                IconeArtefact.texture = Resources.Load<Texture>("icones/Artefact" + FabriqueMissionPNJ.trouverArtefact(artefact.IDArtefact));
                 NomArtefact.text = artefact.NomArtefact;
             }
         }
 
         // On affiche les gains de l'artefact
-        Gain.text = "Gains : ";
+        ValeurGain.text = "";
         switch(VerifArtefact.ArtefactChoisi)
         {
             // Artéfact Orcus
             case 1:
-                Gain.text += "+10.000 Orcus";
+                IconeGain.texture = Resources.Load<Texture>("icones/IconM_orcus");
+                ValeurGain.text += "+10.000";
                 break;
             // Artéfact Boutique
             case 2:
-                Gain.text += "Aucune action (temporaire)";
+                IconeGain.texture = Resources.Load<Texture>("icones/IconM_durée"); // A CHANGER
+                ValeurGain.text += "0";
+                Equiper.interactable = false;
                 break;
             // Artéfact IA
             case 3:
-                Gain.text += "+10.000 IA";
+                IconeGain.texture = Resources.Load<Texture>("icones/IconM_durée"); // A CHANGER
+                ValeurGain.text += "+10.000";
                 break;
             // Artéfact Objet
             case 4:
-                Gain.text += "+1 Objet";
+                IconeGain.texture = Resources.Load<Texture>("icones/IconM_orcus"); // A CHANGER
+                ValeurGain.text += "+1";
                 break;
             // Artéfact Divertissement
             case 5:
-                Gain.text += "100% Divertissement";
+                IconeGain.texture = Resources.Load<Texture>("icones/IconM_durée"); // A CHANGER
+                ValeurGain.text += "100%";
                 break;
             // Artéfact Social
             case 6:
-                Gain.text += "100% Social";
+                IconeGain.texture = Resources.Load<Texture>("icones/IconM_durée"); // A CHANGER
+                ValeurGain.text += "100%";
                 break;
             default:
                 break;
