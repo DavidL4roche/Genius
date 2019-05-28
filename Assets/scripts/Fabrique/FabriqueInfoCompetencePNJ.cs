@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class FabriqueInfoCompetence : MonoBehaviour
+public class FabriqueInfoCompetencePNJ : MonoBehaviour
 {
     //Compétence competence = RessourcesBdD.listeDesCompétences[VerificationCompetence.CompetenceChoisie - 1];
-    Mission mr = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
+    Mission mr = RessourcesBdD.listeDesMissions[VerificationPNJ.MissionChoisi];
 
     // Elements graphiques de la fenêtre
     public Text titreCompetence;
@@ -56,8 +56,15 @@ public class FabriqueInfoCompetence : MonoBehaviour
 
         niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
         Debug.Log(mr.IDMission);
-        Debug.Log(mr.CompétencesRequises[idComp].Valeur);
-        Debug.Log(mr.CompétencesRequises[idComp].ID);
-;        niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
+
+        for (int i=0; i< mr.CompétencesRequises.Length; i++)
+        {
+            Debug.Log(i + " : " + mr.CompétencesRequises[i].NomCompétence + mr.CompétencesRequises[i].ID);
+        }
+
+        Debug.Log("competenceid :" + competence.ID);
+        Debug.Log("idComp : " + idComp);
+        Debug.Log(VerificationCompetence.CompetenceChoisie);
+;        niveauRequis.text = mr.CompétencesRequises[idComp+1].Valeur + "%";
     }
 }

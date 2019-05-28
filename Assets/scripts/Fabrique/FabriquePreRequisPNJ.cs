@@ -29,46 +29,6 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
         Perte.calculDesPertesPNJ(mr);
         blockdesprerequis();
     }
-    public void blockdesprerequis1()
-    {
-        lancer.interactable = true;
-        int decalage = 0;
-        for (int i = 0; i < mr.CompétencesRequises.Length; ++i)
-        {
-            Text Texte = nomTuple;
-            Texte.text = mr.CompétencesRequises[i].NomCompétence;
-            ValeurTupleTexte.gameObject.SetActive(false);
-            int valeurr = mr.CompétencesRequises[i].Valeur;
-            ValeurTupleTexte.text = valeurr.ToString();
-            //SliderTexte.text = valeurr.ToString();
-            verificationCompAvecJoueur(mr.CompétencesRequises[i].ID, valeurr);
-            instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
-            instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
-            instance.transform.name = "Tuple " + (i + 1);
-            ++decalage;
-        }
-        decalage = 0;
-        for (int i = 0; i < mr.SesPertes.Length; ++i)
-        {
-            //Debug.Log(mission.tabprerequis[i] + " = " + mission.tabValeurPrerequis[i]);
-            if (mr.SesPertes[i].ValeurDeLaPerte != 0)
-            {
-                Text Texte = nomTuple;
-                Texte.text = mr.SesPertes[i].NomPerte;
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleTexte.text = mr.SesPertes[i].ValeurDeLaPerte.ToString();
-                verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte);
-                instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
-                instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
-                instance.transform.name = "Tuple " + (i + 1);
-                ++decalage;
-            }
-            else
-            {
-                continue;
-            }
-        }
-    }
 
     // Permet de remplir le bloc des prérequis
     public void blockdesprerequis()
@@ -243,5 +203,49 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
         lancer.interactable = boolean;
         changeColorLancer(boolean);
     }
+
+    // EXPIRE
+    /*
+    public void blockdesprerequis1()
+    {
+        lancer.interactable = true;
+        int decalage = 0;
+        for (int i = 0; i < mr.CompétencesRequises.Length; ++i)
+        {
+            Text Texte = nomTuple;
+            Texte.text = mr.CompétencesRequises[i].NomCompétence;
+            ValeurTupleTexte.gameObject.SetActive(false);
+            int valeurr = mr.CompétencesRequises[i].Valeur;
+            ValeurTupleTexte.text = valeurr.ToString();
+            //SliderTexte.text = valeurr.ToString();
+            verificationCompAvecJoueur(mr.CompétencesRequises[i].ID, valeurr);
+            instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
+            instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
+            instance.transform.name = "Tuple " + (i + 1);
+            ++decalage;
+        }
+        decalage = 0;
+        for (int i = 0; i < mr.SesPertes.Length; ++i)
+        {
+            //Debug.Log(mission.tabprerequis[i] + " = " + mission.tabValeurPrerequis[i]);
+            if (mr.SesPertes[i].ValeurDeLaPerte != 0)
+            {
+                Text Texte = nomTuple;
+                Texte.text = mr.SesPertes[i].NomPerte;
+                ValeurTupleTexte.gameObject.SetActive(true);
+                ValeurTupleTexte.text = mr.SesPertes[i].ValeurDeLaPerte.ToString();
+                verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte);
+                instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
+                instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
+                instance.transform.name = "Tuple " + (i + 1);
+                ++decalage;
+            }
+            else
+            {
+                continue;
+            }
+        }
+    }
+    */
 }
 
