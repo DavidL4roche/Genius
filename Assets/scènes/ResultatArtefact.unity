@@ -213,6 +213,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 360, y: 640}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &209015757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 209015758}
+  - component: {fileID: 209015760}
+  - component: {fileID: 209015759}
+  m_Layer: 5
+  m_Name: TexteArtefact2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &209015758
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209015757}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1858466595}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000015259, y: -11.700001}
+  m_SizeDelta: {x: 282.2, y: 68.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &209015759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209015757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7f69e47a2a412294d9981c4a596ddb87, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "ACTIV\xC9"
+--- !u!222 &209015760
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209015757}
+  m_CullTransparentMesh: 0
 --- !u!1 &255836893
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,11 +316,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1858466595}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -55.600006, y: -88}
+  m_AnchoredPosition: {x: -55.600006, y: -65}
   m_SizeDelta: {x: 58, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255836895
@@ -907,6 +982,7 @@ RectTransform:
   m_Children:
   - {fileID: 1844783143}
   - {fileID: 1892002236}
+  - {fileID: 209015758}
   - {fileID: 255836894}
   - {fileID: 1868406240}
   m_Father: {fileID: 44940225}
@@ -945,11 +1021,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1858466595}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49.84999, y: -88}
+  m_AnchoredPosition: {x: 49.84999, y: -65}
   m_SizeDelta: {x: 152.9, y: 57.995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868406241
@@ -1003,7 +1079,7 @@ GameObject:
   - component: {fileID: 1892002238}
   - component: {fileID: 1892002237}
   m_Layer: 5
-  m_Name: TexteArtefact
+  m_Name: TexteArtefact1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1024,8 +1100,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2.5999985}
-  m_SizeDelta: {x: 282.2, y: 146.7}
+  m_AnchoredPosition: {x: 0, y: 35}
+  m_SizeDelta: {x: 282.2, y: 78.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1892002237
 MonoBehaviour:
@@ -1047,8 +1123,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: dd46b3cfdeea6a9468270db6ce9a7b1f, type: 3}
-    m_FontSize: 50
+    m_Font: {fileID: 12800000, guid: 7f69e47a2a412294d9981c4a596ddb87, type: 3}
+    m_FontSize: 48
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1059,7 +1135,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "ARTEFACT ACTIV\xC9"
+  m_Text: ARTEFACT
 --- !u!222 &1892002238
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -74,6 +74,9 @@ MonoBehaviour:
   FondMission: {fileID: 114765029802377912, guid: 0fa3f8484c42651459b88109b7418764,
     type: 2}
   FondPNJ: {fileID: 114599807544351346, guid: 79cdee389b98bd149af5ecd4b19948e3, type: 2}
+  OnMission: {fileID: 114849877201314764, guid: 0fa3f8484c42651459b88109b7418764,
+    type: 2}
+  OnPNJ: {fileID: 114503167946075144, guid: 79cdee389b98bd149af5ecd4b19948e3, type: 2}
   RangMission: {fileID: 114904225923139226, guid: 0fa3f8484c42651459b88109b7418764,
     type: 2}
 --- !u!224 &224047073905507358

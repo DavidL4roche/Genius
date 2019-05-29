@@ -12,6 +12,8 @@ public class SpawnerMission : MonoBehaviour {
     public RawImage FondMissionD;
     public RawImage FondMission;
     public RawImage FondPNJ;
+    public RawImage OnMission;
+    public RawImage OnPNJ;
     public Text RangMission;
     GameObject instance;
     static Vector3 spawnerposition;
@@ -53,10 +55,10 @@ public class SpawnerMission : MonoBehaviour {
             {
                 if (verificationCompAvecJoueur(mission.CompétencesRequises[j].ID, mission.CompétencesRequises[j].Valeur))
                 {
-                    FondMission.color = new Color32(255, 255, 255, 255); // TEST
+                    OnMission.enabled = true;
                 }
                 else {
-                    FondMission.color = new Color32(255, 255, 255, 127); // TEST
+                    OnMission.enabled = false;
                     break;
                 }
             }
@@ -92,11 +94,11 @@ public class SpawnerMission : MonoBehaviour {
             {
                 if (verificationCompAvecJoueur(SonPNJ.SaMission.CompétencesRequises[j].ID, SonPNJ.SaMission.CompétencesRequises[j].Valeur))
                 {
-                    FondPNJ.color = new Color32(255, 255, 255, 255); // TEST
+                    OnPNJ.enabled = true;
                 }
                 else
                 {
-                    FondPNJ.color = new Color32(255, 255, 255, 127); // TEST
+                    OnPNJ.enabled = false;
                     break;
                 }
             }
