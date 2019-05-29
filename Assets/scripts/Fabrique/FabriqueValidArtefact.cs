@@ -19,8 +19,10 @@ public class FabriqueValidArtefact : MonoBehaviour {
         {
             if (artefact.IDArtefact == VerifArtefact.ArtefactChoisi)
             {
-                IconeArtefact.texture = Resources.Load<Texture>("icones/Artefact" + FabriqueMissionPNJ.trouverArtefact(artefact.IDArtefact));
+                IconeArtefact.texture = Resources.Load<Texture>("icones/Artefact" + trouverArtefact(artefact.IDArtefact));
                 NomArtefact.text = artefact.NomArtefact;
+                IconeGain.color = new Color32(81, 203, 255, 255);
+                ValeurGain.color = new Color32(81, 203, 255, 255);
             }
         }
 
@@ -30,38 +32,59 @@ public class FabriqueValidArtefact : MonoBehaviour {
         {
             // Artéfact Orcus
             case 1:
-                IconeGain.texture = Resources.Load<Texture>("icones/IconM_orcus");
-                ValeurGain.text += "+10.000";
+                IconeGain.texture = Resources.Load<Texture>("icones/Artefact_Orcus");
+                ValeurGain.text += "+10k";
                 break;
             // Artéfact Boutique
             case 2:
-                IconeGain.texture = Resources.Load<Texture>("icones/IconM_durée"); // A CHANGER
+                IconeGain.texture = Resources.Load<Texture>("icones/Artefact_Magasin"); // A CHANGER
                 ValeurGain.text += "0";
                 Equiper.interactable = false;
                 break;
             // Artéfact IA
             case 3:
-                IconeGain.texture = Resources.Load<Texture>("icones/IconM_durée"); // A CHANGER
-                ValeurGain.text += "+10.000";
+                IconeGain.texture = Resources.Load<Texture>("icones/Artefact_IA"); // A CHANGER
+                ValeurGain.text += "+10k";
                 break;
             // Artéfact Objet
             case 4:
-                IconeGain.texture = Resources.Load<Texture>("icones/IconM_orcus"); // A CHANGER
+                IconeGain.texture = Resources.Load<Texture>("icones/Artefact_Objets"); // A CHANGER
                 ValeurGain.text += "+1";
                 break;
             // Artéfact Divertissement
             case 5:
-                IconeGain.texture = Resources.Load<Texture>("icones/IconM_durée"); // A CHANGER
+                IconeGain.texture = Resources.Load<Texture>("icones/Artefact_Divertissement"); // A CHANGER
                 ValeurGain.text += "100%";
                 break;
             // Artéfact Social
             case 6:
-                IconeGain.texture = Resources.Load<Texture>("icones/IconM_durée"); // A CHANGER
+                IconeGain.texture = Resources.Load<Texture>("icones/Artefact_Social"); // A CHANGER
                 ValeurGain.text += "100%";
                 break;
             default:
                 break;
 
+        }
+    }
+
+    string trouverArtefact(int IDArtefact)
+    {
+        switch (IDArtefact)
+        {
+            case 1:
+                return "Orcus";
+            case 2:
+                return "Boutique";
+            case 3:
+                return "IA";
+            case 4:
+                return "Objets";
+            case 5:
+                return "Divertissement";
+            case 6:
+                return "Social";
+            default:
+                return null;
         }
     }
 }
