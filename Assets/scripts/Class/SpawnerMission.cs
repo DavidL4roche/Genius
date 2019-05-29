@@ -209,6 +209,7 @@ public class SpawnerMission : MonoBehaviour {
         return spawnerposition;
     }
 
+    // Vérifie la compétence demandée avec celle du Joueur (valeur)
     public bool verificationCompAvecJoueur(int id, int valeur)
     {
         int k = 0;
