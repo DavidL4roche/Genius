@@ -59,14 +59,17 @@ public class Joueur : MonoBehaviour {
         download = new WWW(url);
         yield return download;
     }
-
+    
     public IEnumerator transfertRessourcesEnBaseScript()
     {
-        for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+        if (RessourcesBdD.listeDesRessources != null)
         {
-            string urlRessource = Configuration.url + "scripts/ChangeRessource.php?idRessource=" + (i+1) + "&idJoueur=" + IDJoueur + "&value=" + RessourcesBdD.listeDesRessources[i];
-            download = new WWW(urlRessource);
-            yield return download;
+            for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+            {
+                string urlRessource = Configuration.url + "scripts/ChangeRessource.php?idRessource=" + (i + 1) + "&idJoueur=" + IDJoueur + "&value=" + RessourcesBdD.listeDesRessources[i];
+                download = new WWW(urlRessource);
+                yield return download;
+            }
         }
     }
 
