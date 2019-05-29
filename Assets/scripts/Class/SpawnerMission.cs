@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class SpawnerMission : MonoBehaviour {
     static int IDQuartier;
+
     public GameObject Mission;
     public GameObject MissionDivert;
     public GameObject MissionPNJ;
     public RawImage FondMissionD;
     public RawImage FondMission;
+    public RawImage FondPNJ;
     public Text RangMission;
     GameObject instance;
     static Vector3 spawnerposition;
@@ -43,6 +45,23 @@ public class SpawnerMission : MonoBehaviour {
             spawnerposition = genererPositionNonUtilisee();
             RangMission.text = LesMissions[i].RangMission.NomRang;
             FondMission.texture = LesMissions[i].RangMission.texture;
+
+            Mission mission = LesMissions[i];
+
+            // On regarde si la mission est jouable pour le joueur
+            for (int j = 0; j < mission.CompétencesRequises.Length; ++j)
+            {
+                if (verificationCompAvecJoueur(mission.CompétencesRequises[j].ID, mission.CompétencesRequises[j].Valeur))
+                {
+                    FondMission.color = new Color32(255, 255, 255, 255); // TEST
+                }
+                else {
+                    FondMission.color = new Color32(255, 255, 255, 127); // TEST
+                    break;
+                }
+            }
+
+            //FondMission.color = new Color32(255, 255, 255, 127); // TEST
             instance = Instantiate(Mission, spawnerposition, Mission.transform.rotation);
             instance.transform.parent = GameObject.Find("Decor").transform;
             instance.transform.name = "Mission " + (i);
@@ -54,6 +73,7 @@ public class SpawnerMission : MonoBehaviour {
         {
             spawnerposition = genererPositionNonUtilisee();
             FondMissionD.texture = SonDivertissement.SonRang.texture;
+
             instance = Instantiate(MissionDivert, spawnerposition, MissionDivert.transform.rotation);
             instance.transform.parent = GameObject.Find("Decor").transform;
             instance.transform.name = "Divertissement";
@@ -66,6 +86,20 @@ public class SpawnerMission : MonoBehaviour {
 
             RawImage iconePNJ = MissionPNJ.gameObject.GetComponentInChildren<RawImage>();
             iconePNJ.texture = Resources.Load<Texture>("icones/PNJ" + SonPNJ.SonPNJ.IDPNJ);
+
+            // On regarde si la mission est jouable pour le joueur
+            for (int j = 0; j < SonPNJ.SaMission.CompétencesRequises.Length; ++j)
+            {
+                if (verificationCompAvecJoueur(SonPNJ.SaMission.CompétencesRequises[j].ID, SonPNJ.SaMission.CompétencesRequises[j].Valeur))
+                {
+                    FondPNJ.color = new Color32(255, 255, 255, 255); // TEST
+                }
+                else
+                {
+                    FondPNJ.color = new Color32(255, 255, 255, 127); // TEST
+                    break;
+                }
+            }
 
             instance = Instantiate(MissionPNJ, spawnerposition, MissionPNJ.transform.rotation);
             instance.transform.parent = GameObject.Find("Decor").transform;
@@ -171,5 +205,27 @@ public class SpawnerMission : MonoBehaviour {
             }
         }
         return spawnerposition;
+    }
+
+    public bool verificationCompAvecJoueur(int id, int valeur)
+    {
+        int k = 0;
+        for (; k < RessourcesBdD.listeDesCompétences.Length; ++k)
+        {
+            if (id == RessourcesBdD.listeDesCompétences[k].ID)
+            {
+                break;
+            }
+        }
+
+        if (Joueur.MesValeursCompetences[k] >= valeur)
+        {
+            FondMission.color = new Color32(255, 255, 255, 255); // TEST
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
