@@ -82,7 +82,7 @@
                        class="list-group-item list-group-item-action">
                         <img class="linkLogo mr-2" src="https://image.flaticon.com/icons/svg/25/25231.svg">GitHub
                     </a>
-                    <a target="_blank" href="https://appetize.io/app/bb4m5mkxhd2f4hb6kvt48kwqqr"
+                    <a target="_blank" href="https://appetize.io/app/erv9weatb088h28r5mcnfy7g18"
                        class="list-group-item list-group-item-action">
                         <img class="linkLogo mr-2" src="https://appetize.io/images/logo1_colored_tight.png">Appetize.io
                     </a>

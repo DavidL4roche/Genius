@@ -273,7 +273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Divertissement
+  m_Text: Social
 --- !u!114 &114343136602348092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,7 +350,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -4
+  m_Text: -50
 --- !u!114 &114677856789300910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19215687, g: 0.38039216, b: 0.49019608, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 86
+  m_Value: 80
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -49,6 +49,34 @@ public class Gain : MonoBehaviour {
         }
         mission.SesGains = tabDeGains;
     }
+
+    public static void calculDesGainsPNJ(Mission mission)
+    {
+        Gain[] tabDeGains = new Gain[RessourcesBdD.listeDesGains.Length];
+        for (int i = 0; i < RessourcesBdD.listeDesGains.Length; ++i)
+        {
+            switch (RessourcesBdD.listeDesGains[i].NomGain)
+            {
+                case "Compétence":
+                    tabDeGains[i] = new Gain(RessourcesBdD.listeDesGains[i], 0);
+                    break;
+                case "Orcus":
+                    tabDeGains[i] = new Gain(RessourcesBdD.listeDesGains[i], 5000);
+                    break;
+                case "IA":
+                    tabDeGains[i] = new Gain(RessourcesBdD.listeDesGains[i], 5000);
+                    break;
+                case "Objet":
+                    tabDeGains[i] = new Gain(RessourcesBdD.listeDesGains[i], 0);
+                    break;
+                default:
+                    tabDeGains[i] = new Gain(RessourcesBdD.listeDesGains[i], 0);
+                    break;
+            }
+        }
+        mission.SesGains = tabDeGains;
+    }
+
     static int calculGainCompétence(Mission mission)
     {
         int TotCompJoueur = 0;

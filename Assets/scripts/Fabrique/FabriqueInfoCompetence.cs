@@ -55,6 +55,9 @@ public class FabriqueInfoCompetence : MonoBehaviour
         }
 
         niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
-        niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
+        Debug.Log(mr.IDMission);
+        Debug.Log(mr.CompétencesRequises[idComp].Valeur);
+        Debug.Log(mr.CompétencesRequises[idComp].ID);
+;        niveauRequis.text = mr.CompétencesRequises[idComp].Valeur + "%";
     }
 }
