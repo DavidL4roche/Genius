@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SpawnerMission : MonoBehaviour {
@@ -135,12 +136,30 @@ public class SpawnerMission : MonoBehaviour {
         nbMission = 0;
 
         // On calcule le nombre de missions du quartier
-        for (int i = 0; i < RessourcesBdD.listeDesMissionsPrésentes.Length; ++i)
+        if (RessourcesBdD.listeDesMissionsPrésentes != null)
         {
-            if (IDQuartier == RessourcesBdD.listeDesMissionsPrésentes[i].SonQuartier.IDQuartier)
+            for (int i = 0; i < RessourcesBdD.listeDesMissionsPrésentes.Length; ++i)
             {
-                ++nbMission;
+                if (IDQuartier == RessourcesBdD.listeDesMissionsPrésentes[i].SonQuartier.IDQuartier)
+                {
+                    ++nbMission;
+                }
             }
+        }
+        else
+        { 
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Une erreur est survenu. Veuillez réessayer plus tard.";
+
+            // On détruit tout les objets
+            GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+            for (int i = 0; i < GameObjects.Length; i++)
+            {
+                Destroy(GameObjects[i]);
+            }
+
+            SceneManager.LoadScene("Index");
         }
 
         // On crée le nombre de missions correspondantes

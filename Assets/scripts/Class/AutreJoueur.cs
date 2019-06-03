@@ -41,6 +41,7 @@ public class AutreJoueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJObjet");
     }
 
     // Mise à jour compétences ami
@@ -65,6 +66,7 @@ public class AutreJoueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJComp");
     }
 
     // Mise à jour diplômes ami
@@ -89,5 +91,6 @@ public class AutreJoueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJDiplomes");
     }
 }

@@ -148,7 +148,7 @@ public class RessourcesBdD : MonoBehaviour
             {
                 listeDesPNJ[i] = new PNJ((int)lien["IDNPCharacter"], lien["NPCName"].ToString(), (int)lien["IDArtefact"]);
                 ++i;
-            }
+            } 
         }
         lien.Close();
         for (int i = 0; i < listeDesPNJ.Length; ++i)

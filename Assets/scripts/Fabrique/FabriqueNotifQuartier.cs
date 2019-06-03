@@ -14,76 +14,79 @@ public class FabriqueNotifQuartier : MonoBehaviour {
     int IDQuartier;
 
     void Start () {
-		for(int j=1; j< RessourcesBdD.listeDesQuartiers.Length; j++)
+        if (RessourcesBdD.listeDesQuartiers != null)
         {
-            int cpt = 0;
-            Quartier quartier = RessourcesBdD.listeDesQuartiers[j];
-            IDQuartier = quartier.IDQuartier;
-            totalDeMissions();
-
-            //Debug.Log("Quartier " + j);
-
-            // On compte les missions faisables dans le quartier
-            for (int i = 0; i < LesMissions.Length; ++i)
+            for (int j = 1; j < RessourcesBdD.listeDesQuartiers.Length; j++)
             {
-                Mission mission = LesMissions[i];
+                int cpt = 0;
+                Quartier quartier = RessourcesBdD.listeDesQuartiers[j];
+                IDQuartier = quartier.IDQuartier;
+                totalDeMissions();
 
-                bool playing = true;
+                //Debug.Log("Quartier " + j);
 
-                // On regarde si la mission est jouable pour le joueur
-                for (int k = 0; k < mission.CompétencesRequises.Length; ++k)
+                // On compte les missions faisables dans le quartier
+                for (int i = 0; i < LesMissions.Length; ++i)
                 {
-                    if (!verificationCompAvecJoueur(mission.CompétencesRequises[k].ID, mission.CompétencesRequises[k].Valeur))
+                    Mission mission = LesMissions[i];
+
+                    bool playing = true;
+
+                    // On regarde si la mission est jouable pour le joueur
+                    for (int k = 0; k < mission.CompétencesRequises.Length; ++k)
                     {
-                        playing = false;
-                        break;
+                        if (!verificationCompAvecJoueur(mission.CompétencesRequises[k].ID, mission.CompétencesRequises[k].Valeur))
+                        {
+                            playing = false;
+                            break;
+                        }
+                    }
+
+                    if (playing)
+                    {
+                        ++cpt;
+                        //Debug.Log("Ajout cpt mission" + cpt);
                     }
                 }
 
-                if (playing)
+                // On compte le divertissement dans le quartier
+                if (SonDivertissement.IDMissionD != 0)
                 {
-                    ++cpt;
-                    //Debug.Log("Ajout cpt mission" + cpt);
+                    cpt += 1;
+                    //Debug.Log("Ajout cpt divertissement" + cpt);
                 }
-            }
 
-            // On compte le divertissement dans le quartier
-            if (SonDivertissement.IDMissionD != 0)
-            {
-                cpt += 1;
-                //Debug.Log("Ajout cpt divertissement" + cpt);
-            }
-
-            // On instancie un PNJ dans le quartier
-            if (SonPNJ.SonPNJ.IDPNJ != 0)
-            {
-                bool playing = true;
-
-                // On regarde si la mission est jouable pour le joueur
-                for (int k = 0; k < SonPNJ.SaMission.CompétencesRequises.Length; ++k)
+                // On instancie un PNJ dans le quartier
+                if (SonPNJ.SonPNJ.IDPNJ != 0)
                 {
-                    if (!verificationCompAvecJoueur(SonPNJ.SaMission.CompétencesRequises[k].ID, SonPNJ.SaMission.CompétencesRequises[k].Valeur))
+                    bool playing = true;
+
+                    // On regarde si la mission est jouable pour le joueur
+                    for (int k = 0; k < SonPNJ.SaMission.CompétencesRequises.Length; ++k)
                     {
-                        playing = false;
-                        break;
+                        if (!verificationCompAvecJoueur(SonPNJ.SaMission.CompétencesRequises[k].ID, SonPNJ.SaMission.CompétencesRequises[k].Valeur))
+                        {
+                            playing = false;
+                            break;
+                        }
+                    }
+
+                    if (playing)
+                    {
+                        ++cpt;
+                        //Debug.Log("Ajout cpt pnj" + cpt);
                     }
                 }
 
-                if (playing)
+                NotifQuartiers[j - 1].SetActive(true);
+
+                // On affiche le nombre de missions faisables dans la bulle de notif du quartier
+                NotifQuartiers[j - 1].gameObject.GetComponentInChildren<Text>().text = cpt.ToString();
+
+                if (cpt == 0)
                 {
-                    ++cpt;
-                    //Debug.Log("Ajout cpt pnj" + cpt);
+                    NotifQuartiers[j - 1].SetActive(false);
                 }
-            }
-
-            NotifQuartiers[j-1].SetActive(true);
-
-            // On affiche le nombre de missions faisables dans la bulle de notif du quartier
-            NotifQuartiers[j-1].gameObject.GetComponentInChildren<Text>().text = cpt.ToString();
-
-            if (cpt == 0)
-            {
-                NotifQuartiers[j-1].SetActive(false);
             }
         }
 	}

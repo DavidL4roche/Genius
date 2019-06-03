@@ -57,7 +57,7 @@ public class Joueur : MonoBehaviour {
     public IEnumerator UpdateDateDerniereCoEnBase()
     {
         download = new WWW(url);
-        yield return download;
+        yield return download; 
     }
     
     public IEnumerator transfertRessourcesEnBaseScript()
@@ -101,6 +101,7 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJObjet");
     }
 
     void majComp()
@@ -123,6 +124,7 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJComp");
     }
 
     void majRessources()
@@ -145,6 +147,7 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJRessources");
     }
 
     void majDiplome()
@@ -167,6 +170,7 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJDiplomes");
     }
     void majTrophee()
     {
@@ -188,6 +192,7 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJTrophee");
     }
     void majArtefact()
     {
@@ -209,6 +214,7 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
+        Debug.Log("MAJArtefact");
     }
 
     public static void transfertEnBase()
@@ -255,6 +261,8 @@ public class Joueur : MonoBehaviour {
             commande = new MySqlCommand(requete, Connexion.connexion);
             lien = commande.ExecuteReader();
             lien.Close();
+
+            Debug.Log("Transfert ressources en base");
         }
     }
 
@@ -283,6 +291,8 @@ public class Joueur : MonoBehaviour {
             commande = new MySqlCommand(requete, Connexion.connexion);
             lien = commande.ExecuteReader();
             lien.Close();
+
+            Debug.Log("Transfert compétences en base");
         }
     }
 
@@ -311,12 +321,15 @@ public class Joueur : MonoBehaviour {
             commande = new MySqlCommand(requete, Connexion.connexion);
             lien = commande.ExecuteReader();
             lien.Close();
+
+            Debug.Log("Transfert objets en base");
         }
     }
     
     // Transfert des actions sociales en base
     public static void transfertActionsSocialesEnBase()
     {
+        Debug.Log("Transfert Actions Sociales en Base");
         for (int i = 0; i < Joueur.MesAmis.Length; ++i)
         {
             // Si l'action Sociale (ITEM) du joueur avec cet ami est vrai (effectuée)
