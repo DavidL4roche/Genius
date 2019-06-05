@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using SimpleJSON; // Permet un meilleur traitement du JSON
+using MySql.Data.MySqlClient;
 
 public class TestConnexion : MonoBehaviour {
     // Paramètres
@@ -84,13 +85,61 @@ public class TestConnexion : MonoBehaviour {
                     download = new WWW(urlStat);
                     yield return download;
 
-                    loading.Charger("Tutoriel");
-                    Instantiate(JoueurLoge);
+                    /*
+                    // On teste la connection à la base de données
+                    int total = 0;
+                    string requeteTest = "SELECT COUNT(*) AS Total FROM mission";
+                    MySqlCommand commande = new MySqlCommand(requeteTest, Connexion.connexion);
+                    MySqlDataReader lien = commande.ExecuteReader();
+                    try
+                    {
+                        while (lien.Read())
+                        {
+                            total = Int32.Parse(lien["Total"].ToString());
+                        }
+                    }
+                    catch
+                    {
+                        ChargerPopup.Charger("Erreur");
+                        MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
+                    }
+                    lien.Close();
+
+                    // On connecte automatiquement au compte lié
+                    if (total != 0)
+                    {
+                    */
+                        loading.Charger("Tutoriel");
+                        Instantiate(JoueurLoge);
+                    //}
                 }
                 else
                 {
-                    loading.Charger("Daedelus");
-                    Instantiate(JoueurLoge);
+                    // On teste la connection à la base de données
+                    int total = 0;
+                    string requeteTest = "SELECT COUNT(*) AS Total FROM mission";
+                    MySqlCommand commande = new MySqlCommand(requeteTest, Connexion.connexion);
+                    MySqlDataReader lien = commande.ExecuteReader();
+                    try
+                    {
+                        while (lien.Read())
+                        {
+                            total = Int32.Parse(lien["Total"].ToString());
+                        }
+                    }
+                    catch
+                    {
+                        ChargerPopup.Charger("Erreur");
+                        MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
+                    }
+                    lien.Close();
+
+                    // On connecte automatiquement au compte lié
+                    if (total != 0)
+                    {
+                        loading.Charger("Daedelus");
+                        Instantiate(JoueurLoge);
+                    }
                 }
             }
         }

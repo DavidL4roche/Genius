@@ -146,11 +146,9 @@ public class SpawnerMission : MonoBehaviour {
                 }
             }
         }
+        /*
         else
         { 
-            ChargerPopup.Charger("Erreur");
-            MessageErreur.messageErreur = "Une erreur est survenu. Veuillez réessayer plus tard.";
-
             // On détruit tout les objets
             GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
 
@@ -159,8 +157,12 @@ public class SpawnerMission : MonoBehaviour {
                 Destroy(GameObjects[i]);
             }
 
+            // On "relance" le jeu
             SceneManager.LoadScene("Index");
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Une erreur est survenue. Veuillez réessayer plus tard.";
         }
+        */
 
         // On crée le nombre de missions correspondantes
         LesMissions = new Mission[nbMission];

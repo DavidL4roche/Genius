@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Joueur : MonoBehaviour {
     public static int IDJoueur;
@@ -71,6 +72,21 @@ public class Joueur : MonoBehaviour {
                 yield return download;
             }
         }
+        else
+        {
+            // On détruit tout les objets
+            GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+            for (int i = 0; i < GameObjects.Length; i++)
+            {
+                Destroy(GameObjects[i]);
+            }
+
+            // On "relance" le jeu
+            SceneManager.LoadScene("Index");
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
+        }
     }
 
     // Fais la mise à jour depuis la base de toutes les données importantes
@@ -101,7 +117,6 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
-        Debug.Log("MAJObjet");
     }
 
     void majComp()
@@ -124,7 +139,6 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
-        Debug.Log("MAJComp");
     }
 
     void majRessources()
@@ -147,7 +161,7 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
-        Debug.Log("MAJRessources");
+        Debug.Log("MAJRessources : Social (" + MesRessources[2] + ") - Div (" + MesRessources[3] + ")");
     }
 
     void majDiplome()
@@ -170,7 +184,6 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
-        Debug.Log("MAJDiplomes");
     }
     void majTrophee()
     {
@@ -192,7 +205,6 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
-        Debug.Log("MAJTrophee");
     }
     void majArtefact()
     {
@@ -214,7 +226,6 @@ public class Joueur : MonoBehaviour {
             }
         }
         lien.Close();
-        Debug.Log("MAJArtefact");
     }
 
     public static void transfertEnBase()
