@@ -23,6 +23,7 @@ public class Joueur : MonoBehaviour {
     public static DateTime DateActuel = System.DateTime.Now;
     public static int DateActuelMinute = System.DateTime.Now.Minute;
     public static int DateActuelSeconde = System.DateTime.Now.Second;
+    public static int SecondesUpdate = 10;
     
     private string url = Configuration.url + "scripts/UpdateDateCo.php?id=" + IDJoueur;
     private WWW download;
@@ -43,49 +44,71 @@ public class Joueur : MonoBehaviour {
         RessourcesBdD.RecupDeLaListeDesJoueurs();
         RessourcesBdD.RecupMesAmis();
         RessourcesBdD.RecupActionsSociales();
-        StartCoroutine(IncrementationRessources());
+
+        // On répète toutes les SecondesUpdate l'incrémentation des ressources
+        InvokeRepeating("IncrementationRessourcesStatic", 0, SecondesUpdate);
+        //InvokeRepeating("transfertRessourcesEnBaseScript", 0, SecondesUpdate);
+
+        // On récupère les missions jouables
         StartCoroutine(RessourcesBdD.recupMissionJouable());
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        DateActuelMinute = System.DateTime.Now.Minute;
-        DateActuelSeconde = System.DateTime.Now.Second;
+
+        // On envoie la date de dernière connexion et transfert les ressources en base toutes les SecondesUpdate
         StartCoroutine(UpdateDateDerniereCoEnBase());
         StartCoroutine(transfertRessourcesEnBaseScript());
     }
+	
+    /*
+	// Update is called once per frame
+	void Update () {
+        // On met à jour la date actuelle
+        DateActuel = System.DateTime.Now;
+        DateActuelMinute = System.DateTime.Now.Minute;
+        DateActuelSeconde = System.DateTime.Now.Second;
+    }
+    */
 
     public IEnumerator UpdateDateDerniereCoEnBase()
     {
-        download = new WWW(url);
-        yield return download; 
+        for (; ; )
+        {
+            Debug.Log("UpdateDateDerniereCoEnBase");
+            // execute block of code here
+            download = new WWW(url);
+            yield return new WaitForSeconds(SecondesUpdate);
+        }
     }
     
     public IEnumerator transfertRessourcesEnBaseScript()
     {
-        if (RessourcesBdD.listeDesRessources != null)
+        for (; ; )
         {
-            for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+            Debug.Log("Transfert ressources");
+            if (RessourcesBdD.listeDesRessources != null)
             {
-                string urlRessource = Configuration.url + "scripts/ChangeRessource.php?idRessource=" + (i + 1) + "&idJoueur=" + IDJoueur + "&value=" + RessourcesBdD.listeDesRessources[i];
-                download = new WWW(urlRessource);
-                yield return download;
+                for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+                {
+                    string urlRessource = Configuration.url + "scripts/ChangeRessource.php?idRessource=" + (i + 1) + "&idJoueur=" + IDJoueur + "&value=" + MesRessources[i];
+                    Debug.Log(urlRessource);
+                    download = new WWW(urlRessource);
+                }
             }
-        }
-        else
-        {
-            // On détruit tout les objets
-            GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
-
-            for (int i = 0; i < GameObjects.Length; i++)
+            else
             {
-                Destroy(GameObjects[i]);
+                // On détruit tout les objets
+                GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+                for (int i = 0; i < GameObjects.Length; i++)
+                {
+                    Destroy(GameObjects[i]);
+                }
+
+                // On "relance" le jeu
+                SceneManager.LoadScene("Index");
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
             }
 
-            // On "relance" le jeu
-            SceneManager.LoadScene("Index");
-            ChargerPopup.Charger("Erreur");
-            MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
+            yield return new WaitForSeconds(SecondesUpdate);
         }
     }
 
@@ -397,11 +420,12 @@ public class Joueur : MonoBehaviour {
 
     IEnumerator IncrementationRessources()
     {
+        Debug.Log("Incrémentation Ressources");
         bool stop = false;
         while (!stop)
         {
             //long soustract = DateActuel.ToFileTimeUtc();
-            yield return new WaitForSeconds(60*6);
+            yield return new WaitForSeconds(5);//(60*6);
             for (int i = 0; i < MesRessources.Length; ++i)
             {
                 switch (RessourcesBdD.listeDesRessources[i].NomRessource)
@@ -424,14 +448,36 @@ public class Joueur : MonoBehaviour {
             
         }   
     }
+
+    void IncrementationRessourcesStatic()
+    {
+        Debug.Log("Incrémentation Ressources Static");
+        for (int i = 0; i < MesRessources.Length; ++i)
+        {
+            switch (RessourcesBdD.listeDesRessources[i].NomRessource)
+            {
+                case "Social":
+                case "Divertissement":
+                    if (MesRessources[i] < 100)
+                    {
+                        MesRessources[i] += 1;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     void PendantAbsence()
     {
-        TimeSpan tempsABS = DateActuel.Subtract(dateDerniereCo);
+        TimeSpan tempsABS = System.DateTime.Now.Subtract(dateDerniereCo);
         for(int i = 0; i< RessourcesBdD.listeDesRessources.Length;++i)
         {
+            //Debug.Log(RessourcesBdD.listeDesRessources[i].NomRessource + i);
             if(RessourcesBdD.listeDesRessources[i].NomRessource == "Social" || RessourcesBdD.listeDesRessources[i].NomRessource == "Divertissement")
             {
-                MesRessources[i] += (int)(tempsABS.TotalSeconds/360);
+                MesRessources[i] += (int)(tempsABS.TotalSeconds / SecondesUpdate);
                 if (MesRessources[i] > 100)
                 {
                     MesRessources[i] = 100;
