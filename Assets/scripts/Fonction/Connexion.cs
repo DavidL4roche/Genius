@@ -17,6 +17,8 @@ public class Connexion : MonoBehaviour {
         }
         catch (System.IO.IOException e)
         {
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Erreur de connexion.";
             Debug.Log(e.ToString());
         }
     }

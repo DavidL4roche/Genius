@@ -18,12 +18,15 @@ public class MissionDivertissement : MonoBehaviour {
     public Rang trouverSonRang(int rank)
     {
         Rang lerang = null;
-        for (int i = 0; i < RessourcesBdD.listeDesRangs.Length; ++i)
+        if (RessourcesBdD.listeDesRangs != null)
         {
-            if (rank == RessourcesBdD.listeDesRangs[i].IDRang)
+            for (int i = 0; i < RessourcesBdD.listeDesRangs.Length; ++i)
             {
-                lerang = RessourcesBdD.listeDesRangs[i];
-                break;
+                if (rank == RessourcesBdD.listeDesRangs[i].IDRang)
+                {
+                    lerang = RessourcesBdD.listeDesRangs[i];
+                    break;
+                }
             }
         }
         return lerang;
