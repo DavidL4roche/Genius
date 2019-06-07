@@ -71,7 +71,6 @@ public class Joueur : MonoBehaviour {
     {
         for (; ; )
         {
-            Debug.Log("UpdateDateDerniereCoEnBase");
             // execute block of code here
             download = new WWW(url);
             yield return new WaitForSeconds(SecondesUpdate);
@@ -82,13 +81,11 @@ public class Joueur : MonoBehaviour {
     {
         for (; ; )
         {
-            Debug.Log("Transfert ressources");
             if (RessourcesBdD.listeDesRessources != null)
             {
                 for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
                 {
                     string urlRessource = Configuration.url + "scripts/ChangeRessource.php?idRessource=" + (i + 1) + "&idJoueur=" + IDJoueur + "&value=" + MesRessources[i];
-                    Debug.Log(urlRessource);
                     download = new WWW(urlRessource);
                 }
             }
@@ -296,7 +293,7 @@ public class Joueur : MonoBehaviour {
             lien = commande.ExecuteReader();
             lien.Close();
 
-            Debug.Log("Transfert ressources en base");
+            //Debug.Log("Transfert ressources en base");
         }
     }
 
@@ -326,7 +323,7 @@ public class Joueur : MonoBehaviour {
             lien = commande.ExecuteReader();
             lien.Close();
 
-            Debug.Log("Transfert compétences en base");
+            //Debug.Log("Transfert compétences en base");
         }
     }
 
@@ -356,7 +353,7 @@ public class Joueur : MonoBehaviour {
             lien = commande.ExecuteReader();
             lien.Close();
 
-            Debug.Log("Transfert objets en base");
+            //Debug.Log("Transfert objets en base");
         }
     }
     
@@ -451,21 +448,27 @@ public class Joueur : MonoBehaviour {
 
     void IncrementationRessourcesStatic()
     {
-        Debug.Log("Incrémentation Ressources Static");
-        for (int i = 0; i < MesRessources.Length; ++i)
+        if (MesRessources != null)
         {
-            switch (RessourcesBdD.listeDesRessources[i].NomRessource)
+            for (int i = 0; i < MesRessources.Length; ++i)
             {
-                case "Social":
-                case "Divertissement":
-                    if (MesRessources[i] < 100)
-                    {
-                        MesRessources[i] += 1;
-                    }
-                    break;
-                default:
-                    break;
+                switch (RessourcesBdD.listeDesRessources[i].NomRessource)
+                {
+                    case "Social":
+                    case "Divertissement":
+                        if (MesRessources[i] < 100)
+                        {
+                            MesRessources[i] += 1;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
+        }
+        else
+        {
+            RelancerJeuErreur();
         }
     }
 
@@ -480,7 +483,7 @@ public class Joueur : MonoBehaviour {
                 MesRessources[i] += (int)(tempsABS.TotalSeconds / SecondesUpdate);
                 if (MesRessources[i] > 100)
                 {
-                    MesRessources[i] = 100;
+                    MesRessources[i] = 100; 
                 }
             }
         }
@@ -496,5 +499,21 @@ public class Joueur : MonoBehaviour {
         {
             Debug.Log("Compétence ->" + RessourcesBdD.listeDesCompétences[i].ID + " = " + MesValeursCompetences[i]);
         }
+    }
+
+    static public void RelancerJeuErreur()
+    {
+        // On détruit tout les objets
+        GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+        for (int i = 0; i < GameObjects.Length; i++)
+        {
+            Destroy(GameObjects[i]);
+        }
+
+        // On "relance" le jeu
+        SceneManager.LoadScene("Index");
+        ChargerPopup.Charger("Erreur");
+        MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
     }
 }
