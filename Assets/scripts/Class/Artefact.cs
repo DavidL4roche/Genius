@@ -20,11 +20,14 @@ public class Artefact : MonoBehaviour {
     }
     public static Artefact trouverSonArtefact(int idarte)
     {
-        foreach (Artefact artefact in RessourcesBdD.listeDesArtefacts)
+        if (RessourcesBdD.listeDesArtefacts != null)
         {
-            if (idarte == artefact.IDArtefact)
+            foreach (Artefact artefact in RessourcesBdD.listeDesArtefacts)
             {
-                return new Artefact(artefact);
+                if (idarte == artefact.IDArtefact)
+                {
+                    return new Artefact(artefact);
+                }
             }
         }
         return null;

@@ -149,7 +149,7 @@ for ($i = 0; $i < $totalquartier['Total']; ++$i) {
     if ($i == 0) {
         $randomNbMission = 0;
     } else {
-        $randomNbMission = random_int(1, 4);
+        $randomNbMission = random_int(1, 10);
     }
     $tabNbMissionParQuartier[$i] = $randomNbMission;
     $totaldemissions += $randomNbMission;

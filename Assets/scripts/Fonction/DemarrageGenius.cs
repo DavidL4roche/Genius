@@ -30,7 +30,7 @@ public class DemarrageGenius : MonoBehaviour {
     private IEnumerator MyCoroutine()
     {
         // Chargement
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0f); //3f
 
         // On redirige vers la connexion
         ChargerLieu charger = new ChargerLieu();

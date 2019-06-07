@@ -66,6 +66,23 @@ class Helper {
                 if ($lastID > 0) {
                     $this->sendMail($mail);
 
+                    // On affecte les ressources du joueur
+                    $sql = "INSERT INTO association_ressource_pc VALUES (1," . $lastID . ", 2000)";
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    $sql = "INSERT INTO association_ressource_pc VALUES (2," . $lastID . ", 2000)";
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    $sql = "INSERT INTO association_ressource_pc VALUES (3," . $lastID . ", 100)";
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
+                    $sql = "INSERT INTO association_ressource_pc VALUES (4," . $lastID . ", 100)";
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+
                     return json_encode(array(
                         "result" => true,
                         "msg" => "Utilisateur crée avec succès",

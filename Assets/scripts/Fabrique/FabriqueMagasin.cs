@@ -101,12 +101,21 @@ public class FabriqueMagasin : MonoBehaviour {
         string requete = "Select Count(*) AS Total, IDArtefact from artefact_used where IDPCharacter NOT IN (Select IDPCharacter from item_bought WHERE IDPCharacter="+Joueur.IDJoueur+") AND IDPCharacter="+Joueur.IDJoueur+" AND IDArtefact IN(Select IDArtefact from artefact WHERE IDBonus IN(Select IDBonus from bonus WHERE BonusName='Boutique'));";
         MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
         MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        try
         {
-            total = Int32.Parse(lien["Total"].ToString());
+            while (lien.Read())
+            {
+                total = Int32.Parse(lien["Total"].ToString());
+            }            
+        }
+        catch
+        {
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Erreur de connexion. Veuillez réessayer plus tard";
         }
         lien.Close();
-        if(total > 0)
+
+        if (total > 0)
         {
             return true;
         }

@@ -122,16 +122,38 @@ public class DemarrageGenius2 : MonoBehaviour {
                                 // L'adresse correspond à un compte
                                 else
                                 {
-                                    // On connecte automatiquement au compte lié
-                                    // On récupère les données du Joueur pour l'attribuer à notre objet
-                                    int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
-                                    Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
-                                    Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
-                                    ChargerLieu loading = new ChargerLieu();
-                                    Instantiate(JoueurLoge);
+                                    // On teste la connection à la base de données
+                                    int total = 0;
+                                    string requeteTest = "SELECT COUNT(*) AS Total FROM mission";
+                                    MySqlCommand commande = new MySqlCommand(requeteTest, Connexion.connexion);
+                                    MySqlDataReader lien = commande.ExecuteReader();
+                                    try
+                                    {
+                                        while (lien.Read())
+                                        {
+                                            total = Int32.Parse(lien["Total"].ToString());
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        ChargerPopup.Charger("Erreur");
+                                        MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
+                                    }
+                                    lien.Close();
 
-                                    // On charge la carte
-                                    loading.Charger("Daedelus");
+                                    // On connecte automatiquement au compte lié
+                                    if (total != 0)
+                                    {
+                                        // On récupère les données du Joueur pour l'attribuer à notre objet
+                                        int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
+                                        Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
+                                        Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
+                                        ChargerLieu loading = new ChargerLieu();
+                                        Instantiate(JoueurLoge);
+
+                                        // On charge la carte
+                                        loading.Charger("Daedelus");
+                                    }
                                 }
                             }
                         }

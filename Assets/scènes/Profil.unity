@@ -113,6 +113,115 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &110456875
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127456890101286, guid: 107fb39543f69c0479c082747ae28312, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 107fb39543f69c0479c082747ae28312, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &110456876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1127456890101286, guid: 107fb39543f69c0479c082747ae28312,
+    type: 2}
+  m_PrefabInternal: {fileID: 110456875}
 --- !u!1 &111633938
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +845,7 @@ GameObject:
   - component: {fileID: 417092400}
   - component: {fileID: 417092399}
   - component: {fileID: 417092398}
+  - component: {fileID: 417092401}
   m_Layer: 5
   m_Name: Retour
   m_TagString: Untagged
@@ -811,6 +921,17 @@ MonoBehaviour:
           m_StringArgument: Profil
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 417092401}
+        m_MethodName: RendreVisibleEcran
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &417092399
@@ -846,6 +967,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 417092396}
   m_CullTransparentMesh: 0
+--- !u!114 &417092401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 417092396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed06d3e054fcb042ba15f20d1f31bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EcranChargement: {fileID: 110456876}
 --- !u!1 &444530792
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +1065,7 @@ GameObject:
   - component: {fileID: 454272546}
   - component: {fileID: 454272545}
   - component: {fileID: 454272547}
+  - component: {fileID: 454272548}
   m_Layer: 0
   m_Name: Modifier
   m_TagString: Untagged
@@ -1041,6 +1175,17 @@ MonoBehaviour:
           m_StringArgument: ModificationProfil
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 417092401}
+        m_MethodName: RendreVisibleEcran
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1852013877}
         m_MethodName: Fermer
         m_Mode: 5
@@ -1054,6 +1199,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &454272548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454272543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed06d3e054fcb042ba15f20d1f31bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EcranChargement: {fileID: 110456876}
 --- !u!1 &492459159
 GameObject:
   m_ObjectHideFlags: 0

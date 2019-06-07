@@ -8,13 +8,16 @@ public class VerifQuartier : MonoBehaviour {
     public static int IDQuartier = 0;
     private void Awake()
     {
-        for(int i = 0; i < RessourcesBdD.listeDesQuartiers.Length; ++i)
+        if (RessourcesBdD.listeDesQuartiers != null)
         {
-            if (SceneManager.GetActiveScene().name == RessourcesBdD.listeDesQuartiers[i].NomQuartier)
+            for (int i = 0; i < RessourcesBdD.listeDesQuartiers.Length; ++i)
             {
-                IDQuartier = RessourcesBdD.listeDesQuartiers[i].IDQuartier;
-                //Debug.Log("Tu es dans le quartier n." + IDQuartier);
-                break;
+                if (SceneManager.GetActiveScene().name == RessourcesBdD.listeDesQuartiers[i].NomQuartier)
+                {
+                    IDQuartier = RessourcesBdD.listeDesQuartiers[i].IDQuartier;
+                    //Debug.Log("Tu es dans le quartier n." + IDQuartier);
+                    break;
+                } 
             }
         }
     }

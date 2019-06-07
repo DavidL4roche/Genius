@@ -32,6 +32,7 @@ public class RessourcesBdD : MonoBehaviour
     public static Artefact[] listeDesArtefactsJouables;
     public static PNJPrésent[] listeDesPNJPrésents;
     public static ObjetPrésent[] LeMagasin;
+    public static Topic[] listeDesTopicsAide;
 
     public static AutreJoueur[] listeDesJoueurs;
     public static bool stoprecupmission = false;
@@ -56,6 +57,7 @@ public class RessourcesBdD : MonoBehaviour
         RecupMission();
         RecupArtefact();
         RecupPNJ();
+        RecupTopicsAide();
     }
     public static void RecupObjetMagasin()
     {
@@ -148,7 +150,7 @@ public class RessourcesBdD : MonoBehaviour
             {
                 listeDesPNJ[i] = new PNJ((int)lien["IDNPCharacter"], lien["NPCName"].ToString(), (int)lien["IDArtefact"]);
                 ++i;
-            }
+            } 
         }
         lien.Close();
         for (int i = 0; i < listeDesPNJ.Length; ++i)
@@ -655,13 +657,23 @@ public class RessourcesBdD : MonoBehaviour
             string requete = "SELECT COUNT(IDMission) AS Total, IDDistrict FROM present_missions WHERE IDMission NOT IN (SELECT IDMission from present_missions_done WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
             MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
             MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
+            try
             {
-                int total = Int32.Parse(lien["Total"].ToString());
-                listeDesMissionsPrésentes = new MissionPrésente[(int)total];
-                Debug.Log("Total de mission jouables : " + total);
+                while (lien.Read())
+                {
+                    int total = Int32.Parse(lien["Total"].ToString());
+                    listeDesMissionsPrésentes = new MissionPrésente[(int)total];
+                    Debug.Log("Total de mission jouables : " + total);
+                }
+            }
+            catch
+            {
+
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
             }
             lien.Close();
+
             requete = "SELECT * FROM present_missions WHERE IDMission NOT IN (SELECT IDMission from present_missions_done WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
             commande = new MySqlCommand(requete, Connexion.connexion);
             lien = commande.ExecuteReader();
@@ -714,6 +726,35 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesMissionsPrésentes[i].SaMission = testMissionSpecialise(listeDesMissionsPrésentes[i].SaMission, listeDesMissionsPrésentes[i].SonQuartier);
         }
+    }
+
+    // Récupère les topics de l'Aide
+    public static void RecupTopicsAide()
+    {
+        string requete = "SELECT COUNT(*) AS Total FROM topic WHERE category='aide'";
+        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+        MySqlDataReader lien = commande.ExecuteReader();
+        while (lien.Read())
+        {
+            int total = Int32.Parse(lien["Total"].ToString());
+            listeDesTopicsAide = new Topic[(int)total];
+        }
+        lien.Close();
+
+        requete = "SELECT * FROM topic WHERE category='aide' ORDER BY datePublication, idTopic DESC";
+        
+        commande = new MySqlCommand(requete, Connexion.connexion);
+        lien = commande.ExecuteReader();
+
+        for (int i = 0; i < listeDesTopicsAide.Length;)
+        {
+            while (lien.Read())
+            {
+                listeDesTopicsAide[i] = new Topic(Int32.Parse(lien["idTopic"].ToString()), lien["title"].ToString(), lien["body"].ToString());
+                ++i;
+            }
+        }
+        lien.Close();
     }
 
     static public void DestroyListeMission()
