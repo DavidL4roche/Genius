@@ -6,12 +6,9 @@ using UnityEngine.UI;
 
 public class FabriqueResultat : MonoBehaviour {
     Mission mission = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
+
     public GameObject Tuple;
     public Text nomTuple;
-    public Text ValeurTupleTexte;
-    public Slider ValeurTupleSlider;
-    //public Text SliderTexte;
-    //public Image ImageTuple;
     GameObject instance;
 
     public void Start()
@@ -20,7 +17,6 @@ public class FabriqueResultat : MonoBehaviour {
         AGagner();
         APerdu();
         blockdesprerequis();
-        ValeurTupleTexte.color = new Color(1F, 1F, 1F,1F);
         ReloadMissions();
         RessourcesBdD.DestroyListeMission();
         RessourcesBdD.recupMissionJouableNow();
@@ -39,10 +35,7 @@ public class FabriqueResultat : MonoBehaviour {
             {
                 Text Texte = nomTuple;
                 Texte.text = mission.SesGains[i].NomGain;
-                ValeurTupleTexte.color = new Color(0F, 1F, 0F, 1F);
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = "+" + mission.SesGains[i].ValeurDuGain.ToString();
+                nomTuple.text = "+" + mission.SesGains[i].ValeurDuGain.ToString();
                 //ImageTuple.color = new Color(0F,1F,0F,1F);
                 instance = Instantiate(Tuple);
                 instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
@@ -59,10 +52,7 @@ public class FabriqueResultat : MonoBehaviour {
             {
                 Text Texte = nomTuple;
                 Texte.text = mission.SesPertes[i].NomPerte;
-                ValeurTupleTexte.color = new Color(1F, 0F, 0F, 1F);
-                ValeurTupleTexte.gameObject.SetActive(true);
-                ValeurTupleSlider.gameObject.SetActive(false);
-                ValeurTupleTexte.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString();
+                nomTuple.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString();
                 //ImageTuple.color = new Color(1F, 0F, 0F, 1F);
                 instance = Instantiate(Tuple);
                 instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
