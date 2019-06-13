@@ -15,6 +15,9 @@ public class FabriqueMagasin : MonoBehaviour {
     public Text nomObjet;
     public Button objetIDGO;
 
+    public GameObject precedent;
+    public GameObject suivant;
+
     public RawImage fondBoutonAcheter;
     public Text texteAcheter;
 
@@ -93,6 +96,30 @@ public class FabriqueMagasin : MonoBehaviour {
 
         // On affiche les ressources du joueur dans la zone appropriée
         getRessources();
+    }
+
+    // On affiche ou non les flèches Précedent et Suivant
+    public void Update()
+    {
+        GameObject horizontalLayout = GameObject.Find("HorizontalLayout");
+
+        if(horizontal.transform.position.x <= (-3996.675))
+        {
+            suivant.SetActive(false);
+        }
+        else
+        {
+            suivant.SetActive(true);
+        }
+
+        if (horizontal.transform.position.x >= (-175.7501))
+        {
+            precedent.SetActive(false);
+        }
+        else
+        {
+            precedent.SetActive(true);
+        }
     }
 
     public bool testsiArtefactMagasin()
