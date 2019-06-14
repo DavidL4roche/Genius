@@ -7,9 +7,13 @@ using UnityEngine.UI;
 public class FabriqueResultat : MonoBehaviour {
     Mission mission = SpawnerMission.LesMissions[VerificationMission.MissionChoisi];
 
-    public GameObject Tuple;
-    public Text nomTuple;
-    GameObject instance;
+    public Text gainOrcus;
+    public Text gainIA;
+    public Text gainCompétences;
+    public Text gainObjets;
+    public Text perteDivert;
+    public Text perteSocial;
+
 
     public void Start()
     {
@@ -31,36 +35,44 @@ public class FabriqueResultat : MonoBehaviour {
     {
         for (int i = 0; i < mission.SesGains.Length; ++i)
         {
-            if (mission.SesGains[i].ValeurDuGain != 0)
+            switch (mission.SesGains[i].NomGain)
             {
-                Text Texte = nomTuple;
-                Texte.text = mission.SesGains[i].NomGain;
-                nomTuple.text = "+" + mission.SesGains[i].ValeurDuGain.ToString();
-                //ImageTuple.color = new Color(0F,1F,0F,1F);
-                instance = Instantiate(Tuple);
-                instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
-                instance.transform.name = "Tuple " + (i + 1);
-            }
-            else
-            {
-                continue;
+                case "Orcus":
+                    gainOrcus.text = "+" + mission.SesGains[i].ValeurDuGain.ToString();
+                    break;
+                case "IA":
+                    gainIA.text = "+" + mission.SesGains[i].ValeurDuGain.ToString();
+                    break;
+                case "Compétence":
+                    string compétences = "";
+                    for (int j = 0; j < mission.CompétencesRequises.Length; ++j)
+                    {
+                        compétences += "+ " + mission.CompétencesRequises[j].NomCompétence + " (+" + mission.SesGains[i].ValeurDuGain.ToString() + ")\n";
+                    }
+                    gainCompétences.text = compétences;
+                    break;
+                case "Objet":
+                    string objets = "";
+                    for (int j = 0; j < mission.SesObjets.Length; ++j)
+                    {
+                        objets += "+ " + mission.SesObjets[j].Nom + "\n";
+                    }
+                    gainObjets.text = objets;
+                    break;
+                default:
+                    break;
             }
         }
         for (int i = 0; i < mission.SesPertes.Length; ++i)
         {
-            if (mission.SesPertes[i].ValeurDeLaPerte != 0)
+            switch (mission.SesPertes[i].NomPerte)
             {
-                Text Texte = nomTuple;
-                Texte.text = mission.SesPertes[i].NomPerte;
-                nomTuple.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString();
-                //ImageTuple.color = new Color(1F, 0F, 0F, 1F);
-                instance = Instantiate(Tuple);
-                instance.transform.parent = GameObject.Find("VerticalLayout2").transform;
-                instance.transform.name = "Tuple " + (i + 1);
-            }
-            else
-            {
-                continue;
+                case "Divertissement":
+                    perteDivert.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                    break;
+                case "Social":
+                    perteSocial.text = "-" + mission.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                    break;
             }
         }
     }
@@ -101,6 +113,7 @@ public class FabriqueResultat : MonoBehaviour {
             {
                 if (mission.CompétencesRequises[i].ID == RessourcesBdD.listeDesCompétences[j].ID)
                 {
+                    Debug.Log(RessourcesBdD.listeDesCompétences[j].NomCompétence + " : " + valeur);
                     if ((Joueur.MesValeursCompetences[j] + valeur) > 100)
                     {
                         Joueur.MesValeursCompetences[j] = 100;

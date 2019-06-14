@@ -213,6 +213,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 107fb39543f69c0479c082747ae28312, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &50032526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1127456890101286, guid: 107fb39543f69c0479c082747ae28312,
+    type: 2}
+  m_PrefabInternal: {fileID: 50032525}
 --- !u!1 &252070291
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +609,7 @@ Prefab:
         type: 2}
       propertyPath: EcranChargement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 50032526}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1869c2f56e4ba4a4e9680b458a9ea530, type: 2}
   m_IsPrefabAsset: 0
