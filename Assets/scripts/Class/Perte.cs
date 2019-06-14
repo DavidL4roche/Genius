@@ -66,9 +66,6 @@ public class Perte : MonoBehaviour {
 
     static int calculPerteSocial(Mission mission)
     {
-        Debug.Log(mission.MissionEntreprise.TailleEntreprise);
-        Debug.Log(mission.SaDurée.ValeurDuree);
-        Debug.Log(mission.NiveauDeLaMission);
         return (1 - mission.MissionEntreprise.TailleEntreprise / 6) * mission.SaDurée.ValeurDuree * ((FicheAmélioration.Concentration) ? 2 : 1) * mission.NiveauDeLaMission / 100;
     }
 
