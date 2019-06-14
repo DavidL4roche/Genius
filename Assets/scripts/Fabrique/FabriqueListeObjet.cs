@@ -29,7 +29,7 @@ public class FabriqueListeObjet : MonoBehaviour {
         Gain.text = "";
 
         instance = Instantiate(Tuple, new Vector3(0.0F, 0.0F, 0.0F), Tuple.transform.rotation);
-        instance.transform.parent = GameObject.Find("VerticalLayout").transform;
+        instance.transform.parent = GameObject.Find("VerticalLayoutObjets").transform;
         instance.transform.name = "Tuple 0";
 
         // On parcourt tous les objets du jeu
@@ -40,6 +40,7 @@ public class FabriqueListeObjet : MonoBehaviour {
 
             if (Joueur.MesObjets[i] > 0)
             {
+                Debug.Log(RessourcesBdD.listeDesObjets[i].Nom);
                 NomObjet.text = RessourcesBdD.listeDesObjets[i].Nom;
 
                 logoPuzzle.texture = Resources.Load<Texture>("icones/Item" + (i+1));
@@ -63,7 +64,7 @@ public class FabriqueListeObjet : MonoBehaviour {
                 Gain.text = "+" + RessourcesBdD.listeDesObjets[i].Valeur;
 
                 instance = Instantiate(Tuple, new Vector3(0.0F, 0.0F, 0.0F), Tuple.transform.rotation);
-                instance.transform.parent = GameObject.Find("VerticalLayout").transform;
+                instance.transform.parent = GameObject.Find("VerticalLayoutObjets").transform;
                 instance.transform.name = "Tuple " + (i + 1);
             }
         }

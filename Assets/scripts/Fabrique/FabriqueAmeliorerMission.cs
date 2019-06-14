@@ -142,7 +142,7 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
         if  (FicheAmélioration.IDObjetUtilise == 0)
         {
             //GameObject.Find("Ameliorer").GetComponent<Button>().image.color = new Color32(82, 86, 118, 255);
-            imageObjet.texture = Resources.Load<Texture>("icones/Icon_orcus");
+            imageObjet.texture = Resources.Load<Texture>("icones/ObjetCross");
         }
         else
         {

@@ -1000,6 +1000,8 @@ MonoBehaviour:
   nomObjet: {fileID: 114600209666903308, guid: ad97521f05ddcac499e4578d439860d2, type: 2}
   objetIDGO: {fileID: 114377531038080012, guid: ad97521f05ddcac499e4578d439860d2,
     type: 2}
+  precedent: {fileID: 346443567}
+  suivant: {fileID: 743323045}
   fondBoutonAcheter: {fileID: 114349386510063054, guid: ad97521f05ddcac499e4578d439860d2,
     type: 2}
   texteAcheter: {fileID: 114074841079958816, guid: ad97521f05ddcac499e4578d439860d2,
