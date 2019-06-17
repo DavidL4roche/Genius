@@ -14,10 +14,16 @@ public class FabriqueCompétence : MonoBehaviour {
     public Text IDCompetence;
     public RawImage colorTupleComp;
 
+    public RawImage IconeAZ;
+    public RawImage IconeDiplome;
+    public static string methodeTri;
+
     GameObject instance;
 
     private void Start()
     {
+        methodeTri = "diplome";
+
         for (int i=0; i<RessourcesBdD.listeDesExamens.Length; ++i)
         {
             nomCatégorie.text = RessourcesBdD.listeDesExamens[i].NomExamen;
@@ -63,6 +69,20 @@ public class FabriqueCompétence : MonoBehaviour {
                 instance.transform.parent = GameObject.Find("VerticalLayout").transform;
                 instance.transform.name = "TupleCompétence " + (i + 1) + "-" + (j + 1);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (methodeTri == "alpha")
+        {
+            IconeAZ.color = new Color32(255, 255, 255, 255);
+            IconeDiplome.color = new Color32(255, 255, 255, 51);
+        }
+        else if (methodeTri == "diplome")
+        {
+            IconeAZ.color = new Color32(255, 255, 255, 51);
+            IconeDiplome.color = new Color32(255, 255, 255, 255);
         }
     }
 }
