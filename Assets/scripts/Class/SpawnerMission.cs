@@ -106,7 +106,16 @@ public class SpawnerMission : MonoBehaviour {
 
             instance = Instantiate(MissionPNJ, spawnerposition, MissionPNJ.transform.rotation);
             instance.transform.parent = GameObject.Find("Decor").transform;
-            instance.transform.name = "PNJ" + SonPNJ.SaMission.IDMission;
+
+            int k = 0;
+            for (k=0; k<RessourcesBdD.listeDesMissions.Length; k++)
+            {
+                if (SonPNJ.SaMission.IDMission == RessourcesBdD.listeDesMissions[k].IDMission)
+                {
+                    break;
+                }
+            }
+            instance.transform.name = "PNJ" + k;
         }
         // Debug.Log("Je suis après la boucle des missions...");
         //MissionsDuQuartier.RandomMission();

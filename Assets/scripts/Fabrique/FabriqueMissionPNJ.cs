@@ -76,7 +76,7 @@ public class FabriqueMissionPNJ : MonoBehaviour
             case 3:
                 return "IA";
             case 4:
-                return "Objet";
+                return "Objets";
             case 5:
                 return "Divertissement";
             case 6:
