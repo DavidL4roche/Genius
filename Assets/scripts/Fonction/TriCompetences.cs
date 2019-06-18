@@ -14,7 +14,7 @@ public class TriCompetences : MonoBehaviour {
     public GameObject TupleCompétences;
     public Text nomCompétence;
     public Text IDCompetence;
-    public RawImage colorTupleComp;
+    public Image colorTupleComp;
 
     GameObject instance;
 
@@ -59,9 +59,13 @@ public class TriCompetences : MonoBehaviour {
                                 }
                             }
 
+                            // On affiche visuellement la valeur du joueur dans la compétence
+                            double pourcentage = ((double)Joueur.MesValeursCompetences[valJoueur] / 100) * 264.07;
+                            colorTupleComp.GetComponent<RectTransform>().sizeDelta = new Vector2((float)pourcentage, 41.6f);
+
                             if (RessourcesBdD.listeDesExamens[j].CompétencesRequises[valComp].Valeur < Joueur.MesValeursCompetences[valJoueur])
                             {
-                                colorTupleComp.color = new Color32(6, 212, 168, 255);
+                                colorTupleComp.color = new Color32(0, 255, 196, 255);
                             }
                             else
                             {
@@ -123,9 +127,13 @@ public class TriCompetences : MonoBehaviour {
                     }
                 }
 
+                // On affiche visuellement la valeur du joueur dans la compétence
+                double pourcentage = ((double)Joueur.MesValeursCompetences[valJoueur] / 100) * 264.07;
+                colorTupleComp.GetComponent<RectTransform>().sizeDelta = new Vector2((float)pourcentage, 41.6f);
+
                 if (RessourcesBdD.listeDesExamens[i].CompétencesRequises[valComp].Valeur < Joueur.MesValeursCompetences[valJoueur])
                 {
-                    colorTupleComp.color = new Color32(6, 212, 168, 255);
+                    colorTupleComp.color = new Color32(0, 255, 196, 255);
                 }
                 else
                 {

@@ -23,6 +23,7 @@ public class FabriqueMission : MonoBehaviour {
     public Text Divert;
     public Text Social;
     public Image ImageTuple;
+    public GameObject BarreRequis;
 
     public GameObject BlockRecap;
     public RawImage ImageObjet;
@@ -136,6 +137,7 @@ public class FabriqueMission : MonoBehaviour {
             ValeurTupleSlider.value = valeurr;
             SliderTexte.text = valeurr.ToString();
             */
+
             verificationCompAvecJoueur(mr.CompétencesRequises[i].ID, valeurr);
             instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
             instance.transform.parent = GameObject.Find("VerticalLayout1").transform;
@@ -173,6 +175,16 @@ public class FabriqueMission : MonoBehaviour {
                 break;
             }
         }
+
+        // On affiche visuellement la valeur du joueur dans la compétence
+        double pourcentage = ((double)Joueur.MesValeursCompetences[i] / 100) * 264.07;
+        ImageTuple.GetComponent<RectTransform>().sizeDelta = new Vector2((float)pourcentage, 37.548f);
+
+        // On affiche le trait représentant la valeur de l'examen
+        double posBarre = ((double)valeur / 100) * 258;
+        posBarre = -129 + posBarre;
+        Debug.Log("Valeur : " + valeur + " : posBarre : " + posBarre);
+        BarreRequis.transform.position = new Vector2((float)posBarre, BarreRequis.transform.position.y);
 
         if (Joueur.MesValeursCompetences[i] >= valeur)
         {
@@ -255,7 +267,7 @@ public class FabriqueMission : MonoBehaviour {
 
     public void rendreActifLancer(bool boolean)
     {
-        ImageTuple.color = changeColor(boolean);
+        //ImageTuple.color = changeColor(boolean);
         lancer.interactable = boolean;
         BlockRecap.SetActive(boolean);
         changeColorLancer(boolean);
