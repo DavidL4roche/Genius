@@ -1183,7 +1183,11 @@ MonoBehaviour:
   Social: {fileID: 1327906847}
   BlockComp: {fileID: 1106623033}
   BlockRess: {fileID: 428008011}
-  ImageTuple: {fileID: 114755735448332268, guid: 7a25b366ddbca5c4ba065d04b3a75280,
+  ImageTuple: {fileID: 114031315938971306, guid: 7a25b366ddbca5c4ba065d04b3a75280,
+    type: 2}
+  BarreRequis: {fileID: 1101186763044770, guid: 7a25b366ddbca5c4ba065d04b3a75280,
+    type: 2}
+  FondGainJoueur: {fileID: 114281406372919504, guid: 7a25b366ddbca5c4ba065d04b3a75280,
     type: 2}
   lancer: {fileID: 1321124812}
   textLancer: {fileID: 296279758}
