@@ -14,7 +14,7 @@ public class FabriqueCompétenceAmi : MonoBehaviour
     public GameObject TupleCompétences;
     public Text nomCompétence;
     public Text IDCompetence;
-    public RawImage colorTupleComp;
+    public Image colorTupleComp;
 
     GameObject instance;
 
@@ -51,7 +51,11 @@ public class FabriqueCompétenceAmi : MonoBehaviour
                         break;
                     }
                 }
-                
+
+                // On affiche visuellement la valeur du joueur dans la compétence
+                double pourcentage = ((double)joueur.SesCompétences[valJoueur] / 100) * 264.07;
+                colorTupleComp.GetComponent<RectTransform>().sizeDelta = new Vector2((float)pourcentage, 42.4f);
+
                 if (RessourcesBdD.listeDesExamens[i].CompétencesRequises[valComp].Valeur < joueur.SesCompétences[valJoueur])
                 {
                     colorTupleComp.color = new Color32(6, 212, 168, 255);
