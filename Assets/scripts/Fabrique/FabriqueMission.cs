@@ -24,6 +24,7 @@ public class FabriqueMission : MonoBehaviour {
     public Text Social;
     public Image ImageTuple;
     public GameObject BarreRequis;
+    public Image FondGainJoueur;
 
     public GameObject BlockRecap;
     public RawImage ImageObjet;
@@ -148,7 +149,7 @@ public class FabriqueMission : MonoBehaviour {
         }
         decalage = 0;
 
-        Multi.text = "x" + FicheAmélioration.Optimisation.ToString();
+            Multi.text = "x" + FicheAmélioration.Optimisation.ToString();
         Concentration.text = (FicheAmélioration.Concentration) ? "On" : "Off";
 
         //Objet
@@ -181,17 +182,27 @@ public class FabriqueMission : MonoBehaviour {
         ImageTuple.GetComponent<RectTransform>().sizeDelta = new Vector2((float)pourcentage, 37.548f);
 
         // On affiche le trait représentant la valeur de l'examen
-        double posBarre = ((double)valeur / 100) * 258;
-        posBarre = -129 + posBarre;
-        Debug.Log("Valeur : " + valeur + " : posBarre : " + posBarre);
-        BarreRequis.transform.position = new Vector2((float)posBarre, BarreRequis.transform.position.y);
+        double posBarre = ((double)valeur / 100) * 255.5;
+        posBarre = 14.5 + posBarre;
+        BarreRequis.GetComponent<RectTransform>().sizeDelta = new Vector2((float)posBarre, 46.76f);
 
+        // On affiche le gain possible
         if (Joueur.MesValeursCompetences[i] >= valeur)
         {
             ImageTuple.color = changeColor(true);
+
+            double gainJoueur = Joueur.MesValeursCompetences[i];
+            if (Joueur.MesValeursCompetences[i] < 100) {
+                gainJoueur += mr.SesGains[5].ValeurDuGain;
+            }
+            gainJoueur = ((double)gainJoueur / 100) * 264.07;
+
+            FondGainJoueur.GetComponent<RectTransform>().sizeDelta = new Vector2((float)gainJoueur, 37.548f);
         }
         else
         {
+            FondGainJoueur.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 37.548f);
+
             // On rend les éléments de lancement de mission inactifs
             rendreActifLancer(false);
         }
