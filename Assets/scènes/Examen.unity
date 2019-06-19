@@ -584,7 +584,11 @@ MonoBehaviour:
   Social: {fileID: 264699424}
   ValeurBarre: {fileID: 1016877236675654, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
     type: 2}
-  ImageTuple: {fileID: 114755735448332268, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
+  ImageTuple: {fileID: 114090165851592362, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
+    type: 2}
+  BarreRequis: {fileID: 1732886624602428, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
+    type: 2}
+  FondGainJoueur: {fileID: 114806555406925090, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
     type: 2}
   lancer: {fileID: 1196527376}
   fondLancer: {fileID: 1588223311}
@@ -1759,7 +1763,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.2}
   m_AnchoredPosition: {x: 0, y: 72.4}
   m_SizeDelta: {x: 57.4, y: 155.2}
   m_Pivot: {x: 0.5, y: 0.5}
