@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 222092107269354796}
   - component: {fileID: 114903391004473014}
   m_Layer: 5
-  m_Name: Texte12
+  m_Name: Texte10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DUT MP
+  m_Text: "DUT M\xC9TIERS DU LIVRE"
 --- !u!114 &114967171758223814
 MonoBehaviour:
   m_ObjectHideFlags: 1
