@@ -616,4 +616,76 @@ class Helper {
 
         return "Le reset a fonctionné";
     }
+
+    // Change le status d'un tuto
+    function ChangeTutoStatus($idTuto, $idPlayer, $status) {
+        if ($idTuto != null & $idPlayer != null & $status != null) {
+            $bdd = $this->ConnectBDD();
+
+            // On insert en base le status du tuto
+            $sql = "INSERT INTO tuto_pc (IDTuto, IDPCharacter, Status) VALUES (" . $idTuto . ", " . $idPlayer . ", "
+                . $status . ") ON DUPLICATE KEY UPDATE Status = " . $status;
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion status tuto en base réussie";
+        }
+        else {
+            return "Veuillez renseigner les champs demandés";
+        }
+    }
+
+    // Verifie le status d'un tuto pour un joueur
+    function verifierStatusTuto($idTuto, $idPlayer) {
+
+        if ($idTuto != null & $idPlayer != null) {
+            $bdd = $this->ConnectBDD();
+
+            // On insert en base le status du tuto
+            $sql = "SELECT Status FROM tuto_pc WHERE IDPCharacter = " . $idPlayer . " AND IDTuto = " . $idTuto;
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // isConnected existe
+            if (count($d) > 0) {
+                return json_encode(array(
+                    "result" => true,
+                    "msg" => $d[0]["Status"]
+                ));
+            }
+            else {
+                // On insère en base le status 0 s'il n'existe pas
+                $sql = "INSERT INTO tuto_pc (IDTuto, IDPCharacter, Status) VALUES (" . $idTuto . ", " . $idPlayer . ", "
+                    . 0 . ") ON DUPLICATE KEY UPDATE Status = " . 0;
+                $result = $bdd->prepare($sql);
+                $result->execute();
+
+                // On rappelle la fonction
+                $sql = "SELECT Status FROM tuto_pc WHERE IDPCharacter = " . $idPlayer . " AND IDTuto = " . $idTuto;
+                $result = $bdd->prepare($sql);
+                $result->execute();
+
+                $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                // isConnected existe
+                if (count($d) > 0) {
+                    return json_encode(array(
+                        "result" => true,
+                        "msg" => $d[0]["Status"]
+                    ));
+                }
+                else {
+                    return json_encode(array(
+                        "result" => false,
+                        "msg" => "Erreur de changement de status apres verification"
+                    ));
+                }
+            }
+        }
+        else {
+            return "Veuillez renseigner les champs demandés";
+        }
+    }
 }

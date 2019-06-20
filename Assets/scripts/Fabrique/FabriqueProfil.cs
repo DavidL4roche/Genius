@@ -13,8 +13,13 @@ public class FabriqueProfil : MonoBehaviour {
 
     public Text NomJoueur;
 
+    public GameObject EcranTuto;
+
     public void Start()
     {
+        // On vérifie que le joueur a fait le tuto Profil (3)
+        StartCoroutine(Joueur.VerifierStatusTuto(3, EcranTuto));
+
         NomJoueur.text = Joueur.NomJoueur;
         if (RessourcesBdD.listeDesArtefactsJouables != null)
         {

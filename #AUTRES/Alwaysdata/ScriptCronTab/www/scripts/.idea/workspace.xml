@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ResetAdmin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChangeTutoStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VerifierStatusTuto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Website/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Website/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/PNJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/PNJ.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadreExamen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadreExamen.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadrePNJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadrePNJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Inscription.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Inscription.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Login.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Login.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/MotDePasseOublie.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/MotDePasseOublie.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Parametres.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Parametres.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleDiplome.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleDiplome.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleExamen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleExamen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Diplomes.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Diplomes.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,15 +40,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scriptmission.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1751">
-              <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
@@ -58,8 +51,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="612" column="71" selection-start-line="612" selection-start-column="16" selection-end-line="612" selection-end-column="71" />
+            <state relative-caret-position="287">
+              <caret line="654" column="44" lean-forward="true" selection-start-line="654" selection-start-column="44" selection-end-line="654" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CreateUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VerifierStatusTuto.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ChangeTutoStatus.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-line="13" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -67,22 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="5" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scriptActionSociale.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ReinitiatePassword.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+            <state relative-caret-position="289">
+              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -189,6 +195,8 @@
         <option value="$PROJECT_DIR$/UpdateDateCo.php" />
         <option value="$PROJECT_DIR$/scriptmission.php" />
         <option value="$PROJECT_DIR$/ResetAdmin.php" />
+        <option value="$PROJECT_DIR$/ChangeTutoStatus.php" />
+        <option value="$PROJECT_DIR$/VerifierStatusTuto.php" />
         <option value="$PROJECT_DIR$/Helper.php" />
       </list>
     </option>
@@ -299,17 +307,18 @@
       <workItem from="1559918144306" duration="93000" />
       <workItem from="1560756847511" duration="664000" />
       <workItem from="1560772621792" duration="2551000" />
+      <workItem from="1561037258107" duration="4699000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112100000" />
+    <option name="totallyTimeSpent" value="116799000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18327974" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1858521" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -424,10 +433,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CreateUser.php">
+    <entry file="file://$PROJECT_DIR$/scriptmission.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        <state relative-caret-position="2057">
+          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -481,20 +490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptmission.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -502,10 +497,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChangeTutoStatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CreateUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VerifierStatusTuto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="612" column="71" selection-start-line="612" selection-start-column="16" selection-end-line="612" selection-end-column="71" />
+        <state relative-caret-position="287">
+          <caret line="654" column="44" lean-forward="true" selection-start-line="654" selection-start-column="44" selection-end-line="654" selection-end-column="44" />
         </state>
       </provider>
     </entry>

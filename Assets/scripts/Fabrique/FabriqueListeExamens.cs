@@ -16,8 +16,14 @@ public class FabriqueListeExamens : MonoBehaviour {
 
     GameObject instance;
 
+    public GameObject EcranTuto;
+
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        // On vérifie que le joueur a fait le tuto Examen (2)
+        StartCoroutine(Joueur.VerifierStatusTuto(2, EcranTuto));
+
         genererListeExamens();
 	}
 	
