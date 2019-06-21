@@ -1,16 +1,25 @@
-﻿using System.Collections;
+﻿using SimpleJSON;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FabriqueListeAmis : MonoBehaviour {
+
     public GameObject TupleAmi;
     public Text NomAmi;
     public Image Cadre;
     public Button VoirProfil;
+
     GameObject instance;
+
+    public GameObject EcranTuto;
+
     private void Start()
     {
+        // On vérifie que le joueur a fait le tuto Reseau Social (4)
+        StartCoroutine(Joueur.VerifierStatusTuto(4, EcranTuto));
+
         bool color = true;
         if (Joueur.MesAmis != null) 
         {

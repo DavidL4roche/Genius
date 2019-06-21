@@ -56,12 +56,6 @@ public class FabriqueInfoCompetenceExamen : MonoBehaviour
             }
         }
 
-        Debug.Log("0 : " + RessourcesBdD.listeDesCompétences[0].ID);
-        Debug.Log("1 : " + RessourcesBdD.listeDesCompétences[1].ID);
-        Debug.Log("2 : " + RessourcesBdD.listeDesCompétences[2].ID);
-        Debug.Log("3 : " + RessourcesBdD.listeDesCompétences[3].ID);
-        Debug.Log(Joueur.MesValeursCompetences[idJoueur]);
-
         niveauActuel.text = Joueur.MesValeursCompetences[idJoueur] + "%";
         niveauRequis.text = examen.CompétencesRequises[idComp].Valeur + "%";
     }

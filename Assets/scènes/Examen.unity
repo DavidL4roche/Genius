@@ -584,7 +584,11 @@ MonoBehaviour:
   Social: {fileID: 264699424}
   ValeurBarre: {fileID: 1016877236675654, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
     type: 2}
-  ImageTuple: {fileID: 114755735448332268, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
+  ImageTuple: {fileID: 114090165851592362, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
+    type: 2}
+  BarreRequis: {fileID: 1732886624602428, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
+    type: 2}
+  FondGainJoueur: {fileID: 114806555406925090, guid: 4f069dd41fbbc1d48afcc964fa2e05fd,
     type: 2}
   lancer: {fileID: 1196527376}
   fondLancer: {fileID: 1588223311}

@@ -150,7 +150,7 @@ public class FabriquePreRequis : MonoBehaviour
             }
         }
 
-        if(Joueur.MesValeursCompetences[i] >= valeur)
+        if (Joueur.MesValeursCompetences[i] >= valeur)
         {
             ImageTuple.color = changeColor(true);
         }
