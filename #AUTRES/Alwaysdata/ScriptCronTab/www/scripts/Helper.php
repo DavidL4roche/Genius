@@ -614,6 +614,16 @@ class Helper {
         $result = $bdd->prepare($sql);
         $result->execute();
 
+        // On supprime les tutos qu'il a effectué
+        $sql = "DELETE FROM tuto_pc WHERE IDPCharacter = " . $id;
+        $result = $bdd->prepare($sql);
+        $result->execute();
+
+        // On supprime les artéfacts qu'il a effectué
+        $sql = "DELETE FROM artefact_used WHERE IDPCharacter = " . $id;
+        $result = $bdd->prepare($sql);
+        $result->execute();
+
         return "Le reset a fonctionné";
     }
 
