@@ -15,7 +15,17 @@
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleDiplome.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleDiplome.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleExamen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleExamen.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Diplomes.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Diplomes.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueDivertissement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueDivertissement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueListeAmis.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueListeAmis.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueListeExamens.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueListeExamens.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMissionPNJ.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMissionPNJ.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueProfil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueProfil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Divertissement.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Divertissement.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/IUT.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/IUT.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/MissionPNJ.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/MissionPNJ.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Profil.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Profil.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/ReseauSocial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/ReseauSocial.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +61,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
+            <state relative-caret-position="-33">
               <caret line="654" column="44" lean-forward="true" selection-start-line="654" selection-start-column="44" selection-end-line="654" selection-end-column="44" />
             </state>
           </provider>
@@ -307,12 +317,12 @@
       <workItem from="1559918144306" duration="93000" />
       <workItem from="1560756847511" duration="664000" />
       <workItem from="1560772621792" duration="2551000" />
-      <workItem from="1561037258107" duration="4699000" />
+      <workItem from="1561037258107" duration="4801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116799000" />
+    <option name="totallyTimeSpent" value="116901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
@@ -527,7 +537,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
+        <state relative-caret-position="-33">
           <caret line="654" column="44" lean-forward="true" selection-start-line="654" selection-start-column="44" selection-end-line="654" selection-end-column="44" />
         </state>
       </provider>
