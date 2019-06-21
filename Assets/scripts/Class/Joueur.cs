@@ -516,4 +516,59 @@ public class Joueur : MonoBehaviour {
         ChargerPopup.Charger("Erreur");
         MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
     }
+
+    // Vérifie le status d'un tuto
+    public static IEnumerator VerifierStatusTuto(int idTuto, GameObject EcranTuto)
+    {
+        string urlComp = Configuration.url + "scripts/VerifierStatusTuto.php";
+        WWW download;
+        string monJson;
+        JSONNode monNode;
+
+        urlComp += "?idTuto=" + idTuto + "&idPlayer=" + Joueur.IDJoueur;
+        download = new WWW(urlComp);
+        yield return download;
+
+        if ((!string.IsNullOrEmpty(download.error)))
+        {
+            Debug.Log("Error downloading: " + download.error);
+        }
+        else
+        {
+            monJson = download.text;
+            monNode = JSON.Parse(monJson);
+
+            // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
+            string result = monNode["result"].Value;
+
+            if (result.ToLower() == "false")
+            {
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = monNode["msg"].Value;
+            }
+            else
+            {
+                if (monNode["msg"] == "0")
+                {
+                    EcranTuto.SetActive(true);
+
+                    // Change le status d'un tuto
+                    urlComp = Configuration.url + "scripts/ChangeTutoStatus.php";
+                    urlComp += "?idTuto=" + idTuto + "&idPlayer=" + Joueur.IDJoueur + "&status=1";
+                    download = new WWW(urlComp);
+                    yield return download;
+                    //ChangeTutoStatus(idTuto);
+                }
+            }
+        }
+    }
+
+    // Change le status d'un tuto
+    static IEnumerator ChangeTutoStatus(int idTuto)
+    {
+        string urlComp = Configuration.url + "scripts/ChangeTutoStatus.php";
+        urlComp += "?idTuto=" + idTuto + "&idPlayer=" + Joueur.IDJoueur + "&status=1";
+        WWW download = new WWW(urlComp);
+        yield return download;
+    }
 }

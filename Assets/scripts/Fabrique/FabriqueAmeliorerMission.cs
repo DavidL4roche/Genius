@@ -13,8 +13,13 @@ public class FabriqueAmeliorerMission : MonoBehaviour {
     public Slider sliderConcentration;
     public RawImage imageObjet;
 
+    public GameObject EcranTuto;
+
     public void Start()
     {
+        // On vérifie que le joueur a fait le tuto Optimisation (6)
+        StartCoroutine(Joueur.VerifierStatusTuto(6, EcranTuto));
+
         VerificationAmelioration();
     }
 

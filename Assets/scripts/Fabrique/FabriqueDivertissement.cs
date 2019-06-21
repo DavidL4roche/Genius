@@ -11,8 +11,14 @@ public class FabriqueDivertissement : MonoBehaviour {
     public Text GainDivertissement;
 
     GameObject instance;
+
+    public GameObject EcranTuto;
+
     private void Start()
     {
+        // On vérifie que le joueur a fait le tuto Divertissement (5)
+        StartCoroutine(Joueur.VerifierStatusTuto(5, EcranTuto));
+
         Gain.calculDesGains(mr);
         NomDivert.text = mr.NomDivertissement;
         ImageRang.texture = mr.SonRang.texture;

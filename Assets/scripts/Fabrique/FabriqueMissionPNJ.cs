@@ -25,8 +25,14 @@ public class FabriqueMissionPNJ : MonoBehaviour
 
     //public Image ImageTuple;
     GameObject instance;
+
+    public GameObject EcranTuto;
+
     private void Start()
     {
+        // On vérifie que le joueur a fait le tuto PNJ (1)
+        StartCoroutine(Joueur.VerifierStatusTuto(1, EcranTuto));
+
         Gain.calculDesGainsPNJ(mr.SaMission);
         Gain.attribuerUnArtefact(mr.SaMission,mr.SonPNJ.SonArtefact);
         GainArtefact.texture = Resources.Load<Texture>("icones/Artefact" + trouverArtefact(mr.SonPNJ.SonArtefact.IDArtefact));
@@ -76,7 +82,7 @@ public class FabriqueMissionPNJ : MonoBehaviour
             case 3:
                 return "IA";
             case 4:
-                return "Objet";
+                return "Objets";
             case 5:
                 return "Divertissement";
             case 6:

@@ -16,8 +16,14 @@ public class FabriqueListeExamens : MonoBehaviour {
 
     GameObject instance;
 
+    public GameObject EcranTuto;
+
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        // On vérifie que le joueur a fait le tuto Examen (2)
+        StartCoroutine(Joueur.VerifierStatusTuto(2, EcranTuto));
+
         genererListeExamens();
 	}
 	
@@ -25,7 +31,7 @@ public class FabriqueListeExamens : MonoBehaviour {
 	void genererListeExamens () {
 
         // On instancie la catégorie "Disponibles"
-        NomCategorie.text = "Disponibles";
+        NomCategorie.text = "Disponible";
         instance = Instantiate(TupleCategorie, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
         instance.transform.parent = GameObject.Find("ListeExamens").transform;
         instance.transform.name = "TupleCategorieDisponibles";
@@ -38,6 +44,7 @@ public class FabriqueListeExamens : MonoBehaviour {
 
             // On réinitialise la couleur du Tuple
             imageTuple.color = new Color32(51, 54, 82, 255);
+            imageTuple.GetComponent<RectTransform>().sizeDelta = new Vector2(204.6f, 42.43f);
             iconeCheck.enabled = false;
 
             // Définition nom et id examen
@@ -72,6 +79,7 @@ public class FabriqueListeExamens : MonoBehaviour {
             if (playing)
             {
                 imageTuple.color = new Color32(49, 97, 125, 255);
+                imageTuple.GetComponent<RectTransform>().sizeDelta = new Vector2(204.6f, 42.43f);
 
                 // On instancie le tuple
                 instance = Instantiate(Tuple, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
@@ -81,7 +89,7 @@ public class FabriqueListeExamens : MonoBehaviour {
         }
 
         // On instancie la catégorie "Indisponibles"
-        NomCategorie.text = "Indisponibles";
+        NomCategorie.text = "Indisponible";
         instance = Instantiate(TupleCategorie, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
         instance.transform.parent = GameObject.Find("ListeExamens").transform;
         instance.transform.name = "TupleCategorieIndisponibles";
@@ -93,7 +101,7 @@ public class FabriqueListeExamens : MonoBehaviour {
             examenIDGO.interactable = true;
 
             // On réinitialise la couleur du Tuple
-            imageTuple.color = new Color32(51, 54, 82, 255);
+            imageTuple.color = new Color32(49, 97, 125, 255);
             iconeCheck.enabled = false;
 
             // Définition nom et id examen
@@ -103,6 +111,9 @@ public class FabriqueListeExamens : MonoBehaviour {
             Text examenID = examenIDGO.GetComponentInChildren<Text>();
             examenID.text = (examen.IDExamen - 1).ToString();
 
+            // On affiche la valeur du joueur (avancement compétence pour Examen)
+            int avancement = 0;
+
             bool playing = true;
             // On vérifie si le joueur peut passer l'examen
             for (int j = 0; j < examen.CompétencesRequises.Length; ++j)
@@ -111,9 +122,15 @@ public class FabriqueListeExamens : MonoBehaviour {
                 if (!verificationCompAvecJoueur(examen.CompétencesRequises[j].ID, valeurr))
                 {
                     playing = false;
-                    break;
+                }
+                else
+                {
+                    ++avancement;
                 }
             }
+
+            double valeurJoueur = ((double)avancement / 5) * 204.6;
+            imageTuple.GetComponent<RectTransform>().sizeDelta = new Vector2((float)valeurJoueur, 42.43f);
 
             if (!playing)
             {
@@ -138,6 +155,7 @@ public class FabriqueListeExamens : MonoBehaviour {
 
             // On réinitialise la couleur du Tuple
             imageTuple.color = new Color32(51, 54, 82, 255);
+            imageTuple.GetComponent<RectTransform>().sizeDelta = new Vector2(204.6f, 42.43f);
             iconeCheck.enabled = false;
 
             // Définition nom et id examen
@@ -155,6 +173,7 @@ public class FabriqueListeExamens : MonoBehaviour {
                 {
                     examenIDGO.interactable = false;
                     imageTuple.color = new Color32(6, 212, 168, 255);
+                    imageTuple.GetComponent<RectTransform>().sizeDelta = new Vector2(204.6f, 42.43f);
                     iconeCheck.enabled = true;
 
                     // On instancie le tuple

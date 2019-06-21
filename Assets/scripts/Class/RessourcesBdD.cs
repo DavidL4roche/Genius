@@ -908,7 +908,8 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesPNJPrésents = new PNJPrésent[(int)total];
             }
             lien.Close();
-            requete = "SELECT * from npc_present WHERE IDNPCharacter NOT IN (Select IDFriend From friend WHERE IDPCharacter =" + Joueur.IDJoueur + ");";
+            requete = "SELECT * FROM npc_present WHERE IDNPCharacter NOT IN" +
+            "(SELECT IDNPCharacter FROM np_character WHERE IDArtefact IN (SELECT IDArtefact FROM artefact_pc WHERE IDPCharacter = " + Joueur.IDJoueur + "));";
             commande = new MySqlCommand(requete, Connexion.connexion);
             lien = commande.ExecuteReader();
             for (int i = 0; i < listeDesPNJPrésents.Length;)

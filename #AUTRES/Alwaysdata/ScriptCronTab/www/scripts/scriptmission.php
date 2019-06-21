@@ -119,7 +119,7 @@ if (!empty($totalquartier) && !empty($tabmissionA2)) {
             $rand = rand(0, 100);
 
             // Probabilité de 5/100 de générer une mission de rang A
-            if ($rand < 5) {
+            if ($rand <= 100) { // A CHANGER
                 $randmissionA = rand(0, sizeof($tabmissionA2) - 1);
 
                 $requete = "INSERT INTO npc_present SELECT IDNPCharacter,IDMission 

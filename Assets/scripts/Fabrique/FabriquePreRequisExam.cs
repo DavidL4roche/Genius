@@ -15,6 +15,9 @@ public class FabriquePreRequisExam : MonoBehaviour
     public Text Social;
     public GameObject ValeurBarre;
     public Image ImageTuple;
+    public GameObject BarreRequis;
+    public Image FondGainJoueur;
+
     public Button lancer;
     public Text fondLancer;
     GameObject instance;
@@ -97,13 +100,23 @@ public class FabriquePreRequisExam : MonoBehaviour
                 break;
             }
         }
+
+        // On affiche visuellement la valeur du joueur dans la compétence
+        double pourcentage = ((double)Joueur.MesValeursCompetences[i] / 100) * 264.07;
+        ImageTuple.GetComponent<RectTransform>().sizeDelta = new Vector2((float)pourcentage, 37.548f);
+
+        // On affiche le trait représentant la valeur de l'examen
+        double posBarre = ((double)valeur / 100) * 255.5;
+        posBarre = 14.5 + posBarre;
+        BarreRequis.GetComponent<RectTransform>().sizeDelta = new Vector2((float)posBarre, 46.76f);
+        
         if (Joueur.MesValeursCompetences[i] >= valeur)
         {
-            ImageTuple.color = changeColor(true);
+            //ImageTuple.color = changeColor(true);
         }
         else
         {
-            ImageTuple.color = changeColor(false);
+            //ImageTuple.color = changeColor(false);
             lancer.interactable = false;
             fondLancer.color = new Color32(87, 87, 87, 255);
         }

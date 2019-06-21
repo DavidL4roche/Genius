@@ -10,11 +10,24 @@ public class FabriqueAide : MonoBehaviour {
     public Text NomTopic;
     public GameObject IDTopicGO;
     public GameObject TupleAide;
+
+    public Text NomTuto;
+    public GameObject TupleTuto;
+
     GameObject instance;
 
 	void Start () {
+
         int i = 0;
-        foreach(Topic topic in RessourcesBdD.listeDesTopicsAide)
+
+        NomTuto.text = "Tutoriel de début";
+
+        instance = Instantiate(TupleTuto, new Vector3(0.0F, 0.0F, 0.0F), TupleTuto.transform.rotation);
+        instance.transform.parent = GameObject.Find("VerticalLayout").transform;
+        instance.transform.name = "Tuple " + (i + 1);
+        ++i;
+
+        foreach (Topic topic in RessourcesBdD.listeDesTopicsAide)
         {
             NomTopic.text = topic.TitreTopic;
             Text IDTopic = IDTopicGO.GetComponentInChildren<Text>();
