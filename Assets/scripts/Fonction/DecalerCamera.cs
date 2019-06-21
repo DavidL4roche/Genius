@@ -9,6 +9,7 @@ public class DecalerCamera : MonoBehaviour {
     public Camera cameraJeu;
     public float valueX = 540;
     public float valueY = 0;
+    public GameObject EcranTuto;
 
 	public void MettreEcranVisible()
     {
@@ -28,7 +29,22 @@ public class DecalerCamera : MonoBehaviour {
 
         // On "cache" l'écran cliqué et on affiche l'écran suivant
         ecran.transform.position = new Vector3(valueX, valueY);
-        ecranSuivant.transform.position = new Vector3(0, valueY);
+        if (ecranSuivant != null)
+        {
+            ecranSuivant.transform.position = new Vector3(0, valueY);
+        }
+    }
+
+    public void cacherEcran()
+    {
+        string nomEcran = EventSystem.current.currentSelectedGameObject.transform.parent.name;
+        GameObject ecran = GameObject.Find(nomEcran);
+        ecran.SetActive(false);
+    }
+
+    public void fermerTuto()
+    {
+        EcranTuto.SetActive(false);
     }
 
     /*

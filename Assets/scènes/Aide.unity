@@ -168,6 +168,8 @@ MonoBehaviour:
   NomTopic: {fileID: 114930699229426480, guid: c84d1f322bc9f15478b38532c71218f8, type: 2}
   IDTopicGO: {fileID: 1360564403622818, guid: c84d1f322bc9f15478b38532c71218f8, type: 2}
   TupleAide: {fileID: 1480988550548538, guid: c84d1f322bc9f15478b38532c71218f8, type: 2}
+  NomTuto: {fileID: 114930699229426480, guid: f77a60d2890225140a1cb9d9d1bbf09a, type: 2}
+  TupleTuto: {fileID: 1480988550548538, guid: f77a60d2890225140a1cb9d9d1bbf09a, type: 2}
 --- !u!114 &26452930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,7 +1144,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1489033367}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

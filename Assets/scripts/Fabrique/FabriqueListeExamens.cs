@@ -31,7 +31,7 @@ public class FabriqueListeExamens : MonoBehaviour {
 	void genererListeExamens () {
 
         // On instancie la catégorie "Disponibles"
-        NomCategorie.text = "Disponibles";
+        NomCategorie.text = "Disponible";
         instance = Instantiate(TupleCategorie, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
         instance.transform.parent = GameObject.Find("ListeExamens").transform;
         instance.transform.name = "TupleCategorieDisponibles";
@@ -89,7 +89,7 @@ public class FabriqueListeExamens : MonoBehaviour {
         }
 
         // On instancie la catégorie "Indisponibles"
-        NomCategorie.text = "Indisponibles";
+        NomCategorie.text = "Indisponible";
         instance = Instantiate(TupleCategorie, new Vector3(0F, 0F, 0F), Tuple.transform.rotation);
         instance.transform.parent = GameObject.Find("ListeExamens").transform;
         instance.transform.name = "TupleCategorieIndisponibles";
