@@ -39,4 +39,9 @@ public class Trophee : MonoBehaviour {
                 break;
         }
     }
+
+    public void toString()
+    {
+        Debug.Log("Trophée " + IDTrophee + "(" + Rang.NomRang + ") - Description " + Description);
+    }
 }

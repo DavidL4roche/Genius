@@ -36,4 +36,9 @@ public class Examen : MonoBehaviour {
         }
         return listecompbdd;
     }
+
+    public void toString()
+    {
+        Debug.Log("Examen " + IDExamen + "(" + NomExamen + ")");
+    }
 }

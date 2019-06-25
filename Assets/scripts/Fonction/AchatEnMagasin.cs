@@ -87,7 +87,7 @@ public class AchatEnMagasin : MonoBehaviour {
         FermerUneFenetre fermer = new FermerUneFenetre();
         fermer.Fermer("Magasin");
         RessourcesBdD.LeMagasin = new ObjetPrésent[0];
-        RessourcesBdD.RecupObjetMagasin();
+        StartCoroutine(RessourcesBdD.RecupObjetMagasin());
         ChargerFenetreSupp charger = new ChargerFenetreSupp();
         charger.Charger("Magasin");
     }

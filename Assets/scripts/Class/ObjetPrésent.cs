@@ -8,6 +8,7 @@ public class ObjetPrésent : MonoBehaviour {
     public int SonPrixIA;
     public ObjetPrésent(int idobjet)
     {
+        // Objet : 1
         SonObjet = Objet.trouverSonObjet(idobjet);
         calculerSonPrix();
     }

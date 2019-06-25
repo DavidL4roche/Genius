@@ -38,26 +38,39 @@ public class RessourcesBdD : MonoBehaviour
     public static AutreJoueur[] listeDesJoueurs;
     public static bool stoprecupmission = false;
 
+    static public RessourcesBdD instance;
+
+    public static WWW download;
+    public static string monJson;
+    public static JSONNode monNode;
+    public static string url = Configuration.url + "scripts/scriptsRessources/";
+
+    // Permet de gérer les StartCoroutine dans les fonctions static
+    void Awake()
+    {
+        instance = this;
+    }
+
     // Use this for initialization
     public static void Recup()
     {
-        RecupLieu();
-        RecupGain();
-        RecupPerte();
-        RecupBonus();
-        RecupDuree();
-        RecupRang();
-        RecupQuartier();
+        instance.StartCoroutine(RecupLieu());
+        instance.StartCoroutine(RecupGain());
+        instance.StartCoroutine(RecupPerte());
+        instance.StartCoroutine(RecupBonus());
+        instance.StartCoroutine(RecupDuree());
+        instance.StartCoroutine(RecupRang());
+        instance.StartCoroutine(RecupQuartier());
         RecupDivert();
         RecupComp();
         RecupRess();
-        RecupObjet();
+        instance.StartCoroutine(RecupObjet());
         RecupDiplome();
-        RecupTrophees();
-        RecupExam();
-        RecupEntreprise();
+        instance.StartCoroutine(RecupTrophee());
+        instance.StartCoroutine(RecupExam());
+        instance.StartCoroutine(RecupEntreprise());
         RecupMission();
-        RecupArtefact();
+        instance.StartCoroutine(RecupArtefact());
         RecupPNJ();
         RecupTopicsAide();
 
@@ -65,38 +78,502 @@ public class RessourcesBdD : MonoBehaviour
         MessageErreur.messageErreur = "Récupération des données en base réussie.";
     }
 
-    // A FINIR POUR GENERALISER
-    public static Array AppelScriptPHP(string requete)
+    // Fonction de généralisation pour lecture script PHP
+    public static bool VerifierStatusScript(WWW dl)
     {
-        return new Array[1];
-    }
-
-    public static void RecupObjetMagasin()
-    {
-        string requete = "SELECT count(*) AS Total, IDItem from association_shop_item WHERE IDItem NOT IN(SELECT IDItem FROM item_bought WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        if ((!string.IsNullOrEmpty(dl.error)))
         {
-            int total = Int32.Parse(lien["Total"].ToString());
-            LeMagasin = new ObjetPrésent[(int)total];
+            print("Error downloading: " + dl.error);
+            return false;
         }
-        lien.Close();
-        requete = "SELECT * from association_shop_item WHERE IDItem NOT IN(SELECT IDItem FROM item_bought WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < LeMagasin.Length;)
+        else
         {
-            while (lien.Read())
+            monJson = dl.text;
+            monNode = JSON.Parse(monJson);
+
+            // On vérifie si le JSON renvoyé est rempli (est-ce qu'une réponse est renvoyé)
+            string result = monNode["result"].Value;
+
+            // Si le résultat est faux, on affiche l'erreur et on relance le jeu : TODO !!!!!!!!!!!
+            if (result.ToLower() == "false")
             {
-                LeMagasin[i] = new ObjetPrésent((int)lien["IDItem"]);
-                ++i;
+                // On redirige vers la connexion
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = monNode["msg"].Value;
+                return false;
+            }
+            else
+            {
+                // Le JSON est bon et valide
+                return true;
             }
         }
-        lien.Close();
     }
-    public static void RecupArtefactJouable(){
-        string requete = "SELECT count(*) AS Total, IDArtefact from artefact WHERE IDArtefact NOT IN(SELECT IDArtefact FROM artefact_used WHERE IDPCharacter=" + Joueur.IDJoueur+ ") AND IDArtefact IN(SELECT IDArtefact from artefact_pc WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
+
+    // Fonction de généralisation pour lecture script PHP
+    public static JSONNode RenvoiJSONScript(WWW dl)
+    {
+        monJson = dl.text;
+        monNode = JSON.Parse(monJson);
+        return monNode;
+    }
+
+    // Récupération des Lieux
+    public static IEnumerator RecupLieu()
+    {
+        string urlComp = url + "RecupLieu.php";
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+        
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesLieux = new Lieu[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesLieux[i] = new Lieu((int)Node["msg"][i]["IDPlace"], Node["msg"][i]["PlaceName"].Value);
+            }
+        }
+
+        for (int i = 0; i < listeDesLieux.Length; i++)
+        {
+            listeDesLieux[i].toString();
+        }
+    }
+
+    // Récupération des Gains
+    private static IEnumerator RecupGain()
+    {
+        string urlComp = url + "RecupGain.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesGains = new Gain[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesGains[i] = new Gain((int)Node["msg"][i]["IDGain"], Node["msg"][i]["GainName"].Value);
+            }
+        }
+
+        for (int i = 0; i < listeDesGains.Length; i++)
+        {
+            listeDesGains[i].toString();
+        }
+    }
+
+    // Récupération des Pertes
+    private static IEnumerator RecupPerte()
+    {
+        string urlComp = url + "RecupPerte.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesPertes = new Perte[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesPertes[i] = new Perte((int)Node["msg"][i]["IDLoss"], Node["msg"][i]["LossName"].Value);
+            }
+        }
+
+        for (int i = 0; i < listeDesPertes.Length; i++)
+        {
+            listeDesPertes[i].toString();
+        }
+    }
+
+    // Récupération des Bonus
+    private static IEnumerator RecupBonus()
+    {
+        string urlComp = url + "RecupBonus.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesBonus = new Bonus[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesBonus[i] = new Bonus((int)Node["msg"][i]["IDBonus"], Node["msg"][i]["BonusName"].Value);
+            }
+        }
+
+        for (int i = 0; i < listeDesBonus.Length; i++)
+        {
+            listeDesBonus[i].toString();
+        }
+    }
+
+    // Récupération des Durées
+    private static IEnumerator RecupDuree()
+    {
+        string urlComp = url + "RecupDuree.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesDurees = new Duree[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesDurees[i] = new Duree((int)Node["msg"][i]["IDDuration"], Node["msg"][i]["DurationName"].Value, (int)Node["msg"][i]["DurationValue"]);
+            }
+        }
+
+        for (int i = 0; i < listeDesDurees.Length; i++)
+        {
+            listeDesDurees[i].toString();
+        }
+    }
+
+    // Récupération des Rangs
+    private static IEnumerator RecupRang()
+    {
+        string urlComp = url + "RecupRang.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesRangs = new Rang[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesRangs[i] = new Rang((int)Node["msg"][i]["IDRank"], Node["msg"][i]["RankName"].Value);
+            }
+        }
+
+        for (int i = 0; i < listeDesRangs.Length; i++)
+        {
+            listeDesRangs[i].toString();
+        }
+    }
+
+    // Récupération des Quartiers
+    private static IEnumerator RecupQuartier()
+    {
+        string urlComp = url + "RecupQuartier.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesQuartiers = new Quartier[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesQuartiers[i] = new Quartier((int)Node["msg"][i]["IDDistrict"], Node["msg"][i]["DistrictName"].Value);
+            }
+        }
+
+        for (int i = 0; i < listeDesQuartiers.Length; i++)
+        {
+            listeDesQuartiers[i].toString();
+        }
+    }
+
+    // Récupération des Objets
+    private static IEnumerator RecupObjet()
+    {
+        string urlComp = url + "RecupObjet.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesObjets = new Objet[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesObjets[i] = new Objet((int)Node["msg"][i]["IDItem"], Node["msg"][i]["ItemName"].Value, (int)Node["msg"][i]["IDRank"],
+                                              (int)Node["msg"][i]["IDBonus"], (int)Node["msg"][i]["BonusGain"]);
+            }
+            Joueur.MesObjets = new int[listeDesObjets.Length];
+        }
+
+        for (int i=0; i< listeDesObjets.Length; i++)
+        {
+            listeDesObjets[i].toString();
+        }
+    }
+
+    // Récupération des Trophées
+    private static IEnumerator RecupTrophee()
+    {
+        string urlComp = url + "RecupTrophee.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesTrophees = new Trophee[Node["msg"].Count];
+            Joueur.MesTrophees = new bool[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesTrophees[i] = new Trophee((int)Node["msg"][i]["IDTrophy"], (int)Node["msg"][i]["IDRank"], Node["msg"][i]["Description"].Value);
+            }
+        }
+
+        for (int i = 0; i < listeDesTrophees.Length; i++)
+        {
+            listeDesTrophees[i].toString();
+        }
+    }
+
+    // Récupération des Examens
+    private static IEnumerator RecupExam()
+    {
+        string urlComp = url + "RecupExam.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesExamens = new Examen[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesExamens[i] = new Examen((int)Node["msg"][i]["IDExam"], Node["msg"][i]["ExamName"].Value, (int)Node["msg"][i]["IDDiplom"],
+                                                (int)Node["msg"][i]["IDSkillSlot1"], (int)Node["msg"][i]["IDSkillSlot2"], (int)Node["msg"][i]["IDSkillSlot3"],
+                                                (int)Node["msg"][i]["IDSkillSlot4"], (int)Node["msg"][i]["IDSkillSlot5"], (int)Node["msg"][i]["IDRank"]);
+            }
+        }
+
+        for (int i = 0; i < listeDesExamens.Length; i++)
+        {
+            listeDesExamens[i].toString();
+        }
+    }
+
+    // Récupération des Entreprises
+    private static IEnumerator RecupEntreprise()
+    {
+        string urlComp = url + "RecupEntreprise.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesEntreprises = new Entreprise[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesEntreprises[i] = new Entreprise((int)Node["msg"][i]["IDCompany"], Node["msg"][i]["CompanyName"].Value, (int)Node["msg"][i]["Size"]);
+            }
+        }
+
+        for (int i = 0; i < listeDesEntreprises.Length; i++)
+        {
+            listeDesEntreprises[i].toString();
+        }
+
+        // SES EMPLACEMENTS
+        for (int i = 0; i < listeDesEntreprises.Length; ++i)
+        {
+            urlComp = url + "RecupEmpEntreprise.php?id=" + listeDesEntreprises[i].IDEntreprise;
+
+            dl = new WWW(urlComp);
+            yield return dl;
+
+            if (VerifierStatusScript(dl))
+            {
+                JSONNode Node = RenvoiJSONScript(dl);
+                if (Node["msg"].Count > 1)
+                {
+                    listeDesEntreprises[i].SesEmplacements = new Quartier[Node["msg"].Count];
+                    for (int j = 0; j < Node["msg"].Count; ++j)
+                    {
+                        listeDesEntreprises[i].SesEmplacements[j] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
+                    }
+                }
+                else if (Node["msg"].Count == 1)
+                {
+                    listeDesEntreprises[i].SesEmplacements = new Quartier[Node["msg"].Count];
+                    for (int j = 0; j < Node["msg"].Count; ++j)
+                    {
+                        listeDesEntreprises[i].SesEmplacements[0] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
+                    }
+                }
+                else
+                {
+                    listeDesEntreprises[i].SesEmplacements = new Quartier[1];
+                    listeDesEntreprises[i].SesEmplacements[0] = new Quartier(0, "0");
+                }
+            }
+
+            Debug.Log("Emplacements des entreprises");
+            for (int j = 0; j < listeDesEntreprises[i].SesEmplacements.Length; j++)
+            {
+                listeDesEntreprises[i].SesEmplacements[j].toString();
+            }
+
+            /*
+            int total = 0;
+            requete = "SELECT Count(*) AS Total,IDDistrict from association_company_district WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
+            commande = new MySqlCommand(requete, Connexion.connexion);
+            lien = commande.ExecuteReader();
+            while (lien.Read())
+            {
+                total = Int32.Parse(lien["Total"].ToString());
+            }
+            lien.Close();
+            if (total > 1)
+            {
+                listeDesEntreprises[i].SesEmplacements = new Quartier[total];
+                for (int j = 0; j < total;)
+                {
+                    requete = "SELECT * from association_company_district WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
+                    commande = new MySqlCommand(requete, Connexion.connexion);
+                    lien = commande.ExecuteReader();
+                    while (lien.Read())
+                    {
+                        listeDesEntreprises[i].SesEmplacements[j] = Quartier.trouverSonQuartier((int)lien["IDDistrict"]);
+                        ++j;
+                    }
+                    lien.Close();
+                }
+            }
+            else if (total == 1)
+            {
+                listeDesEntreprises[i].SesEmplacements = new Quartier[total];
+                requete = "SELECT * from association_company_district WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
+                commande = new MySqlCommand(requete, Connexion.connexion);
+                lien = commande.ExecuteReader();
+                while (lien.Read())
+                {
+                    listeDesEntreprises[i].SesEmplacements[0] = Quartier.trouverSonQuartier((int)lien["IDDistrict"]);
+                }
+                lien.Close();
+            }
+            else
+            {
+                listeDesEntreprises[i].SesEmplacements = new Quartier[1];
+                listeDesEntreprises[i].SesEmplacements[0] = new Quartier(0, "0");
+            }
+            */
+
+            //Ses spécialités
+
+
+
+            /*
+            total = 0;
+            requete = "SELECT Count(*) AS Total,IDDistrict from company_specialization WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
+            commande = new MySqlCommand(requete, Connexion.connexion);
+            lien = commande.ExecuteReader();
+            while (lien.Read())
+            {
+                total = Int32.Parse(lien["Total"].ToString());
+            }
+            lien.Close();
+            if (total > 1)
+            {
+                listeDesEntreprises[i].SesSpécialisations = new Quartier[total];
+                for (int j = 0; j < total;)
+                {
+                    requete = "SELECT * from company_specialization WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
+                    commande = new MySqlCommand(requete, Connexion.connexion);
+                    lien = commande.ExecuteReader();
+                    while (lien.Read())
+                    {
+                        listeDesEntreprises[i].SesSpécialisations[j] = Quartier.trouverSonQuartier((int)lien["IDDistrict"]);
+                        ++j;
+                    }
+                    lien.Close();
+                }
+            }
+            else if (total == 1)
+            {
+                listeDesEntreprises[i].SesSpécialisations = new Quartier[total];
+                requete = "SELECT * from company_specialization WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
+                commande = new MySqlCommand(requete, Connexion.connexion);
+                lien = commande.ExecuteReader();
+                while (lien.Read())
+                {
+                    listeDesEntreprises[i].SesSpécialisations[0] = Quartier.trouverSonQuartier((int)lien["IDDistrict"]);
+                }
+                lien.Close();
+            }
+            else
+            {
+                listeDesEntreprises[i].SesSpécialisations = new Quartier[1];
+                listeDesEntreprises[i].SesSpécialisations[0] = new Quartier(0, "0");
+            }
+            */
+        }
+    }
+
+    // Récupération des Artéfacts
+    private static IEnumerator RecupArtefact()
+    {
+        string urlComp = url + "RecupArtefact.php";
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesArtefacts = new Artefact[Node["msg"].Count];
+            Joueur.MesArtefacts = new bool[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesArtefacts[i] = new Artefact((int)Node["msg"][i]["IDArtefact"], Node["msg"][i]["ArtefactName"].Value, (int)Node["msg"][i]["IDBonus"]);
+            }
+        }
+
+        for (int i = 0; i < listeDesArtefacts.Length; i++)
+        {
+            listeDesArtefacts[i].toString();
+        }
+    }
+
+    // Récupération des Objets du Magasin
+    public static IEnumerator RecupObjetMagasin()
+    {
+        string urlComp = url + "RecupObjetMagasin.php?id=" + Joueur.IDJoueur;
+        Debug.Log(urlComp);
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            LeMagasin = new ObjetPrésent[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                LeMagasin[i] = new ObjetPrésent((int)Node["msg"][i]["IDItem"]);
+            }
+        }
+
+        for (int i=0; i< LeMagasin.Length; i++)
+        {
+            Debug.Log(LeMagasin[i].SonObjet.Nom);
+        }
+    }
+
+    public static void RecupArtefactJouable()
+    {
+        string requete = "SELECT count(*) AS Total, IDArtefact from artefact WHERE IDArtefact NOT IN(SELECT IDArtefact FROM artefact_used WHERE IDPCharacter=" + Joueur.IDJoueur + ") AND IDArtefact IN(SELECT IDArtefact from artefact_pc WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
         MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
         MySqlDataReader lien = commande.ExecuteReader();
         while (lien.Read())
@@ -118,30 +595,7 @@ public class RessourcesBdD : MonoBehaviour
         }
         lien.Close();
     }
-    private static void RecupArtefact(){
-        string requete = "SELECT count(*) AS Total, IDArtefact from artefact";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesArtefacts = new Artefact[(int)total];
-            Joueur.MesArtefacts = new bool[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from artefact";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesArtefacts.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesArtefacts[i] = new Artefact((int)lien["IDArtefact"], lien["ArtefactName"].ToString(), (int)lien["IDBonus"]);
-                ++i;
-            }
-        }
-        lien.Close();
-    }
+
     private static void RecupPNJ()
     {
         string requete = "SELECT count(*) AS Total, IDNPCharacter from np_character";
@@ -162,12 +616,12 @@ public class RessourcesBdD : MonoBehaviour
             {
                 listeDesPNJ[i] = new PNJ((int)lien["IDNPCharacter"], lien["NPCName"].ToString(), (int)lien["IDArtefact"]);
                 ++i;
-            } 
+            }
         }
         lien.Close();
         for (int i = 0; i < listeDesPNJ.Length; ++i)
         {
-            requete = "SELECT * from association_district_npc WHERE IDNPCharacter="+listeDesPNJ[i].IDPNJ+";";
+            requete = "SELECT * from association_district_npc WHERE IDNPCharacter=" + listeDesPNJ[i].IDPNJ + ";";
             commande = new MySqlCommand(requete, Connexion.connexion);
             lien = commande.ExecuteReader();
             while (lien.Read())
@@ -177,6 +631,7 @@ public class RessourcesBdD : MonoBehaviour
             lien.Close();
         }
     }
+
     private static void RecupDivert()
     {
         string requete = "SELECT count(*) AS Total, IDEntertainment from entertainment";
@@ -195,152 +650,13 @@ public class RessourcesBdD : MonoBehaviour
         {
             while (lien.Read())
             {
-                listeDesDivertissements[i] = new MissionDivertissement((int)lien["IDEntertainment"], lien["EntertainmentName"].ToString(),(int)lien["IDRank"]);
+                listeDesDivertissements[i] = new MissionDivertissement((int)lien["IDEntertainment"], lien["EntertainmentName"].ToString(), (int)lien["IDRank"]);
                 ++i;
             }
         }
         lien.Close();
     }
 
-    private static IEnumerator RecupLieu()
-    {
-    /*
-    string requete = "SELECT count(*) AS Total, IDPlace from place";
-    MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-    MySqlDataReader lien = commande.ExecuteReader();
-    while (lien.Read())
-    {
-        int total = Int32.Parse(lien["Total"].ToString());
-        listeDesLieux = new Lieu[(int)total];
-    }
-    lien.Close();
-    requete = "SELECT * from place";
-    commande = new MySqlCommand(requete, Connexion.connexion);
-    lien = commande.ExecuteReader();
-    for (int i = 0; i < listeDesLieux.Length;)
-    {
-        while (lien.Read())
-        {
-            listeDesLieux[i] = new Lieu((int)lien["IDPlace"], lien["PlaceName"].ToString());
-            ++i;
-        }
-    }
-    lien.Close();
-    */
-
-        string urlComp = Configuration.url + "scripts/scriptsRessources/RecupLieu.php";
-        WWW download;
-        string monJson;
-        JSONNode monNode;
-
-        download = new WWW(urlComp);
-        yield return download;
-
-        if ((!string.IsNullOrEmpty(download.error)))
-        {
-            print("Error downloading: " + download.error);
-        }
-        else
-        {
-            monJson = download.text;
-            monNode = JSON.Parse(monJson);
-
-            // On vérifie si le JSON renvoyé est rempli (est-ce qu'une réponse est renvoyé)
-            string result = monNode["result"].Value;
-
-            // Si le résultat est faux, on affiche l'erreur et on relance le jeu : TODO !!!!!!!!!!!
-            if (result.ToLower() == "false")
-            {
-                // On redirige vers la connexion
-                ChargerPopup.Charger("Erreur");
-                MessageErreur.messageErreur = monNode["msg"].Value; ;
-            }
-
-            // L'adresse correspond à un compte
-            else
-            {
-                listeDesLieux = new Lieu[monNode["msg"].Count];
-
-                for (int i = 0; i < listeDesLieux.Length;)
-                {
-                    listeDesLieux[i] = new Lieu((int)monNode["msg"]["IDPlace"], monNode["msg"]["PlaceName"].ToString());
-                    Debug.Log(listeDesLieux[i]);
-                }
-            }
-        }
-    }
-    private static void RecupDuree()
-    {
-        string requete = "SELECT count(*) AS Total, IDDuration from duration";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesDurees = new Duree[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from duration";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesDurees.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesDurees[i] = new Duree((int)lien["IDDuration"], lien["DurationName"].ToString(),(int)lien["DurationValue"]);
-                ++i;
-            }
-        }
-        lien.Close();
-    }
-    private static void RecupGain()
-    {
-        string requete = "SELECT count(*) AS Total, IDGain from gain";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesGains = new Gain[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from gain";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesGains.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesGains[i] = new Gain((int)lien["IDGain"], lien["GainName"].ToString());
-                ++i;
-            }
-        }
-        lien.Close();
-    }
-    private static void RecupPerte()
-    {
-        string requete = "SELECT count(*) AS Total, IDLoss from loss";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesPertes = new Perte[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from loss";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesPertes.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesPertes[i] = new Perte((int)lien["IDLoss"], lien["LossName"].ToString());
-                ++i;
-            }
-        }
-        lien.Close();
-    }
     private static void RecupComp()
     {
         string requete = "SELECT count(*) AS Total, IDSkill from skill";
@@ -391,81 +707,6 @@ public class RessourcesBdD : MonoBehaviour
         }
         lien.Close();
     }
-    private static void RecupQuartier()
-    {
-        string requete = "SELECT count(*) AS Total, IDDistrict from district";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesQuartiers = new Quartier[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from district";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesQuartiers.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesQuartiers[i] = new Quartier((int)lien["IDDistrict"], lien["DistrictName"].ToString());
-                ++i;
-            }
-        }
-        lien.Close();
-    }
-    private static void RecupObjet()
-    {
-        string requete = "SELECT count(*) AS Total, IDItem from item";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesObjets = new Objet[total];
-        }
-        lien.Close();
-        requete = "SELECT * from item";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesObjets.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesObjets[i] = new Objet((int)lien["IDItem"], lien["ItemName"].ToString(), (int)lien["IDRank"], (int)lien["IDBonus"], (int)lien["BonusGain"]);
-                //listeDesObjets[i].voirObjet();
-                ++i;
-            }
-        }
-        lien.Close();
-        Joueur.MesObjets = new int[listeDesObjets.Length];
-    }
-    static void RecupRang()
-    {
-        string requete = "SELECT count(*) AS Total, IDRank from rank";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesRangs = new Rang[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from rank";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesRangs.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesRangs[i] = new Rang((int)lien["IDRank"],lien["RankName"].ToString());
-                //listeDesRangs[i].voirRang();
-                ++i;
-            }
-        }
-        lien.Close();
-    }
     static void RecupDiplome()
     {
         string requete = "SELECT count(*) AS Total, IDDiplom from diplom";
@@ -491,180 +732,7 @@ public class RessourcesBdD : MonoBehaviour
         }
         lien.Close();
     }
-    static void RecupTrophees()
-    {
-        string requete = "SELECT count(*) AS Total, IDTrophy from trophy";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesTrophees = new Trophee[(int)total];
-            Joueur.MesTrophees = new bool[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from trophy";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesTrophees.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesTrophees[i] = new Trophee((int)lien["IDTrophy"], (int)lien["IDRank"], lien["Description"].ToString());
-                ++i;
-            }
-        }
-        lien.Close();
-    }
-    static void RecupExam()
-    {
-        string requete = "SELECT count(*) AS Total, IDExam from exam";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesExamens = new Examen[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from exam";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesExamens.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesExamens[i] = new Examen((int)lien["IDExam"], lien["ExamName"].ToString(), (int)lien["IDDiplom"], (int)lien["IDSkillSlot1"], (int)lien["IDSkillSlot2"], (int)lien["IDSkillSlot3"], (int)lien["IDSkillSlot4"], (int)lien["IDSkillSlot5"], (int)lien["IDRank"]);
-                ++i;
-            }
-        }
-        lien.Close();
-    }
-    static void RecupEntreprise()
-    {
-        string requete = "SELECT count(*) AS Total, IDCompany from company";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesEntreprises = new Entreprise[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from company";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesEntreprises.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesEntreprises[i] = new Entreprise((int)lien["IDCompany"], lien["CompanyName"].ToString(), (int)lien["Size"]);
-                ++i;
-            }
-        }
-        lien.Close();
-
-
-        // SES EMPLACEMENTS
-
-
-
-
-        for (int i = 0; i < listeDesEntreprises.Length;++i)
-        {
-            int total = 0;
-            requete = "SELECT Count(*) AS Total,IDDistrict from association_company_district WHERE IDCompany="+listeDesEntreprises[i].IDEntreprise+";";
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                total = Int32.Parse(lien["Total"].ToString());
-            }
-            lien.Close();
-            if (total > 1)
-            {
-                listeDesEntreprises[i].SesEmplacements = new Quartier[total];
-                for (int j = 0; j<total;)
-                {
-                    requete = "SELECT * from association_company_district WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
-                    commande = new MySqlCommand(requete, Connexion.connexion);
-                    lien = commande.ExecuteReader();
-                    while (lien.Read())
-                    {
-                        listeDesEntreprises[i].SesEmplacements[j] = Quartier.trouverSonQuartier((int)lien["IDDistrict"]);
-                        ++j;
-                    }
-                    lien.Close();
-                }
-            }
-            else if(total == 1)
-            {
-                listeDesEntreprises[i].SesEmplacements = new Quartier[total];
-                requete = "SELECT * from association_company_district WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
-                commande = new MySqlCommand(requete, Connexion.connexion);
-                lien = commande.ExecuteReader();
-                while (lien.Read())
-                {
-                    listeDesEntreprises[i].SesEmplacements[0] = Quartier.trouverSonQuartier((int)lien["IDDistrict"]);
-                }
-                lien.Close();
-            }
-            else
-            {
-                listeDesEntreprises[i].SesEmplacements = new Quartier[1];
-                listeDesEntreprises[i].SesEmplacements[0] = new Quartier(0,"0");
-            }
-
-
-            //Ses spécialités
-
-
-
-
-            total = 0;
-            requete = "SELECT Count(*) AS Total,IDDistrict from company_specialization WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                total = Int32.Parse(lien["Total"].ToString());
-            }
-            lien.Close();
-            if (total > 1)
-            {
-                listeDesEntreprises[i].SesSpécialisations = new Quartier[total];
-                for (int j = 0; j < total;)
-                {
-                    requete = "SELECT * from company_specialization WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
-                    commande = new MySqlCommand(requete, Connexion.connexion);
-                    lien = commande.ExecuteReader();
-                    while (lien.Read())
-                    {
-                        listeDesEntreprises[i].SesSpécialisations[j] = Quartier.trouverSonQuartier((int)lien["IDDistrict"]);
-                        ++j;
-                    }
-                    lien.Close();
-                }
-            }
-            else if (total == 1)
-            {
-                listeDesEntreprises[i].SesSpécialisations = new Quartier[total];
-                requete = "SELECT * from company_specialization WHERE IDCompany=" + listeDesEntreprises[i].IDEntreprise + ";";
-                commande = new MySqlCommand(requete, Connexion.connexion);
-                lien = commande.ExecuteReader();
-                while (lien.Read())
-                {
-                    listeDesEntreprises[i].SesSpécialisations[0] = Quartier.trouverSonQuartier((int)lien["IDDistrict"]);
-                }
-                lien.Close();
-            }
-            else
-            {
-                listeDesEntreprises[i].SesSpécialisations = new Quartier[1];
-                listeDesEntreprises[i].SesSpécialisations[0] = new Quartier(0, "0");
-            }
-        }
-    }
+    
     static void RecupMission()
     {
         string requete = "SELECT count(*) AS Total, IDMission from mission";
@@ -846,30 +914,7 @@ public class RessourcesBdD : MonoBehaviour
         //mission.voirMission();
         return mission;
     }
-    static void RecupBonus()
-    {
-        string requete = "SELECT count(*) AS Total, IDBonus from bonus";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesBonus = new Bonus[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from bonus";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesBonus.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesBonus[i] = new Bonus((int)lien["IDBonus"], lien["BonusName"].ToString());
-                ++i;
-            }
-        }
-        lien.Close();
-    }
+
     public static void recupExamJouable()
     {
         string requete = "SELECT count(*) AS Total,IDExam from association_place_exam where IDExam NOT IN(Select IDExam from exam where IDDiplom IN (SELECT IDDiplom from diplom_pc where IDPCharacter = " + Joueur.IDJoueur + ")) AND(IDExam IN(Select IDExam from exam where IDDiplom IN(SELECT IDDiplom from association_diploms WHERE IDDiplomRequiered IN(SELECT IDDiplom from diplom_pc WHERE IDPCharacter = " + Joueur.IDJoueur + ")))OR IDExam IN(SELECT IDExam FROM exam WHERE IDDiplom NOT IN(Select IDDiplom from association_diploms) AND IDDiplom NOT IN(Select IDDiplom FROM diplom_pc WHERE IDPCharacter = " + Joueur.IDJoueur + "))); ";

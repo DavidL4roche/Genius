@@ -40,7 +40,7 @@ public class Joueur : MonoBehaviour {
         RessourcesBdD.recupDivertJouable();
         RessourcesBdD.recupPNJJouable();
         RessourcesBdD.RecupArtefactJouable();
-        RessourcesBdD.RecupObjetMagasin();
+        StartCoroutine(RessourcesBdD.RecupObjetMagasin());
         RessourcesBdD.RecupDeLaListeDesJoueurs();
         RessourcesBdD.RecupMesAmis();
         RessourcesBdD.RecupActionsSociales();

@@ -347,4 +347,9 @@ public class Gain : MonoBehaviour {
             }
         }
     }
+
+    public void toString()
+    {
+        Debug.Log("Gain " + IDGain + "(" + NomGain + ") - Valeur " + ValeurDuGain);
+    }
 }

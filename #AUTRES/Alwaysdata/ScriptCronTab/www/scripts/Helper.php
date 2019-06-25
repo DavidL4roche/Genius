@@ -705,11 +705,10 @@ class Helper {
     function RecupLieu() {
         //$bdd = $this->ConnectBDD();
 
-        //Create database connection
         $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
 
         if ($dblink->connect_errno) {
-            printf("Failed to connect to database");
+            printf("Impossible de se connecter à la base de données.");
             exit();
         }
 
@@ -733,6 +732,456 @@ class Helper {
                 "result" => false,
                 "msg" => "Impossible de récupérer les lieux"
             ));
+        }
+    }
+
+    // Recupère les gains
+    function RecupGain() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from gain");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les gains"
+            ));
+        }
+    }
+
+    // Recupère les pertes
+    function RecupPerte() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from loss");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les gains"
+            ));
+        }
+    }
+
+    // Recupère les bonus
+    function RecupBonus() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from bonus");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les bonus"
+            ));
+        }
+    }
+
+    // Recupère les objets
+    function RecupObjet() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from item");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les objets"
+            ));
+        }
+    }
+
+    // Recupère les artefacts
+    function RecupArtefact() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from artefact");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les artefacts"
+            ));
+        }
+    }
+
+    // Récupère les objets du magasin
+    function RecupObjetMagasin($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * from association_shop_item WHERE IDItem NOT IN(SELECT IDItem FROM item_bought WHERE IDPCharacter = $id)");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            if (count($dbdata) > 0) {
+
+                return json_encode(array(
+                    "result" => true,
+                    "msg" => $dbdata
+                ));
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "Impossible de récupérer les objets du magasin"
+                ));
+            }
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Recupère les durées
+    function RecupDuree() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from duration");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les durées"
+            ));
+        }
+    }
+
+    // Recupère les rangs
+    function RecupRang() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from rank");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les rangs"
+            ));
+        }
+    }
+
+    // Recupère les quartiers
+    function RecupQuartier() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from district");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les quartiers"
+            ));
+        }
+    }
+
+    // Recupère les trophées
+    function RecupTrophee() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from trophy");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les trophées"
+            ));
+        }
+    }
+
+    // Recupère les examens
+    function RecupExam() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from exam");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les examens"
+            ));
+        }
+    }
+
+    // Recupère les entreprises
+    function RecupEntreprise() {
+        //$bdd = $this->ConnectBDD();
+
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Impossible de se connecter à la base de données.");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from company");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les entreprises"
+            ));
+        }
+    }
+
+    // Récupère les emplacements des entreprises
+    function RecupEmpEntreprise($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * from association_company_district WHERE IDCompany=$id");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            if (count($dbdata) > 0) {
+
+                return json_encode(array(
+                    "result" => true,
+                    "msg" => $dbdata
+                ));
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "Impossible de récupérer les emplacements de l'entreprise"
+                ));
+            }
+        }
+        else {
+            return "Veuillez renseigner l'id de l'entreprise";
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using MySql.Data.MySqlClient;
+using SimpleJSON;
+using System.Collections;
 
 public class Connexion : MonoBehaviour {
 
