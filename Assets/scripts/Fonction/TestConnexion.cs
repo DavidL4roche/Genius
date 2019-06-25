@@ -26,7 +26,14 @@ public class TestConnexion : MonoBehaviour {
     // Permet d'appeler l'URL pour transmettre au script PHP les informations
     public void CallFunction()
     {
-        StartCoroutine(CheckConnection());
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("Pas d'internet");
+        }
+        else
+        {
+            StartCoroutine(CheckConnection());
+        }
     }
 
     // Permet de se connecter

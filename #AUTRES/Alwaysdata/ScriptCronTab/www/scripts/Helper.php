@@ -698,4 +698,41 @@ class Helper {
             return "Veuillez renseigner les champs demandés";
         }
     }
+
+    // RESSOURCES
+
+    // Recupère les lieux
+    function RecupLieu() {
+        //$bdd = $this->ConnectBDD();
+
+        //Create database connection
+        $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+        if ($dblink->connect_errno) {
+            printf("Failed to connect to database");
+            exit();
+        }
+
+        $result = $dblink->query("SELECT * from place");
+
+        $dbdata = array();
+
+        while ($row = $result->fetch_assoc())  {
+            $dbdata[]=$row;
+        }
+
+        if (count($dbdata) > 0) {
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer les lieux"
+            ));
+        }
+    }
 }

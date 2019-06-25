@@ -4,6 +4,7 @@ using UnityEngine;
 using MySql.Data.MySqlClient;
 using System;
 using UnityEngine.SceneManagement;
+using SimpleJSON;
 
 public class RessourcesBdD : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class RessourcesBdD : MonoBehaviour
 
     public static AutreJoueur[] listeDesJoueurs;
     public static bool stoprecupmission = false;
+
     // Use this for initialization
     public static void Recup()
     {
@@ -58,7 +60,17 @@ public class RessourcesBdD : MonoBehaviour
         RecupArtefact();
         RecupPNJ();
         RecupTopicsAide();
+
+        ChargerPopup.Charger("Succes");
+        MessageErreur.messageErreur = "Récupération des données en base réussie.";
     }
+
+    // A FINIR POUR GENERALISER
+    public static Array AppelScriptPHP(string requete)
+    {
+        return new Array[1];
+    }
+
     public static void RecupObjetMagasin()
     {
         string requete = "SELECT count(*) AS Total, IDItem from association_shop_item WHERE IDItem NOT IN(SELECT IDItem FROM item_bought WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
@@ -189,29 +201,73 @@ public class RessourcesBdD : MonoBehaviour
         }
         lien.Close();
     }
-    private static void RecupLieu()
+
+    private static IEnumerator RecupLieu()
     {
-        string requete = "SELECT count(*) AS Total, IDPlace from place";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
+    /*
+    string requete = "SELECT count(*) AS Total, IDPlace from place";
+    MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
+    MySqlDataReader lien = commande.ExecuteReader();
+    while (lien.Read())
+    {
+        int total = Int32.Parse(lien["Total"].ToString());
+        listeDesLieux = new Lieu[(int)total];
+    }
+    lien.Close();
+    requete = "SELECT * from place";
+    commande = new MySqlCommand(requete, Connexion.connexion);
+    lien = commande.ExecuteReader();
+    for (int i = 0; i < listeDesLieux.Length;)
+    {
         while (lien.Read())
         {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesLieux = new Lieu[(int)total];
+            listeDesLieux[i] = new Lieu((int)lien["IDPlace"], lien["PlaceName"].ToString());
+            ++i;
         }
-        lien.Close();
-        requete = "SELECT * from place";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesLieux.Length;)
+    }
+    lien.Close();
+    */
+
+        string urlComp = Configuration.url + "scripts/scriptsRessources/RecupLieu.php";
+        WWW download;
+        string monJson;
+        JSONNode monNode;
+
+        download = new WWW(urlComp);
+        yield return download;
+
+        if ((!string.IsNullOrEmpty(download.error)))
         {
-            while (lien.Read())
+            print("Error downloading: " + download.error);
+        }
+        else
+        {
+            monJson = download.text;
+            monNode = JSON.Parse(monJson);
+
+            // On vérifie si le JSON renvoyé est rempli (est-ce qu'une réponse est renvoyé)
+            string result = monNode["result"].Value;
+
+            // Si le résultat est faux, on affiche l'erreur et on relance le jeu : TODO !!!!!!!!!!!
+            if (result.ToLower() == "false")
             {
-                listeDesLieux[i] = new Lieu((int)lien["IDPlace"], lien["PlaceName"].ToString());
-                ++i;
+                // On redirige vers la connexion
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = monNode["msg"].Value; ;
+            }
+
+            // L'adresse correspond à un compte
+            else
+            {
+                listeDesLieux = new Lieu[monNode["msg"].Count];
+
+                for (int i = 0; i < listeDesLieux.Length;)
+                {
+                    listeDesLieux[i] = new Lieu((int)monNode["msg"]["IDPlace"], monNode["msg"]["PlaceName"].ToString());
+                    Debug.Log(listeDesLieux[i]);
+                }
             }
         }
-        lien.Close();
     }
     private static void RecupDuree()
     {

@@ -5,6 +5,7 @@ using System.Collections;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DemarrageGenius2 : MonoBehaviour {
 
@@ -22,9 +23,19 @@ public class DemarrageGenius2 : MonoBehaviour {
     private string monJson;
     private JSONNode monNode;
 
+    public GameObject EcranErreur;
+
     public void Start()
     {
-        StartCoroutine(MyCoroutine());
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("Pas d'internet");
+            RendreVisibleEcranErreur(true);
+        }
+        else
+        {
+            StartCoroutine(MyCoroutine());
+        }
     }
 
     IEnumerator MyCoroutine()
@@ -38,8 +49,7 @@ public class DemarrageGenius2 : MonoBehaviour {
         if ((!string.IsNullOrEmpty(download.error)))
         {
             print("Error downloading: " + download.error);
-            ChargerPopup.Charger("Erreur");
-            MessageErreur.messageErreur = "Connexion impossible, veuillez réessayer plus tard";
+            RendreVisibleEcranErreur(true);
         }
         else
         {
@@ -105,6 +115,9 @@ public class DemarrageGenius2 : MonoBehaviour {
                             }
                             else
                             {
+                                //ChargerPopup.Charger("Succes");
+                                //MessageErreur.messageErreur = "Lancement du jeu. Etape 4";
+
                                 monJson = download.text;
                                 monNode = JSON.Parse(monJson);
 
@@ -122,28 +135,33 @@ public class DemarrageGenius2 : MonoBehaviour {
                                 // L'adresse correspond à un compte
                                 else
                                 {
+                                    /*
                                     // On teste la connection à la base de données
                                     int total = 0;
                                     string requeteTest = "SELECT COUNT(*) AS Total FROM mission";
                                     MySqlCommand commande = new MySqlCommand(requeteTest, Connexion.connexion);
-                                    MySqlDataReader lien = commande.ExecuteReader();
+
+                                    // TODO : EXECUTEREADER N'EST PAS LA BONNE METHODE, IL FAUT FAIRE APPEL A DES SCRIPTS PHP
                                     try
                                     {
+                                        MySqlDataReader lien = commande.ExecuteReader();
+                                        
                                         while (lien.Read())
                                         {
                                             total = Int32.Parse(lien["Total"].ToString());
                                         }
+                                        lien.Close();
                                     }
                                     catch
                                     {
                                         ChargerPopup.Charger("Erreur");
                                         MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
                                     }
-                                    lien.Close();
-
+                                    
                                     // On connecte automatiquement au compte lié
                                     if (total != 0)
                                     {
+                                    */
                                         // On récupère les données du Joueur pour l'attribuer à notre objet
                                         int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
                                         Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
@@ -151,9 +169,12 @@ public class DemarrageGenius2 : MonoBehaviour {
                                         ChargerLieu loading = new ChargerLieu();
                                         Instantiate(JoueurLoge);
 
+                                        ChargerPopup.Charger("Succes");
+                                        MessageErreur.messageErreur = "Connexion réussie. Lancement du jeu.";
+
                                         // On charge la carte
                                         loading.Charger("Daedelus");
-                                    }
+                                    //}
                                 }
                             }
                         }
@@ -185,5 +206,16 @@ public class DemarrageGenius2 : MonoBehaviour {
             }
         }
         return localIP;
+    }
+
+    public void RendreVisibleEcranErreur(bool visible)
+    {
+        EcranErreur.SetActive(visible);
+    }
+
+    public void RelancerJeu()
+    {
+        // On "relance" le jeu
+        SceneManager.LoadScene("Index1");
     }
 }
