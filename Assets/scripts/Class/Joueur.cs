@@ -111,141 +111,164 @@ public class Joueur : MonoBehaviour {
 
     // Fais la mise à jour depuis la base de toutes les données importantes
     void majdepuisBDD()
-    { 
-        majRessources();
-        majComp();
-        majObjet();
-        majDiplome();
-        majTrophee();
-        majArtefact();
+    {
+        StartCoroutine(majRessources());
+        StartCoroutine(majComp());
+        StartCoroutine(majObjet());
+        StartCoroutine(majDiplome());
+        StartCoroutine(majTrophee());
+        StartCoroutine(majArtefact());
     }
 
-    void majObjet()
+    // Met à jour les objets du joueur
+    IEnumerator majObjet()
     {
-        string requete = "SELECT IDItem, Quantity FROM item_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "MAJObjet.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (RessourcesBdD.VerifierStatusScript(dl))
         {
-            for(int i = 0; i < RessourcesBdD.listeDesObjets.Length; ++i)
+            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                if ((int)lien["IDItem"] == RessourcesBdD.listeDesObjets[i].ID)
+                for (int j = 0; j < RessourcesBdD.listeDesObjets.Length; ++j)
                 {
-                    MesObjets[i] = (int)lien["Quantity"];
-                    //Debug.Log("Je possède "+MesObjets[i]+ " " + RessourcesBdD.listeNomObjets[i]);
+                    if ((int)Node["msg"][i]["IDItem"] == RessourcesBdD.listeDesObjets[j].ID)
+                    {
+                        MesObjets[j] = (int)Node["msg"][i]["Quantity"];
+                        Debug.Log("Je possède "+ MesObjets[i] + " " + RessourcesBdD.listeDesObjets[j].Nom);
+                    }
                 }
             }
         }
-        lien.Close();
     }
 
-    void majComp()
+    // Met à jour les compétences du joueur
+    IEnumerator majComp()
     {
-        string requete = "SELECT * FROM skill_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "MAJComp.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (RessourcesBdD.VerifierStatusScript(dl))
         {
-            for(int i = 0; i < MesValeursCompetences.Length; ++i)
+            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                if(Int32.Parse(lien["IDSkill"].ToString()) == RessourcesBdD.listeDesCompétences[i].ID)
+                for (int j = 0; j < MesValeursCompetences.Length; ++j)
                 {
-                    MesValeursCompetences[i] = Int32.Parse(lien["SkillLevel"].ToString());
-                }
-                else
-                {
-                    continue;
+                    if ((int)Node["msg"][i]["IDSkill"] == RessourcesBdD.listeDesCompétences[j].ID)
+                    {
+                        MesValeursCompetences[j] = (int)Node["msg"][i]["SkillLevel"];
+                        Debug.Log("Valeur compétence Joueur " + RessourcesBdD.listeDesCompétences[j].NomCompétence + " : " + MesValeursCompetences[j]);
+                    }
                 }
             }
         }
-        lien.Close();
     }
 
-    void majRessources()
+    // Met à jour les ressources du joueur
+    IEnumerator majRessources()
     {
-        string requete = "SELECT * FROM association_ressource_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "MAJRessources.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (RessourcesBdD.VerifierStatusScript(dl))
         {
-            for(int i = 0; i<RessourcesBdD.listeDesRessources.Length; ++i)
+            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                if ((int)lien["IDRessource"] == RessourcesBdD.listeDesRessources[i].ID)
+                for (int j = 0; j < RessourcesBdD.listeDesRessources.Length; ++j)
                 {
-                    MesRessources[i] = (int)lien["Value"];
-                }
-                else
-                {
-                    continue;
+                    if ((int)Node["msg"][i]["IDRessource"] == RessourcesBdD.listeDesRessources[j].ID)
+                    {
+                        MesRessources[j] = (int)Node["msg"][i]["Value"];
+                        Debug.Log("Valeur ressource Joueur " + RessourcesBdD.listeDesRessources[j].NomRessource + " : " + MesRessources[j]);
+                    }
                 }
             }
         }
-        lien.Close();
-        Debug.Log("MAJRessources : Social (" + MesRessources[2] + ") - Div (" + MesRessources[3] + ")");
     }
 
-    void majDiplome()
+    // Met à jour les diplomes du joueur
+    IEnumerator majDiplome()
     {
-        string requete = "SELECT * FROM diplom_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "MAJDiplome.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (RessourcesBdD.VerifierStatusScript(dl))
         {
-            for (int i = 0; i < RessourcesBdD.listeDesDiplomes.Length; ++i)
+            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                if ((int)lien["IDDiplom"] == RessourcesBdD.listeDesDiplomes[i].IDDiplome)
+                for (int j = 0; j < RessourcesBdD.listeDesDiplomes.Length; ++j)
                 {
-                    MesDiplomes[i] = true;
-                }
-                else
-                {
-                    continue;
+                    if ((int)Node["msg"][i]["IDDiplom"] == RessourcesBdD.listeDesDiplomes[j].IDDiplome)
+                    {
+                        MesDiplomes[j] = true;
+                        Debug.Log("Diplome Joueur " + RessourcesBdD.listeDesDiplomes[j].NomDiplome + " : " + MesDiplomes[j]);
+                    }
                 }
             }
         }
-        lien.Close();
     }
-    void majTrophee()
+
+    // Met à jour les trophées du joueur
+    IEnumerator majTrophee()
     {
-        string requete = "SELECT * FROM trophy_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "MAJTrophee.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (RessourcesBdD.VerifierStatusScript(dl))
         {
-            for (int i = 0; i < RessourcesBdD.listeDesTrophees.Length; ++i)
+            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                if ((int)lien["IDTrophy"] == RessourcesBdD.listeDesTrophees[i].IDTrophee)
+                for (int j = 0; j < RessourcesBdD.listeDesTrophees.Length; ++j)
                 {
-                    MesTrophees[i] = true;
-                }
-                else
-                {
-                    continue;
+                    if ((int)Node["msg"][i]["IDTrophy"] == RessourcesBdD.listeDesTrophees[j].IDTrophee)
+                    {
+                        MesTrophees[j] = true;
+                        Debug.Log("Trophée Joueur " + RessourcesBdD.listeDesTrophees[j].Description + " : " + MesTrophees[j]);
+                    }
                 }
             }
         }
-        lien.Close();
     }
-    void majArtefact()
+
+
+    // Met à jour les artéfacts du joueur
+    IEnumerator majArtefact()
     {
-        string requete = "SELECT * FROM artefact_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "MAJArtefact.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (RessourcesBdD.VerifierStatusScript(dl))
         {
-            for (int i = 0; i < RessourcesBdD.listeDesArtefacts.Length; ++i)
+            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                if ((int)lien["IDArtefact"] == RessourcesBdD.listeDesArtefacts[i].IDArtefact)
+                for (int j = 0; j < RessourcesBdD.listeDesArtefacts.Length; ++j)
                 {
-                    MesArtefacts[i] = true;
-                }
-                else
-                {
-                    continue;
+                    if ((int)Node["msg"][i]["IDArtefact"] == RessourcesBdD.listeDesArtefacts[j].IDArtefact)
+                    {
+                        MesArtefacts[j] = true;
+                        Debug.Log("Artéfact Joueur " + RessourcesBdD.listeDesArtefacts[j].NomArtefact + " : " + MesArtefacts[j]);
+                    }
                 }
             }
         }
-        lien.Close();
     }
 
     public static void transfertEnBase()

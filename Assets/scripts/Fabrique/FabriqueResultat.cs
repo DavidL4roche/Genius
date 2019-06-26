@@ -23,7 +23,7 @@ public class FabriqueResultat : MonoBehaviour {
         blockdesprerequis();
         ReloadMissions();
         RessourcesBdD.DestroyListeMission();
-        RessourcesBdD.recupMissionJouableNow();
+        StartCoroutine(RessourcesBdD.recupMissionJouable());
 
         // On transfert en base
         Joueur.transfertRessourcesEnBase();

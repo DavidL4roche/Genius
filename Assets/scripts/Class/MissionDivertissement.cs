@@ -31,4 +31,9 @@ public class MissionDivertissement : MonoBehaviour {
         }
         return lerang;
     }
+
+    public void toString()
+    {
+        Debug.Log("Divertissement " + IDMissionD + "(" + NomDivertissement + ")");
+    }
 }

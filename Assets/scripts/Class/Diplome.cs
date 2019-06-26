@@ -41,4 +41,9 @@ public class Diplome : MonoBehaviour {
             }
         }
     }
+
+    public void toString()
+    {
+        Debug.Log("Diplome " + IDDiplome + "(" + NomDiplome + ")");
+    }
 }

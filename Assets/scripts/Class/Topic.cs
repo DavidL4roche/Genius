@@ -14,4 +14,9 @@ public class Topic : MonoBehaviour {
         TitreTopic = titre;
         CorpsTopic = corps;
     }
+
+    public void toString()
+    {
+        Debug.Log("Topic " + IDTopic + "(" + TitreTopic + ")");
+    }
 }

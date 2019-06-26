@@ -99,4 +99,9 @@ public class Mission : MonoBehaviour
     {
         return base.ToString();
     }
+
+    public void toString()
+    {
+        Debug.Log("Mission " + IDMission + "(" + NomMission + ")");
+    }
 }
