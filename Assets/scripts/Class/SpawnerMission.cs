@@ -31,6 +31,8 @@ public class SpawnerMission : MonoBehaviour {
     static float[] tabPositionY;
     bool superpose;
 
+    public static bool continueTotalMissions = false;
+
     public void Start()
     {
         tabPositionY = new float[6];
@@ -38,89 +40,99 @@ public class SpawnerMission : MonoBehaviour {
 
         // On récupère l'id du quartier
         IDQuartier = VerifQuartier.IDQuartier;
+    }
 
-        // On crée les missions, divertissements et PNJ du quartier
-        totalDeMissions();
-
-        // On instancie les missions dans le quartier
-        for (int i = 0; i < LesMissions.Length; ++i)
+    public void Update()
+    {
+        if (continueTotalMissions)
         {
-            spawnerposition = genererPositionNonUtilisee();
-            RangMission.text = LesMissions[i].RangMission.NomRang;
-            FondMission.texture = LesMissions[i].RangMission.texture;
+            Debug.Log("ON RENTREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            // On crée les missions, divertissements et PNJ du quartier
+            totalDeMissions();
 
-            Mission mission = LesMissions[i];
-
-            // On regarde si la mission est jouable pour le joueur
-            for (int j = 0; j < mission.CompétencesRequises.Length; ++j)
+            // On instancie les missions dans le quartier
+            for (int i = 0; i < LesMissions.Length; ++i)
             {
-                if (verificationCompAvecJoueur(mission.CompétencesRequises[j].ID, mission.CompétencesRequises[j].Valeur))
+                spawnerposition = genererPositionNonUtilisee();
+                RangMission.text = LesMissions[i].RangMission.NomRang;
+                FondMission.texture = LesMissions[i].RangMission.texture;
+
+                Mission mission = LesMissions[i];
+
+                // On regarde si la mission est jouable pour le joueur
+                for (int j = 0; j < mission.CompétencesRequises.Length; ++j)
                 {
-                    OnMission.enabled = true;
+                    if (verificationCompAvecJoueur(mission.CompétencesRequises[j].ID, mission.CompétencesRequises[j].Valeur))
+                    {
+                        OnMission.enabled = true;
+                    }
+                    else
+                    {
+                        OnMission.enabled = false;
+                        break;
+                    }
                 }
-                else {
-                    OnMission.enabled = false;
-                    break;
-                }
+
+                //FondMission.color = new Color32(255, 255, 255, 127); // TEST
+                instance = Instantiate(Mission, spawnerposition, Mission.transform.rotation);
+                instance.transform.parent = GameObject.Find("Decor").transform;
+                instance.transform.name = "Mission " + (i);
+                //ListeMissions.listeDeMissions[IDQuartier].missions[i].voirRessources();
             }
 
-            //FondMission.color = new Color32(255, 255, 255, 127); // TEST
-            instance = Instantiate(Mission, spawnerposition, Mission.transform.rotation);
-            instance.transform.parent = GameObject.Find("Decor").transform;
-            instance.transform.name = "Mission " + (i);
-            //ListeMissions.listeDeMissions[IDQuartier].missions[i].voirRessources();
-        }
-
-        // On instancie un divertissement dans le quartier
-        if(SonDivertissement.IDMissionD != 0)
-        {
-            spawnerposition = genererPositionNonUtilisee();
-            FondMissionD.texture = SonDivertissement.SonRang.texture;
-
-            instance = Instantiate(MissionDivert, spawnerposition, MissionDivert.transform.rotation);
-            instance.transform.parent = GameObject.Find("Decor").transform;
-            instance.transform.name = "Divertissement";
-        }
-
-        // On instancie un PNJ dans le quartier
-        if (SonPNJ.SonPNJ.IDPNJ !=0 )
-        {
-            spawnerposition = genererPositionNonUtilisee();
-
-            RawImage iconePNJ = MissionPNJ.gameObject.GetComponentInChildren<RawImage>();
-            iconePNJ.texture = Resources.Load<Texture>("icones/PNJ" + SonPNJ.SonPNJ.IDPNJ);
-
-            // On regarde si la mission est jouable pour le joueur
-            for (int j = 0; j < SonPNJ.SaMission.CompétencesRequises.Length; ++j)
+            // On instancie un divertissement dans le quartier
+            if (SonDivertissement.IDMissionD != 0)
             {
-                if (verificationCompAvecJoueur(SonPNJ.SaMission.CompétencesRequises[j].ID, SonPNJ.SaMission.CompétencesRequises[j].Valeur))
-                {
-                    OnPNJ.enabled = true;
-                }
-                else
-                {
-                    OnPNJ.enabled = false;
-                    break;
-                }
+                spawnerposition = genererPositionNonUtilisee();
+                FondMissionD.texture = SonDivertissement.SonRang.texture;
+
+                instance = Instantiate(MissionDivert, spawnerposition, MissionDivert.transform.rotation);
+                instance.transform.parent = GameObject.Find("Decor").transform;
+                instance.transform.name = "Divertissement";
             }
 
-            instance = Instantiate(MissionPNJ, spawnerposition, MissionPNJ.transform.rotation);
-            instance.transform.parent = GameObject.Find("Decor").transform;
-
-            int k = 0;
-            for (k=0; k<RessourcesBdD.listeDesMissions.Length; k++)
+            // On instancie un PNJ dans le quartier
+            if (SonPNJ.SonPNJ.IDPNJ != 0)
             {
-                if (SonPNJ.SaMission.IDMission == RessourcesBdD.listeDesMissions[k].IDMission)
+                spawnerposition = genererPositionNonUtilisee();
+
+                RawImage iconePNJ = MissionPNJ.gameObject.GetComponentInChildren<RawImage>();
+                iconePNJ.texture = Resources.Load<Texture>("icones/PNJ" + SonPNJ.SonPNJ.IDPNJ);
+
+                // On regarde si la mission est jouable pour le joueur
+                for (int j = 0; j < SonPNJ.SaMission.CompétencesRequises.Length; ++j)
                 {
-                    break;
+                    if (verificationCompAvecJoueur(SonPNJ.SaMission.CompétencesRequises[j].ID, SonPNJ.SaMission.CompétencesRequises[j].Valeur))
+                    {
+                        OnPNJ.enabled = true;
+                    }
+                    else
+                    {
+                        OnPNJ.enabled = false;
+                        break;
+                    }
                 }
+
+                instance = Instantiate(MissionPNJ, spawnerposition, MissionPNJ.transform.rotation);
+                instance.transform.parent = GameObject.Find("Decor").transform;
+
+                int k = 0;
+                for (k = 0; k < RessourcesBdD.listeDesMissions.Length; k++)
+                {
+                    if (SonPNJ.SaMission.IDMission == RessourcesBdD.listeDesMissions[k].IDMission)
+                    {
+                        break;
+                    }
+                }
+                instance.transform.name = "PNJ" + k;
             }
-            instance.transform.name = "PNJ" + k;
+            // Debug.Log("Je suis après la boucle des missions...");
+            //MissionsDuQuartier.RandomMission();
+            // Debug.Log("Je suis après le random des missions...");
+            //Missions.VoirMissions();
+
+            continueTotalMissions = false;
         }
-        // Debug.Log("Je suis après la boucle des missions...");
-        //MissionsDuQuartier.RandomMission();
-        // Debug.Log("Je suis après le random des missions...");
-        //Missions.VoirMissions();
     }
 
     public static void DestroySpawn()

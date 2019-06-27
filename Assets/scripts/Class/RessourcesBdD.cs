@@ -45,6 +45,12 @@ public class RessourcesBdD : MonoBehaviour
     public static JSONNode monNode;
     public static string url = Configuration.url + "scripts/scriptsRessources/";
 
+    bool continueTotalMissions = false;
+    public static bool continueExamDiplome = false;
+    public static bool continueExamComp = false;
+    public static bool continueMissionEntreprise = false;
+    public static bool continueTropheeRang = false;
+
     // Permet de gérer les StartCoroutine dans les fonctions static
     void Awake()
     {
@@ -64,18 +70,46 @@ public class RessourcesBdD : MonoBehaviour
         instance.StartCoroutine(RecupDivert());
         instance.StartCoroutine(RecupComp());
         instance.StartCoroutine(RecupRess());
-        instance.StartCoroutine(RecupObjet());
         instance.StartCoroutine(RecupDiplome());
-        instance.StartCoroutine(RecupTrophee());
-        instance.StartCoroutine(RecupExam());
         instance.StartCoroutine(RecupEntreprise());
-        instance.StartCoroutine(RecupMission());
         instance.StartCoroutine(RecupArtefact());
         instance.StartCoroutine(RecupPNJ());
         instance.StartCoroutine(RecupTopicsAide());
 
+        // TODO : Attendre que tout soit validé pour lancer ça
+        if (true)
+        {
+            SpawnerMission.continueTotalMissions = true;
+        }
+
         ChargerPopup.Charger("Succes");
         MessageErreur.messageErreur = "Récupération des données en base réussie.";
+    }
+
+    // On lance ces fonctions après que celles données de Recup soient finies
+    public void Update()
+    {
+        // Récupération Examen
+        if (continueExamDiplome && continueExamComp)
+        {
+            instance.StartCoroutine(RecupExam());
+            continueExamDiplome = false;
+        }
+
+        // Récupération Mission
+        if (continueMissionEntreprise)
+        {
+            instance.StartCoroutine(RecupMission());
+            continueMissionEntreprise = false;
+        }
+
+        // Récupération Trophée et Objet
+        if (continueTropheeRang)
+        {
+            instance.StartCoroutine(RecupTrophee());
+            instance.StartCoroutine(RecupObjet());
+            continueTropheeRang = false;
+        }
     }
 
     // Fonction de généralisation pour lecture script PHP
@@ -134,11 +168,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesLieux[i] = new Lieu((int)Node["msg"][i]["IDPlace"], Node["msg"][i]["PlaceName"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesLieux.Length; i++)
         {
             listeDesLieux[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Gains
@@ -158,11 +192,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesGains[i] = new Gain((int)Node["msg"][i]["IDGain"], Node["msg"][i]["GainName"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesGains.Length; i++)
         {
             listeDesGains[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Pertes
@@ -182,11 +216,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesPertes[i] = new Perte((int)Node["msg"][i]["IDLoss"], Node["msg"][i]["LossName"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesPertes.Length; i++)
         {
             listeDesPertes[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Bonus
@@ -206,11 +240,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesBonus[i] = new Bonus((int)Node["msg"][i]["IDBonus"], Node["msg"][i]["BonusName"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesBonus.Length; i++)
         {
             listeDesBonus[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Durées
@@ -230,11 +264,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesDurees[i] = new Duree((int)Node["msg"][i]["IDDuration"], Node["msg"][i]["DurationName"].Value, (int)Node["msg"][i]["DurationValue"]);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesDurees.Length; i++)
         {
             listeDesDurees[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Rangs
@@ -254,11 +288,13 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesRangs[i] = new Rang((int)Node["msg"][i]["IDRank"], Node["msg"][i]["RankName"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesRangs.Length; i++)
         {
             listeDesRangs[i].toString();
-        }
+        }*/
+
+        continueTropheeRang = true;
     }
 
     // Récupération des Quartiers
@@ -278,11 +314,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesQuartiers[i] = new Quartier((int)Node["msg"][i]["IDDistrict"], Node["msg"][i]["DistrictName"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesQuartiers.Length; i++)
         {
             listeDesQuartiers[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Divertissements
@@ -302,11 +338,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesDivertissements[i] = new MissionDivertissement((int)Node["msg"][i]["IDEntertainment"], Node["msg"][i]["EntertainmentName"].Value, (int)Node["msg"][i]["IDRank"]);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesDivertissements.Length; i++)
         {
             listeDesDivertissements[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Compétences
@@ -327,13 +363,12 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesCompétences[i] = new Compétence((int)Node["msg"][i]["IDSkill"], Node["msg"][i]["SkillName"].Value, Node["msg"][i]["SkillDescription"].Value);
             }
         }
-
         /*
-        for (int i = 0; i < listeDesCompétences.Length; i++)
+        for (int i = 0; i < 5; i++)
         {
             listeDesCompétences[i].toString();
-        }
-        */
+        }*/
+        continueExamComp = true;
     }
 
     // Récupération des Ressources
@@ -354,11 +389,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesRessources[i] = new Ressource((int)Node["msg"][i]["IDRessource"], Node["msg"][i]["RessourceName"].Value);
             }
         }
-        
+        /*
         for (int i = 0; i < listeDesRessources.Length; i++)
         {
             listeDesRessources[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Objets
@@ -366,6 +401,14 @@ public class RessourcesBdD : MonoBehaviour
     {
         string urlComp = url + "RecupObjet.php";
 
+        /*
+        // On attend que les Rangs ont été récupéré
+        while(!continueObjet)
+        {
+            // On ne fait rien
+        }
+        */
+        
         WWW dl = new WWW(urlComp);
         yield return dl;
 
@@ -377,14 +420,14 @@ public class RessourcesBdD : MonoBehaviour
             for (int i = 0; i < Node["msg"].Count; ++i)
             {
                 listeDesObjets[i] = new Objet((int)Node["msg"][i]["IDItem"], Node["msg"][i]["ItemName"].Value, (int)Node["msg"][i]["IDRank"],
-                                              (int)Node["msg"][i]["IDBonus"], (int)Node["msg"][i]["BonusGain"]);
+                                                (int)Node["msg"][i]["IDBonus"], (int)Node["msg"][i]["BonusGain"]);
             }
         }
-
-        for (int i=0; i< listeDesObjets.Length; i++)
+        /*
+        for (int i = 0; i < listeDesObjets.Length; i++)
         {
             listeDesObjets[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Diplômes
@@ -405,11 +448,13 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesDiplomes[i] = new Diplome((int)Node["msg"][i]["IDDiplom"], Node["msg"][i]["DiplomName"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesDiplomes.Length; i++)
         {
             listeDesDiplomes[i].toString();
-        }
+        }*/
+
+        continueExamDiplome = true;
     }
 
     // Récupération des Trophées
@@ -430,11 +475,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesTrophees[i] = new Trophee((int)Node["msg"][i]["IDTrophy"], (int)Node["msg"][i]["IDRank"], Node["msg"][i]["Description"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesTrophees.Length; i++)
         {
             listeDesTrophees[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Examens
@@ -456,11 +501,11 @@ public class RessourcesBdD : MonoBehaviour
                                                 (int)Node["msg"][i]["IDSkillSlot4"], (int)Node["msg"][i]["IDSkillSlot5"], (int)Node["msg"][i]["IDRank"]);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesExamens.Length; i++)
         {
             listeDesExamens[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Entreprises
@@ -480,85 +525,108 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesEntreprises[i] = new Entreprise((int)Node["msg"][i]["IDCompany"], Node["msg"][i]["CompanyName"].Value, (int)Node["msg"][i]["Size"]);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesEntreprises.Length; i++)
         {
             listeDesEntreprises[i].toString();
-        }
+        }*/
         
         for (int i = 0; i < listeDesEntreprises.Length; ++i)
         {
             // SES EMPLACEMENTS
-            Debug.Log("Entreprise " + i);
-            urlComp = url + "RecupEmpEntreprise.php?id=" + listeDesEntreprises[i].IDEntreprise;
 
-            dl = new WWW(urlComp);
-            yield return dl;
+            // On récupère les emplacements de l'entreprise (i)
+            instance.StartCoroutine(RecupEmpEntreprise(i));
 
-            if (VerifierStatusScript(dl))
+            // On récupère les spécialités de l'entreprise (i)
+            instance.StartCoroutine(RecupSpeEntreprise(i));
+        }
+
+        continueMissionEntreprise = true;
+    }
+
+    // Fonction d'ajout des emplacements d'une entreprise
+    private static IEnumerator RecupEmpEntreprise(int i)
+    {
+        //Debug.Log("Entreprise " + i + "--------------------------------------------------");
+
+        string urlEmp = url + "RecupEmpEntreprise.php?id=" + listeDesEntreprises[i].IDEntreprise;
+
+        WWW dlEmp = new WWW(urlEmp);
+        yield return dlEmp;
+
+        if (VerifierStatusScript(dlEmp))
+        {
+            JSONNode Node = RenvoiJSONScript(dlEmp);
+            if (Node["msg"].Count > 1)
             {
-                JSONNode Node = RenvoiJSONScript(dl);
-                if (Node["msg"].Count > 1)
+                listeDesEntreprises[i].SesEmplacements = new Quartier[Node["msg"].Count];
+                for (int j = 0; j < Node["msg"].Count; ++j)
                 {
-                    listeDesEntreprises[i].SesEmplacements = new Quartier[Node["msg"].Count];
-                    for (int j = 0; j < Node["msg"].Count; ++j)
-                    {
-                        listeDesEntreprises[i].SesEmplacements[j] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
-                    }
-                }
-                else if (Node["msg"].Count == 1)
-                {
-                    listeDesEntreprises[i].SesEmplacements = new Quartier[Node["msg"].Count];
-                    for (int j = 0; j < Node["msg"].Count; ++j)
-                    {
-                        listeDesEntreprises[i].SesEmplacements[0] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
-                    }
-                }
-                else
-                {
-                    listeDesEntreprises[i].SesEmplacements = new Quartier[1];
-                    listeDesEntreprises[i].SesEmplacements[0] = new Quartier(0, "0");
+                    listeDesEntreprises[i].SesEmplacements[j] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
                 }
             }
-
-            Debug.Log("Emplacements des entreprises");
-            for (int j = 0; j < listeDesEntreprises[i].SesEmplacements.Length; j++)
+            else if (Node["msg"].Count == 1)
             {
-                listeDesEntreprises[i].SesEmplacements[j].toString();
+                listeDesEntreprises[i].SesEmplacements = new Quartier[1];
+                listeDesEntreprises[i].SesEmplacements[0] = Quartier.trouverSonQuartier((int)Node["msg"][0]["IDDistrict"]);
             }
-
-            // Ses spécialités
-            urlComp = url + "RecupSpeEntreprise.php?id=" + listeDesEntreprises[i].IDEntreprise;
-
-            dl = new WWW(urlComp);
-            yield return dl;
-
-            if (VerifierStatusScript(dl))
+            else
             {
-                JSONNode Node = RenvoiJSONScript(dl);
-                if (Node["msg"].Count > 1)
-                {
-                    listeDesEntreprises[i].SesSpécialisations = new Quartier[Node["msg"].Count];
-                    for (int j = 0; j < Node["msg"].Count; ++j)
-                    {
-                        listeDesEntreprises[i].SesSpécialisations[j] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
-                    }
-                }
-                else if (Node["msg"].Count == 1)
-                {
-                    listeDesEntreprises[i].SesSpécialisations = new Quartier[Node["msg"].Count];
-                    for (int j = 0; j < Node["msg"].Count; ++j)
-                    {
-                        listeDesEntreprises[i].SesSpécialisations[0] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
-                    }
-                }
-                else
-                {
-                    listeDesEntreprises[i].SesSpécialisations = new Quartier[1];
-                    listeDesEntreprises[i].SesSpécialisations[0] = new Quartier(0, "0");
-                }
+                listeDesEntreprises[i].SesEmplacements = new Quartier[1];
+                listeDesEntreprises[i].SesEmplacements[0] = new Quartier(0, "0");
             }
         }
+        /*
+        Debug.Log("Emplacements des entreprises ---------------------------------------------------------");
+        for (int j = 0; j < listeDesEntreprises[i].SesEmplacements.Length; j++)
+        {
+            listeDesEntreprises[i].SesEmplacements[j].toString();
+        }*/
+    }
+
+    // Fonction d'ajout des spécialités d'une entreprise
+    private static IEnumerator RecupSpeEntreprise(int i)
+    {
+        // Ses spécialités
+        string urlSpe = url + "RecupSpeEntreprise.php?id=" + listeDesEntreprises[i].IDEntreprise;
+        //Debug.Log("Spécialisations des entreprises Début 1 --------------------------------------------------------------");
+        WWW dlspe = new WWW(urlSpe);
+        yield return dlspe;
+
+        //Debug.Log("Spécialisations des entreprises Début --------------------------------------------------------------");
+        if (VerifierStatusScript(dlspe))
+        {
+            JSONNode Node = RenvoiJSONScript(dlspe);
+            if (Node["msg"].Count > 1)
+            {
+                listeDesEntreprises[i].SesSpécialisations = new Quartier[Node["msg"].Count];
+                for (int j = 0; j < Node["msg"].Count; ++j)
+                {
+                    listeDesEntreprises[i].SesSpécialisations[j] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
+                }
+            }
+            else if (Node["msg"].Count == 1)
+            {
+                listeDesEntreprises[i].SesSpécialisations = new Quartier[Node["msg"].Count];
+                for (int j = 0; j < Node["msg"].Count; ++j)
+                {
+                    listeDesEntreprises[i].SesSpécialisations[0] = Quartier.trouverSonQuartier((int)Node["msg"][j]["IDDistrict"]);
+                }
+            }
+            else
+            {
+                listeDesEntreprises[i].SesSpécialisations = new Quartier[1];
+                listeDesEntreprises[i].SesSpécialisations[0] = new Quartier(0, "0");
+            }
+        }
+        /*
+        Debug.Log("Spécialisations des entreprises --------------------------------------------------------------");
+        for (int j = 0; j < listeDesEntreprises[i].SesSpécialisations.Length; j++)
+        {
+            listeDesEntreprises[i].SesSpécialisations[j].toString();
+        }
+        Debug.Log("Fin spécialisations des entreprises --------------------------------------------------------------");*/
     }
 
     // Récupération des Missions
@@ -580,13 +648,11 @@ public class RessourcesBdD : MonoBehaviour
                                                 (int)Node["msg"][i]["IDSkill4"], (int)Node["msg"][i]["IDSkill5"], Node["msg"][i]["AssociatedJob"].Value);
             }
         }
-
-        /*
-        for (int i = 0; i < listeDesMissions.Length; i++)
+        
+        for (int i = 0; i < 5; i++)
         {
             listeDesMissions[i].toString();
         }
-        */
 
         /*
         for (int i = 0; i < listeDesMissions.Length;)
@@ -634,11 +700,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesArtefacts[i] = new Artefact((int)Node["msg"][i]["IDArtefact"], Node["msg"][i]["ArtefactName"].Value, (int)Node["msg"][i]["IDBonus"]);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesArtefacts.Length; i++)
         {
             listeDesArtefacts[i].toString();
-        }
+        }*/
     }
 
     // Récupération des PNJ
@@ -658,17 +724,16 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesPNJ[i] = new PNJ((int)Node["msg"][i]["IDNPCharacter"], Node["msg"][i]["NPCName"].Value, (int)Node["msg"][i]["IDArtefact"]);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesPNJ.Length; i++)
         {
             Debug.Log("PNJ : " + listeDesPNJ[i].NomPNJ);
-        }
+        }*/
 
         // On associe le quartier au PNJ
         for (int i = 0; i < listeDesPNJ.Length; ++i)
         {
             string urlPNJ = url + "RecupQuartierPNJ.php?id=" + listeDesPNJ[i].IDPNJ;
-            Debug.Log(urlPNJ);
 
             WWW down = new WWW(urlComp);
             yield return down;
@@ -682,11 +747,11 @@ public class RessourcesBdD : MonoBehaviour
                 }
             }
         }
-
+        /*
         for (int i = 0; i < listeDesPNJ.Length; i++)
         {
             Debug.Log("Quartier PNJ " + listeDesPNJ[i].SonQuartier.NomQuartier);
-        }
+        }*/
     }
 
     // Récuparation des topics de l'Aide
@@ -706,11 +771,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesTopicsAide[i] = new Topic((int)Node["msg"][i]["idTopic"], Node["msg"][i]["title"].Value, Node["msg"][i]["body"].Value);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesTopicsAide.Length; i++)
         {
             listeDesTopicsAide[i].toString();
-        }
+        }*/
     }
 
     // Récupération des Objets du Magasin
@@ -765,40 +830,38 @@ public class RessourcesBdD : MonoBehaviour
     // Récupération des missions jouables par le joueur
     public static IEnumerator recupMissionJouable()
     {
-        stoprecupmission = false;
-        while (!stoprecupmission)
+        int tempsattente = 610 - ((Joueur.DateActuelMinute % 10) * 60 + Joueur.DateActuelSeconde);
+        string urlComp = url + "RecupPresentMissions.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
         {
-            int tempsattente = 610 - ((Joueur.DateActuelMinute % 10) * 60 + Joueur.DateActuelSeconde);
-            string urlComp = url + "RecupPresentMissions.php?id=" + Joueur.IDJoueur;
-
-            WWW dl = new WWW(urlComp);
-            yield return dl;
-
-            if (VerifierStatusScript(dl))
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesMissionsPrésentes = new MissionPrésente[Node["msg"].Count];
+            Debug.Log("Total de mission jouables : --------------------------------------------------------------------------------------- " + Node["msg"].Count);
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                JSONNode Node = RenvoiJSONScript(dl);
-                listeDesMissionsPrésentes = new MissionPrésente[Node["msg"].Count];
-                Debug.Log("Total de mission jouables : ---------------------------------------------------------------------------------------" + Node["msg"].Count);
-                for (int i = 0; i < Node["msg"].Count; ++i)
-                {
-                    listeDesMissionsPrésentes[i] = new MissionPrésente((int)Node["msg"][i]["IDDistrict"], (int)Node["msg"][i]["IDMission"], (int)Node["msg"][i]["IDCompany"]);
-                }
+                listeDesMissionsPrésentes[i] = new MissionPrésente((int)Node["msg"][i]["IDDistrict"], (int)Node["msg"][i]["IDMission"], (int)Node["msg"][i]["IDCompany"]);
             }
-
-            for (int i = 0; i < listeDesMissionsPrésentes.Length; i++)
-            {
-                listeDesMissionsPrésentes[i].toString();
-            }
-            for (int i = 0; i < listeDesMissionsPrésentes.Length;++i)
-            {
-                listeDesMissionsPrésentes[i].SaMission = testMissionSpecialise(listeDesMissionsPrésentes[i].SaMission, listeDesMissionsPrésentes[i].SonQuartier);
-            }
-            yield return new WaitForSeconds(tempsattente);
-            ChargerLieu chargement = new ChargerLieu();
-            chargement.Recharger();
-            StopInteractionBG.interactionbg = true;
-            StopInteractionSupp.interactionsupp = true;
         }
+
+        for (int i = 0; i < 5; i++)
+        {
+            listeDesMissionsPrésentes[i].toString();
+        }
+
+        for (int i = 0; i < listeDesMissionsPrésentes.Length;++i)
+        {
+            Debug.Log(listeDesMissionsPrésentes[i].SaMission.MissionEntreprise.SesSpécialisations[0].IDQuartier);
+            listeDesMissionsPrésentes[i].SaMission = testMissionSpecialise(listeDesMissionsPrésentes[i].SaMission, listeDesMissionsPrésentes[i].SonQuartier);
+        }
+
+        instance.continueTotalMissions = true;
+        Debug.Log("continueTotalMissions EST VRAIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+        ChargerLieu chargement = new ChargerLieu();
+        chargement.Recharger();
     }
 
     /*
@@ -844,9 +907,11 @@ public class RessourcesBdD : MonoBehaviour
         listeDesDivertissementsPrésents = new MissionDivertissementPrésente[0];
     }
 
-    static Mission testMissionSpecialise(Mission mission, Quartier quartier)
+    private static Mission testMissionSpecialise(Mission mission, Quartier quartier)
     {
         bool test = false;
+        Debug.Log("Test Mission Specialise");
+        Debug.Log("Taille Spe " + mission.MissionEntreprise.SesSpécialisations.Length);
         foreach (Quartier q in mission.MissionEntreprise.SesSpécialisations)
         {
             if (quartier.IDQuartier == q.IDQuartier)
@@ -1138,5 +1203,16 @@ public class RessourcesBdD : MonoBehaviour
             }
         }
         lien.Close();
+    }
+
+    // Change le booléen continueTotalMissions
+    public static void setTotalMissions(bool result)
+    {
+        instance.continueTotalMissions = result;
+    }
+
+    public static bool getTotalMissions()
+    {
+        return instance.continueTotalMissions;
     }
 }

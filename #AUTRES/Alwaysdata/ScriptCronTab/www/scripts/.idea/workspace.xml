@@ -2,36 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/MAJArtefact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/MAJComp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/MAJDiplome.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/MAJObjet.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/MAJRessources.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/MAJTrophee.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupComp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupDiplome.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupDivert.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupMission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupPNJ.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupQuartierPNJ.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupRess.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupSpeEntreprise.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupTopicsAide.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleExamen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleExamen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Compétence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Compétence.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Diplome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Diplome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Mission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Mission.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/MissionDivertissement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/MissionDivertissement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/MissionPrésente.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/MissionPrésente.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Ressource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Ressource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Objet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Objet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/RessourcesBdD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/RessourcesBdD.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Topic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Topic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/SpawnerMission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/SpawnerMission.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="1685" column="46" selection-start-line="1685" selection-start-column="46" selection-end-line="1685" selection-end-column="46" />
+            <state relative-caret-position="442">
+              <caret line="1216" column="36" selection-start-line="1216" selection-start-column="36" selection-end-line="1216" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -113,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+              <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -214,7 +189,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="width" value="3226" />
     <option name="height" value="1746" />
@@ -227,6 +202,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,7 +219,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -330,17 +305,18 @@
       <workItem from="1561388221140" duration="1962000" />
       <workItem from="1561444600758" duration="9077000" />
       <workItem from="1561530738577" duration="8627000" />
+      <workItem from="1561635610307" duration="679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138078000" />
+    <option name="totallyTimeSpent" value="138757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19614148" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19871382" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -671,10 +647,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php">
+    <entry file="file://$PROJECT_DIR$/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="1216" column="36" selection-start-line="1216" selection-start-column="36" selection-end-line="1216" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJRessources.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJDiplome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJTrophee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -692,10 +689,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJDiplome.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -703,27 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJRessources.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJTrophee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="1685" column="46" selection-start-line="1685" selection-start-column="46" selection-end-line="1685" selection-end-column="46" />
         </state>
       </provider>
     </entry>

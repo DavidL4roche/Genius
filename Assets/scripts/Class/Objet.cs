@@ -58,6 +58,6 @@ public class Objet : MonoBehaviour
 
     public void toString()
     {
-        Debug.Log("Objet " + ID + "(" + Nom + ") - Rang " + RangObjet + " - Bonus " + Bonus + " Valeur " + Valeur);
+        Debug.Log("Objet " + ID + "(" + Nom + ") - Rang " + RangObjet.NomRang + " - Bonus " + Bonus.NomBonus + " Valeur " + Valeur);
     }
 }

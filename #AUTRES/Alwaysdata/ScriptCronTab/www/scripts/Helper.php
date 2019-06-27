@@ -1213,8 +1213,8 @@ class Helper {
             }
             else {
                 return json_encode(array(
-                    "result" => false,
-                    "msg" => "Impossible de récupérer les spécialisations de l'entreprise"
+                    "result" => true,
+                    "msg" => $dbdata
                 ));
             }
         }
