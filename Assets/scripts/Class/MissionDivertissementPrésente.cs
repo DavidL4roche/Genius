@@ -35,4 +35,9 @@ public class MissionDivertissementPrésente : MonoBehaviour {
         }
         return md;
     }
+
+    public void toString()
+    {
+        Debug.Log("Divert Présent " + SonDivertissement.NomDivertissement + "(Quartier " + SonQuartier.NomQuartier + ")");
+    }
 }

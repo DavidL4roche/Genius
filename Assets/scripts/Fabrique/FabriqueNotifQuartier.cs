@@ -14,7 +14,12 @@ public class FabriqueNotifQuartier : MonoBehaviour {
     int IDQuartier;
 
     void Start () {
-        if (RessourcesBdD.listeDesQuartiers != null)
+        
+	}
+
+    public void Update()
+    {
+        if (RessourcesBdD.listeDesQuartiers != null && RessourcesBdD.continueMissionNotifQuartier)
         {
             for (int j = 1; j < RessourcesBdD.listeDesQuartiers.Length; j++)
             {
@@ -88,8 +93,10 @@ public class FabriqueNotifQuartier : MonoBehaviour {
                     NotifQuartiers[j - 1].SetActive(false);
                 }
             }
+
+            RessourcesBdD.continueMissionNotifQuartier = false;
         }
-	}
+    }
 
     // Crée le nombre de missions, divertissements et PNJ correspondants
     void totalDeMissions()

@@ -162,18 +162,23 @@ public class DemarrageGenius2 : MonoBehaviour {
                                     if (total != 0)
                                     {
                                     */
-                                        // On récupère les données du Joueur pour l'attribuer à notre objet
-                                        int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
-                                        Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
-                                        Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
-                                        ChargerLieu loading = new ChargerLieu();
-                                        Instantiate(JoueurLoge);
+                                    // On récupère les données du Joueur pour l'attribuer à notre objet
+                                    int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
+                                    Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
+                                    Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
+                                    ChargerLieu loading = new ChargerLieu();
+                                    Instantiate(JoueurLoge);
 
-                                        ChargerPopup.Charger("Succes");
-                                        MessageErreur.messageErreur = "Connexion réussie. Lancement du jeu.";
+                                    ChargerPopup.Charger("Succes");
+                                    MessageErreur.messageErreur = "Connexion réussie. Lancement du jeu.";
 
-                                        // On charge la carte
-                                        loading.Charger("Daedelus");
+                                    // On charge la carte
+                                    while (!RessourcesBdD.continueJoueur)
+                                    {
+                                        yield return new WaitForSeconds(2);
+                                    }
+
+                                    loading.Charger("Daedelus");
                                     //}
                                 }
                             }

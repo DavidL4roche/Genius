@@ -46,6 +46,7 @@ public class SpawnerMission : MonoBehaviour {
     {
         if (continueTotalMissions)
         {
+            continueTotalMissions = false;
             Debug.Log("ON RENTREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             // On crée les missions, divertissements et PNJ du quartier
             totalDeMissions();
@@ -130,8 +131,6 @@ public class SpawnerMission : MonoBehaviour {
             //MissionsDuQuartier.RandomMission();
             // Debug.Log("Je suis après le random des missions...");
             //Missions.VoirMissions();
-
-            continueTotalMissions = false;
         }
     }
 

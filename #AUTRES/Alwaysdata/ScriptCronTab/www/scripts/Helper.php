@@ -1710,4 +1710,72 @@ class Helper {
             return "Veuillez renseigner l'id du joueur";
         }
     }
+
+    // Récupère les PNJ jouables
+    function RecupPNJJouable($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * FROM npc_present WHERE IDNPCharacter NOT IN 
+                                            (SELECT IDNPCharacter FROM np_character WHERE IDArtefact IN 
+                                            (SELECT IDArtefact FROM artefact_pc WHERE IDPCharacter = $id))");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Récupère les Examens jouables
+    function RecupExamJouable($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * from association_place_exam where IDExam NOT IN
+                                            (Select IDExam from exam where IDDiplom IN 
+                                            (SELECT IDDiplom from diplom_pc where IDPCharacter = $id)) 
+                                            AND(IDExam IN(Select IDExam from exam where IDDiplom IN
+                                            (SELECT IDDiplom from association_diploms WHERE IDDiplomRequiered IN
+                                            (SELECT IDDiplom from diplom_pc WHERE IDPCharacter = $id)))OR IDExam IN
+                                            (SELECT IDExam FROM exam WHERE IDDiplom NOT IN
+                                            (Select IDDiplom from association_diploms) AND IDDiplom NOT IN
+                                            (Select IDDiplom FROM diplom_pc WHERE IDPCharacter = $id)))");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
 }

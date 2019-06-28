@@ -16,4 +16,9 @@ public class PNJPrésent : MonoBehaviour {
     {
         SonPNJ = new PNJ(0, "", 1);
     }
+
+    public void toString()
+    {
+        Debug.Log("PNJ Présent " + SonPNJ.NomPNJ + "(Mission : " + SaMission.IDMission + ")");
+    }
 }

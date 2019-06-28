@@ -45,11 +45,35 @@ public class RessourcesBdD : MonoBehaviour
     public static JSONNode monNode;
     public static string url = Configuration.url + "scripts/scriptsRessources/";
 
+    // Valeurs pour continuer après effectué ces missions
     bool continueTotalMissions = false;
-    public static bool continueExamDiplome = false;
-    public static bool continueExamComp = false;
-    public static bool continueMissionEntreprise = false;
-    public static bool continueTropheeRang = false;
+    public static bool continueLieu = false; // 1
+    public static bool continueGain = false;
+    public static bool continuePerte = false;
+    public static bool continueBonus = false;
+    public static bool continueDuree = false; // 5
+    public static bool continueRang = false;
+    public static bool continueQuartier = false;
+    public static bool continueDivert = false;
+    public static bool continueComp = false;
+    public static bool continueRess = false; // 10
+    public static bool continueDiplome = false;
+    public static bool continueEntreprise = false;
+    public static bool continueArtefact = false;
+    public static bool continuePNJ = false;
+    public static bool continueTopicsAide = false; // 15
+    public static bool continueExam = false;
+    public static bool continueMission = false;
+    public static bool continueTrophee = false;
+    public static bool continueObjet = false; // 19
+
+    public static bool continueJoueur = false;
+    public static bool continueRessJoueur = false;
+    public static bool continuePNJJoueur = false;
+    public static bool continueDivertJoueur = false;
+    public static bool continueObjetJoueur = false;
+    public static bool continueMissionJoueur = false;
+    public static bool continueMissionNotifQuartier = false;
 
     // Permet de gérer les StartCoroutine dans les fonctions static
     void Awake()
@@ -71,15 +95,17 @@ public class RessourcesBdD : MonoBehaviour
         instance.StartCoroutine(RecupComp());
         instance.StartCoroutine(RecupRess());
         instance.StartCoroutine(RecupDiplome());
-        instance.StartCoroutine(RecupEntreprise());
-        instance.StartCoroutine(RecupArtefact());
-        instance.StartCoroutine(RecupPNJ());
         instance.StartCoroutine(RecupTopicsAide());
 
         // TODO : Attendre que tout soit validé pour lancer ça
-        if (true)
+        if (continueLieu && continueGain && continuePerte && continueBonus && continueDuree && continueRang && continueQuartier && continueDivert &&
+            continueComp && continueRess && continueDiplome && continueEntreprise && continueArtefact && continuePNJ && continueTopicsAide &&
+            continueExam && continueMission && continueTrophee && continueObjet)
         {
+            Debug.Log("ContinueTotalMissions est vrai -----------------------------------------------------------------");
             SpawnerMission.continueTotalMissions = true;
+            Configuration.continueJoueur = true;
+            Debug.Log("COUCOU TOI " + Configuration.continueJoueur);
         }
 
         ChargerPopup.Charger("Succes");
@@ -89,26 +115,54 @@ public class RessourcesBdD : MonoBehaviour
     // On lance ces fonctions après que celles données de Recup soient finies
     public void Update()
     {
+        Debug.Log("Update");
         // Récupération Examen
-        if (continueExamDiplome && continueExamComp)
+        if (continueDiplome && continueComp && continueRang)
         {
             instance.StartCoroutine(RecupExam());
-            continueExamDiplome = false;
+
+            instance.StartCoroutine(RecupTrophee()); // TODOOOOOOOOOOOOOOOOOOOOOOOOO
+            instance.StartCoroutine(RecupObjet());
+            continueDiplome = false;
         }
+
+        // Récupération Entreprise
+        if (continueQuartier)
+        {
+            instance.StartCoroutine(RecupEntreprise());
+            continueQuartier = false;
+        }
+        Debug.Log("CONTINUEENTREPRISE : -------------------------------------------- " + continueEntreprise);
 
         // Récupération Mission
-        if (continueMissionEntreprise)
+        if (continueEntreprise)
         {
-            instance.StartCoroutine(RecupMission());
-            continueMissionEntreprise = false;
+            instance.StartCoroutine(RecupMission()); // TODOOOOOOOOOOOOOOOOOOOOOOOOO
+            continueEntreprise = false;
+        }
+        /*
+        // Récupération Trophée et Objet
+        if (continueRang) // && continueObjet)
+        {
+            instance.StartCoroutine(RecupTrophee()); // TODOOOOOOOOOOOOOOOOOOOOOOOOO
+            instance.StartCoroutine(RecupObjet());
+            continueRang = false;
+            //continueObjet = false;
+        }*/
+
+        // Récupération Artéfact
+        if (continueBonus)
+        {
+            instance.StartCoroutine(RecupArtefact());
+            continueBonus = false;
         }
 
-        // Récupération Trophée et Objet
-        if (continueTropheeRang)
+        // Récupération PNJ
+        if (continueArtefact)
         {
-            instance.StartCoroutine(RecupTrophee());
-            instance.StartCoroutine(RecupObjet());
-            continueTropheeRang = false;
+            Debug.Log("CONTINUEARTEFACT -------------------------------------");
+            instance.StartCoroutine(RecupPNJ()); // TODOOOOOOOOOOOOOOOOOOOOOOOOO
+            continueArtefact = false;
         }
     }
 
@@ -173,6 +227,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesLieux[i].toString();
         }*/
+
+        continueLieu = true;
+        Debug.Log("1. ContinueLieu est vrai");
     }
 
     // Récupération des Gains
@@ -197,6 +254,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesGains[i].toString();
         }*/
+
+        continueGain = true;
+        Debug.Log("2. ContinueGain est vrai");
     }
 
     // Récupération des Pertes
@@ -221,6 +281,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesPertes[i].toString();
         }*/
+
+        continuePerte = true;
+        Debug.Log("3. ContinuePerte est vrai");
     }
 
     // Récupération des Bonus
@@ -245,6 +308,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesBonus[i].toString();
         }*/
+
+        continueBonus = true;
+        Debug.Log("4. ContinueBonus est vrai");
     }
 
     // Récupération des Durées
@@ -269,6 +335,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesDurees[i].toString();
         }*/
+
+        continueDuree = true;
+        Debug.Log("5. ContinueDuree est vrai");
     }
 
     // Récupération des Rangs
@@ -294,7 +363,8 @@ public class RessourcesBdD : MonoBehaviour
             listeDesRangs[i].toString();
         }*/
 
-        continueTropheeRang = true;
+        continueRang = true;
+        Debug.Log("6. ContinueRang est vrai");
     }
 
     // Récupération des Quartiers
@@ -319,6 +389,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesQuartiers[i].toString();
         }*/
+
+        continueQuartier = true;
+        Debug.Log("7. ContinueQuartier est vrai");
     }
 
     // Récupération des Divertissements
@@ -343,6 +416,10 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesDivertissements[i].toString();
         }*/
+
+        continueDivert = true;
+        continueDivertJoueur = true;
+        Debug.Log("8. ContinueDivert est vrai");
     }
 
     // Récupération des Compétences
@@ -368,7 +445,8 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesCompétences[i].toString();
         }*/
-        continueExamComp = true;
+        continueComp = true;
+        Debug.Log("9. ContinueComp est vrai");
     }
 
     // Récupération des Ressources
@@ -394,6 +472,10 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesRessources[i].toString();
         }*/
+
+        continueRess = true;
+        continueRessJoueur = true;
+        Debug.Log("10. ContinueRess est vrai");
     }
 
     // Récupération des Objets
@@ -428,6 +510,10 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesObjets[i].toString();
         }*/
+
+        continueObjet = true;
+        continueObjetJoueur = true;
+        Debug.Log("11. ContinueObjet est vrai");
     }
 
     // Récupération des Diplômes
@@ -454,7 +540,8 @@ public class RessourcesBdD : MonoBehaviour
             listeDesDiplomes[i].toString();
         }*/
 
-        continueExamDiplome = true;
+        continueDiplome = true;
+        Debug.Log("12. ContinueDiplome est vrai");
     }
 
     // Récupération des Trophées
@@ -480,6 +567,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesTrophees[i].toString();
         }*/
+
+        continueTrophee = true;
+        Debug.Log("13. ContinueTrophee est vrai");
     }
 
     // Récupération des Examens
@@ -506,6 +596,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesExamens[i].toString();
         }*/
+
+        continueExam = true;
+        Debug.Log("14. ContinueExam est vrai");
     }
 
     // Récupération des Entreprises
@@ -542,7 +635,8 @@ public class RessourcesBdD : MonoBehaviour
             instance.StartCoroutine(RecupSpeEntreprise(i));
         }
 
-        continueMissionEntreprise = true;
+        continueEntreprise = true;
+        Debug.Log("15. ContinueEntreprise est vrai");
     }
 
     // Fonction d'ajout des emplacements d'une entreprise
@@ -648,11 +742,11 @@ public class RessourcesBdD : MonoBehaviour
                                                 (int)Node["msg"][i]["IDSkill4"], (int)Node["msg"][i]["IDSkill5"], Node["msg"][i]["AssociatedJob"].Value);
             }
         }
-        
+        /*
         for (int i = 0; i < 5; i++)
         {
             listeDesMissions[i].toString();
-        }
+        }*/
 
         /*
         for (int i = 0; i < listeDesMissions.Length;)
@@ -680,6 +774,11 @@ public class RessourcesBdD : MonoBehaviour
         }
         lien.Close();
         */
+
+        continueMission = true;
+        continueMissionNotifQuartier = true;
+        continueMissionJoueur = true;
+        Debug.Log("16. ContinueMission est vrai");
     }
 
     // Récupération des Artéfacts
@@ -705,6 +804,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesArtefacts[i].toString();
         }*/
+
+        continueArtefact = true;
+        Debug.Log("17. ContinueArtefact est vrai");
     }
 
     // Récupération des PNJ
@@ -752,6 +854,10 @@ public class RessourcesBdD : MonoBehaviour
         {
             Debug.Log("Quartier PNJ " + listeDesPNJ[i].SonQuartier.NomQuartier);
         }*/
+
+        continuePNJ = true;
+        continuePNJJoueur = true;
+        Debug.Log("18. ContinuePNJ est vrai");
     }
 
     // Récuparation des topics de l'Aide
@@ -776,6 +882,9 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesTopicsAide[i].toString();
         }*/
+
+        continueTopicsAide = true;
+        Debug.Log("19. ContinueTopicsAide est vrai");
     }
 
     // Récupération des Objets du Magasin
@@ -795,11 +904,11 @@ public class RessourcesBdD : MonoBehaviour
                 LeMagasin[i] = new ObjetPrésent((int)Node["msg"][i]["IDItem"]);
             }
         }
-
+        /*
         for (int i=0; i< LeMagasin.Length; i++)
         {
             Debug.Log(LeMagasin[i].SonObjet.Nom);
-        }
+        }*/
     }
 
     public static void RecupArtefactJouable()
@@ -846,15 +955,15 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesMissionsPrésentes[i] = new MissionPrésente((int)Node["msg"][i]["IDDistrict"], (int)Node["msg"][i]["IDMission"], (int)Node["msg"][i]["IDCompany"]);
             }
         }
-
-        for (int i = 0; i < 5; i++)
+        /*
+        for (int i = 0; i < 3; i++)
         {
             listeDesMissionsPrésentes[i].toString();
-        }
+        }*/
 
         for (int i = 0; i < listeDesMissionsPrésentes.Length;++i)
         {
-            Debug.Log(listeDesMissionsPrésentes[i].SaMission.MissionEntreprise.SesSpécialisations[0].IDQuartier);
+            //Debug.Log(listeDesMissionsPrésentes[i].SaMission.MissionEntreprise.SesSpécialisations[0].IDQuartier);
             listeDesMissionsPrésentes[i].SaMission = testMissionSpecialise(listeDesMissionsPrésentes[i].SaMission, listeDesMissionsPrésentes[i].SonQuartier);
         }
 
@@ -910,8 +1019,8 @@ public class RessourcesBdD : MonoBehaviour
     private static Mission testMissionSpecialise(Mission mission, Quartier quartier)
     {
         bool test = false;
-        Debug.Log("Test Mission Specialise");
-        Debug.Log("Taille Spe " + mission.MissionEntreprise.SesSpécialisations.Length);
+        //Debug.Log("Test Mission Specialise");
+        //Debug.Log("Taille Spe " + mission.MissionEntreprise.SesSpécialisations.Length);
         foreach (Quartier q in mission.MissionEntreprise.SesSpécialisations)
         {
             if (quartier.IDQuartier == q.IDQuartier)
@@ -932,29 +1041,27 @@ public class RessourcesBdD : MonoBehaviour
         return mission;
     }
 
-    public static void recupExamJouable()
+    public static IEnumerator recupExamJouable()
     {
-        string requete = "SELECT count(*) AS Total,IDExam from association_place_exam where IDExam NOT IN(Select IDExam from exam where IDDiplom IN (SELECT IDDiplom from diplom_pc where IDPCharacter = " + Joueur.IDJoueur + ")) AND(IDExam IN(Select IDExam from exam where IDDiplom IN(SELECT IDDiplom from association_diploms WHERE IDDiplomRequiered IN(SELECT IDDiplom from diplom_pc WHERE IDPCharacter = " + Joueur.IDJoueur + ")))OR IDExam IN(SELECT IDExam FROM exam WHERE IDDiplom NOT IN(Select IDDiplom from association_diploms) AND IDDiplom NOT IN(Select IDDiplom FROM diplom_pc WHERE IDPCharacter = " + Joueur.IDJoueur + "))); ";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "RecupExamJouable.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
         {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesExamensPrésents = new ExamenPrésent[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from association_place_exam where IDExam NOT IN(Select IDExam from exam where IDDiplom IN (SELECT IDDiplom from diplom_pc where IDPCharacter = " + Joueur.IDJoueur + ")) AND(IDExam IN(Select IDExam from exam where IDDiplom IN(SELECT IDDiplom from association_diploms WHERE IDDiplomRequiered IN(SELECT IDDiplom from diplom_pc WHERE IDPCharacter = " + Joueur.IDJoueur + ")))OR IDExam IN(SELECT IDExam FROM exam WHERE IDDiplom NOT IN(Select IDDiplom from association_diploms) AND IDDiplom NOT IN(Select IDDiplom FROM diplom_pc WHERE IDPCharacter = " + Joueur.IDJoueur + ")));";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesExamensPrésents.Length;)
-        {
-            while (lien.Read())
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesExamensPrésents = new ExamenPrésent[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                listeDesExamensPrésents[i] = new ExamenPrésent((int)lien["IDPlace"], (int)lien["IDExam"]);
-                ++i;
+                listeDesExamensPrésents[i] = new ExamenPrésent((int)Node["msg"][i]["IDPlace"], (int)Node["msg"][i]["IDExam"]);
             }
         }
-        lien.Close();
+
+        for (int i = 0; i < listeDesExamensPrésents.Length; i++)
+        {
+            listeDesExamensPrésents[i].toString();
+        }
     }
 
     public static void recupExamensNonJouables()
@@ -986,8 +1093,28 @@ public class RessourcesBdD : MonoBehaviour
         lien.Close();
     }
 
-    public static void recupDivertJouable()
+    public static IEnumerator recupDivertJouable()
     {
+        string urlComp = url + "RecupDivertJouable.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
+        {
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesDivertissementsPrésents = new MissionDivertissementPrésente[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesDivertissementsPrésents[i] = new MissionDivertissementPrésente((int)Node["msg"][i]["IDDistrict"], (int)Node["msg"][i]["IDEntertainment"]);
+            }
+        }
+
+        for (int i = 0; i < listeDesDivertissementsPrésents.Length; i++)
+        {
+            listeDesDivertissementsPrésents[i].toString();
+        }
+
         listeDesDivertissementsPrésents = new MissionDivertissementPrésente[0];
         string requete = "SELECT count(*) AS Total,IDEntertainment from association_district_entertainment WHERE IDEntertainment NOT IN (Select IDEntertainment From entertainment_done WHERE IDPCharacter ="+Joueur.IDJoueur+");";
         MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
@@ -1011,39 +1138,27 @@ public class RessourcesBdD : MonoBehaviour
         }
         lien.Close();
     }
-    public static void recupPNJJouable()
+    public static IEnumerator recupPNJJouable()
     {
-        listeDesPNJPrésents = new PNJPrésent[0];
-        //if (testSiPNJJouable())
-        //{
-            string requete = "SELECT count(*) AS Total,IDNPCharacter FROM npc_present " +
-            "WHERE IDNPCharacter NOT IN(SELECT IDNPCharacter FROM np_character WHERE IDArtefact IN (SELECT IDArtefact FROM artefact_pc WHERE IDPCharacter = " + Joueur.IDJoueur + "));";
-            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-            MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                int total = Int32.Parse(lien["Total"].ToString());
-                listeDesPNJPrésents = new PNJPrésent[(int)total];
-            }
-            lien.Close();
-            requete = "SELECT * FROM npc_present WHERE IDNPCharacter NOT IN" +
-            "(SELECT IDNPCharacter FROM np_character WHERE IDArtefact IN (SELECT IDArtefact FROM artefact_pc WHERE IDPCharacter = " + Joueur.IDJoueur + "));";
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            for (int i = 0; i < listeDesPNJPrésents.Length;)
-            {
-                while (lien.Read())
-                {
-                    listeDesPNJPrésents[i] = new PNJPrésent((int)lien["IDNPCharacter"], (int)lien["IDMission"]);
-                    ++i;
-                }
-            }
-            lien.Close();
-        /*}
-        else
+        string urlComp = url + "RecupPNJJouable.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
         {
-            //Debug.Log("Aucun PNJ jouable ?");
-        }*/
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesPNJPrésents = new PNJPrésent[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
+            {
+                listeDesPNJPrésents[i] = new PNJPrésent((int)Node["msg"][i]["IDNPCharacter"], (int)Node["msg"][i]["IDMission"]);
+            }
+        }
+
+        for (int i=0; i<listeDesPNJPrésents.Length; i++)
+        {
+            listeDesPNJPrésents[i].toString();
+        }
     }
 
     public static bool testSiPNJJouable()

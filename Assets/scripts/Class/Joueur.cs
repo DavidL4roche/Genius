@@ -34,38 +34,96 @@ public class Joueur : MonoBehaviour {
     public void Start() {
         Debug.Log("Instanciation du joueur en cours");
         DontDestroyOnLoad(gameObject);
+        /*
         majdepuisBDD();
-        PendantAbsence();
-        RessourcesBdD.recupExamJouable();
-        RessourcesBdD.recupDivertJouable();
-        RessourcesBdD.recupPNJJouable();
+        //PendantAbsence();
+        StartCoroutine(RessourcesBdD.recupExamJouable());
+        //RessourcesBdD.recupDivertJouable();
+        //StartCoroutine(RessourcesBdD.recupPNJJouable());
         RessourcesBdD.RecupArtefactJouable();
-        StartCoroutine(RessourcesBdD.RecupObjetMagasin());
+        //StartCoroutine(RessourcesBdD.RecupObjetMagasin());
         RessourcesBdD.RecupDeLaListeDesJoueurs();
-        RessourcesBdD.RecupMesAmis();
-        RessourcesBdD.RecupActionsSociales();
+        //RessourcesBdD.RecupMesAmis();
+        //RessourcesBdD.RecupActionsSociales();
+        */
 
         // On répète toutes les SecondesUpdate l'incrémentation des ressources
         InvokeRepeating("IncrementationRessourcesStatic", 0, SecondesUpdate);
         //InvokeRepeating("transfertRessourcesEnBaseScript", 0, SecondesUpdate);
 
         // On récupère les missions jouables
-        StartCoroutine(RessourcesBdD.recupMissionJouable());
+        //StartCoroutine(RessourcesBdD.recupMissionJouable());
 
         // On envoie la date de dernière connexion et transfert les ressources en base toutes les SecondesUpdate
         StartCoroutine(UpdateDateDerniereCoEnBase());
         StartCoroutine(transfertRessourcesEnBaseScript());
     }
 	
-    /*
 	// Update is called once per frame
 	void Update () {
+        if (Configuration.continueJoueur)
+        {
+            Debug.Log("ON CONTINUE AVEC LE JOUEUR ----------------------------------");
+
+            majdepuisBDD();
+            PendantAbsence();
+            StartCoroutine(RessourcesBdD.recupExamJouable());
+            RessourcesBdD.recupDivertJouable();
+            StartCoroutine(RessourcesBdD.recupPNJJouable());
+            RessourcesBdD.RecupArtefactJouable();
+            StartCoroutine(RessourcesBdD.RecupObjetMagasin());
+            RessourcesBdD.RecupDeLaListeDesJoueurs();
+            RessourcesBdD.RecupMesAmis();
+            RessourcesBdD.RecupActionsSociales();
+            // On récupère les missions jouables
+            StartCoroutine(RessourcesBdD.recupMissionJouable());
+
+            Configuration.continueJoueur = false;
+        }
+
+        /*
+        if (RessourcesBdD.continueRessJoueur)
+        {
+            PendantAbsence();
+            Debug.Log("RESSOURCES CHARGEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES");
+            RessourcesBdD.continueRessJoueur = false;
+        }
+
+        if (RessourcesBdD.continuePNJJoueur)
+        {
+            StartCoroutine(RessourcesBdD.recupPNJJouable());
+            RessourcesBdD.continuePNJJoueur = false;
+        }
+
+        if (RessourcesBdD.continueDivertJoueur)
+        {
+            RessourcesBdD.recupDivertJouable();
+            RessourcesBdD.continueDivertJoueur = false;
+        }
+
+        if (RessourcesBdD.continueObjetJoueur)
+        {
+            RessourcesBdD.RecupMesAmis();
+            RessourcesBdD.RecupActionsSociales();
+            StartCoroutine(RessourcesBdD.RecupObjetMagasin());
+            RessourcesBdD.continueObjetJoueur = false;
+        }
+
+        if (RessourcesBdD.continueMissionJoueur)
+        {
+            // On récupère les missions jouables
+            StartCoroutine(RessourcesBdD.recupMissionJouable());
+            RessourcesBdD.continueMissionJoueur = false;
+        }
+        */
+
+        /*
         // On met à jour la date actuelle
         DateActuel = System.DateTime.Now;
         DateActuelMinute = System.DateTime.Now.Minute;
         DateActuelSeconde = System.DateTime.Now.Second;
+        */
     }
-    */
 
     public IEnumerator UpdateDateDerniereCoEnBase()
     {

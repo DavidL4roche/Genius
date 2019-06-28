@@ -18,4 +18,6 @@ public class Configuration : MonoBehaviour {
 
     //public static string url = "10.193.15.36/private/";
     public static string url = "http://seriousgameiut.alwaysdata.net/";
+
+    public static bool continueJoueur = false;
 }
