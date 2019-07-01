@@ -25,10 +25,15 @@ public class Joueur : MonoBehaviour {
     public static int DateActuelSeconde = System.DateTime.Now.Second;
     public static int SecondesUpdate = 10;
     
-    private string url = Configuration.url + "scripts/UpdateDateCo.php?id=" + IDJoueur;
+    private string url = Configuration.url + "scripts/";
+    private string urlRess = Configuration.url + "scripts/scriptsRessources/";
     private WWW download;
     private string monJson;
     private JSONNode monNode;
+
+    public static bool continueDaedelus = false;
+    public static bool continueRecupActionsSociales = false;
+    public static bool continueTransfertRessources = false;
 
     // Use this for initialization
     public void Start() {
@@ -68,13 +73,15 @@ public class Joueur : MonoBehaviour {
             majdepuisBDD();
             PendantAbsence();
             StartCoroutine(RessourcesBdD.recupExamJouable());
-            RessourcesBdD.recupDivertJouable();
+            StartCoroutine(RessourcesBdD.recupDivertJouable());
             StartCoroutine(RessourcesBdD.recupPNJJouable());
-            RessourcesBdD.RecupArtefactJouable();
+            StartCoroutine(RessourcesBdD.RecupArtefactJouable());
             StartCoroutine(RessourcesBdD.RecupObjetMagasin());
-            RessourcesBdD.RecupDeLaListeDesJoueurs();
-            RessourcesBdD.RecupMesAmis();
-            RessourcesBdD.RecupActionsSociales();
+            StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
+            StartCoroutine(RessourcesBdD.RecupMesAmis());
+
+            StartCoroutine(RessourcesBdD.RecupActionsSociales());
+
             // On récupère les missions jouables
             StartCoroutine(RessourcesBdD.recupMissionJouable());
 
@@ -130,37 +137,45 @@ public class Joueur : MonoBehaviour {
         for (; ; )
         {
             // execute block of code here
-            download = new WWW(url);
+            download = new WWW(url + "UpdateDateCo.php?id=" + IDJoueur);
             yield return new WaitForSeconds(SecondesUpdate);
         }
+    }
+
+    public IEnumerator WaitFor(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
     
     public IEnumerator transfertRessourcesEnBaseScript()
     {
         for (; ; )
         {
-            if (RessourcesBdD.listeDesRessources != null)
+            if (continueTransfertRessources)
             {
-                for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+                if (RessourcesBdD.listeDesRessources != null)
                 {
-                    string urlRessource = Configuration.url + "scripts/ChangeRessource.php?idRessource=" + (i + 1) + "&idJoueur=" + IDJoueur + "&value=" + MesRessources[i];
-                    download = new WWW(urlRessource);
+                    for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+                    {
+                        string urlRessource = url + "ChangeRessource.php?idRessource=" + (i + 1) + "&idJoueur=" + IDJoueur + "&value=" + MesRessources[i];
+                        download = new WWW(urlRessource);
+                    }
                 }
-            }
-            else
-            {
-                // On détruit tout les objets
-                GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
-
-                for (int i = 0; i < GameObjects.Length; i++)
+                else
                 {
-                    Destroy(GameObjects[i]);
-                }
+                    // On détruit tout les objets
+                    GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
 
-                // On "relance" le jeu
-                SceneManager.LoadScene("Index");
-                ChargerPopup.Charger("Erreur");
-                MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
+                    for (int i = 0; i < GameObjects.Length; i++)
+                    {
+                        Destroy(GameObjects[i]);
+                    }
+
+                    // On "relance" le jeu
+                    SceneManager.LoadScene("Index");
+                    ChargerPopup.Charger("Erreur");
+                    MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
+                }
             }
 
             yield return new WaitForSeconds(SecondesUpdate);
@@ -181,23 +196,22 @@ public class Joueur : MonoBehaviour {
     // Met à jour les objets du joueur
     IEnumerator majObjet()
     {
-        string urlComp = url + "MAJObjet.php?id=" + Joueur.IDJoueur;
+        string urlComp = urlRess + "MAJObjet.php?id=" + IDJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
 
-        if (RessourcesBdD.VerifierStatusScript(dl))
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
-            for (int i = 0; i < Node["msg"].Count; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesObjets.Length; ++j)
             {
-                for (int j = 0; j < RessourcesBdD.listeDesObjets.Length; ++j)
+                if ((int)Node["msg"][i]["IDItem"] == RessourcesBdD.listeDesObjets[j].ID)
                 {
-                    if ((int)Node["msg"][i]["IDItem"] == RessourcesBdD.listeDesObjets[j].ID)
-                    {
-                        MesObjets[j] = (int)Node["msg"][i]["Quantity"];
-                        Debug.Log("Je possède "+ MesObjets[i] + " " + RessourcesBdD.listeDesObjets[j].Nom);
-                    }
+                    MesObjets[j] = (int)Node["msg"][i]["Quantity"];
+                    //if (MesObjets[i] > 0)
+                        //Debug.Log("Je possède "+ MesObjets[i] + " " + RessourcesBdD.listeDesObjets[j].Nom);
                 }
             }
         }
@@ -206,23 +220,22 @@ public class Joueur : MonoBehaviour {
     // Met à jour les compétences du joueur
     IEnumerator majComp()
     {
-        string urlComp = url + "MAJComp.php?id=" + Joueur.IDJoueur;
+        string urlComp = urlRess + "MAJComp.php?id=" + IDJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
 
-        if (RessourcesBdD.VerifierStatusScript(dl))
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
-            for (int i = 0; i < Node["msg"].Count; ++i)
+            for (int j = 0; j < MesValeursCompetences.Length; ++j)
             {
-                for (int j = 0; j < MesValeursCompetences.Length; ++j)
+                if ((int)Node["msg"][i]["IDSkill"] == RessourcesBdD.listeDesCompétences[j].ID)
                 {
-                    if ((int)Node["msg"][i]["IDSkill"] == RessourcesBdD.listeDesCompétences[j].ID)
-                    {
-                        MesValeursCompetences[j] = (int)Node["msg"][i]["SkillLevel"];
-                        Debug.Log("Valeur compétence Joueur " + RessourcesBdD.listeDesCompétences[j].NomCompétence + " : " + MesValeursCompetences[j]);
-                    }
+                    MesValeursCompetences[j] = (int)Node["msg"][i]["SkillLevel"];
+                    //Debug.Log("Valeur compétence Joueur " + RessourcesBdD.listeDesCompétences[j].NomCompétence + " : " + MesValeursCompetences[j]);
                 }
             }
         }
@@ -231,48 +244,48 @@ public class Joueur : MonoBehaviour {
     // Met à jour les ressources du joueur
     IEnumerator majRessources()
     {
-        string urlComp = url + "MAJRessources.php?id=" + Joueur.IDJoueur;
+        string urlComp = urlRess + "MAJRessources.php?id=" + IDJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
 
-        if (RessourcesBdD.VerifierStatusScript(dl))
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
-            for (int i = 0; i < Node["msg"].Count; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesRessources.Length; ++j)
             {
-                for (int j = 0; j < RessourcesBdD.listeDesRessources.Length; ++j)
+                if ((int)Node["msg"][i]["IDRessource"] == RessourcesBdD.listeDesRessources[j].ID)
                 {
-                    if ((int)Node["msg"][i]["IDRessource"] == RessourcesBdD.listeDesRessources[j].ID)
-                    {
-                        MesRessources[j] = (int)Node["msg"][i]["Value"];
-                        Debug.Log("Valeur ressource Joueur " + RessourcesBdD.listeDesRessources[j].NomRessource + " : " + MesRessources[j]);
-                    }
+                    MesRessources[j] = (int)Node["msg"][i]["Value"];
+                    //Debug.Log("Valeur ressource Joueur " + RessourcesBdD.listeDesRessources[j].NomRessource + " : " + MesRessources[j]);
                 }
             }
         }
+
+        continueTransfertRessources = true;
+        Debug.Log("continueTransfertRessources : " + continueTransfertRessources);
     }
 
     // Met à jour les diplomes du joueur
     IEnumerator majDiplome()
     {
-        string urlComp = url + "MAJDiplome.php?id=" + Joueur.IDJoueur;
+        string urlComp = urlRess + "MAJDiplome.php?id=" + IDJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
 
-        if (RessourcesBdD.VerifierStatusScript(dl))
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
-            for (int i = 0; i < Node["msg"].Count; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesDiplomes.Length; ++j)
             {
-                for (int j = 0; j < RessourcesBdD.listeDesDiplomes.Length; ++j)
+                if ((int)Node["msg"][i]["IDDiplom"] == RessourcesBdD.listeDesDiplomes[j].IDDiplome)
                 {
-                    if ((int)Node["msg"][i]["IDDiplom"] == RessourcesBdD.listeDesDiplomes[j].IDDiplome)
-                    {
-                        MesDiplomes[j] = true;
-                        Debug.Log("Diplome Joueur " + RessourcesBdD.listeDesDiplomes[j].NomDiplome + " : " + MesDiplomes[j]);
-                    }
+                    MesDiplomes[j] = true;
+                    //Debug.Log("Diplome Joueur " + RessourcesBdD.listeDesDiplomes[j].NomDiplome + " : " + MesDiplomes[j]);
                 }
             }
         }
@@ -281,23 +294,21 @@ public class Joueur : MonoBehaviour {
     // Met à jour les trophées du joueur
     IEnumerator majTrophee()
     {
-        string urlComp = url + "MAJTrophee.php?id=" + Joueur.IDJoueur;
+        string urlComp = urlRess + "MAJTrophee.php?id=" + IDJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
 
-        if (RessourcesBdD.VerifierStatusScript(dl))
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
-            for (int i = 0; i < Node["msg"].Count; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesTrophees.Length; ++j)
             {
-                for (int j = 0; j < RessourcesBdD.listeDesTrophees.Length; ++j)
+                if ((int)Node["msg"][i]["IDTrophy"] == RessourcesBdD.listeDesTrophees[j].IDTrophee)
                 {
-                    if ((int)Node["msg"][i]["IDTrophy"] == RessourcesBdD.listeDesTrophees[j].IDTrophee)
-                    {
-                        MesTrophees[j] = true;
-                        Debug.Log("Trophée Joueur " + RessourcesBdD.listeDesTrophees[j].Description + " : " + MesTrophees[j]);
-                    }
+                    MesTrophees[j] = true;
+                    //Debug.Log("Trophée Joueur " + RessourcesBdD.listeDesTrophees[j].Description + " : " + MesTrophees[j]);
                 }
             }
         }
@@ -307,23 +318,21 @@ public class Joueur : MonoBehaviour {
     // Met à jour les artéfacts du joueur
     IEnumerator majArtefact()
     {
-        string urlComp = url + "MAJArtefact.php?id=" + Joueur.IDJoueur;
+        string urlComp = urlRess + "MAJArtefact.php?id=" + IDJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
 
-        if (RessourcesBdD.VerifierStatusScript(dl))
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            JSONNode Node = RessourcesBdD.RenvoiJSONScript(dl);
-            for (int i = 0; i < Node["msg"].Count; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesArtefacts.Length; ++j)
             {
-                for (int j = 0; j < RessourcesBdD.listeDesArtefacts.Length; ++j)
+                if ((int)Node["msg"][i]["IDArtefact"] == RessourcesBdD.listeDesArtefacts[j].IDArtefact)
                 {
-                    if ((int)Node["msg"][i]["IDArtefact"] == RessourcesBdD.listeDesArtefacts[j].IDArtefact)
-                    {
-                        MesArtefacts[j] = true;
-                        Debug.Log("Artéfact Joueur " + RessourcesBdD.listeDesArtefacts[j].NomArtefact + " : " + MesArtefacts[j]);
-                    }
+                    MesArtefacts[j] = true;
+                    //Debug.Log("Artéfact Joueur " + RessourcesBdD.listeDesArtefacts[j].NomArtefact + " : " + MesArtefacts[j]);
                 }
             }
         }

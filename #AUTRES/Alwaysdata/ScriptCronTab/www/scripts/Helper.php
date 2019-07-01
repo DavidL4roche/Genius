@@ -1778,4 +1778,186 @@ class Helper {
             return "Veuillez renseigner l'id du joueur";
         }
     }
+
+    // Récupère les Divertissements jouables
+    function RecupDivertJouable($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * from association_district_entertainment WHERE IDEntertainment 
+                                             NOT IN (Select IDEntertainment From entertainment_done 
+                                             WHERE IDPCharacter =$id)");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Récupère les Actions Sociales (Compétences)
+    function RecupActionsSocialesComp($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * FROM action_sociale WHERE Type = 'SKILL' AND IDPCharacter=$id");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Récupère les Actions Sociales (Objets)
+    function RecupActionsSocialesObjet($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * FROM action_sociale WHERE Type = 'ITEM' AND IDPCharacter=$id");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Récupère les Artefacts jouables
+    function RecupArtefactJouable($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * from artefact WHERE IDArtefact NOT IN
+                                            (SELECT IDArtefact FROM artefact_used WHERE IDPCharacter=$id) 
+                                             AND IDArtefact IN(SELECT IDArtefact from artefact_pc 
+                                             WHERE IDPCharacter=$id)");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Récupère la liste des joueurs
+    function RecupDeLaListeDesJoueurs($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT IDPCharacter,PCName from p_character WHERE IDPCharacter!=$id");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Récupère la liste des amis du joueur
+    function RecupMesAmis($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT DISTINCT IDPCharacter,PCName from p_character WHERE IDPCharacter 
+                                            IN(SELECT IDPCharacter from friend WHERE IDFriend =$id) 
+                                            OR IDPCharacter IN(SELECT IDFriend from friend WHERE IDPCharacter =$id) 
+                                            AND IDPCharacter !=$id");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
 }

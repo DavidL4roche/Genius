@@ -66,6 +66,16 @@ public class RessourcesBdD : MonoBehaviour
     public static bool continueMission = false;
     public static bool continueTrophee = false;
     public static bool continueObjet = false; // 19
+    
+    private static bool continueBonusLocal = true;
+    private static bool continueQuartierLocal = true;
+    private static bool continueDiplomeLocal = true;
+    private static bool continueEntrepriseLocal = true;
+    private static bool continueArtefactLocal = true;
+    private static bool continueRangLocal = true;
+    private static bool continueCompLocal = true;
+    private static bool continueMissionLocal = true;
+    private static bool continueRessourcesLocal = true;
 
     public static bool continueJoueur = false;
     public static bool continueRessJoueur = false;
@@ -97,72 +107,63 @@ public class RessourcesBdD : MonoBehaviour
         instance.StartCoroutine(RecupDiplome());
         instance.StartCoroutine(RecupTopicsAide());
 
-        // TODO : Attendre que tout soit validé pour lancer ça
-        if (continueLieu && continueGain && continuePerte && continueBonus && continueDuree && continueRang && continueQuartier && continueDivert &&
-            continueComp && continueRess && continueDiplome && continueEntreprise && continueArtefact && continuePNJ && continueTopicsAide &&
-            continueExam && continueMission && continueTrophee && continueObjet)
-        {
-            Debug.Log("ContinueTotalMissions est vrai -----------------------------------------------------------------");
-            SpawnerMission.continueTotalMissions = true;
-            Configuration.continueJoueur = true;
-            Debug.Log("COUCOU TOI " + Configuration.continueJoueur);
-        }
-
+        /*
         ChargerPopup.Charger("Succes");
-        MessageErreur.messageErreur = "Récupération des données en base réussie.";
+        MessageErreur.messageErreur = "Récupération des données en base réussie.";*/
     }
 
     // On lance ces fonctions après que celles données de Recup soient finies
     public void Update()
     {
-        Debug.Log("Update");
         // Récupération Examen
-        if (continueDiplome && continueComp && continueRang)
+        if (continueDiplome && continueComp && continueRang && continueDiplomeLocal)
         {
             instance.StartCoroutine(RecupExam());
-
-            instance.StartCoroutine(RecupTrophee()); // TODOOOOOOOOOOOOOOOOOOOOOOOOO
+            instance.StartCoroutine(RecupTrophee());
             instance.StartCoroutine(RecupObjet());
-            continueDiplome = false;
+            continueDiplomeLocal = false;
         }
 
         // Récupération Entreprise
-        if (continueQuartier)
+        if (continueQuartier && continueQuartierLocal)
         {
             instance.StartCoroutine(RecupEntreprise());
-            continueQuartier = false;
+            continueQuartierLocal = false;
         }
-        Debug.Log("CONTINUEENTREPRISE : -------------------------------------------- " + continueEntreprise);
 
         // Récupération Mission
-        if (continueEntreprise)
+        if (continueEntreprise && continueRang && continueComp && continueEntrepriseLocal && continueRangLocal && continueCompLocal)
         {
-            instance.StartCoroutine(RecupMission()); // TODOOOOOOOOOOOOOOOOOOOOOOOOO
-            continueEntreprise = false;
+            instance.StartCoroutine(RecupMission());
+            continueEntrepriseLocal = false;
+            continueRangLocal = false;
+            continueCompLocal = false;
         }
-        /*
-        // Récupération Trophée et Objet
-        if (continueRang) // && continueObjet)
-        {
-            instance.StartCoroutine(RecupTrophee()); // TODOOOOOOOOOOOOOOOOOOOOOOOOO
-            instance.StartCoroutine(RecupObjet());
-            continueRang = false;
-            //continueObjet = false;
-        }*/
 
         // Récupération Artéfact
-        if (continueBonus)
+        if (continueBonus && continueBonusLocal)
         {
             instance.StartCoroutine(RecupArtefact());
-            continueBonus = false;
+            continueBonusLocal = false;
         }
 
         // Récupération PNJ
-        if (continueArtefact)
+        if (continueArtefact && continueArtefactLocal && continueMission && continueMissionLocal)
         {
-            Debug.Log("CONTINUEARTEFACT -------------------------------------");
-            instance.StartCoroutine(RecupPNJ()); // TODOOOOOOOOOOOOOOOOOOOOOOOOO
-            continueArtefact = false;
+            instance.StartCoroutine(RecupPNJ());
+            continueArtefactLocal = false;
+            continueMissionLocal = false;
+        }
+
+        // TODO : Attendre que tout soit validé pour lancer ça
+        if (continueLieu && continueGain && continuePerte && continueBonus && continueDuree && continueRang && continueQuartier && continueDivert &&
+            continueComp && continueRess && continueDiplome && continueEntreprise && continueArtefact && continuePNJ && continueTopicsAide &&
+            continueExam && continueMission && continueTrophee && continueObjet && continueRessourcesLocal)
+        {
+            Debug.Log("ContinueTotalMissions est vrai -----------------------------------------------------------------");
+            SpawnerMission.continueTotalMissions = true;
+            Configuration.continueJoueur = true;
+            continueRessourcesLocal = false;
         }
     }
 
@@ -229,7 +230,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueLieu = true;
-        Debug.Log("1. ContinueLieu est vrai");
     }
 
     // Récupération des Gains
@@ -256,7 +256,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueGain = true;
-        Debug.Log("2. ContinueGain est vrai");
     }
 
     // Récupération des Pertes
@@ -283,7 +282,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continuePerte = true;
-        Debug.Log("3. ContinuePerte est vrai");
     }
 
     // Récupération des Bonus
@@ -310,7 +308,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueBonus = true;
-        Debug.Log("4. ContinueBonus est vrai");
     }
 
     // Récupération des Durées
@@ -337,7 +334,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueDuree = true;
-        Debug.Log("5. ContinueDuree est vrai");
     }
 
     // Récupération des Rangs
@@ -364,7 +360,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueRang = true;
-        Debug.Log("6. ContinueRang est vrai");
     }
 
     // Récupération des Quartiers
@@ -391,7 +386,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueQuartier = true;
-        Debug.Log("7. ContinueQuartier est vrai");
     }
 
     // Récupération des Divertissements
@@ -419,7 +413,6 @@ public class RessourcesBdD : MonoBehaviour
 
         continueDivert = true;
         continueDivertJoueur = true;
-        Debug.Log("8. ContinueDivert est vrai");
     }
 
     // Récupération des Compétences
@@ -446,7 +439,6 @@ public class RessourcesBdD : MonoBehaviour
             listeDesCompétences[i].toString();
         }*/
         continueComp = true;
-        Debug.Log("9. ContinueComp est vrai");
     }
 
     // Récupération des Ressources
@@ -475,7 +467,6 @@ public class RessourcesBdD : MonoBehaviour
 
         continueRess = true;
         continueRessJoueur = true;
-        Debug.Log("10. ContinueRess est vrai");
     }
 
     // Récupération des Objets
@@ -513,7 +504,6 @@ public class RessourcesBdD : MonoBehaviour
 
         continueObjet = true;
         continueObjetJoueur = true;
-        Debug.Log("11. ContinueObjet est vrai");
     }
 
     // Récupération des Diplômes
@@ -541,7 +531,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueDiplome = true;
-        Debug.Log("12. ContinueDiplome est vrai");
     }
 
     // Récupération des Trophées
@@ -569,7 +558,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueTrophee = true;
-        Debug.Log("13. ContinueTrophee est vrai");
     }
 
     // Récupération des Examens
@@ -598,7 +586,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueExam = true;
-        Debug.Log("14. ContinueExam est vrai");
     }
 
     // Récupération des Entreprises
@@ -636,7 +623,6 @@ public class RessourcesBdD : MonoBehaviour
         }
 
         continueEntreprise = true;
-        Debug.Log("15. ContinueEntreprise est vrai");
     }
 
     // Fonction d'ajout des emplacements d'une entreprise
@@ -778,7 +764,7 @@ public class RessourcesBdD : MonoBehaviour
         continueMission = true;
         continueMissionNotifQuartier = true;
         continueMissionJoueur = true;
-        Debug.Log("16. ContinueMission est vrai");
+        continueMissionLocal = true;
     }
 
     // Récupération des Artéfacts
@@ -806,7 +792,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueArtefact = true;
-        Debug.Log("17. ContinueArtefact est vrai");
     }
 
     // Récupération des PNJ
@@ -857,7 +842,6 @@ public class RessourcesBdD : MonoBehaviour
 
         continuePNJ = true;
         continuePNJJoueur = true;
-        Debug.Log("18. ContinuePNJ est vrai");
     }
 
     // Récuparation des topics de l'Aide
@@ -884,7 +868,6 @@ public class RessourcesBdD : MonoBehaviour
         }*/
 
         continueTopicsAide = true;
-        Debug.Log("19. ContinueTopicsAide est vrai");
     }
 
     // Récupération des Objets du Magasin
@@ -911,29 +894,28 @@ public class RessourcesBdD : MonoBehaviour
         }*/
     }
 
-    public static void RecupArtefactJouable()
+    public static IEnumerator RecupArtefactJouable()
     {
-        string requete = "SELECT count(*) AS Total, IDArtefact from artefact WHERE IDArtefact NOT IN(SELECT IDArtefact FROM artefact_used WHERE IDPCharacter=" + Joueur.IDJoueur + ") AND IDArtefact IN(SELECT IDArtefact from artefact_pc WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "RecupArtefactJouable.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
         {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesArtefactsJouables = new Artefact[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from artefact WHERE IDArtefact NOT IN(SELECT IDArtefact FROM artefact_used WHERE IDPCharacter=" + Joueur.IDJoueur + ") AND IDArtefact IN(SELECT IDArtefact from artefact_pc WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesArtefactsJouables.Length;)
-        {
-            while (lien.Read())
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesArtefactsJouables = new Artefact[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                listeDesArtefactsJouables[i] = new Artefact((int)lien["IDArtefact"], lien["ArtefactName"].ToString(), (int)lien["IDBonus"]);
-                ++i;
+                listeDesArtefactsJouables[i] = new Artefact((int)Node["msg"][i]["IDArtefact"], Node["msg"][i]["ArtefactName"].Value, (int)Node["msg"][i]["IDBonus"]);
             }
         }
-        lien.Close();
+        /*
+        Debug.Log("LISTE DES ARTEFACTS --------------------------------------");
+        for (int i=0; i< listeDesArtefactsJouables.Length; i++)
+        {
+            listeDesArtefactsJouables[i].toString();
+        }*/
     }
     
     // Récupération des missions jouables par le joueur
@@ -956,7 +938,7 @@ public class RessourcesBdD : MonoBehaviour
             }
         }
         /*
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 5; i++)
         {
             listeDesMissionsPrésentes[i].toString();
         }*/
@@ -971,6 +953,8 @@ public class RessourcesBdD : MonoBehaviour
         Debug.Log("continueTotalMissions EST VRAIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         ChargerLieu chargement = new ChargerLieu();
         chargement.Recharger();
+
+        Joueur.continueDaedelus = true;
     }
 
     /*
@@ -1057,11 +1041,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesExamensPrésents[i] = new ExamenPrésent((int)Node["msg"][i]["IDPlace"], (int)Node["msg"][i]["IDExam"]);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesExamensPrésents.Length; i++)
         {
             listeDesExamensPrésents[i].toString();
-        }
+        }*/
     }
 
     public static void recupExamensNonJouables()
@@ -1109,34 +1093,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesDivertissementsPrésents[i] = new MissionDivertissementPrésente((int)Node["msg"][i]["IDDistrict"], (int)Node["msg"][i]["IDEntertainment"]);
             }
         }
-
+        /*
         for (int i = 0; i < listeDesDivertissementsPrésents.Length; i++)
         {
             listeDesDivertissementsPrésents[i].toString();
-        }
-
-        listeDesDivertissementsPrésents = new MissionDivertissementPrésente[0];
-        string requete = "SELECT count(*) AS Total,IDEntertainment from association_district_entertainment WHERE IDEntertainment NOT IN (Select IDEntertainment From entertainment_done WHERE IDPCharacter ="+Joueur.IDJoueur+");";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesDivertissementsPrésents = new MissionDivertissementPrésente[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT * from association_district_entertainment WHERE IDEntertainment NOT IN (Select IDEntertainment From entertainment_done WHERE IDPCharacter =" + Joueur.IDJoueur + ");";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesDivertissementsPrésents.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesDivertissementsPrésents[i] = new MissionDivertissementPrésente((int)lien["IDDistrict"], (int)lien["IDEntertainment"]);
-                ++i;
-            }
-        }
-        lien.Close();
+        }*/
     }
     public static IEnumerator recupPNJJouable()
     {
@@ -1154,11 +1115,11 @@ public class RessourcesBdD : MonoBehaviour
                 listeDesPNJPrésents[i] = new PNJPrésent((int)Node["msg"][i]["IDNPCharacter"], (int)Node["msg"][i]["IDMission"]);
             }
         }
-
+        /*
         for (int i=0; i<listeDesPNJPrésents.Length; i++)
         {
             listeDesPNJPrésents[i].toString();
-        }
+        }*/
     }
 
     public static bool testSiPNJJouable()
@@ -1216,108 +1177,120 @@ public class RessourcesBdD : MonoBehaviour
         }
         return objetrandom;
     }
-    public static void RecupMesAmis()
+    public static IEnumerator RecupMesAmis()
     {
-        Joueur.MesAmis= new AutreJoueur[0];
-        string requete = "SELECT count(*) AS Total,IDPCharacter from friend WHERE IDFriend ="+Joueur.IDJoueur+ " OR IDPCharacter=" + Joueur.IDJoueur + ";";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "RecupMesAmis.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
         {
-            int total = Int32.Parse(lien["Total"].ToString());
-            Joueur.MesAmis= new AutreJoueur[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT DISTINCT IDPCharacter,PCName from p_character WHERE IDPCharacter IN(SELECT IDPCharacter from friend WHERE IDFriend =" + Joueur.IDJoueur + ") OR IDPCharacter IN(SELECT IDFriend from friend WHERE IDPCharacter =" + Joueur.IDJoueur + ") AND IDPCharacter !="+Joueur.IDJoueur+";";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < Joueur.MesAmis.Length;)
-        {
-            while (lien.Read())
+            JSONNode Node = RenvoiJSONScript(dl);
+            Joueur.MesAmis = new AutreJoueur[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                Joueur.MesAmis[i] = new AutreJoueur((int)lien["IDPCharacter"], lien["PCName"].ToString());
-                ++i;
+                Joueur.MesAmis[i] = new AutreJoueur((int)Node["msg"][i]["IDPCharacter"], Node["msg"][i]["PCName"].Value);
             }
         }
-        lien.Close();
+
         foreach (AutreJoueur ami in Joueur.MesAmis)
         {
             ami.trouverToutesInformations();
         }
+        /*
+        Debug.Log("LISTE DES AMIS --------------------------------------");
+        for (int i = 0; i < Joueur.MesAmis.Length; i++)
+        {
+            Debug.Log(i + " : " + Joueur.MesAmis[i].SonNom);
+        }*/
+
+        Joueur.continueRecupActionsSociales = true;
     }
-    public static void RecupDeLaListeDesJoueurs()
+    public static IEnumerator RecupDeLaListeDesJoueurs()
     {
-        listeDesJoueurs = new AutreJoueur[0];
-        string requete = "SELECT count(*) AS Total,IDPCharacter from p_character WHERE IDPCharacter!=" + Joueur.IDJoueur + ";";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = url + "RecupDeLaListeDesJoueurs.php?id=" + Joueur.IDJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
         {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesJoueurs = new AutreJoueur[(int)total];
-        }
-        lien.Close();
-        requete = "SELECT IDPCharacter,PCName from p_character WHERE IDPCharacter!=" + Joueur.IDJoueur + ";";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesJoueurs.Length;)
-        {
-            while (lien.Read())
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesJoueurs = new AutreJoueur[Node["msg"].Count];
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                listeDesJoueurs[i] = new AutreJoueur((int)lien["IDPCharacter"], lien["PCName"].ToString());
-                ++i;
+                listeDesJoueurs[i] = new AutreJoueur((int)Node["msg"][i]["IDPCharacter"], Node["msg"][i]["PCName"].Value);
             }
         }
-        lien.Close();
+        /*
+        Debug.Log("LISTE DES AUTRES JOUEURS --------------------------------------");
+        for (int i = 0; i < listeDesJoueurs.Length; i++)
+        {
+            Debug.Log(i + " : " + listeDesJoueurs[i].SonNom);
+        }*/
     }
 
-    public static void RecupActionsSociales()
+    public static IEnumerator RecupActionsSociales()
     {
+        while (!Joueur.continueRecupActionsSociales)
+        {
+            yield return new WaitForSeconds(1);
+        }
+
         // On initialise les tableaux
         Joueur.MesActionsSocialesObjet = new bool[Joueur.MesAmis.Length];
         Joueur.MesActionsSocialesSkill = new bool[Joueur.MesAmis.Length];
 
-        // Actions sociales d'objet
-        string requete = "SELECT * FROM action_sociale WHERE Type = 'ITEM' AND IDPCharacter=" + Joueur.IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            for (int i = 0; i < Joueur.MesAmis.Length; ++i)
-            {
-                if ((int)lien["IDPFriend"] == Joueur.MesAmis[i].SonID)
-                {
-                    Debug.Log("Ami ayant action sociale Objet : " + Joueur.MesAmis[i].SonNom);
-                    Joueur.MesActionsSocialesObjet[i] = true;
-                }
-                else
-                {
-                    Joueur.MesActionsSocialesObjet[i] = false;
-                }
-            }
-        }
-        lien.Close();
+        string urlComp = url + "RecupActionsSocialesObjet.php?id=" + Joueur.IDJoueur;
 
-        // Actions sociales d'objet
-        requete = "SELECT * FROM action_sociale WHERE Type = 'SKILL' AND IDPCharacter=" + Joueur.IDJoueur;
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        while (lien.Read())
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
         {
-            for (int i = 0; i < Joueur.MesAmis.Length; ++i)
+            JSONNode Node = RenvoiJSONScript(dl);
+            for (int i = 0; i < Node["msg"].Count; ++i)
             {
-                if ((int)lien["IDPFriend"] == Joueur.MesAmis[i].SonID)
+                for (int j = 0; j < Joueur.MesAmis.Length; ++j)
                 {
-                    Debug.Log("Ami ayant action sociale Skill : " + Joueur.MesAmis[i].SonNom);
-                    Joueur.MesActionsSocialesSkill[i] = true;
-                }
-                else
-                {
-                    Joueur.MesActionsSocialesSkill[i] = false;
+                    if ((int)Node["msg"][i]["IDPFriend"] == Joueur.MesAmis[j].SonID)
+                    {
+                        Debug.Log("Ami ayant action sociale Objet : " + Joueur.MesAmis[j].SonNom);
+                        Joueur.MesActionsSocialesObjet[j] = true;
+                    }
+                    else
+                    {
+                        Joueur.MesActionsSocialesObjet[j] = false;
+                    }
                 }
             }
         }
-        lien.Close();
+
+        string urlComp2 = url + "RecupActionsSocialesComp.php?id=" + Joueur.IDJoueur;
+
+        WWW dl2 = new WWW(urlComp2);
+        yield return dl2;
+
+        if (VerifierStatusScript(dl2))
+        {
+            JSONNode Node2 = RenvoiJSONScript(dl2);
+            for (int i = 0; i < Node2["msg"].Count; ++i)
+            {
+                for (int j = 0; j < Joueur.MesAmis.Length; ++j)
+                {
+                    if ((int)Node2["msg"][i]["IDPFriend"] == Joueur.MesAmis[j].SonID)
+                    {
+                        Debug.Log("Ami ayant action sociale Compétence : " + Joueur.MesAmis[j].SonNom);
+                        Joueur.MesActionsSocialesSkill[j] = true;
+                    }
+                    else
+                    {
+                        Joueur.MesActionsSocialesSkill[j] = false;
+                    }
+                }
+            }
+        }
     }
 
     // Change le booléen continueTotalMissions
