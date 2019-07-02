@@ -26,9 +26,9 @@ public class FabriqueResultat : MonoBehaviour {
         StartCoroutine(RessourcesBdD.recupMissionJouable());
 
         // On transfert en base
-        Joueur.transfertRessourcesEnBase();
-        Joueur.transfertCompetencesEnBase();
-        Joueur.transfertObjetsEnBase();
+        StartCoroutine(Joueur.transfertRessourcesEnBase());
+        StartCoroutine(Joueur.transfertCompetencesEnBase());
+        StartCoroutine(Joueur.transfertObjetsEnBase());
     }
 
     public void blockdesprerequis()

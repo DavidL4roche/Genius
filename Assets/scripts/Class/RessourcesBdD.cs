@@ -160,7 +160,6 @@ public class RessourcesBdD : MonoBehaviour
             continueComp && continueRess && continueDiplome && continueEntreprise && continueArtefact && continuePNJ && continueTopicsAide &&
             continueExam && continueMission && continueTrophee && continueObjet && continueRessourcesLocal)
         {
-            Debug.Log("ContinueTotalMissions est vrai -----------------------------------------------------------------");
             SpawnerMission.continueTotalMissions = true;
             Configuration.continueJoueur = true;
             continueRessourcesLocal = false;
@@ -822,16 +821,13 @@ public class RessourcesBdD : MonoBehaviour
         {
             string urlPNJ = url + "RecupQuartierPNJ.php?id=" + listeDesPNJ[i].IDPNJ;
 
-            WWW down = new WWW(urlComp);
-            yield return down;
+            WWW downPNJ = new WWW(urlPNJ);
+            yield return downPNJ;
 
-            if (VerifierStatusScript(down))
+            if (VerifierStatusScript(downPNJ))
             {
-                JSONNode Node = RenvoiJSONScript(down);
-                for (int j = 0; j < Node["msg"].Count; ++j)
-                {
-                    listeDesPNJ[i].associerSonQuartier((int)Node["msg"][i]["IDDistrict"]);
-                }
+                JSONNode NodePNJ = RenvoiJSONScript(downPNJ);
+                listeDesPNJ[i].associerSonQuartier((int)NodePNJ["msg"][0]["IDDistrict"]);
             }
         }
         /*
@@ -931,7 +927,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             JSONNode Node = RenvoiJSONScript(dl);
             listeDesMissionsPrésentes = new MissionPrésente[Node["msg"].Count];
-            Debug.Log("Total de mission jouables : --------------------------------------------------------------------------------------- " + Node["msg"].Count);
             for (int i = 0; i < Node["msg"].Count; ++i)
             {
                 listeDesMissionsPrésentes[i] = new MissionPrésente((int)Node["msg"][i]["IDDistrict"], (int)Node["msg"][i]["IDMission"], (int)Node["msg"][i]["IDCompany"]);
@@ -950,44 +945,11 @@ public class RessourcesBdD : MonoBehaviour
         }
 
         instance.continueTotalMissions = true;
-        Debug.Log("continueTotalMissions EST VRAIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         ChargerLieu chargement = new ChargerLieu();
         chargement.Recharger();
 
         Joueur.continueDaedelus = true;
     }
-
-    /*
-    public static void recupMissionJouableNow()
-    {
-        string requete = "SELECT COUNT(IDMission) AS Total, IDDistrict FROM present_missions WHERE IDMission NOT IN (SELECT IDMission from present_missions_done WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesMissionsPrésentes = new MissionPrésente[(int)total];
-            Debug.Log("Total de mission jouables : " + total);
-        }
-        lien.Close();
-        requete = "SELECT * FROM present_missions WHERE IDMission NOT IN (SELECT IDMission from present_missions_done WHERE IDPCharacter=" + Joueur.IDJoueur + ");";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        for (int i = 0; i < listeDesMissionsPrésentes.Length;)
-        {
-            while (lien.Read())
-            {
-                listeDesMissionsPrésentes[i] = new MissionPrésente((int)lien["IDDistrict"], (int)lien["IDMission"], (int)lien["IDCompany"]);
-                ++i;
-            }
-        }
-        lien.Close();
-        for (int i = 0; i < listeDesMissionsPrésentes.Length; ++i)
-        {
-            listeDesMissionsPrésentes[i].SaMission = testMissionSpecialise(listeDesMissionsPrésentes[i].SaMission, listeDesMissionsPrésentes[i].SonQuartier);
-        }
-    }
-    */
 
     static public void DestroyListeMission()
     {
@@ -1048,33 +1010,27 @@ public class RessourcesBdD : MonoBehaviour
         }*/
     }
 
-    public static void recupExamensNonJouables()
+    public static IEnumerator recupExamensNonJouables()
     {
         // On réinitialise notre tableau d'examens
         listeDesExamensNonJouables = new int[0];
 
-        // Requête permettant de définir une taille à notre tableau d'examens jouables
-        string requete = "SELECT count(*) AS Total, IDExam FROM exam WHERE IDDiplom IN (SELECT IDDiplom FROM diplom_pc WHERE IDPCharacter = '" + Joueur.IDJoueur + "')";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
-        {
-            int total = Int32.Parse(lien["Total"].ToString());
-            listeDesExamensNonJouables = new int[(int)total];
-        }
-        lien.Close();
+        string urlComp = url + "RecupExamensNonJouables.php?id=" + Joueur.IDJoueur;
 
-        // Requête permettant de récupérer les ID des examens jouables (ceux pas déjà passés par le joueur)
-        requete = "SELECT IDExam FROM exam WHERE IDDiplom IN (SELECT IDDiplom FROM diplom_pc WHERE IDPCharacter = '" + Joueur.IDJoueur + "')";
-        commande = new MySqlCommand(requete, Connexion.connexion);
-        lien = commande.ExecuteReader();
-        int i = 0;
-        while (lien.Read())
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        if (VerifierStatusScript(dl))
         {
-            listeDesExamensNonJouables[i] = (int)lien["IDExam"];
-            ++i;
+            JSONNode Node = RenvoiJSONScript(dl);
+            listeDesExamensNonJouables = new int[Node["msg"].Count];
+            for (int j = 0; j < Node["msg"].Count; ++j)
+            {
+                listeDesExamensNonJouables[j] = (int)Node["msg"][j]["IDExam"];
+            }
         }
-        lien.Close();
+
+        FabriqueListeExamens.continueListeExamens = true;
     }
 
     public static IEnumerator recupDivertJouable()

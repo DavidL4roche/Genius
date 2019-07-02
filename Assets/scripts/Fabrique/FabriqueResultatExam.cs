@@ -19,7 +19,7 @@ public class FabriqueResultatExam : MonoBehaviour {
         APerdu();
         blockdesprerequis();
         ReloadMissions();
-        Joueur.transfertEnBase();
+        StartCoroutine(Joueur.transfertEnBase());
     }
     public void blockdesprerequis()
     {

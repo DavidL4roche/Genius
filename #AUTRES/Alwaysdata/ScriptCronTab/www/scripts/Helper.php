@@ -1960,4 +1960,114 @@ class Helper {
             return "Veuillez renseigner l'id du joueur";
         }
     }
+
+    // Récupère les Examens non jouables
+    function RecupExamensNonJouables($id) {
+
+        if ($id != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT IDExam FROM exam WHERE IDDiplom IN 
+                                           (SELECT IDDiplom FROM diplom_pc WHERE IDPCharacter = $id)");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $dbdata
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Actualise la compétence d'un joueur
+    function TransfertCompetencesEnBase($id, $idComp, $valeur) {
+        if ($id != null && $idComp != null && $valeur != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "INSERT INTO skill_pc (IDPCharacter, IDSkill, SkillLevel)
+                    VALUES ($id, $idComp, $valeur)
+                    ON DUPLICATE KEY UPDATE SkillLevel=$valeur";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner les champs demandés";
+        }
+    }
+
+    // Actualise la ressource d'un joueur
+    function TransfertRessourcesEnBase($id, $idRess, $valeur) {
+        if ($id != null && $idRess != null && $valeur != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "INSERT INTO association_ressource_pc (IDPCharacter, IDRessource, Value)
+                    VALUES ($id, $idRess, $valeur)
+                    ON DUPLICATE KEY UPDATE Value=$valeur";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner les champs demandés";
+        }
+    }
+
+    // Actualise le nombre d'objets d'un joueur
+    function TransfertObjetsEnBase($id, $idObjet, $valeur) {
+        if ($id != null && $idObjet != null && $valeur != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "INSERT INTO item_pc (IDPCharacter, IDItem, Quantity)
+                    VALUES ($id, $idObjet, $valeur)
+                    ON DUPLICATE KEY UPDATE Quantity=$valeur";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner les champs demandés";
+        }
+    }
+
+    // Actualise l'action sociale d'un joueur
+    function TransfertActionSocialeEnBase($id, $idAmi, $type) {
+        if ($id != null && $idAmi != null && $type != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "INSERT INTO action_sociale (IDPCharacter, IDPFriend, Type)
+                    VALUES ($id, $idAmi, '" . $type . "')
+                    ON DUPLICATE KEY UPDATE Type= '" . $type . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner les champs demandés";
+        }
+    }
 }

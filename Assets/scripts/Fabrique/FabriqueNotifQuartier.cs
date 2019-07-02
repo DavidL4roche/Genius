@@ -12,6 +12,7 @@ public class FabriqueNotifQuartier : MonoBehaviour {
     PNJPrésent SonPNJ;
     int nbMission = 0;
     int IDQuartier;
+    bool continueNotifQuartier = true;
 
     void Start () {
         
@@ -19,7 +20,7 @@ public class FabriqueNotifQuartier : MonoBehaviour {
 
     public void Update()
     {
-        if (RessourcesBdD.listeDesQuartiers != null && RessourcesBdD.continueMissionNotifQuartier)
+        if (RessourcesBdD.listeDesQuartiers != null && RessourcesBdD.continueMissionNotifQuartier && continueNotifQuartier)
         {
             for (int j = 1; j < RessourcesBdD.listeDesQuartiers.Length; j++)
             {
@@ -94,7 +95,7 @@ public class FabriqueNotifQuartier : MonoBehaviour {
                 }
             }
 
-            RessourcesBdD.continueMissionNotifQuartier = false;
+            continueNotifQuartier = false;
         }
     }
 

@@ -40,7 +40,7 @@ public class Connexion : MonoBehaviour {
     {
         if (Joueur.IDJoueur != 0)
         {
-            Joueur.transfertEnBase();
+            StartCoroutine(Joueur.transfertEnBase());
         }
         if (connexion != null && connexion.State.ToString() != "Close")
         {

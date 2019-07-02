@@ -41,9 +41,9 @@ public class FabriqueResultatSocial : MonoBehaviour {
                 GainActionSocial();
 
                 // On envoie les objets et les ressources (Social) en base
-                Joueur.transfertRessourcesEnBase();
-                Joueur.transfertObjetsEnBase();
-                Joueur.transfertActionsSocialesEnBase();
+                StartCoroutine(Joueur.transfertRessourcesEnBase());
+                StartCoroutine(Joueur.transfertObjetsEnBase());
+                StartCoroutine(Joueur.transfertActionsSocialesEnBase());
                 break;
 
             case "Compétence":
@@ -70,9 +70,9 @@ public class FabriqueResultatSocial : MonoBehaviour {
                 GainActionSocial();
 
                 // On envoie les compétences et les ressources (Social) en base
-                Joueur.transfertRessourcesEnBase();
-                Joueur.transfertCompetencesEnBase();
-                Joueur.transfertActionsSocialesEnBase();
+                StartCoroutine(Joueur.transfertRessourcesEnBase());
+                StartCoroutine(Joueur.transfertCompetencesEnBase());
+                StartCoroutine(Joueur.transfertActionsSocialesEnBase());
                 break;
 
             default:

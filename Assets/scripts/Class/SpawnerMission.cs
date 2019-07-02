@@ -44,6 +44,7 @@ public class SpawnerMission : MonoBehaviour {
 
         if (continueStart)
         {
+            StartCoroutine(Joueur.transfertEnBase());
             GetMissions();
         }
     }

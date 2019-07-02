@@ -168,8 +168,6 @@ public class DemarrageGenius2 : MonoBehaviour {
                                         yield return new WaitForSeconds(2);
                                     }
 
-                                    Debug.Log("ContinueJoueur est VRAI !!!!! ------------------------------------------");
-
                                     // On récupère les données du Joueur pour l'attribuer à notre objet
                                     int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
                                     Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;

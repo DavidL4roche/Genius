@@ -29,7 +29,7 @@ public class FabriqueResultatPNJ : MonoBehaviour {
         blockdesprerequis();
         ValeurTupleTexte.color = new Color(1F, 1F, 1F, 1F);
         //ReloadMissions();
-        Joueur.transfertEnBase();
+        StartCoroutine(Joueur.transfertEnBase());
         transfertEnBase(mr.SonPNJ.SonArtefact.IDArtefact);
         RessourcesBdD.recupPNJJouable();
         RessourcesBdD.RecupArtefactJouable();

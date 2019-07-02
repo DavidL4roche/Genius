@@ -11,8 +11,8 @@ public class AchatEnMagasin : MonoBehaviour {
         if (testsijoueurpeutacheter)
         {
             gainObjet(obj);
-            Joueur.transfertObjetsEnBase();
-            Joueur.transfertRessourcesEnBase();
+            StartCoroutine(Joueur.transfertObjetsEnBase());
+            StartCoroutine(Joueur.transfertRessourcesEnBase());
         }
         else
         {
