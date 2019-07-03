@@ -24,7 +24,18 @@ public class DemarrageGenius : MonoBehaviour {
 
     public void Start()
     {
-        StartCoroutine(MyCoroutine());
+        //StartCoroutine(MyCoroutine());
+
+        // On détruit tout les objets
+        GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+        for (int i = 0; i < GameObjects.Length; i++)
+        {
+            Destroy(GameObjects[i]);
+        }
+
+        ChargerLieu charger = new ChargerLieu();
+        charger.Charger("Index1");
     }
 
     private IEnumerator MyCoroutine()

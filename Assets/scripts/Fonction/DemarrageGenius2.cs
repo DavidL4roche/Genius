@@ -48,7 +48,7 @@ public class DemarrageGenius2 : MonoBehaviour {
 
         if ((!string.IsNullOrEmpty(download.error)))
         {
-            print("Error downloading: " + download.error);
+            Debug.Log("Error downloading: " + download.error);
             RendreVisibleEcranErreur(true);
         }
         else
@@ -135,34 +135,6 @@ public class DemarrageGenius2 : MonoBehaviour {
                                 // L'adresse correspond à un compte
                                 else
                                 {
-                                    /*
-                                    // On teste la connection à la base de données
-                                    int total = 0;
-                                    string requeteTest = "SELECT COUNT(*) AS Total FROM mission";
-                                    MySqlCommand commande = new MySqlCommand(requeteTest, Connexion.connexion);
-
-                                    // TODO : EXECUTEREADER N'EST PAS LA BONNE METHODE, IL FAUT FAIRE APPEL A DES SCRIPTS PHP
-                                    try
-                                    {
-                                        MySqlDataReader lien = commande.ExecuteReader();
-                                        
-                                        while (lien.Read())
-                                        {
-                                            total = Int32.Parse(lien["Total"].ToString());
-                                        }
-                                        lien.Close();
-                                    }
-                                    catch
-                                    {
-                                        ChargerPopup.Charger("Erreur");
-                                        MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
-                                    }
-                                    
-                                    // On connecte automatiquement au compte lié
-                                    if (total != 0)
-                                    {
-                                    */
-
                                     while (!Configuration.continueJoueur)
                                     {
                                         yield return new WaitForSeconds(2);

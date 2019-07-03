@@ -57,6 +57,22 @@ public class SpawnerMission : MonoBehaviour {
         }
         continueTotalMissions = false;
         continueStart = true;
+
+        // Si aucune donnée n'est présente
+        if (!RessourcesBdD.lancementRecup)
+        {
+            // On détruit tout les objets
+            GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+            for (int i = 0; i < GameObjects.Length; i++)
+            {
+                Destroy(GameObjects[i]);
+            }
+
+            // On relance le jeu
+            ChargerLieu charger = new ChargerLieu();
+            charger.Charger("Index1");
+        }
     }
 
     public void GetMissions() {

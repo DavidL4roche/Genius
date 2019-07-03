@@ -85,6 +85,8 @@ public class RessourcesBdD : MonoBehaviour
     public static bool continueMissionJoueur = false;
     public static bool continueMissionNotifQuartier = false;
 
+    public static bool lancementRecup = false;
+
     // Permet de gérer les StartCoroutine dans les fonctions static
     void Awake()
     {
@@ -94,6 +96,9 @@ public class RessourcesBdD : MonoBehaviour
     // Use this for initialization
     public static void Recup()
     {
+        Debug.Log("Récupération des données du joueur");
+        lancementRecup = true;
+
         instance.StartCoroutine(RecupLieu());
         instance.StartCoroutine(RecupGain());
         instance.StartCoroutine(RecupPerte());
