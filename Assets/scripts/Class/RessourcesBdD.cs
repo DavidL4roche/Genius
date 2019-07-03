@@ -1138,20 +1138,36 @@ public class RessourcesBdD : MonoBehaviour
         }
         return objetrandom;
     }
+
+    // Reset les amis du joueur après suppression d'un ami
+    public static void ResetAmis()
+    {
+        instance.StartCoroutine(RecupDeLaListeDesJoueurs());
+        instance.StartCoroutine(RecupMesAmis());
+    }
+
+    // Récupère les amis du joueur
     public static IEnumerator RecupMesAmis()
     {
-        string urlComp = url + "RecupMesAmis.php?id=" + Joueur.IDJoueur;
+        Debug.Log("RecupAmis");
+        Joueur.MesAmis = new AutreJoueur[0];
+        string urlAmis = url + "RecupMesAmis.php?id=" + Joueur.IDJoueur;
+        Debug.Log(urlAmis);
 
-        WWW dl = new WWW(urlComp);
-        yield return dl;
+        WWW dlAmis = new WWW(urlAmis);
+        yield return dlAmis;
 
-        if (VerifierStatusScript(dl))
+        Debug.Log("Lien amis effectué");
+
+        if (VerifierStatusScript(dlAmis))
         {
-            JSONNode Node = RenvoiJSONScript(dl);
-            Joueur.MesAmis = new AutreJoueur[Node["msg"].Count];
-            for (int i = 0; i < Node["msg"].Count; ++i)
+            Debug.Log("Verifier ok Amis");
+            JSONNode NodeAmis = RenvoiJSONScript(dlAmis);
+            Joueur.MesAmis = new AutreJoueur[NodeAmis["msg"].Count];
+            for (int i = 0; i < NodeAmis["msg"].Count; ++i)
             {
-                Joueur.MesAmis[i] = new AutreJoueur((int)Node["msg"][i]["IDPCharacter"], Node["msg"][i]["PCName"].Value);
+                Debug.Log("Ami : " + NodeAmis["msg"][i]["PCName"].Value);
+                Joueur.MesAmis[i] = new AutreJoueur((int)NodeAmis["msg"][i]["IDPCharacter"], NodeAmis["msg"][i]["PCName"].Value);
             }
         }
 
@@ -1159,37 +1175,49 @@ public class RessourcesBdD : MonoBehaviour
         {
             ami.trouverToutesInformations();
         }
-        /*
+
         Debug.Log("LISTE DES AMIS --------------------------------------");
         for (int i = 0; i < Joueur.MesAmis.Length; i++)
         {
             Debug.Log(i + " : " + Joueur.MesAmis[i].SonNom);
-        }*/
+        }
+        Debug.Log("Fin RecupAmis");
 
         Joueur.continueRecupActionsSociales = true;
     }
+
+    // Récupère la liste des Joueurs (sans le joueur)
     public static IEnumerator RecupDeLaListeDesJoueurs()
     {
-        string urlComp = url + "RecupDeLaListeDesJoueurs.php?id=" + Joueur.IDJoueur;
+        Debug.Log("RecupListeJoueurs");
+        listeDesJoueurs = new AutreJoueur[0];
 
-        WWW dl = new WWW(urlComp);
-        yield return dl;
+        string urlJoueurs = url + "RecupDeLaListeDesJoueurs.php?id=" + Joueur.IDJoueur;
+        Debug.Log(urlJoueurs);
 
-        if (VerifierStatusScript(dl))
+        WWW dlJoueurs = new WWW(urlJoueurs);
+        yield return dlJoueurs;
+
+        Debug.Log("Lien joueur effectué");
+
+        if (VerifierStatusScript(dlJoueurs))
         {
-            JSONNode Node = RenvoiJSONScript(dl);
-            listeDesJoueurs = new AutreJoueur[Node["msg"].Count];
-            for (int i = 0; i < Node["msg"].Count; ++i)
+            Debug.Log("Verifier ok Joueurs");
+            JSONNode NodeJoueurs = RenvoiJSONScript(dlJoueurs);
+            listeDesJoueurs = new AutreJoueur[NodeJoueurs["msg"].Count];
+            for (int i = 0; i < NodeJoueurs["msg"].Count; ++i)
             {
-                listeDesJoueurs[i] = new AutreJoueur((int)Node["msg"][i]["IDPCharacter"], Node["msg"][i]["PCName"].Value);
+                Debug.Log("Joueur : " + NodeJoueurs["msg"][i]["PCName"].Value);
+                listeDesJoueurs[i] = new AutreJoueur((int)NodeJoueurs["msg"][i]["IDPCharacter"], NodeJoueurs["msg"][i]["PCName"].Value);
             }
         }
-        /*
+
         Debug.Log("LISTE DES AUTRES JOUEURS --------------------------------------");
         for (int i = 0; i < listeDesJoueurs.Length; i++)
         {
             Debug.Log(i + " : " + listeDesJoueurs[i].SonNom);
-        }*/
+        }
+        Debug.Log("Fin RecupListeJoueurs");
     }
 
     public static IEnumerator RecupActionsSociales()

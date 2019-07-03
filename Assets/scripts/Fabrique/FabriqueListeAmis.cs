@@ -11,6 +11,9 @@ public class FabriqueListeAmis : MonoBehaviour {
     public Image Cadre;
     public Button VoirProfil;
 
+    public GameObject Icone;
+    public GameObject CliqueMenu;
+
     GameObject instance;
 
     public GameObject EcranTuto;
@@ -27,6 +30,10 @@ public class FabriqueListeAmis : MonoBehaviour {
             {
                 NomAmi.text = Joueur.MesAmis[i].SonNom;
                 VoirProfil.transform.name = "Ami " + i;
+
+                Icone.SetActive(true);
+                CliqueMenu.SetActive(true);
+
                 if (color)
                 {
                     Cadre.GetComponent<Image>().color = new Color32(39, 41, 65, 255);
@@ -41,6 +48,14 @@ public class FabriqueListeAmis : MonoBehaviour {
                 instance.transform.name = "Ami " + i;
                 color = ((color) ? false : true);
             }
+
+            // On instancie un tuple "invisible" pour permettre les actions du dernier tuple
+            NomAmi.text = "";
+            Icone.SetActive(false);
+            CliqueMenu.SetActive(false);
+            instance = Instantiate(TupleAmi, new Vector3(0, 0, 0), TupleAmi.transform.rotation);
+            instance.transform.parent = GameObject.Find("VerticalLayout").transform;
+            instance.transform.name = "TupleVide";
         }
     }
 }

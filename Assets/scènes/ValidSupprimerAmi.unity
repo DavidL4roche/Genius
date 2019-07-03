@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84072fe4af002d49838719596c3c225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueSupprimer: 0
 --- !u!114 &596349160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +631,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: ValidSupprimerAmi
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596349159}
+        m_MethodName: SupprimerAmi
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -913,6 +925,17 @@ MonoBehaviour:
       - m_Target: {fileID: 363191781}
         m_MethodName: RendreVisibleEcran
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ValidSupprimerAmi
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 818248891}
+        m_MethodName: Fermer
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

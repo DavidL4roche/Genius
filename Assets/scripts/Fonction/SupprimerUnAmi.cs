@@ -4,20 +4,39 @@ using UnityEngine;
 using MySql.Data.MySqlClient;
 
 public class SupprimerUnAmi : MonoBehaviour {
+
+    public bool continueSupprimer = false;
+
     public void SupprimerAmi()
     {
         int idami = Joueur.MesAmis[VerificationAmi.AmiChoisi].SonID;
-        string requete = "DELETE FROM friend WHERE (IDFriend=" + idami + " AND IDPCharacter=" + Joueur.IDJoueur + ") OR (IDFriend=" + Joueur.IDJoueur + " AND IDPCharacter=" + idami + ")";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        lien.Close();
-        RessourcesBdD.RecupDeLaListeDesJoueurs();
-        RessourcesBdD.RecupMesAmis();
-        FermerPopup fermerpop = new FermerPopup();
-        FermerUneFenetre fermerfen = new FermerUneFenetre();
-        ChargerFenetreSupp chargerfen = new ChargerFenetreSupp();
-        fermerpop.Fermer("ValidSupprimerAmi");
-        fermerfen.Fermer("ReseauSocial");
-        chargerfen.Charger("ReseauSocial");
+        StartCoroutine(fonctionSupprimerAmi(idami));
+    }
+
+    public void Update()
+    {
+        if (continueSupprimer)
+        {
+            Debug.Log("On rentre dans la boucle !");
+            StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
+            StartCoroutine(RessourcesBdD.RecupMesAmis());
+            FermerPopup fermerpop = new FermerPopup();
+            FermerUneFenetre fermerfen = new FermerUneFenetre();
+            ChargerFenetreSupp chargerfen = new ChargerFenetreSupp();
+            fermerpop.Fermer("ValidSupprimerAmi");
+            fermerfen.Fermer("ReseauSocial");
+            chargerfen.Charger("ReseauSocial");
+
+            continueSupprimer = false;
+        }
+    }
+
+    public IEnumerator fonctionSupprimerAmi(int idAmi)
+    {
+        string urlComp = Configuration.url + "scripts/SupprimerAmi.php?id=" + Joueur.IDJoueur + "&idAmi=" + idAmi;
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+        continueSupprimer = true;
+        Debug.Log("ContinueSupprimer est true");
     }
 }

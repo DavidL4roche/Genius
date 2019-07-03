@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scriptsRessources/RecupExamensNonJouables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsTransferts/TransfertCompetencesEnBase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scriptsTransferts/TransfertRessourcesEnBase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupprimerAmi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadreExamen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadreExamen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadrePNJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadrePNJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaireMission.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaireMission.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/RessourcesBdD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/RessourcesBdD.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/SpawnerMission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/SpawnerMission.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueExamen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueExamen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueListeExamens.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueListeExamens.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMission.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueNotifQuartier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueNotifQuartier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatExam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatExam.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatPNJ.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatPNJ.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatSocial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatSocial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/AchatEnMagasin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/AchatEnMagasin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/Connexion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/Connexion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/DemarrageGenius2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/DemarrageGenius2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/VerifArtefactCliquer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/VerifArtefactCliquer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/AmeliorerMission.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/AmeliorerMission.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="2061" column="67" selection-start-line="2061" selection-start-column="67" selection-end-line="2061" selection-end-column="67" />
+            <state relative-caret-position="559">
+              <caret line="2085" column="31" selection-start-line="2085" selection-start-column="31" selection-end-line="2085" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -66,8 +40,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="46" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="46" />
+            <state relative-caret-position="289">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SupprimerAmi.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -76,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+              <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -85,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -159,7 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scriptboutique.php" />
         <option value="$PROJECT_DIR$/UpdateDateCo.php" />
         <option value="$PROJECT_DIR$/scriptmission.php" />
         <option value="$PROJECT_DIR$/ResetAdmin.php" />
@@ -209,11 +191,12 @@
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertRessourcesEnBase.php" />
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php" />
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php" />
+        <option value="$PROJECT_DIR$/SupprimerAmi.php" />
         <option value="$PROJECT_DIR$/Helper.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="3226" />
@@ -227,6 +210,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,22 +227,21 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../site-perso" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\NOUVEAU\Desktop\Genius\#AUTRES\Alwaysdata\ScriptCronTab\www\scripts" />
       <recent name="C:\Users\NOUVEAU\Desktop\Genius\#AUTRES\Alwaysdata\ScriptCronTab\www\scripts\scriptsTransferts" />
       <recent name="C:\Users\NOUVEAU\Desktop\Genius\#AUTRES\Alwaysdata\ScriptCronTab\www\scripts\scriptsRessources" />
-      <recent name="C:\Users\NOUVEAU\Desktop\Genius\#AUTRES\Alwaysdata\ScriptCronTab\www\scripts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -336,17 +319,18 @@
       <workItem from="1561729138373" duration="131000" />
       <workItem from="1561966226449" duration="4287000" />
       <workItem from="1562049584964" duration="7785000" />
+      <workItem from="1562160026919" duration="857000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152977000" />
+    <option name="totallyTimeSpent" value="153834000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
+    <frame x="-6" y="-6" width="1613" height="873" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20900321" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21157557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -372,13 +356,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scriptboutique.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2839">
-          <caret line="167" column="2" selection-start-line="167" selection-start-column="2" selection-end-line="167" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CreateUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -666,31 +643,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupMesAmis.php">
+    <entry file="file://$PROJECT_DIR$/scriptsTransferts/UpdateLastConnection.php" />
+    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupExamensNonJouables.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/UpdateLastConnection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="170">
+          <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -708,24 +672,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupExamensNonJouables.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+        <state relative-caret-position="136">
+          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupMesAmis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="46" />
+        <state relative-caret-position="289">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SupprimerAmi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="2061" column="67" selection-start-line="2061" selection-start-column="67" selection-end-line="2061" selection-end-column="67" />
+        <state relative-caret-position="559">
+          <caret line="2085" column="31" selection-start-line="2085" selection-start-column="31" selection-end-line="2085" selection-end-column="31" />
         </state>
       </provider>
     </entry>

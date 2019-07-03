@@ -2070,4 +2070,23 @@ class Helper {
             return "Veuillez renseigner les champs demandés";
         }
     }
+
+    // Supprimer l'ami d'un joueur
+    function SupprimerAmi($id, $idAmi) {
+        if ($id != null && $idAmi != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "DELETE FROM friend WHERE (IDFriend='" . $idAmi . "' AND IDPCharacter='" . $id . "') 
+                    OR (IDFriend='" . $id . "' AND IDPCharacter='" . $idAmi . "')";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Suppression réussie";
+        }
+        else {
+            return "Veuillez renseigner les champs demandés";
+        }
+    }
 }
