@@ -2089,4 +2089,111 @@ class Helper {
             return "Veuillez renseigner les champs demandés";
         }
     }
+
+    // Ajouter l'ami d'un joueur
+    function AjouterAmi($id, $idAmi) {
+        if ($id != null && $idAmi != null) {
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "INSERT INTO friend (IDPCharacter, IDFriend)
+                    VALUES (" . $id .", " . $idAmi . ")
+                    ON DUPLICATE KEY UPDATE IDFriend=" . $idAmi;
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner les champs demandés";
+        }
+    }
+
+    // Récupère les informations d'un ami
+    function GetAmi($nomAmi) {
+
+        if ($nomAmi != null) {
+//            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+//
+//            if ($dblink->connect_errno) {
+//                printf("Impossible de se connecter à la base de données.");
+//                exit();
+//            }
+//
+//            $result = $dblink->query("SELECT IDPCharacter,PCName from p_character WHERE PCName=$nomAmi)");
+//
+//            $dbdata = array();
+//
+//            while ($row = $result->fetch_assoc())  {
+//                $dbdata[]=$row;
+//            }
+//
+//            return json_encode(array(
+//                "result" => true,
+//                "msg" => $dbdata
+//            ));
+
+            // Vérification dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT IDPCharacter,PCName from p_character WHERE PCName='" . $nomAmi . "'";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            if (count($d) > 0) {
+
+                return json_encode(array(
+                    "result" => true,
+                    "msg" => $d
+                ));
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "Ce joueur n'existe pas"
+                ));
+            }
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur ami";
+        }
+    }
+
+    // Verifie si l'ami est celui du joueur
+    function VerifierAmi($id, $idAmi) {
+
+        if ($id != null && $idAmi != null) {
+            $dblink = new mysqli(HOST, USERNAME, PASS, DBNAME);
+
+            if ($dblink->connect_errno) {
+                printf("Impossible de se connecter à la base de données.");
+                exit();
+            }
+
+            $result = $dblink->query("SELECT * FROM friend WHERE IDPCharacter = " . $id . " 
+                                            AND IDFriend = " . $idAmi . " 
+                                            UNION SELECT * FROM friend WHERE IDPCharacter = " . $idAmi . " 
+                                            AND IDFriend = " . $id . ";");
+
+            $dbdata = array();
+
+            while ($row = $result->fetch_assoc())  {
+                $dbdata[]=$row;
+            }
+
+            if (count($dbdata) > 0) {
+                return "true";
+            }
+            else {
+                return "false";
+            }
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur et de l'ami";
+        }
+    }
 }

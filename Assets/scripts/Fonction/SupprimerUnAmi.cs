@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MySql.Data.MySqlClient;
+using SimpleJSON;
 
 public class SupprimerUnAmi : MonoBehaviour {
 
     public bool continueSupprimer = false;
+    public bool continueReload = false;
 
     public void SupprimerAmi()
     {
@@ -17,17 +19,18 @@ public class SupprimerUnAmi : MonoBehaviour {
     {
         if (continueSupprimer)
         {
-            Debug.Log("On rentre dans la boucle !");
-            StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
-            StartCoroutine(RessourcesBdD.RecupMesAmis());
+            StartCoroutine(RecupMesAmis());
+            continueSupprimer = false;
+        }
+
+        if (continueReload)
+        {
             FermerPopup fermerpop = new FermerPopup();
             FermerUneFenetre fermerfen = new FermerUneFenetre();
             ChargerFenetreSupp chargerfen = new ChargerFenetreSupp();
             fermerpop.Fermer("ValidSupprimerAmi");
             fermerfen.Fermer("ReseauSocial");
             chargerfen.Charger("ReseauSocial");
-
-            continueSupprimer = false;
         }
     }
 
@@ -37,6 +40,29 @@ public class SupprimerUnAmi : MonoBehaviour {
         WWW dl = new WWW(urlComp);
         yield return dl;
         continueSupprimer = true;
-        Debug.Log("ContinueSupprimer est true");
+    }
+
+    // Récupère les amis du joueur
+    public IEnumerator RecupMesAmis()
+    {
+        Joueur.MesAmis = new AutreJoueur[0];
+        string urlAmis = Configuration.url + "scripts/scriptsRessources/RecupMesAmis.php?id=" + Joueur.IDJoueur;
+
+        WWW dlAmis = new WWW(urlAmis);
+        yield return dlAmis;
+        
+        JSONNode NodeAmis = RessourcesBdD.RenvoiJSONScript(dlAmis);
+        Joueur.MesAmis = new AutreJoueur[NodeAmis["msg"].Count];
+        for (int i = 0; i < NodeAmis["msg"].Count; ++i)
+        {
+            Joueur.MesAmis[i] = new AutreJoueur((int)NodeAmis["msg"][i]["IDPCharacter"], NodeAmis["msg"][i]["PCName"].Value);
+        }
+
+        foreach (AutreJoueur ami in Joueur.MesAmis)
+        {
+            ami.trouverToutesInformations();
+        }
+
+        continueReload = true;
     }
 }
