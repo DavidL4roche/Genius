@@ -893,6 +893,12 @@ public class RessourcesBdD : MonoBehaviour
         {
             Debug.Log(LeMagasin[i].SonObjet.Nom);
         }*/
+
+        if (AchatEnMagasin.continueReloadMagasin)
+        {
+            AchatEnMagasin.continueReloadMag = true;
+            AchatEnMagasin.continueReloadMagasin = false;
+        }
     }
 
     public static IEnumerator RecupArtefactJouable()
@@ -1149,39 +1155,38 @@ public class RessourcesBdD : MonoBehaviour
     // Récupère les amis du joueur
     public static IEnumerator RecupMesAmis()
     {
-        Debug.Log("RecupAmis");
+        //Debug.Log("On rentre dans RessourcesBdD -> RecupMesAmis");
         Joueur.MesAmis = new AutreJoueur[0];
         string urlAmis = url + "RecupMesAmis.php?id=" + Joueur.IDJoueur;
-        Debug.Log(urlAmis);
 
         WWW dlAmis = new WWW(urlAmis);
         yield return dlAmis;
 
-        Debug.Log("Lien amis effectué");
-
         if (VerifierStatusScript(dlAmis))
         {
-            Debug.Log("Verifier ok Amis");
             JSONNode NodeAmis = RenvoiJSONScript(dlAmis);
             Joueur.MesAmis = new AutreJoueur[NodeAmis["msg"].Count];
             for (int i = 0; i < NodeAmis["msg"].Count; ++i)
             {
-                Debug.Log("Ami : " + NodeAmis["msg"][i]["PCName"].Value);
                 Joueur.MesAmis[i] = new AutreJoueur((int)NodeAmis["msg"][i]["IDPCharacter"], NodeAmis["msg"][i]["PCName"].Value);
             }
         }
 
         foreach (AutreJoueur ami in Joueur.MesAmis)
         {
-            ami.trouverToutesInformations();
+            instance.StartCoroutine(ami.majObjetAmi(ami.SonID));
+            instance.StartCoroutine(ami.majComp(ami.SonID));
+            instance.StartCoroutine(ami.majDiplome(ami.SonID));
         }
 
+        /*
         Debug.Log("LISTE DES AMIS --------------------------------------");
         for (int i = 0; i < Joueur.MesAmis.Length; i++)
         {
             Debug.Log(i + " : " + Joueur.MesAmis[i].SonNom);
         }
         Debug.Log("Fin RecupAmis");
+        */
 
         Joueur.continueRecupActionsSociales = true;
     }
@@ -1189,35 +1194,33 @@ public class RessourcesBdD : MonoBehaviour
     // Récupère la liste des Joueurs (sans le joueur)
     public static IEnumerator RecupDeLaListeDesJoueurs()
     {
-        Debug.Log("RecupListeJoueurs");
         listeDesJoueurs = new AutreJoueur[0];
 
         string urlJoueurs = url + "RecupDeLaListeDesJoueurs.php?id=" + Joueur.IDJoueur;
-        Debug.Log(urlJoueurs);
 
         WWW dlJoueurs = new WWW(urlJoueurs);
         yield return dlJoueurs;
 
-        Debug.Log("Lien joueur effectué");
-
         if (VerifierStatusScript(dlJoueurs))
         {
-            Debug.Log("Verifier ok Joueurs");
             JSONNode NodeJoueurs = RenvoiJSONScript(dlJoueurs);
             listeDesJoueurs = new AutreJoueur[NodeJoueurs["msg"].Count];
             for (int i = 0; i < NodeJoueurs["msg"].Count; ++i)
             {
-                Debug.Log("Joueur : " + NodeJoueurs["msg"][i]["PCName"].Value);
                 listeDesJoueurs[i] = new AutreJoueur((int)NodeJoueurs["msg"][i]["IDPCharacter"], NodeJoueurs["msg"][i]["PCName"].Value);
             }
         }
 
+        /*
         Debug.Log("LISTE DES AUTRES JOUEURS --------------------------------------");
         for (int i = 0; i < listeDesJoueurs.Length; i++)
         {
             Debug.Log(i + " : " + listeDesJoueurs[i].SonNom);
         }
         Debug.Log("Fin RecupListeJoueurs");
+        */
+
+        Joueur.continueMesAmis = true;
     }
 
     public static IEnumerator RecupActionsSociales()
@@ -1280,6 +1283,8 @@ public class RessourcesBdD : MonoBehaviour
                 }
             }
         }
+
+        Joueur.continueMissionJouable = true;
     }
 
     // Change le booléen continueTotalMissions

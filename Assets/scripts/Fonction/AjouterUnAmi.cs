@@ -28,7 +28,6 @@ public class AjouterUnAmi : MonoBehaviour {
     {
         if (continueAjouter)
         {
-            Debug.Log("continueAjouter est vrai, on rentre");
             // Le joueur existe
             if (verifSiAmiNul.Length > 0)
             {
@@ -69,14 +68,12 @@ public class AjouterUnAmi : MonoBehaviour {
 
         if (continueRecupAmis)
         {
-            Debug.Log("continueRecupAmis est vrai, on rentre");
             StartCoroutine(RecupMesAmis());
             continueRecupAmis = false;
         }
 
         if (continueReload)
         {
-            Debug.Log("continueReload est vrai, on rentre");
             FermerUneFenetre fermerfen = new FermerUneFenetre();
             ChargerFenetreSupp chargerfen = new ChargerFenetreSupp();
             fermerfen.Fermer("ReseauSocial");
@@ -148,7 +145,9 @@ public class AjouterUnAmi : MonoBehaviour {
 
         foreach (AutreJoueur ami in Joueur.MesAmis)
         {
-            ami.trouverToutesInformations();
+            StartCoroutine(ami.majObjetAmi(ami.SonID));
+            StartCoroutine(ami.majComp(ami.SonID));
+            StartCoroutine(ami.majDiplome(ami.SonID));
         }
 
         continueReload = true;

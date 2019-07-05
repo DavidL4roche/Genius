@@ -60,7 +60,9 @@ public class SupprimerUnAmi : MonoBehaviour {
 
         foreach (AutreJoueur ami in Joueur.MesAmis)
         {
-            ami.trouverToutesInformations();
+            StartCoroutine(ami.majObjetAmi(ami.SonID));
+            StartCoroutine(ami.majComp(ami.SonID));
+            StartCoroutine(ami.majDiplome(ami.SonID));
         }
 
         continueReload = true;

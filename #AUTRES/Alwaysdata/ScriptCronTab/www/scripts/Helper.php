@@ -2196,4 +2196,40 @@ class Helper {
             return "Veuillez renseigner l'id du joueur et de l'ami";
         }
     }
+
+    // Verifie si l'ami est celui du joueur
+    function ArtefactUtilise($id, $idArt) {
+
+        if ($id != null && $idArt != null) {
+            $bdd = $this->ConnectBDD();
+
+            $sql = "Insert INTO artefact_used VALUES ($idArt, $id)";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur et de l'ami";
+        }
+    }
+
+    // Ajoute un objet dans les objets achetés d'un joueur
+    function ObjetAchete($id, $idObjet) {
+
+        if ($id != null && $idObjet != null) {
+            $bdd = $this->ConnectBDD();
+
+            $sql = "Insert INTO item_bought VALUES ($idObjet,$id);";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur et de l'objet";
+        }
+    }
 }

@@ -34,6 +34,8 @@ public class Joueur : MonoBehaviour {
     public static bool continueDaedelus = false;
     public static bool continueRecupActionsSociales = false;
     public static bool continueTransfertRessources = false;
+    public static bool continueMesAmis = false;
+    public static bool continueMissionJouable = false;
 
     // Use this for initialization
     public void Start() {
@@ -60,14 +62,25 @@ public class Joueur : MonoBehaviour {
             StartCoroutine(RessourcesBdD.RecupArtefactJouable());
             StartCoroutine(RessourcesBdD.RecupObjetMagasin());
             StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
+        }
+
+        if (Configuration.continueJoueur && continueMesAmis)
+        {
+            continueMesAmis = false;
+            //Debug.Log("On rentre dans Joueur -> RecupMesAmis");
             StartCoroutine(RessourcesBdD.RecupMesAmis());
-
+            //Debug.Log("On continue dans Joueur -> RecupMesAmis");
             StartCoroutine(RessourcesBdD.RecupActionsSociales());
+            //Debug.Log("On finit dans Joueur -> RecupMesAmis");
+        }
 
+        if (Configuration.continueJoueur && continueMissionJouable)
+        {
             // On récupère les missions jouables
             StartCoroutine(RessourcesBdD.recupMissionJouable());
 
             Configuration.continueJoueur = false;
+            continueMissionJouable = false;
         }
     }
 
@@ -124,18 +137,18 @@ public class Joueur : MonoBehaviour {
     // Fais la mise à jour depuis la base de toutes les données importantes
     void majdepuisBDD()
     {
-        StartCoroutine(majRessources());
-        StartCoroutine(majComp());
-        StartCoroutine(majObjet());
-        StartCoroutine(majDiplome());
-        StartCoroutine(majTrophee());
-        StartCoroutine(majArtefact());
+        StartCoroutine(majRessources(IDJoueur));
+        StartCoroutine(majComp(IDJoueur));
+        StartCoroutine(majObjet(IDJoueur));
+        StartCoroutine(majDiplome(IDJoueur));
+        StartCoroutine(majTrophee(IDJoueur));
+        StartCoroutine(majArtefact(IDJoueur));
     }
 
     // Met à jour les objets du joueur
-    IEnumerator majObjet()
+    IEnumerator majObjet(int idJoueur)
     {
-        string urlComp = urlRess + "MAJObjet.php?id=" + IDJoueur;
+        string urlComp = urlRess + "MAJObjet.php?id=" + idJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
@@ -157,9 +170,9 @@ public class Joueur : MonoBehaviour {
     }
 
     // Met à jour les compétences du joueur
-    IEnumerator majComp()
+    IEnumerator majComp(int idJoueur)
     {
-        string urlComp = urlRess + "MAJComp.php?id=" + IDJoueur;
+        string urlComp = urlRess + "MAJComp.php?id=" + idJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
@@ -181,9 +194,9 @@ public class Joueur : MonoBehaviour {
     }
 
     // Met à jour les ressources du joueur
-    IEnumerator majRessources()
+    IEnumerator majRessources(int idJoueur)
     {
-        string urlComp = urlRess + "MAJRessources.php?id=" + IDJoueur;
+        string urlComp = urlRess + "MAJRessources.php?id=" + idJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
@@ -207,9 +220,9 @@ public class Joueur : MonoBehaviour {
     }
 
     // Met à jour les diplomes du joueur
-    IEnumerator majDiplome()
+    IEnumerator majDiplome(int idJoueur)
     {
-        string urlComp = urlRess + "MAJDiplome.php?id=" + IDJoueur;
+        string urlComp = urlRess + "MAJDiplome.php?id=" + idJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
@@ -230,9 +243,9 @@ public class Joueur : MonoBehaviour {
     }
 
     // Met à jour les trophées du joueur
-    IEnumerator majTrophee()
+    IEnumerator majTrophee(int idJoueur)
     {
-        string urlComp = urlRess + "MAJTrophee.php?id=" + IDJoueur;
+        string urlComp = urlRess + "MAJTrophee.php?id=" + idJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
@@ -254,9 +267,9 @@ public class Joueur : MonoBehaviour {
 
 
     // Met à jour les artéfacts du joueur
-    IEnumerator majArtefact()
+    IEnumerator majArtefact(int idJoueur)
     {
-        string urlComp = urlRess + "MAJArtefact.php?id=" + IDJoueur;
+        string urlComp = urlRess + "MAJArtefact.php?id=" + idJoueur;
 
         WWW dl = new WWW(urlComp);
         yield return dl;
@@ -336,6 +349,7 @@ public class Joueur : MonoBehaviour {
     // Transfert des ressources en base
     public static IEnumerator transfertRessourcesEnBase()
     {
+        Debug.Log("On rentre dans transfertRessourcesEnBase");
         for (int i = 0; i < MesRessources.Length; ++i)
         {
             // On insère (ou update) en base le niveau de compétence du joueur
@@ -344,6 +358,11 @@ public class Joueur : MonoBehaviour {
 
             WWW dlRessource = new WWW(urlRessource);
             yield return dlRessource;
+        }
+
+        if (AchatEnMagasin.continueAchatMagasin)
+        {
+            AchatEnMagasin.continueReloadMagasin = true;
         }
     }
 
