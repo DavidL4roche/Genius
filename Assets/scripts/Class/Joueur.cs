@@ -349,7 +349,6 @@ public class Joueur : MonoBehaviour {
     // Transfert des ressources en base
     public static IEnumerator transfertRessourcesEnBase()
     {
-        Debug.Log("On rentre dans transfertRessourcesEnBase");
         for (int i = 0; i < MesRessources.Length; ++i)
         {
             // On insère (ou update) en base le niveau de compétence du joueur

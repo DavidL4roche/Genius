@@ -28,7 +28,7 @@ public class FabriqueMagasin : MonoBehaviour {
     GameObject instance;
     public void Start()
     {
-        bool test = testsiArtefactMagasin();
+        bool test = false; // testsiArtefactMagasin();
         if (test)
         {
             ObjetPrésent[] tableau = new ObjetPrésent[RessourcesBdD.listeDesObjets.Length];
@@ -121,7 +121,7 @@ public class FabriqueMagasin : MonoBehaviour {
             precedent.SetActive(true);
         }
     }
-
+    /*
     public bool testsiArtefactMagasin()
     {
         int total = 0;
@@ -148,6 +148,7 @@ public class FabriqueMagasin : MonoBehaviour {
         }
         return false;
     }
+    */
 
     public void getRessources()
     {

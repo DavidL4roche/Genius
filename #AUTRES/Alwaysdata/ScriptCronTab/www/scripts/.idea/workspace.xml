@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ArtefactUtilise.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ObjetAchete.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MissionEffectuee.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VerifierArtefactMagasin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/AutreJoueur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/AutreJoueur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Gain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Gain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/RessourcesBdD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/RessourcesBdD.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/AchatEnMagasin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/AchatEnMagasin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/AjouterUnAmi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/AjouterUnAmi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/SupprimerUnAmi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/SupprimerUnAmi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/VerifArtefactCliquer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/VerifArtefactCliquer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/CompetencesAmi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/CompetencesAmi.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/ValidArtefact.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/ValidArtefact.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMagasin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMagasin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultat.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,16 +36,25 @@
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="491">
-              <caret line="2223" column="68" selection-start-line="2223" selection-start-column="68" selection-end-line="2223" selection-end-column="68" />
+              <caret line="2268" column="86" selection-start-line="2268" selection-start-column="86" selection-end-line="2268" selection-end-column="86" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ObjetAchete.php">
+        <entry file="file://$PROJECT_DIR$/MissionEffectuee.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="187">
+              <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VerifierArtefactMagasin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="41" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -94,8 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupLieu.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupGain.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupPerte.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupBonus.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupObjet.php" />
@@ -144,6 +141,8 @@
         <option value="$PROJECT_DIR$/GetAmi.php" />
         <option value="$PROJECT_DIR$/ArtefactUtilise.php" />
         <option value="$PROJECT_DIR$/ObjetAchete.php" />
+        <option value="$PROJECT_DIR$/VerifierArtefactMagasin.php" />
+        <option value="$PROJECT_DIR$/MissionEffectuee.php" />
         <option value="$PROJECT_DIR$/Helper.php" />
       </list>
     </option>
@@ -273,12 +272,12 @@
       <workItem from="1562049584964" duration="7785000" />
       <workItem from="1562160026919" duration="857000" />
       <workItem from="1562223166970" duration="5798000" />
-      <workItem from="1562308960961" duration="196000" />
+      <workItem from="1562308960961" duration="2106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159828000" />
+    <option name="totallyTimeSpent" value="161738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
@@ -310,34 +309,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptmission.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupEntreprise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupTrophee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupQuartier.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -636,6 +607,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scriptActionSociale.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ArtefactUtilise.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -643,17 +624,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/VerifierArtefactMagasin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ObjetAchete.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="29" />
+          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MissionEffectuee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
-          <caret line="2223" column="68" selection-start-line="2223" selection-start-column="68" selection-end-line="2223" selection-end-column="68" />
+          <caret line="2268" column="86" selection-start-line="2268" selection-start-column="86" selection-end-line="2268" selection-end-column="86" />
         </state>
       </provider>
     </entry>

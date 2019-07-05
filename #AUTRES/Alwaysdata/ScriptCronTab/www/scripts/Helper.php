@@ -2232,4 +2232,49 @@ class Helper {
             return "Veuillez renseigner l'id du joueur et de l'objet";
         }
     }
+
+    // Verifie les objets Artefacts du Magasin
+    function VerifierArtefactMagasin($id) {
+
+        if ($id != null) {
+            $bdd = $this->ConnectBDD();
+
+            $sql = "Select Count(*) AS Total, IDArtefact from artefact_used where IDPCharacter NOT IN 
+                   (Select IDPCharacter from item_bought WHERE IDPCharacter=$id) 
+                   AND IDPCharacter=$id AND IDArtefact 
+                   IN(Select IDArtefact from artefact WHERE IDBonus 
+                   IN(Select IDBonus from bonus WHERE BonusName='Boutique'));";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            return json_encode(array(
+                "result" => true,
+                "msg" => $d
+            ));
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur";
+        }
+    }
+
+    // Insère une mission effectuée par le joueur
+    function MissionEffectuee($idJoueur, $idMission) {
+
+        if ($idJoueur != null && $idMission != null) {
+            $bdd = $this->ConnectBDD();
+
+            $sql = "Insert INTO present_missions_done VALUES ($idMission, $idJoueur)";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur et de la mission";
+        }
+    }
 }

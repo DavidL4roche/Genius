@@ -14,6 +14,7 @@ public class FabriqueResultat : MonoBehaviour {
     public Text perteDivert;
     public Text perteSocial;
 
+    bool continueUpdate = false;
 
     public void Start()
     {
@@ -21,14 +22,22 @@ public class FabriqueResultat : MonoBehaviour {
         AGagner();
         APerdu();
         blockdesprerequis();
-        ReloadMissions();
-        RessourcesBdD.DestroyListeMission();
-        StartCoroutine(RessourcesBdD.recupMissionJouable());
+        StartCoroutine(ReloadMissions());
+    }
 
-        // On transfert en base
-        StartCoroutine(Joueur.transfertRessourcesEnBase());
-        StartCoroutine(Joueur.transfertCompetencesEnBase());
-        StartCoroutine(Joueur.transfertObjetsEnBase());
+    public void Update()
+    {
+        if (continueUpdate)
+        {
+            RessourcesBdD.DestroyListeMission();
+            StartCoroutine(RessourcesBdD.recupMissionJouable());
+
+            // On transfert en base
+            StartCoroutine(Joueur.transfertRessourcesEnBase());
+            StartCoroutine(Joueur.transfertCompetencesEnBase());
+            StartCoroutine(Joueur.transfertObjetsEnBase());
+            continueUpdate = false;
+        }
     }
 
     public void blockdesprerequis()
@@ -199,11 +208,13 @@ public class FabriqueResultat : MonoBehaviour {
 
         }
     }
-    public void ReloadMissions()
+    public IEnumerator ReloadMissions()
     {
-        string requete = "Insert INTO present_missions_done VALUES (" + mission.IDMission + "," + Joueur.IDJoueur + ");";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        lien.Close();  
+        string urlComp = Configuration.url + "scripts/MissionEffectuee.php?idJoueur=" + Joueur.IDJoueur + "&idMission=" + mission.IDMission;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        continueUpdate = true;
     }
 }
