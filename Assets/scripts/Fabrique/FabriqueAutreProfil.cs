@@ -14,20 +14,27 @@ public class FabriqueAutreProfil : MonoBehaviour {
     {
         //Color32 activeColor = new Color32(57, 119, 155, 255);
         //Color32 inactiveColor = new Color32(44, 74, 105, 255);
-
-        AutreJoueur joueur = Joueur.MesAmis[VerificationAmi.AmiChoisi];
-        LeNom.text = joueur.SonNom;
-
-        // Si l'action sociale a été faite
-        if (Joueur.MesActionsSocialesObjet[VerificationAmi.AmiChoisi])
+        try
         {
-            Objet.interactable = false;
+            AutreJoueur joueur = Joueur.MesAmis[VerificationAmi.AmiChoisi];
+            LeNom.text = joueur.SonNom;
+
+            // Si l'action sociale a été faite
+            if (Joueur.MesActionsSocialesObjet[VerificationAmi.AmiChoisi])
+            {
+                Objet.interactable = false;
+            }
+
+            // Si l'action sociale a été faite
+            if (Joueur.MesActionsSocialesSkill[VerificationAmi.AmiChoisi])
+            {
+                Competence.interactable = false;
+            }
         }
-
-        // Si l'action sociale a été faite
-        if (Joueur.MesActionsSocialesSkill[VerificationAmi.AmiChoisi])
+        catch (System.Exception e)
         {
-            Competence.interactable = false;
+            Debug.Log(e);
+            RessourcesBdD.ReloadGame();
         }
     }
 }

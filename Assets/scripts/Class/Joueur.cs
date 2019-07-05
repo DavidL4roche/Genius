@@ -39,48 +39,70 @@ public class Joueur : MonoBehaviour {
 
     // Use this for initialization
     public void Start() {
-        Debug.Log("Instanciation du joueur en cours");
-        DontDestroyOnLoad(gameObject);
+        try
+        {
+            Debug.Log("Instanciation du joueur en cours");
+            DontDestroyOnLoad(gameObject);
 
-        // On répète toutes les SecondesUpdate l'incrémentation des ressources
-        InvokeRepeating("IncrementationRessourcesStatic", 0, SecondesUpdate);
+            // On répète toutes les SecondesUpdate l'incrémentation des ressources
+            InvokeRepeating("IncrementationRessourcesStatic", 0, SecondesUpdate);
 
-        // On envoie la date de dernière connexion et transfert les ressources en base toutes les SecondesUpdate
-        StartCoroutine(UpdateDateDerniereCoEnBase());
-        StartCoroutine(transfertRessourcesEnBaseScript());
+            // On envoie la date de dernière connexion et transfert les ressources en base toutes les SecondesUpdate
+            StartCoroutine(UpdateDateDerniereCoEnBase());
+            StartCoroutine(transfertRessourcesEnBaseScript());
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+            RessourcesBdD.ReloadGame();
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Configuration.continueJoueur)
+        try
         {
-            majdepuisBDD();
-            PendantAbsence();
-            StartCoroutine(RessourcesBdD.recupExamJouable());
-            StartCoroutine(RessourcesBdD.recupDivertJouable());
-            StartCoroutine(RessourcesBdD.recupPNJJouable());
-            StartCoroutine(RessourcesBdD.RecupArtefactJouable());
-            StartCoroutine(RessourcesBdD.RecupObjetMagasin());
-            StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
+            if (Configuration.continueJoueur)
+            {
+                //majdepuisBDD();
+                StartCoroutine(majRessources(IDJoueur));
+                StartCoroutine(majComp(IDJoueur));
+                StartCoroutine(majObjet(IDJoueur));
+                StartCoroutine(majDiplome(IDJoueur));
+                StartCoroutine(majTrophee(IDJoueur));
+                StartCoroutine(majArtefact(IDJoueur));
+                PendantAbsence();
+                StartCoroutine(RessourcesBdD.recupExamJouable());
+                StartCoroutine(RessourcesBdD.recupDivertJouable());
+                StartCoroutine(RessourcesBdD.recupPNJJouable());
+                StartCoroutine(RessourcesBdD.RecupArtefactJouable());
+                StartCoroutine(RessourcesBdD.RecupObjetMagasin());
+                StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
+            }
+
+            if (Configuration.continueJoueur && continueMesAmis)
+            {
+                continueMesAmis = false;
+                //Debug.Log("On rentre dans Joueur -> RecupMesAmis");
+                StartCoroutine(RessourcesBdD.RecupMesAmis());
+                //Debug.Log("On continue dans Joueur -> RecupMesAmis");
+                StartCoroutine(RessourcesBdD.RecupActionsSociales());
+                //Debug.Log("On finit dans Joueur -> RecupMesAmis");
+            }
+
+            if (Configuration.continueJoueur && continueMissionJouable)
+            {
+                // On récupère les missions jouables
+                StartCoroutine(RessourcesBdD.recupMissionJouable());
+
+                Configuration.continueJoueur = false;
+                continueMissionJouable = false;
+            }
         }
-
-        if (Configuration.continueJoueur && continueMesAmis)
+        catch (System.Exception e)
         {
-            continueMesAmis = false;
-            //Debug.Log("On rentre dans Joueur -> RecupMesAmis");
-            StartCoroutine(RessourcesBdD.RecupMesAmis());
-            //Debug.Log("On continue dans Joueur -> RecupMesAmis");
-            StartCoroutine(RessourcesBdD.RecupActionsSociales());
-            //Debug.Log("On finit dans Joueur -> RecupMesAmis");
-        }
-
-        if (Configuration.continueJoueur && continueMissionJouable)
-        {
-            // On récupère les missions jouables
-            StartCoroutine(RessourcesBdD.recupMissionJouable());
-
-            Configuration.continueJoueur = false;
-            continueMissionJouable = false;
+            Debug.Log(e);
+            RessourcesBdD.ReloadGame();
         }
     }
 

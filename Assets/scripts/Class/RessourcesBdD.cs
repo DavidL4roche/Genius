@@ -99,18 +99,26 @@ public class RessourcesBdD : MonoBehaviour
         Debug.Log("Récupération des données du joueur");
         lancementRecup = true;
 
-        instance.StartCoroutine(RecupLieu());
-        instance.StartCoroutine(RecupGain());
-        instance.StartCoroutine(RecupPerte());
-        instance.StartCoroutine(RecupBonus());
-        instance.StartCoroutine(RecupDuree());
-        instance.StartCoroutine(RecupRang());
-        instance.StartCoroutine(RecupQuartier());
-        instance.StartCoroutine(RecupDivert());
-        instance.StartCoroutine(RecupComp());
-        instance.StartCoroutine(RecupRess());
-        instance.StartCoroutine(RecupDiplome());
-        instance.StartCoroutine(RecupTopicsAide());
+        try
+        {
+            instance.StartCoroutine(RecupLieu());
+            instance.StartCoroutine(RecupGain());
+            instance.StartCoroutine(RecupPerte());
+            instance.StartCoroutine(RecupBonus());
+            instance.StartCoroutine(RecupDuree());
+            instance.StartCoroutine(RecupRang());
+            instance.StartCoroutine(RecupQuartier());
+            instance.StartCoroutine(RecupDivert());
+            instance.StartCoroutine(RecupComp());
+            instance.StartCoroutine(RecupRess());
+            instance.StartCoroutine(RecupDiplome());
+            instance.StartCoroutine(RecupTopicsAide());
+        }
+        catch(System.Exception e)
+        {
+            Debug.Log(e);
+            ReloadGame();
+        }
 
         /*
         ChargerPopup.Charger("Succes");
@@ -120,55 +128,79 @@ public class RessourcesBdD : MonoBehaviour
     // On lance ces fonctions après que celles données de Recup soient finies
     public void Update()
     {
-        // Récupération Examen
-        if (continueDiplome && continueComp && continueRang && continueDiplomeLocal)
+        try
         {
-            instance.StartCoroutine(RecupExam());
-            instance.StartCoroutine(RecupTrophee());
-            instance.StartCoroutine(RecupObjet());
-            continueDiplomeLocal = false;
+            // Récupération Examen
+            if (continueDiplome && continueComp && continueRang && continueDiplomeLocal)
+            {
+                instance.StartCoroutine(RecupExam());
+                instance.StartCoroutine(RecupTrophee());
+                instance.StartCoroutine(RecupObjet());
+                continueDiplomeLocal = false;
+            }
+
+            // Récupération Entreprise
+            if (continueQuartier && continueQuartierLocal)
+            {
+                instance.StartCoroutine(RecupEntreprise());
+                continueQuartierLocal = false;
+            }
+
+            // Récupération Mission
+            if (continueEntreprise && continueRang && continueComp && continueEntrepriseLocal && continueRangLocal && continueCompLocal)
+            {
+                instance.StartCoroutine(RecupMission());
+                continueEntrepriseLocal = false;
+                continueRangLocal = false;
+                continueCompLocal = false;
+            }
+
+            // Récupération Artéfact
+            if (continueBonus && continueBonusLocal)
+            {
+                instance.StartCoroutine(RecupArtefact());
+                continueBonusLocal = false;
+            }
+
+            // Récupération PNJ
+            if (continueArtefact && continueArtefactLocal && continueMission && continueMissionLocal)
+            {
+                instance.StartCoroutine(RecupPNJ());
+                continueArtefactLocal = false;
+                continueMissionLocal = false;
+            }
+
+            // TODO : Attendre que tout soit validé pour lancer ça
+            if (continueLieu && continueGain && continuePerte && continueBonus && continueDuree && continueRang && continueQuartier && continueDivert &&
+                continueComp && continueRess && continueDiplome && continueEntreprise && continueArtefact && continuePNJ && continueTopicsAide &&
+                continueExam && continueMission && continueTrophee && continueObjet && continueRessourcesLocal)
+            {
+                SpawnerMission.continueTotalMissions = true;
+                Configuration.continueJoueur = true;
+                continueRessourcesLocal = false;
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+            ReloadGame();
+        }
+    }
+
+    public static void ReloadGame()
+    {
+        // On détruit tout les objets
+        GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+        for (int i = 0; i < GameObjects.Length; i++)
+        {
+            Destroy(GameObjects[i]);
         }
 
-        // Récupération Entreprise
-        if (continueQuartier && continueQuartierLocal)
-        {
-            instance.StartCoroutine(RecupEntreprise());
-            continueQuartierLocal = false;
-        }
-
-        // Récupération Mission
-        if (continueEntreprise && continueRang && continueComp && continueEntrepriseLocal && continueRangLocal && continueCompLocal)
-        {
-            instance.StartCoroutine(RecupMission());
-            continueEntrepriseLocal = false;
-            continueRangLocal = false;
-            continueCompLocal = false;
-        }
-
-        // Récupération Artéfact
-        if (continueBonus && continueBonusLocal)
-        {
-            instance.StartCoroutine(RecupArtefact());
-            continueBonusLocal = false;
-        }
-
-        // Récupération PNJ
-        if (continueArtefact && continueArtefactLocal && continueMission && continueMissionLocal)
-        {
-            instance.StartCoroutine(RecupPNJ());
-            continueArtefactLocal = false;
-            continueMissionLocal = false;
-        }
-
-        // TODO : Attendre que tout soit validé pour lancer ça
-        if (continueLieu && continueGain && continuePerte && continueBonus && continueDuree && continueRang && continueQuartier && continueDivert &&
-            continueComp && continueRess && continueDiplome && continueEntreprise && continueArtefact && continuePNJ && continueTopicsAide &&
-            continueExam && continueMission && continueTrophee && continueObjet && continueRessourcesLocal)
-        {
-            SpawnerMission.continueTotalMissions = true;
-            Configuration.continueJoueur = true;
-            continueRessourcesLocal = false;
-        }
+        // On "relance" le jeu
+        SceneManager.LoadScene("Index1");
+        ChargerPopup.Charger("Erreur");
+        MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
     }
 
     // Fonction de généralisation pour lecture script PHP
