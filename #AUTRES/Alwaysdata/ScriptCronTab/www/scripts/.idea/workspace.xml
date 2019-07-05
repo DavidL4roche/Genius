@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MissionEffectuee.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerifierArtefactMagasin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ExamenEffectue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MissionDivertEffectuee.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PNJEffectue.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMagasin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMagasin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatDivert.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatDivert.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatExam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatExam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatPNJ.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueResultatPNJ.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +36,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="2268" column="86" selection-start-line="2268" selection-start-column="86" selection-end-line="2268" selection-end-column="86" />
+            <state relative-caret-position="528">
+              <caret line="2330" column="71" selection-start-line="2330" selection-start-column="71" selection-end-line="2330" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PNJEffectue.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExamenEffectue.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MissionDivertEffectuee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -93,9 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupPerte.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupBonus.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupObjet.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupArtefact.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupObjetMagasin.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupDuree.php" />
@@ -143,6 +168,9 @@
         <option value="$PROJECT_DIR$/ObjetAchete.php" />
         <option value="$PROJECT_DIR$/VerifierArtefactMagasin.php" />
         <option value="$PROJECT_DIR$/MissionEffectuee.php" />
+        <option value="$PROJECT_DIR$/MissionDIvertEffectuee.php" />
+        <option value="$PROJECT_DIR$/ExamenEffectue.php" />
+        <option value="$PROJECT_DIR$/PNJEffectue.php" />
         <option value="$PROJECT_DIR$/Helper.php" />
       </list>
     </option>
@@ -272,12 +300,12 @@
       <workItem from="1562049584964" duration="7785000" />
       <workItem from="1562160026919" duration="857000" />
       <workItem from="1562223166970" duration="5798000" />
-      <workItem from="1562308960961" duration="2106000" />
+      <workItem from="1562308960961" duration="3691000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161738000" />
+    <option name="totallyTimeSpent" value="163323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
@@ -309,27 +337,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupQuartier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupRang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDuree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupObjetMagasin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -645,10 +652,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MissionDivertEffectuee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExamenEffectue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PNJEffectue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="2268" column="86" selection-start-line="2268" selection-start-column="86" selection-end-line="2268" selection-end-column="86" />
+        <state relative-caret-position="528">
+          <caret line="2330" column="71" selection-start-line="2330" selection-start-column="71" selection-end-line="2330" selection-end-column="71" />
         </state>
       </provider>
     </entry>

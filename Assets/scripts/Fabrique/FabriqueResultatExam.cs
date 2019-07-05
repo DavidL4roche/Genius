@@ -18,7 +18,7 @@ public class FabriqueResultatExam : MonoBehaviour {
         AGagner();
         APerdu();
         blockdesprerequis();
-        ReloadMissions();
+        StartCoroutine(EnvoiExamenPasseEnBase());
         StartCoroutine(Joueur.transfertEnBase());
     }
     public void blockdesprerequis()
@@ -140,11 +140,11 @@ public class FabriqueResultatExam : MonoBehaviour {
             }
         }
     }
-    public void ReloadMissions()
+    public IEnumerator EnvoiExamenPasseEnBase()
     {
-        string requete = "Insert INTO diplom_pc VALUES (" + examen.LeDiplome.IDDiplome + "," + Joueur.IDJoueur + ");";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        lien.Close();
+        string urlComp = Configuration.url + "scripts/ExamenEffectue.php?idJoueur=" + Joueur.IDJoueur + "&idExamen=" + examen.LeDiplome.IDDiplome;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
     }
 }

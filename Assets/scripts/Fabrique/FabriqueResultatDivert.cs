@@ -10,6 +10,8 @@ public class FabriqueResultatDivert : MonoBehaviour {
     public Text gainDivert;
     public Text perteOrcus;
 
+    bool continueUpdate = false;
+
     GameObject instance;
 
     public void Start()
@@ -18,12 +20,20 @@ public class FabriqueResultatDivert : MonoBehaviour {
         AGagner();
         APerdu();
         blockdesprerequis();
-        ReloadMissions();
-        RessourcesBdD.DestroyListeDivertissement();
-        RessourcesBdD.recupDivertJouable();
+        StartCoroutine(ReloadMissions());
+    }
 
-        // On transfert en base
-        Joueur.transfertRessourcesEnBase();
+    public void Update()
+    {
+        if (continueUpdate)
+        {
+            RessourcesBdD.DestroyListeDivertissement();
+            StartCoroutine(RessourcesBdD.recupDivertJouable());
+
+            // On transfert en base
+            StartCoroutine(Joueur.transfertRessourcesEnBase());
+            continueUpdate = false;
+        }
     }
 
     public void blockdesprerequis()
@@ -104,12 +114,14 @@ public class FabriqueResultatDivert : MonoBehaviour {
             }
         }
     }
-    public void ReloadMissions()
+    public IEnumerator ReloadMissions()
     {
-        string requete = "Insert INTO entertainment_done VALUES (" + divert.IDMissionD + "," + Joueur.IDJoueur + ");";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        lien.Close();
+        string urlComp = Configuration.url + "scripts/MissionDivertEffectuee.php?idJoueur=" + Joueur.IDJoueur + "&idMission=" + divert.IDMissionD;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        continueUpdate = true;
     }
 }
 

@@ -2277,4 +2277,58 @@ class Helper {
             return "Veuillez renseigner l'id du joueur et de la mission";
         }
     }
+
+    // Insère une mission divertissement effectuée par le joueur
+    function MissionDivertEffectuee($idJoueur, $idMission) {
+
+        if ($idJoueur != null && $idMission != null) {
+            $bdd = $this->ConnectBDD();
+
+            $sql = "Insert INTO entertainment_done VALUES ($idMission, $idJoueur)";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur et de la mission";
+        }
+    }
+
+    // Insère un examen effectué par le joueur
+    function ExamenEffectue($idJoueur, $idExamen) {
+
+        if ($idJoueur != null && $idExamen != null) {
+            $bdd = $this->ConnectBDD();
+
+            $sql = "Insert INTO diplom_pc VALUES ($idExamen, $idJoueur)";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur et de l'examen";
+        }
+    }
+
+    // Insère un PNJ effectué par le joueur (Artéfact)
+    function PNJEffectue($idJoueur, $idArt) {
+
+        if ($idJoueur != null && $idArt != null) {
+            $bdd = $this->ConnectBDD();
+
+            $sql = "Insert INTO artefact_pc VALUES ($idArt, $idJoueur)";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            return "Insertion réussie";
+        }
+        else {
+            return "Veuillez renseigner l'id du joueur et de l'artefact";
+        }
+    }
 }
