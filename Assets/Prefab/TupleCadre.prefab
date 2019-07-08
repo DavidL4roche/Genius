@@ -670,7 +670,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 30
+  m_Text: 23
 --- !u!114 &114279017376936060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -703,7 +703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ">_S\xE9curit\xE9"
+  m_Text: '>_Gestion d''une producti...'
 --- !u!114 &114298177152949372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1324,7 +1324,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -140.8985, y: -0.5592346}
-  m_SizeDelta: {x: 88.595, y: 46.76}
+  m_SizeDelta: {x: 14.5, y: 46.76}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224182570064243182
 RectTransform:
@@ -1513,7 +1513,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -133.08875, y: -0.0010375977}
-  m_SizeDelta: {x: 0, y: 37.548}
+  m_SizeDelta: {x: 264.07, y: 37.548}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224592294950769450
 RectTransform:
@@ -1604,7 +1604,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -133.08875, y: -0.0010375977}
-  m_SizeDelta: {x: 0, y: 37.548}
+  m_SizeDelta: {x: 264.07, y: 37.548}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224934199469953128
 RectTransform:

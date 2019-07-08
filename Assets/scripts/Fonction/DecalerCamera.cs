@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class DecalerCamera : MonoBehaviour {
 
     public Camera cameraJeu;
-    public float valueX = 540;
+    public float valueX = 536.7f;
     public float valueY = 0;
     public GameObject EcranTuto;
 

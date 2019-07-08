@@ -135,6 +135,8 @@ public class DemarrageGenius2 : MonoBehaviour {
                                 // L'adresse correspond à un compte
                                 else
                                 {
+                                    // On vérifie si on lance le tutoriel : TODO !!
+
                                     while (!Configuration.continueJoueur)
                                     {
                                         yield return new WaitForSeconds(2);

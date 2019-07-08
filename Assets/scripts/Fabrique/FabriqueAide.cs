@@ -18,15 +18,13 @@ public class FabriqueAide : MonoBehaviour {
 
 	void Start () {
 
-        int i = 0;
-
         NomTuto.text = "Tutoriel de début";
 
         instance = Instantiate(TupleTuto, new Vector3(0.0F, 0.0F, 0.0F), TupleTuto.transform.rotation);
         instance.transform.parent = GameObject.Find("VerticalLayout").transform;
-        instance.transform.name = "Tuple " + (i + 1);
-        ++i;
+        instance.transform.name = "TupleTuto";
 
+        int i = 0;
         foreach (Topic topic in RessourcesBdD.listeDesTopicsAide)
         {
             NomTopic.text = topic.TitreTopic;

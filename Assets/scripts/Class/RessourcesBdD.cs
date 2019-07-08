@@ -131,12 +131,14 @@ public class RessourcesBdD : MonoBehaviour
     {
         try
         {
-            // Récupération Examen
-            if (continueDiplome && continueComp && continueRang && continueDiplomeLocal)
+            // Récupération Examen, Trophee, Objet et Artéfact
+            if (continueDiplome && continueComp && continueRang && continueDiplomeLocal && continueBonus && continueBonusLocal)
             {
                 instance.StartCoroutine(RecupExam());
                 instance.StartCoroutine(RecupTrophee());
                 instance.StartCoroutine(RecupObjet());
+                instance.StartCoroutine(RecupArtefact());
+                continueBonusLocal = false;
                 continueDiplomeLocal = false;
             }
 
@@ -155,13 +157,6 @@ public class RessourcesBdD : MonoBehaviour
                 continueRangLocal = false;
                 continueCompLocal = false;
                 continueDureeLocal = false;
-            }
-
-            // Récupération Artéfact
-            if (continueBonus && continueBonusLocal)
-            {
-                instance.StartCoroutine(RecupArtefact());
-                continueBonusLocal = false;
             }
 
             // Récupération PNJ

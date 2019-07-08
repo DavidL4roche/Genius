@@ -84,7 +84,15 @@ public class Joueur : MonoBehaviour {
             {
                 continueMesAmis = false;
                 //Debug.Log("On rentre dans Joueur -> RecupMesAmis");
-                StartCoroutine(RessourcesBdD.RecupMesAmis());
+                try
+                {
+                    StartCoroutine(RessourcesBdD.RecupMesAmis());
+                }
+                catch(MissingReferenceException e)
+                {
+                    Debug.Log(e);
+                    RessourcesBdD.ReloadGame();
+                }
                 //Debug.Log("On continue dans Joueur -> RecupMesAmis");
                 StartCoroutine(RessourcesBdD.RecupActionsSociales());
                 //Debug.Log("On finit dans Joueur -> RecupMesAmis");

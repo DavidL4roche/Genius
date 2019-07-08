@@ -102,8 +102,8 @@ public class TestConnexion : MonoBehaviour {
                 {
                     Debug.Log("Connection !");
                     // On connecte automatiquement au compte lié
-                    loading.Charger("Daedelus");
-                    Instantiate(JoueurLoge);
+                    loading.Charger("Index1");
+                    //Instantiate(JoueurLoge);
                 }
             }
         }
