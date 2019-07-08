@@ -76,6 +76,7 @@ public class RessourcesBdD : MonoBehaviour
     private static bool continueCompLocal = true;
     private static bool continueMissionLocal = true;
     private static bool continueRessourcesLocal = true;
+    private static bool continueDureeLocal = true;
 
     public static bool continueJoueur = false;
     public static bool continueRessJoueur = false;
@@ -147,12 +148,13 @@ public class RessourcesBdD : MonoBehaviour
             }
 
             // Récupération Mission
-            if (continueEntreprise && continueRang && continueComp && continueEntrepriseLocal && continueRangLocal && continueCompLocal)
+            if (continueEntreprise && continueRang && continueComp && continueEntrepriseLocal && continueRangLocal && continueCompLocal && continueDureeLocal && continueDuree)
             {
                 instance.StartCoroutine(RecupMission());
                 continueEntrepriseLocal = false;
                 continueRangLocal = false;
                 continueCompLocal = false;
+                continueDureeLocal = false;
             }
 
             // Récupération Artéfact

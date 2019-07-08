@@ -11,10 +11,12 @@ public class Connexion : MonoBehaviour {
     {
         try
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
+            /*
             string constr = "Server=" + Configuration.host + "; Port=3306; Database=" + Configuration.database + "; Uid=" + Configuration.login + "; Pwd=" + Configuration.password + ";";
             connexion = new MySqlConnection(constr);
             connexion.Open();
+            */
             RessourcesBdD.Recup();
         }
         catch (System.IO.IOException e)
@@ -25,6 +27,7 @@ public class Connexion : MonoBehaviour {
         }
     }
 
+    /*
     public MySqlConnection getConnexion()
     {
         return connexion;
@@ -48,4 +51,5 @@ public class Connexion : MonoBehaviour {
             connexion.Close();
         }  
     }
+    */
 }
