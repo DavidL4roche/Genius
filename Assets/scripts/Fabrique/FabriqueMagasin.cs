@@ -103,7 +103,9 @@ public class FabriqueMagasin : MonoBehaviour {
     {
         GameObject horizontalLayout = GameObject.Find("HorizontalLayout");
 
-        if(horizontal.transform.position.x <= (-3996.675))
+        float sizeListe = 175 - (347.707f * listeobjets.Length-1); //-175.75f
+
+        if(horizontal.transform.position.x <= (sizeListe))
         {
             suivant.SetActive(false);
         }
