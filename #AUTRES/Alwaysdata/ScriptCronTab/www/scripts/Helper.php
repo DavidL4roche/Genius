@@ -2331,4 +2331,40 @@ class Helper {
             return "Veuillez renseigner l'id du joueur et de l'artefact";
         }
     }
+
+    // Vérifie si on lance le tutoriel ou non
+    function checkFirstConnection($id){
+        if ($id != null) {
+
+            // Vérification utilisateur dans la base
+            $bdd = $this->ConnectBDD();
+
+            $sql = "SELECT isFirstConnection FROM p_character WHERE IDPCharacter = $id";
+
+            $result = $bdd->prepare($sql);
+            $result->execute();
+
+            $d = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            // L'utilisateur existe
+            if (count($d) > 0) {
+                return json_encode(array(
+                    "result" => true,
+                    "msg" => $d[0]["isFirstConnection"]
+                ));
+            }
+            else {
+                return json_encode(array(
+                    "result" => false,
+                    "msg" => "L'id ne correspond à aucun compte"
+                ));
+            }
+        }
+        else {
+            return json_encode(array(
+                "result" => false,
+                "msg" => "Impossible de récupérer l'adresse IP"
+            ));
+        }
+    }
 }

@@ -135,8 +135,6 @@ public class DemarrageGenius2 : MonoBehaviour {
                                 // L'adresse correspond à un compte
                                 else
                                 {
-                                    // On vérifie si on lance le tutoriel : TODO !!
-
                                     while (!Configuration.continueJoueur)
                                     {
                                         yield return new WaitForSeconds(2);
@@ -157,9 +155,51 @@ public class DemarrageGenius2 : MonoBehaviour {
                                         yield return new WaitForSeconds(2);
                                     }
 
-                                    // On charge la carte
-                                    loading.Charger("Daedelus");
-                                    //}
+                                    // On vérifie si on lance le tutoriel
+                                    string urlTuto = Configuration.url + "scripts/CheckFirstConnection.php?id=" + monNode["utilisateur"][0]["id"].Value;
+
+                                    download = new WWW(urlComp);
+                                    yield return download;
+
+                                    if ((!string.IsNullOrEmpty(download.error)))
+                                    {
+                                        print("Error downloading: " + download.error);
+                                    }
+                                    else
+                                    {
+                                        string JsonTuto = download.text;
+                                        JSONNode NodeTuto = JSON.Parse(JsonTuto);
+
+                                        // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
+                                        string resultTuto = NodeTuto["result"].Value;
+
+                                        if (resultTuto.ToLower() == "false")
+                                        {
+                                            ChargerPopup.Charger("Erreur");
+                                            MessageErreur.messageErreur = NodeTuto["msg"].Value;
+                                        }
+
+                                        // Sinon on correspond bien à un utilisateur
+                                        else
+                                        {
+                                            if (NodeTuto["msg"] == "1")
+                                            {
+                                                // On change le booléen isFirstConnection du joueur en faux (0)
+                                                string urlStat = "http://seriousgameiut.alwaysdata.net/scripts/ChangePlayerStats.php";
+                                                urlStat += "?stat=isFirstConnection&value=0&id=" + monNode["utilisateur"][0]["id"].Value;
+                                                download = new WWW(urlStat);
+                                                yield return download;
+
+                                                // On charge le tutoriel
+                                                ChargerLieu loadingTuto = new ChargerLieu();
+                                                loadingTuto.Charger("Tutoriel");
+                                            }
+                                            else {
+                                                // On charge la carte
+                                                loading.Charger("Daedelus");
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
