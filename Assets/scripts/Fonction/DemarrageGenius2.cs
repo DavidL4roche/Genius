@@ -158,7 +158,7 @@ public class DemarrageGenius2 : MonoBehaviour {
                                     // On vérifie si on lance le tutoriel
                                     string urlTuto = Configuration.url + "scripts/CheckFirstConnection.php?id=" + monNode["utilisateur"][0]["id"].Value;
 
-                                    download = new WWW(urlComp);
+                                    download = new WWW(urlTuto);
                                     yield return download;
 
                                     if ((!string.IsNullOrEmpty(download.error)))
@@ -184,15 +184,21 @@ public class DemarrageGenius2 : MonoBehaviour {
                                         {
                                             if (NodeTuto["msg"] == "1")
                                             {
+                                                Debug.Log("On lance le tutoriel");
                                                 // On change le booléen isFirstConnection du joueur en faux (0)
-                                                string urlStat = "http://seriousgameiut.alwaysdata.net/scripts/ChangePlayerStats.php";
-                                                urlStat += "?stat=isFirstConnection&value=0&id=" + monNode["utilisateur"][0]["id"].Value;
-                                                download = new WWW(urlStat);
-                                                yield return download;
+                                                string urlChange = "http://seriousgameiut.alwaysdata.net/scripts/ChangePlayerStats.php";
+                                                urlChange += "?stat=isFirstConnection&value=0&id=" + monNode["utilisateur"][0]["id"].Value;
+                                                WWW downloadChange = new WWW(urlChange);
+                                                yield return downloadChange;
 
-                                                // On charge le tutoriel
-                                                ChargerLieu loadingTuto = new ChargerLieu();
-                                                loadingTuto.Charger("Tutoriel");
+                                                bool finish = true;
+
+                                                if (finish)
+                                                {
+                                                    // On charge le tutoriel
+                                                    ChargerLieu loadingTuto = new ChargerLieu();
+                                                    loadingTuto.Charger("Tutoriel");
+                                                }
                                             }
                                             else {
                                                 // On charge la carte

@@ -224,7 +224,6 @@ class Helper {
                 // La stat à changer existe
                 if (count($d) > 0) {
                     $sql = "UPDATE p_character SET " . $stat . " = '" . $value . "' WHERE IDPCharacter = " . $id . ";";
-                    print $sql;
                     $result = $bdd->prepare($sql);
                     $result->execute();
 
