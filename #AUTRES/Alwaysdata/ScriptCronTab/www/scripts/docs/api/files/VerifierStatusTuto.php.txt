@@ -1,0 +1,13 @@
+<?php
+
+require_once "Helper.php";
+
+$helper = new Helper();
+
+if (isset($_GET["idTuto"]) && isset($_GET["idPlayer"])) {
+
+    $idTuto = $_GET["idTuto"];
+    $idPlayer = $_GET["idPlayer"];
+
+    echo $helper->VerifierStatusTuto($idTuto, $idPlayer);
+}

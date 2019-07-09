@@ -576,6 +576,12 @@ class Helper {
     }
 
     // Actualise l'attribut LastConnection d'un Joueur donné
+
+    /**
+     * Met à jour la dernière date de connexion pour un joueur
+     *
+     * @param string $id Identifiant (ex : "43")
+     */
     function updateDateCo($id) {
         if ($id != null) {
             // Vérification dans la base
@@ -590,7 +596,6 @@ class Helper {
 
     // Reset l'admin (lui mets les valeurs de base pour test)
     function resetAdmin() {
-
         $id = 43;
 
         // On met à jour ses ressources

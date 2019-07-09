@@ -1,0 +1,3175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">242</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1368276476"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1368276476" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Helper.html">Helper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>Helper</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Helper.html#method_ConnectBDD" class="">ConnectBDD()</a><br />
+                                                                    <a href="../classes/Helper.html#method_ParseJson" class="">ParseJson()</a><br />
+                                                                    <a href="../classes/Helper.html#method_CreateUser" class="">CreateUser()</a><br />
+                                                                    <a href="../classes/Helper.html#method_CheckConnexion" class="">CheckConnexion()</a><br />
+                                                                    <a href="../classes/Helper.html#method_CheckConnexionByMail" class="">CheckConnexionByMail()</a><br />
+                                                                    <a href="../classes/Helper.html#method_SetPlayerStat" class="">SetPlayerStat()</a><br />
+                                                                    <a href="../classes/Helper.html#method_SetRessources" class="">SetRessources()</a><br />
+                                                                    <a href="../classes/Helper.html#method_reinitiatePassword" class="">reinitiatePassword()</a><br />
+                                                                    <a href="../classes/Helper.html#method_sendMail" class="">sendMail()</a><br />
+                                                                    <a href="../classes/Helper.html#method_sendReinitialisationMail" class="">sendReinitialisationMail()</a><br />
+                                                                    <a href="../classes/Helper.html#method_checkIP" class="">checkIP()</a><br />
+                                                                    <a href="../classes/Helper.html#method_addIP" class="">addIP()</a><br />
+                                                                    <a href="../classes/Helper.html#method_ConnectById" class="">ConnectById()</a><br />
+                                                                    <a href="../classes/Helper.html#method_connectOnIP" class="">connectOnIP()</a><br />
+                                                                    <a href="../classes/Helper.html#method_getConnectOnIP" class="">getConnectOnIP()</a><br />
+                                                                    <a href="../classes/Helper.html#method_updateDateCo" class="">updateDateCo()</a><br />
+                                                                    <a href="../classes/Helper.html#method_resetAdmin" class="">resetAdmin()</a><br />
+                                                                    <a href="../classes/Helper.html#method_ChangeTutoStatus" class="">ChangeTutoStatus()</a><br />
+                                                                    <a href="../classes/Helper.html#method_verifierStatusTuto" class="">verifierStatusTuto()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupLieu" class="">RecupLieu()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupGain" class="">RecupGain()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupPerte" class="">RecupPerte()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupBonus" class="">RecupBonus()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupObjet" class="">RecupObjet()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupArtefact" class="">RecupArtefact()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupObjetMagasin" class="">RecupObjetMagasin()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupDuree" class="">RecupDuree()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupRang" class="">RecupRang()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupQuartier" class="">RecupQuartier()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupTrophee" class="">RecupTrophee()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupExam" class="">RecupExam()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupEntreprise" class="">RecupEntreprise()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupEmpEntreprise" class="">RecupEmpEntreprise()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupSpeEntreprise" class="">RecupSpeEntreprise()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupMission" class="">RecupMission()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupPNJ" class="">RecupPNJ()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupQuartierPNJ" class="">RecupQuartierPNJ()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupDivert" class="">RecupDivert()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupComp" class="">RecupComp()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupRess" class="">RecupRess()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupDiplome" class="">RecupDiplome()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupTopicsAide" class="">RecupTopicsAide()</a><br />
+                                                                    <a href="../classes/Helper.html#method_MAJObjet" class="">MAJObjet()</a><br />
+                                                                    <a href="../classes/Helper.html#method_MAJComp" class="">MAJComp()</a><br />
+                                                                    <a href="../classes/Helper.html#method_MAJArtefact" class="">MAJArtefact()</a><br />
+                                                                    <a href="../classes/Helper.html#method_MAJDiplome" class="">MAJDiplome()</a><br />
+                                                                    <a href="../classes/Helper.html#method_MAJRessources" class="">MAJRessources()</a><br />
+                                                                    <a href="../classes/Helper.html#method_MAJTrophee" class="">MAJTrophee()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupPresentMissions" class="">RecupPresentMissions()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupPNJJouable" class="">RecupPNJJouable()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupExamJouable" class="">RecupExamJouable()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupDivertJouable" class="">RecupDivertJouable()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupActionsSocialesComp" class="">RecupActionsSocialesComp()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupActionsSocialesObjet" class="">RecupActionsSocialesObjet()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupArtefactJouable" class="">RecupArtefactJouable()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupDeLaListeDesJoueurs" class="">RecupDeLaListeDesJoueurs()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupMesAmis" class="">RecupMesAmis()</a><br />
+                                                                    <a href="../classes/Helper.html#method_RecupExamensNonJouables" class="">RecupExamensNonJouables()</a><br />
+                                                                    <a href="../classes/Helper.html#method_TransfertCompetencesEnBase" class="">TransfertCompetencesEnBase()</a><br />
+                                                                    <a href="../classes/Helper.html#method_TransfertRessourcesEnBase" class="">TransfertRessourcesEnBase()</a><br />
+                                                                    <a href="../classes/Helper.html#method_TransfertObjetsEnBase" class="">TransfertObjetsEnBase()</a><br />
+                                                                    <a href="../classes/Helper.html#method_TransfertActionSocialeEnBase" class="">TransfertActionSocialeEnBase()</a><br />
+                                                                    <a href="../classes/Helper.html#method_SupprimerAmi" class="">SupprimerAmi()</a><br />
+                                                                    <a href="../classes/Helper.html#method_AjouterAmi" class="">AjouterAmi()</a><br />
+                                                                    <a href="../classes/Helper.html#method_GetAmi" class="">GetAmi()</a><br />
+                                                                    <a href="../classes/Helper.html#method_VerifierAmi" class="">VerifierAmi()</a><br />
+                                                                    <a href="../classes/Helper.html#method_ArtefactUtilise" class="">ArtefactUtilise()</a><br />
+                                                                    <a href="../classes/Helper.html#method_ObjetAchete" class="">ObjetAchete()</a><br />
+                                                                    <a href="../classes/Helper.html#method_VerifierArtefactMagasin" class="">VerifierArtefactMagasin()</a><br />
+                                                                    <a href="../classes/Helper.html#method_MissionEffectuee" class="">MissionEffectuee()</a><br />
+                                                                    <a href="../classes/Helper.html#method_MissionDivertEffectuee" class="">MissionDivertEffectuee()</a><br />
+                                                                    <a href="../classes/Helper.html#method_ExamenEffectue" class="">ExamenEffectue()</a><br />
+                                                                    <a href="../classes/Helper.html#method_PNJEffectue" class="">PNJEffectue()</a><br />
+                                                                    <a href="../classes/Helper.html#method_checkFirstConnection" class="">checkFirstConnection()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Helper.html"><div class="path-wrapper">Helper.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\Helper</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ConnectBDD" name="method_ConnectBDD" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ConnectBDD()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ConnectBDD() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ParseJson" name="method_ParseJson" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ParseJson()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ParseJson(  <span class="argument">$array = array()</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$array </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CreateUser" name="method_CreateUser" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CreateUser()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CreateUser(  <span class="argument">$pseudo = null</span>,   <span class="argument">$mail = null</span>,   <span class="argument">$pass = null</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$pseudo </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$mail </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$pass </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CheckConnexion" name="method_CheckConnexion" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CheckConnexion()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CheckConnexion(  <span class="argument">$pseudo = null</span>,   <span class="argument">$pass = null</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$pseudo </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$pass </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CheckConnexionByMail" name="method_CheckConnexionByMail" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CheckConnexionByMail()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CheckConnexionByMail(  <span class="argument">$mail = null</span>,   <span class="argument">$pass = null</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$mail </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$pass </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_SetPlayerStat" name="method_SetPlayerStat" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">SetPlayerStat()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">SetPlayerStat(  <span class="argument">$stat</span>,   <span class="argument">$value</span>,   <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$stat </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_SetRessources" name="method_SetRessources" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">SetRessources()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">SetRessources(  <span class="argument">$idRessource</span>,   <span class="argument">$idJoueur</span>,   <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$idRessource </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idJoueur </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_reinitiatePassword" name="method_reinitiatePassword" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">reinitiatePassword()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">reinitiatePassword(  <span class="argument">$mail</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$mail </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_sendMail" name="method_sendMail" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">sendMail()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">sendMail(  <span class="argument">$destinataire</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$destinataire </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_sendReinitialisationMail" name="method_sendReinitialisationMail" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">sendReinitialisationMail()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">sendReinitialisationMail(  <span class="argument">$destinataire</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$destinataire </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_checkIP" name="method_checkIP" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">checkIP()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">checkIP(  <span class="argument">$ip</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$ip </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addIP" name="method_addIP" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addIP()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addIP(  <span class="argument">$ip</span>,   <span class="argument">$playerId</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$ip </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$playerId </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ConnectById" name="method_ConnectById" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ConnectById()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ConnectById(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_connectOnIP" name="method_connectOnIP" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">connectOnIP()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">connectOnIP(  <span class="argument">$connect</span>,   <span class="argument">$ip</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$connect </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$ip </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConnectOnIP" name="method_getConnectOnIP" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConnectOnIP()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConnectOnIP(  <span class="argument">$ip</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$ip </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateDateCo" name="method_updateDateCo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateDateCo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateDateCo(string  <span class="argument">$id</span>) </pre>
+                <p><em>Met à jour la dernière date de connexion pour un joueur</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>Identifiant (ex : &quot;43&quot;)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_resetAdmin" name="method_resetAdmin" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">resetAdmin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">resetAdmin() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ChangeTutoStatus" name="method_ChangeTutoStatus" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ChangeTutoStatus()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ChangeTutoStatus(  <span class="argument">$idTuto</span>,   <span class="argument">$idPlayer</span>,   <span class="argument">$status</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$idTuto </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idPlayer </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$status </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_verifierStatusTuto" name="method_verifierStatusTuto" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">verifierStatusTuto()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">verifierStatusTuto(  <span class="argument">$idTuto</span>,   <span class="argument">$idPlayer</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$idTuto </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idPlayer </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupLieu" name="method_RecupLieu" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupLieu()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupLieu() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupGain" name="method_RecupGain" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupGain()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupGain() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupPerte" name="method_RecupPerte" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupPerte()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupPerte() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupBonus" name="method_RecupBonus" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupBonus()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupBonus() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupObjet" name="method_RecupObjet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupObjet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupObjet() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupArtefact" name="method_RecupArtefact" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupArtefact()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupArtefact() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupObjetMagasin" name="method_RecupObjetMagasin" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupObjetMagasin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupObjetMagasin(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupDuree" name="method_RecupDuree" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupDuree()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupDuree() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupRang" name="method_RecupRang" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupRang()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupRang() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupQuartier" name="method_RecupQuartier" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupQuartier()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupQuartier() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupTrophee" name="method_RecupTrophee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupTrophee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupTrophee() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupExam" name="method_RecupExam" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupExam()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupExam() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupEntreprise" name="method_RecupEntreprise" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupEntreprise()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupEntreprise() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupEmpEntreprise" name="method_RecupEmpEntreprise" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupEmpEntreprise()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupEmpEntreprise(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupSpeEntreprise" name="method_RecupSpeEntreprise" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupSpeEntreprise()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupSpeEntreprise(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupMission" name="method_RecupMission" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupMission()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupMission() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupPNJ" name="method_RecupPNJ" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupPNJ()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupPNJ() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupQuartierPNJ" name="method_RecupQuartierPNJ" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupQuartierPNJ()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupQuartierPNJ(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupDivert" name="method_RecupDivert" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupDivert()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupDivert() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupComp" name="method_RecupComp" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupComp()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupComp() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupRess" name="method_RecupRess" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupRess()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupRess() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupDiplome" name="method_RecupDiplome" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupDiplome()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupDiplome() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupTopicsAide" name="method_RecupTopicsAide" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupTopicsAide()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupTopicsAide() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_MAJObjet" name="method_MAJObjet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">MAJObjet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">MAJObjet(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_MAJComp" name="method_MAJComp" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">MAJComp()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">MAJComp(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_MAJArtefact" name="method_MAJArtefact" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">MAJArtefact()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">MAJArtefact(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_MAJDiplome" name="method_MAJDiplome" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">MAJDiplome()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">MAJDiplome(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_MAJRessources" name="method_MAJRessources" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">MAJRessources()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">MAJRessources(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_MAJTrophee" name="method_MAJTrophee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">MAJTrophee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">MAJTrophee(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupPresentMissions" name="method_RecupPresentMissions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupPresentMissions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupPresentMissions(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupPNJJouable" name="method_RecupPNJJouable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupPNJJouable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupPNJJouable(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupExamJouable" name="method_RecupExamJouable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupExamJouable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupExamJouable(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupDivertJouable" name="method_RecupDivertJouable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupDivertJouable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupDivertJouable(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupActionsSocialesComp" name="method_RecupActionsSocialesComp" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupActionsSocialesComp()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupActionsSocialesComp(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupActionsSocialesObjet" name="method_RecupActionsSocialesObjet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupActionsSocialesObjet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupActionsSocialesObjet(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupArtefactJouable" name="method_RecupArtefactJouable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupArtefactJouable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupArtefactJouable(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupDeLaListeDesJoueurs" name="method_RecupDeLaListeDesJoueurs" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupDeLaListeDesJoueurs()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupDeLaListeDesJoueurs(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupMesAmis" name="method_RecupMesAmis" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupMesAmis()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupMesAmis(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_RecupExamensNonJouables" name="method_RecupExamensNonJouables" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">RecupExamensNonJouables()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">RecupExamensNonJouables(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_TransfertCompetencesEnBase" name="method_TransfertCompetencesEnBase" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">TransfertCompetencesEnBase()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">TransfertCompetencesEnBase(  <span class="argument">$id</span>,   <span class="argument">$idComp</span>,   <span class="argument">$valeur</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idComp </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$valeur </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_TransfertRessourcesEnBase" name="method_TransfertRessourcesEnBase" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">TransfertRessourcesEnBase()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">TransfertRessourcesEnBase(  <span class="argument">$id</span>,   <span class="argument">$idRess</span>,   <span class="argument">$valeur</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idRess </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$valeur </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_TransfertObjetsEnBase" name="method_TransfertObjetsEnBase" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">TransfertObjetsEnBase()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">TransfertObjetsEnBase(  <span class="argument">$id</span>,   <span class="argument">$idObjet</span>,   <span class="argument">$valeur</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idObjet </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$valeur </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_TransfertActionSocialeEnBase" name="method_TransfertActionSocialeEnBase" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">TransfertActionSocialeEnBase()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">TransfertActionSocialeEnBase(  <span class="argument">$id</span>,   <span class="argument">$idAmi</span>,   <span class="argument">$type</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idAmi </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$type </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_SupprimerAmi" name="method_SupprimerAmi" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">SupprimerAmi()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">SupprimerAmi(  <span class="argument">$id</span>,   <span class="argument">$idAmi</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idAmi </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_AjouterAmi" name="method_AjouterAmi" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">AjouterAmi()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">AjouterAmi(  <span class="argument">$id</span>,   <span class="argument">$idAmi</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idAmi </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetAmi" name="method_GetAmi" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetAmi()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetAmi(  <span class="argument">$nomAmi</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$nomAmi </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_VerifierAmi" name="method_VerifierAmi" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">VerifierAmi()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">VerifierAmi(  <span class="argument">$id</span>,   <span class="argument">$idAmi</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idAmi </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ArtefactUtilise" name="method_ArtefactUtilise" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ArtefactUtilise()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ArtefactUtilise(  <span class="argument">$id</span>,   <span class="argument">$idArt</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idArt </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ObjetAchete" name="method_ObjetAchete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ObjetAchete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ObjetAchete(  <span class="argument">$id</span>,   <span class="argument">$idObjet</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idObjet </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_VerifierArtefactMagasin" name="method_VerifierArtefactMagasin" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">VerifierArtefactMagasin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">VerifierArtefactMagasin(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_MissionEffectuee" name="method_MissionEffectuee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">MissionEffectuee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">MissionEffectuee(  <span class="argument">$idJoueur</span>,   <span class="argument">$idMission</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$idJoueur </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idMission </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_MissionDivertEffectuee" name="method_MissionDivertEffectuee" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">MissionDivertEffectuee()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">MissionDivertEffectuee(  <span class="argument">$idJoueur</span>,   <span class="argument">$idMission</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$idJoueur </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idMission </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ExamenEffectue" name="method_ExamenEffectue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ExamenEffectue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ExamenEffectue(  <span class="argument">$idJoueur</span>,   <span class="argument">$idExamen</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$idJoueur </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idExamen </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_PNJEffectue" name="method_PNJEffectue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">PNJEffectue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">PNJEffectue(  <span class="argument">$idJoueur</span>,   <span class="argument">$idArt</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$idJoueur </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$idArt </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_checkFirstConnection" name="method_checkFirstConnection" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">checkFirstConnection()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">checkFirstConnection(  <span class="argument">$id</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/Users/NOUVEAU/Desktop/Genius/#AUTRES/Alwaysdata/ScriptCronTab/www/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Helper.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Helper.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 9th, 2019 at 12:51.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
