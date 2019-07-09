@@ -309,11 +309,15 @@ public class Gain : MonoBehaviour {
             default:
                 break;
         }
+
+        //StartCoroutine(envoiArtefactUtiliseEnBase());
+        /*
         string requete = "Insert INTO artefact_used VALUES (" + artefact.IDArtefact + "," + Joueur.IDJoueur + ");";
         MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
         MySqlDataReader lien = commande.ExecuteReader();
-        lien.Close();
+        lien.Close();*/
     }
+
     public static void gainObjetAvecArtefact()
     {
         for (int i = 0; i < 5; ++i)
@@ -346,5 +350,20 @@ public class Gain : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public static IEnumerator envoiArtefactUtiliseEnBase()
+    {
+        Artefact artefact = RessourcesBdD.listeDesArtefactsJouables[VerifArtefactCliquer.ArtefactChoisi];
+        string urlAmis = Configuration.url + "scripts/ArtefactUtilise.php?id=" + Joueur.IDJoueur + "&idArt=" + artefact.IDArtefact;
+        //Debug.Log(urlAmis);
+
+        WWW dlAmis = new WWW(urlAmis);
+        yield return dlAmis;
+    }
+
+    public void toString()
+    {
+        Debug.Log("Gain " + IDGain + "(" + NomGain + ") - Valeur " + ValeurDuGain);
     }
 }

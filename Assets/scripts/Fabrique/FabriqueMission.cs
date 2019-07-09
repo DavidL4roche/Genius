@@ -57,7 +57,7 @@ public class FabriqueMission : MonoBehaviour {
         NomTemps.text = mr.SaDurée.NomDuree;
 
         metier.SetActive(true);
-        if (mr.MetierAssocie != "")
+        if (mr.MetierAssocie != "" && mr.MetierAssocie != "null")
         {
             ValeurMetier.text = mr.MetierAssocie;
         }

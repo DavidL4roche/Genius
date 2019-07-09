@@ -26,4 +26,9 @@ public class Quartier : MonoBehaviour {
         }
         return null;
     }
+
+    public void toString()
+    {
+        Debug.Log("Quartier " + IDQuartier + "(" + NomQuartier + ")");
+    }
 }

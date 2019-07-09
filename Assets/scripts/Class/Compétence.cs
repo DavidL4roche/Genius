@@ -52,4 +52,9 @@ public class Compétence : MonoBehaviour {
         }
         return valeur;
     }
+
+    public void toString()
+    {
+        Debug.Log("Compétence " + ID + "(" + NomCompétence + ")");
+    }
 }

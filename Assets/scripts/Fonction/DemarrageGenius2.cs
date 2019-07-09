@@ -5,6 +5,7 @@ using System.Collections;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DemarrageGenius2 : MonoBehaviour {
 
@@ -22,9 +23,31 @@ public class DemarrageGenius2 : MonoBehaviour {
     private string monJson;
     private JSONNode monNode;
 
+    public GameObject EcranErreur;
+    DateTime dt;
+    DateTime dt2;
+
     public void Start()
     {
-        StartCoroutine(MyCoroutine());
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("Pas d'internet");
+            RendreVisibleEcranErreur(true);
+        }
+        else
+        {
+            StartCoroutine(MyCoroutine());
+            dt = DateTime.Now;
+        }
+    }
+
+    public void Update()
+    {
+        if((DateTime.Now - dt).TotalSeconds > 20)
+        {
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Une erreur est survenue, veuillez relancer le jeu";
+        }
     }
 
     IEnumerator MyCoroutine()
@@ -37,9 +60,8 @@ public class DemarrageGenius2 : MonoBehaviour {
 
         if ((!string.IsNullOrEmpty(download.error)))
         {
-            print("Error downloading: " + download.error);
-            ChargerPopup.Charger("Erreur");
-            MessageErreur.messageErreur = "Connexion impossible, veuillez réessayer plus tard";
+            Debug.Log("Error downloading: " + download.error);
+            RendreVisibleEcranErreur(true);
         }
         else
         {
@@ -105,6 +127,9 @@ public class DemarrageGenius2 : MonoBehaviour {
                             }
                             else
                             {
+                                //ChargerPopup.Charger("Succes");
+                                //MessageErreur.messageErreur = "Lancement du jeu. Etape 4";
+
                                 monJson = download.text;
                                 monNode = JSON.Parse(monJson);
 
@@ -122,37 +147,76 @@ public class DemarrageGenius2 : MonoBehaviour {
                                 // L'adresse correspond à un compte
                                 else
                                 {
-                                    // On teste la connection à la base de données
-                                    int total = 0;
-                                    string requeteTest = "SELECT COUNT(*) AS Total FROM mission";
-                                    MySqlCommand commande = new MySqlCommand(requeteTest, Connexion.connexion);
-                                    MySqlDataReader lien = commande.ExecuteReader();
-                                    try
+                                    while (!Configuration.continueJoueur)
                                     {
-                                        while (lien.Read())
+                                        yield return new WaitForSeconds(2);
+                                    }
+
+                                    // On récupère les données du Joueur pour l'attribuer à notre objet
+                                    int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
+                                    Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
+                                    Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
+                                    ChargerLieu loading = new ChargerLieu();
+                                    Instantiate(JoueurLoge);
+                                    /*
+                                    ChargerPopup.Charger("Succes");
+                                    MessageErreur.messageErreur = "Connexion réussie. Lancement du jeu.";*/
+
+                                    while (!Joueur.continueDaedelus)
+                                    {
+                                        yield return new WaitForSeconds(2);
+                                    }
+
+                                    // On vérifie si on lance le tutoriel
+                                    string urlTuto = Configuration.url + "scripts/CheckFirstConnection.php?id=" + monNode["utilisateur"][0]["id"].Value;
+
+                                    download = new WWW(urlTuto);
+                                    yield return download;
+
+                                    if ((!string.IsNullOrEmpty(download.error)))
+                                    {
+                                        print("Error downloading: " + download.error);
+                                    }
+                                    else
+                                    {
+                                        string JsonTuto = download.text;
+                                        JSONNode NodeTuto = JSON.Parse(JsonTuto);
+
+                                        // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
+                                        string resultTuto = NodeTuto["result"].Value;
+
+                                        if (resultTuto.ToLower() == "false")
                                         {
-                                            total = Int32.Parse(lien["Total"].ToString());
+                                            ChargerPopup.Charger("Erreur");
+                                            MessageErreur.messageErreur = NodeTuto["msg"].Value;
                                         }
-                                    }
-                                    catch
-                                    {
-                                        ChargerPopup.Charger("Erreur");
-                                        MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
-                                    }
-                                    lien.Close();
 
-                                    // On connecte automatiquement au compte lié
-                                    if (total != 0)
-                                    {
-                                        // On récupère les données du Joueur pour l'attribuer à notre objet
-                                        int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
-                                        Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
-                                        Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
-                                        ChargerLieu loading = new ChargerLieu();
-                                        Instantiate(JoueurLoge);
+                                        // Sinon on correspond bien à un utilisateur
+                                        else
+                                        {
+                                            if (NodeTuto["msg"] == "1")
+                                            {
+                                                Debug.Log("On lance le tutoriel");
+                                                // On change le booléen isFirstConnection du joueur en faux (0)
+                                                string urlChange = "http://seriousgameiut.alwaysdata.net/scripts/ChangePlayerStats.php";
+                                                urlChange += "?stat=isFirstConnection&value=0&id=" + monNode["utilisateur"][0]["id"].Value;
+                                                WWW downloadChange = new WWW(urlChange);
+                                                yield return downloadChange;
 
-                                        // On charge la carte
-                                        loading.Charger("Daedelus");
+                                                bool finish = true;
+
+                                                if (finish)
+                                                {
+                                                    // On charge le tutoriel
+                                                    ChargerLieu loadingTuto = new ChargerLieu();
+                                                    loadingTuto.Charger("Tutoriel");
+                                                }
+                                            }
+                                            else {
+                                                // On charge la carte
+                                                loading.Charger("Daedelus");
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -185,5 +249,16 @@ public class DemarrageGenius2 : MonoBehaviour {
             }
         }
         return localIP;
+    }
+
+    public void RendreVisibleEcranErreur(bool visible)
+    {
+        EcranErreur.SetActive(visible);
+    }
+
+    public void RelancerJeu()
+    {
+        // On "relance" le jeu
+        SceneManager.LoadScene("Index1");
     }
 }

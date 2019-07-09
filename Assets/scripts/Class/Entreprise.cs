@@ -33,4 +33,9 @@ public class Entreprise : MonoBehaviour {
         }
         return null;
     }
+
+    public void toString()
+    {
+        Debug.Log("Entreprise " + IDEntreprise + "(" + NomEntreprise + ") - Taille " + TailleEntreprise);
+    }
 }

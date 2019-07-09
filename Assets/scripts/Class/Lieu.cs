@@ -10,4 +10,9 @@ public class Lieu : MonoBehaviour {
         IDLieu = id;
         NomLieu = nom;
     }
+
+    public void toString()
+    {
+        Debug.Log("Lieu " + IDLieu + "(" + NomLieu + ")");
+    }
 }

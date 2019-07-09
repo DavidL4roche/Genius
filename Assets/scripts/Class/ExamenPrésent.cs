@@ -35,4 +35,9 @@ public class ExamenPrésent : MonoBehaviour {
         }
         return lieu;
     }
+
+    public void toString()
+    {
+        Debug.Log("Examen présent " + SonExamen.NomExamen + "(Lieu : " + SonLieu.NomLieu + ")");
+    }
 }

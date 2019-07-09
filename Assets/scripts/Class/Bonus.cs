@@ -27,4 +27,9 @@ public class Bonus : MonoBehaviour {
         }
         return null;
     }
+
+    public void toString()
+    {
+        Debug.Log("Bonus " + IDBonus + "(" + NomBonus + ")");
+    }
 }

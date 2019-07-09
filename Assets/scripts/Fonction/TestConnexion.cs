@@ -26,7 +26,14 @@ public class TestConnexion : MonoBehaviour {
     // Permet d'appeler l'URL pour transmettre au script PHP les informations
     public void CallFunction()
     {
-        StartCoroutine(CheckConnection());
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("Pas d'internet");
+        }
+        else
+        {
+            StartCoroutine(CheckConnection());
+        }
     }
 
     // Permet de se connecter
@@ -71,9 +78,11 @@ public class TestConnexion : MonoBehaviour {
                 yield return download2;
 
                 // On récupère les données du Joueur pour l'attribuer à notre objet
+                /*
                 int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
                 Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
                 Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
+                */
                 ChargerLieu loading = new ChargerLieu();
 
                 // On vérifie si c'est la première connection de l'utilisateur
@@ -85,61 +94,16 @@ public class TestConnexion : MonoBehaviour {
                     download = new WWW(urlStat);
                     yield return download;
 
-                    /*
-                    // On teste la connection à la base de données
-                    int total = 0;
-                    string requeteTest = "SELECT COUNT(*) AS Total FROM mission";
-                    MySqlCommand commande = new MySqlCommand(requeteTest, Connexion.connexion);
-                    MySqlDataReader lien = commande.ExecuteReader();
-                    try
-                    {
-                        while (lien.Read())
-                        {
-                            total = Int32.Parse(lien["Total"].ToString());
-                        }
-                    }
-                    catch
-                    {
-                        ChargerPopup.Charger("Erreur");
-                        MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
-                    }
-                    lien.Close();
-
-                    // On connecte automatiquement au compte lié
-                    if (total != 0)
-                    {
-                    */
-                        loading.Charger("Tutoriel");
-                        Instantiate(JoueurLoge);
-                    //}
+                    Debug.Log("Tutoriel");
+                    loading.Charger("Tutoriel");
+                    //Instantiate(JoueurLoge);
                 }
                 else
                 {
-                    // On teste la connection à la base de données
-                    int total = 0;
-                    string requeteTest = "SELECT COUNT(*) AS Total FROM mission";
-                    MySqlCommand commande = new MySqlCommand(requeteTest, Connexion.connexion);
-                    MySqlDataReader lien = commande.ExecuteReader();
-                    try
-                    {
-                        while (lien.Read())
-                        {
-                            total = Int32.Parse(lien["Total"].ToString());
-                        }
-                    }
-                    catch
-                    {
-                        ChargerPopup.Charger("Erreur");
-                        MessageErreur.messageErreur = "Impossible d'accéder à la base de données.";
-                    }
-                    lien.Close();
-
+                    Debug.Log("Connection !");
                     // On connecte automatiquement au compte lié
-                    if (total != 0)
-                    {
-                        loading.Charger("Daedelus");
-                        Instantiate(JoueurLoge);
-                    }
+                    loading.Charger("Index1");
+                    //Instantiate(JoueurLoge);
                 }
             }
         }
