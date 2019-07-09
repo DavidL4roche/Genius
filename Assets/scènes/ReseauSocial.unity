@@ -617,6 +617,8 @@ MonoBehaviour:
   Cadre: {fileID: 114268150664079130, guid: 6dc89cd6f3baedb46a162062325144ee, type: 2}
   VoirProfil: {fileID: 114707220127594994, guid: 6dc89cd6f3baedb46a162062325144ee,
     type: 2}
+  Icone: {fileID: 1089337810884714, guid: 6dc89cd6f3baedb46a162062325144ee, type: 2}
+  CliqueMenu: {fileID: 1456797332493994, guid: 6dc89cd6f3baedb46a162062325144ee, type: 2}
   EcranTuto: {fileID: 1241325619}
 --- !u!114 &607642907
 MonoBehaviour:
@@ -921,7 +923,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 872094872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -6.186685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1192857852}
@@ -1577,6 +1579,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomAmi: {fileID: 1629490377}
+  continueAjouter: 0
+  continueVerifierAmi: 0
+  continueRecupAmis: 0
+  continueReload: 0
 --- !u!1 &1192857851
 GameObject:
   m_ObjectHideFlags: 0

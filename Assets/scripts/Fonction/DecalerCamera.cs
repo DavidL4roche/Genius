@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class DecalerCamera : MonoBehaviour {
 
     public Camera cameraJeu;
-    public float valueX = 540;
+    public float valueX = 536.7f;
     public float valueY = 0;
     public GameObject EcranTuto;
 
@@ -23,7 +23,6 @@ public class DecalerCamera : MonoBehaviour {
         int suivantInt = Int32.Parse(suivant);
         ++suivantInt;
         string nomEcranSuivant = "Ecran (" + suivantInt.ToString() + ")";
-        Debug.Log(nomEcranSuivant);
 
         GameObject ecranSuivant = GameObject.Find(nomEcranSuivant);
 

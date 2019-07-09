@@ -32,4 +32,9 @@ public class Artefact : MonoBehaviour {
         }
         return null;
     }
+
+    public void toString()
+    {
+        Debug.Log("Artefact " + IDArtefact + "(" + NomArtefact + ") - Bonus " + SonBonus.NomBonus);
+    }
 }

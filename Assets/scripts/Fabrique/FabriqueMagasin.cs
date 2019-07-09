@@ -28,7 +28,7 @@ public class FabriqueMagasin : MonoBehaviour {
     GameObject instance;
     public void Start()
     {
-        bool test = testsiArtefactMagasin();
+        bool test = false; // testsiArtefactMagasin();
         if (test)
         {
             ObjetPrésent[] tableau = new ObjetPrésent[RessourcesBdD.listeDesObjets.Length];
@@ -103,7 +103,9 @@ public class FabriqueMagasin : MonoBehaviour {
     {
         GameObject horizontalLayout = GameObject.Find("HorizontalLayout");
 
-        if(horizontal.transform.position.x <= (-3996.675))
+        float sizeListe = 175 - (347.707f * listeobjets.Length-1); //-175.75f
+
+        if(horizontal.transform.position.x <= (sizeListe))
         {
             suivant.SetActive(false);
         }
@@ -121,7 +123,7 @@ public class FabriqueMagasin : MonoBehaviour {
             precedent.SetActive(true);
         }
     }
-
+    /*
     public bool testsiArtefactMagasin()
     {
         int total = 0;
@@ -148,6 +150,7 @@ public class FabriqueMagasin : MonoBehaviour {
         }
         return false;
     }
+    */
 
     public void getRessources()
     {

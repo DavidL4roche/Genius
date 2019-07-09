@@ -162,4 +162,9 @@ public class Perte : MonoBehaviour {
         }
         md.SesPertes = tabDePertes;
     }
+
+    public void toString()
+    {
+        Debug.Log("Perte " + IDPerte + "(" + NomPerte + ") - Valeur " + ValeurDeLaPerte);
+    }
 }

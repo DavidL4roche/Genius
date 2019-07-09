@@ -21,6 +21,9 @@ public class FabriqueResultatPNJ : MonoBehaviour {
     //public Text SliderTexte;
     //public Image ImageTuple;
     GameObject instance;
+
+    public bool continueUpdate = false;
+
     public void Start()
     {
         //mission.voirRessources();
@@ -29,11 +32,21 @@ public class FabriqueResultatPNJ : MonoBehaviour {
         blockdesprerequis();
         ValeurTupleTexte.color = new Color(1F, 1F, 1F, 1F);
         //ReloadMissions();
-        Joueur.transfertEnBase();
-        transfertEnBase(mr.SonPNJ.SonArtefact.IDArtefact);
-        RessourcesBdD.recupPNJJouable();
-        RessourcesBdD.RecupArtefactJouable();
+        StartCoroutine(Joueur.transfertEnBase());
+        StartCoroutine(transfertEnBase(mr.SonPNJ.SonArtefact.IDArtefact));
     }
+
+    public void Update()
+    {
+        if (continueUpdate)
+        {
+            Debug.Log("On rentre dans continueUpdate");
+            StartCoroutine(RessourcesBdD.recupPNJJouable());
+            StartCoroutine(RessourcesBdD.RecupArtefactJouable());
+            continueUpdate = false;
+        }
+    }
+
     public void blockdesprerequis()
     {
         for (int i = 0; i < mission.SesGains.Length; ++i)
@@ -159,12 +172,14 @@ public class FabriqueResultatPNJ : MonoBehaviour {
             }
         }
     }
-    public void transfertEnBase(int idartefact)
+    public IEnumerator transfertEnBase(int idartefact)
     {
-        string requete = "Insert INTO artefact_pc VALUES (" + idartefact + "," + Joueur.IDJoueur + ");";
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        lien.Close();
+        string urlComp = Configuration.url + "scripts/PNJEffectue.php?idJoueur=" + Joueur.IDJoueur + "&idArt=" + idartefact;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        continueUpdate = true;
     }
     void APerdu()
     {
@@ -203,6 +218,8 @@ public class FabriqueResultatPNJ : MonoBehaviour {
 
         }
     }
+
+    /*
     public void ReloadMissions()
     {
         string requete = "Insert INTO friend VALUES (" + Joueur.IDJoueur + "," + SpawnerMission.SonPNJ.SonPNJ.IDPNJ + ");";
@@ -210,4 +227,5 @@ public class FabriqueResultatPNJ : MonoBehaviour {
         MySqlDataReader lien = commande.ExecuteReader();
         lien.Close();
     }
+    */
 }

@@ -36,8 +36,8 @@ public class ResetAdmin : MonoBehaviour {
         }
 
         // On "relance" le jeu
-        SceneManager.LoadScene("Index");
+        SceneManager.LoadScene("Index1");
         ChargerPopup.Charger("Succes");
-        MessageErreur.messageErreur = "Vous venez de réinitialiser le compte admin.";
+        MessageErreur.messageErreur = "Réinitialisation réussie. Veuillez relancer le jeu";
     }
 }

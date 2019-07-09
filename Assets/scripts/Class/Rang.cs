@@ -56,4 +56,9 @@ public class Rang : MonoBehaviour
         }
         return null;
     }
+
+    public void toString()
+    {
+        Debug.Log("Rang " + IDRang + "(" + NomRang + ")");
+    }
 }

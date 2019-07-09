@@ -18,17 +18,26 @@ public class FabriqueListeExamens : MonoBehaviour {
 
     public GameObject EcranTuto;
 
+    public static bool continueListeExamens = false;
+
     // Use this for initialization
     void Start ()
     {
         // On vérifie que le joueur a fait le tuto Examen (2)
         StartCoroutine(Joueur.VerifierStatusTuto(2, EcranTuto));
-
-        genererListeExamens();
+        StartCoroutine(RessourcesBdD.recupExamensNonJouables());
 	}
-	
-	// Update is called once per frame
-	void genererListeExamens () {
+
+    private void Update()
+    {
+        if (continueListeExamens)
+        {
+            genererListeExamens();
+            continueListeExamens = false;
+        }
+    }
+
+    void genererListeExamens () {
 
         // On instancie la catégorie "Disponibles"
         NomCategorie.text = "Disponible";
@@ -67,7 +76,7 @@ public class FabriqueListeExamens : MonoBehaviour {
             }
 
             // On vérifie si l'examen a déjà été passé par le joueur
-            RessourcesBdD.recupExamensNonJouables();
+            //StartCoroutine(RessourcesBdD.recupExamensNonJouables());
             foreach (int id in RessourcesBdD.listeDesExamensNonJouables)
             {
                 if (id == examen.IDExamen)
@@ -166,7 +175,7 @@ public class FabriqueListeExamens : MonoBehaviour {
             examenID.text = (examen.IDExamen - 1).ToString();
 
             // On vérifie si l'examen a déjà été passé par le joueur
-            RessourcesBdD.recupExamensNonJouables();
+            //StartCoroutine(RessourcesBdD.recupExamensNonJouables());
             foreach (int id in RessourcesBdD.listeDesExamensNonJouables)
             {
                 if (id == examen.IDExamen)
@@ -183,6 +192,11 @@ public class FabriqueListeExamens : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public IEnumerator WaitFor(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 
     public string truncateString(string myStr, int trun)

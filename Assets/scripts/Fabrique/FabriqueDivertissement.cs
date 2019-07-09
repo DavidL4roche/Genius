@@ -32,7 +32,7 @@ public class FabriqueDivertissement : MonoBehaviour {
             //Debug.Log("Gain " + i + " : " + mr.SesGains[i].NomGain + "(" + mr.SesGains[i].ValeurDuGain.ToString() + ")");
             if(mr.SesGains[i].NomGain == "Divertissement")
             {
-                GainDivertissement.text = mr.SesGains[i].ValeurDuGain.ToString();
+                GainDivertissement.text = "+" + mr.SesGains[i].ValeurDuGain.ToString() + "%";
             }
         }
     }

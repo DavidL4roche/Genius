@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,8 +54,15 @@ public class FabriqueCompétenceAmi : MonoBehaviour
                 }
 
                 // On affiche visuellement la valeur du joueur dans la compétence
-                double pourcentage = ((double)joueur.SesCompétences[valJoueur] / 100) * 264.07;
-                colorTupleComp.GetComponent<RectTransform>().sizeDelta = new Vector2((float)pourcentage, 42.4f);
+                try
+                {
+                    double pourcentage = ((double)joueur.SesCompétences[valJoueur] / 100) * 264.07;
+                    colorTupleComp.GetComponent<RectTransform>().sizeDelta = new Vector2((float)pourcentage, 42.4f);
+                }
+                catch(NullReferenceException e)
+                {
+                    RessourcesBdD.ReloadGame();
+                }
 
                 if (RessourcesBdD.listeDesExamens[i].CompétencesRequises[valComp].Valeur < joueur.SesCompétences[valJoueur])
                 {

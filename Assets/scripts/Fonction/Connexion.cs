@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using MySql.Data.MySqlClient;
+using SimpleJSON;
+using System.Collections;
 
 public class Connexion : MonoBehaviour {
 
@@ -9,10 +11,12 @@ public class Connexion : MonoBehaviour {
     {
         try
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
+            /*
             string constr = "Server=" + Configuration.host + "; Port=3306; Database=" + Configuration.database + "; Uid=" + Configuration.login + "; Pwd=" + Configuration.password + ";";
             connexion = new MySqlConnection(constr);
             connexion.Open();
+            */
             RessourcesBdD.Recup();
         }
         catch (System.IO.IOException e)
@@ -23,6 +27,7 @@ public class Connexion : MonoBehaviour {
         }
     }
 
+    /*
     public MySqlConnection getConnexion()
     {
         return connexion;
@@ -38,7 +43,7 @@ public class Connexion : MonoBehaviour {
     {
         if (Joueur.IDJoueur != 0)
         {
-            Joueur.transfertEnBase();
+            StartCoroutine(Joueur.transfertEnBase());
         }
         if (connexion != null && connexion.State.ToString() != "Close")
         {
@@ -46,4 +51,5 @@ public class Connexion : MonoBehaviour {
             connexion.Close();
         }  
     }
+    */
 }

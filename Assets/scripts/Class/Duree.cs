@@ -54,4 +54,9 @@ public class Duree : MonoBehaviour {
         } 
         return RessourcesBdD.listeDesDurees[i-1];
     }
+
+    public void toString()
+    {
+        Debug.Log("Durée " + IDDuree + "(" + NomDuree + ") - Valeur " + ValeurDuree);
+    }
 }

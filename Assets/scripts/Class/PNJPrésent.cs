@@ -10,10 +10,15 @@ public class PNJPrésent : MonoBehaviour {
     {
        SonPNJ = PNJ.trouverSonPNJ(idpnj);
        SaMission = Mission.trouverSaMission(idmission);
-       Debug.Log("PNJ présent");
+       //Debug.Log("PNJ présent");
     }
     public PNJPrésent(int nonpresent)
     {
         SonPNJ = new PNJ(0, "", 1);
+    }
+
+    public void toString()
+    {
+        Debug.Log("PNJ Présent " + SonPNJ.NomPNJ + "(Mission : " + SaMission.IDMission + ")");
     }
 }

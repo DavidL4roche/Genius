@@ -11,4 +11,9 @@ public class MissionPrésente : MonoBehaviour {
         SaMission = Mission.trouverSaMission(idm);
         SaMission.MissionEntreprise = Entreprise.trouverSonEntreprise(identreprise);
     }
+
+    public void toString()
+    {
+        Debug.Log("MissionPrésente " + SaMission.NomMission + "(" + SonQuartier.NomQuartier + ")");
+    }
 }

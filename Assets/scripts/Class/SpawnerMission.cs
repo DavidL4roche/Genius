@@ -31,6 +31,9 @@ public class SpawnerMission : MonoBehaviour {
     static float[] tabPositionY;
     bool superpose;
 
+    public static bool continueTotalMissions = false;
+    public static bool continueStart = false;
+
     public void Start()
     {
         tabPositionY = new float[6];
@@ -39,6 +42,40 @@ public class SpawnerMission : MonoBehaviour {
         // On récupère l'id du quartier
         IDQuartier = VerifQuartier.IDQuartier;
 
+        if (continueStart)
+        {
+            StartCoroutine(Joueur.transfertEnBase());
+            GetMissions();
+        }
+    }
+
+    public void Update()
+    {
+        if (continueTotalMissions)
+        {
+            GetMissions();
+        }
+        continueTotalMissions = false;
+        continueStart = true;
+
+        // Si aucune donnée n'est présente
+        if (!RessourcesBdD.lancementRecup)
+        {
+            // On détruit tout les objets
+            GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+
+            for (int i = 0; i < GameObjects.Length; i++)
+            {
+                Destroy(GameObjects[i]);
+            }
+
+            // On relance le jeu
+            ChargerLieu charger = new ChargerLieu();
+            charger.Charger("Index1");
+        }
+    }
+
+    public void GetMissions() {
         // On crée les missions, divertissements et PNJ du quartier
         totalDeMissions();
 
@@ -58,7 +95,8 @@ public class SpawnerMission : MonoBehaviour {
                 {
                     OnMission.enabled = true;
                 }
-                else {
+                else
+                {
                     OnMission.enabled = false;
                     break;
                 }
@@ -72,7 +110,7 @@ public class SpawnerMission : MonoBehaviour {
         }
 
         // On instancie un divertissement dans le quartier
-        if(SonDivertissement.IDMissionD != 0)
+        if (SonDivertissement.IDMissionD != 0)
         {
             spawnerposition = genererPositionNonUtilisee();
             FondMissionD.texture = SonDivertissement.SonRang.texture;
@@ -83,7 +121,7 @@ public class SpawnerMission : MonoBehaviour {
         }
 
         // On instancie un PNJ dans le quartier
-        if (SonPNJ.SonPNJ.IDPNJ !=0 )
+        if (SonPNJ.SonPNJ.IDPNJ != 0)
         {
             spawnerposition = genererPositionNonUtilisee();
 
@@ -108,7 +146,7 @@ public class SpawnerMission : MonoBehaviour {
             instance.transform.parent = GameObject.Find("Decor").transform;
 
             int k = 0;
-            for (k=0; k<RessourcesBdD.listeDesMissions.Length; k++)
+            for (k = 0; k < RessourcesBdD.listeDesMissions.Length; k++)
             {
                 if (SonPNJ.SaMission.IDMission == RessourcesBdD.listeDesMissions[k].IDMission)
                 {

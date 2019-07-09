@@ -25,84 +25,139 @@ public class Joueur : MonoBehaviour {
     public static int DateActuelSeconde = System.DateTime.Now.Second;
     public static int SecondesUpdate = 10;
     
-    private string url = Configuration.url + "scripts/UpdateDateCo.php?id=" + IDJoueur;
+    private string url = Configuration.url + "scripts/";
+    private string urlRess = Configuration.url + "scripts/scriptsRessources/";
     private WWW download;
     private string monJson;
     private JSONNode monNode;
 
+    public static bool continueDaedelus = false;
+    public static bool continueRecupActionsSociales = false;
+    public static bool continueTransfertRessources = false;
+    public static bool continueMesAmis = false;
+    public static bool continueMissionJouable = false;
+
     // Use this for initialization
     public void Start() {
-        Debug.Log("Instanciation du joueur en cours");
-        DontDestroyOnLoad(gameObject);
-        majdepuisBDD();
-        PendantAbsence();
-        RessourcesBdD.recupExamJouable();
-        RessourcesBdD.recupDivertJouable();
-        RessourcesBdD.recupPNJJouable();
-        RessourcesBdD.RecupArtefactJouable();
-        RessourcesBdD.RecupObjetMagasin();
-        RessourcesBdD.RecupDeLaListeDesJoueurs();
-        RessourcesBdD.RecupMesAmis();
-        RessourcesBdD.RecupActionsSociales();
+        try
+        {
+            Debug.Log("Instanciation du joueur en cours");
+            DontDestroyOnLoad(gameObject);
 
-        // On répète toutes les SecondesUpdate l'incrémentation des ressources
-        InvokeRepeating("IncrementationRessourcesStatic", 0, SecondesUpdate);
-        //InvokeRepeating("transfertRessourcesEnBaseScript", 0, SecondesUpdate);
+            // On répète toutes les SecondesUpdate l'incrémentation des ressources
+            InvokeRepeating("IncrementationRessourcesStatic", 0, SecondesUpdate);
 
-        // On récupère les missions jouables
-        StartCoroutine(RessourcesBdD.recupMissionJouable());
-
-        // On envoie la date de dernière connexion et transfert les ressources en base toutes les SecondesUpdate
-        StartCoroutine(UpdateDateDerniereCoEnBase());
-        StartCoroutine(transfertRessourcesEnBaseScript());
+            // On envoie la date de dernière connexion et transfert les ressources en base toutes les SecondesUpdate
+            StartCoroutine(UpdateDateDerniereCoEnBase());
+            StartCoroutine(transfertRessourcesEnBaseScript());
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+            RessourcesBdD.ReloadGame();
+        }
     }
 	
-    /*
 	// Update is called once per frame
 	void Update () {
-        // On met à jour la date actuelle
-        DateActuel = System.DateTime.Now;
-        DateActuelMinute = System.DateTime.Now.Minute;
-        DateActuelSeconde = System.DateTime.Now.Second;
+        try
+        {
+            if (Configuration.continueJoueur)
+            {
+                //majdepuisBDD();
+                StartCoroutine(majRessources(IDJoueur));
+                StartCoroutine(majComp(IDJoueur));
+                StartCoroutine(majObjet(IDJoueur));
+                StartCoroutine(majDiplome(IDJoueur));
+                StartCoroutine(majTrophee(IDJoueur));
+                StartCoroutine(majArtefact(IDJoueur));
+                PendantAbsence();
+                StartCoroutine(RessourcesBdD.recupExamJouable());
+                StartCoroutine(RessourcesBdD.recupDivertJouable());
+                StartCoroutine(RessourcesBdD.recupPNJJouable());
+                StartCoroutine(RessourcesBdD.RecupArtefactJouable());
+                StartCoroutine(RessourcesBdD.RecupObjetMagasin());
+                StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
+            }
+
+            if (Configuration.continueJoueur && continueMesAmis)
+            {
+                continueMesAmis = false;
+                //Debug.Log("On rentre dans Joueur -> RecupMesAmis");
+                try
+                {
+                    StartCoroutine(RessourcesBdD.RecupMesAmis());
+                }
+                catch(MissingReferenceException e)
+                {
+                    Debug.Log(e);
+                    RessourcesBdD.ReloadGame();
+                }
+                //Debug.Log("On continue dans Joueur -> RecupMesAmis");
+                StartCoroutine(RessourcesBdD.RecupActionsSociales());
+                //Debug.Log("On finit dans Joueur -> RecupMesAmis");
+            }
+
+            if (Configuration.continueJoueur && continueMissionJouable)
+            {
+                // On récupère les missions jouables
+                StartCoroutine(RessourcesBdD.recupMissionJouable());
+
+                Configuration.continueJoueur = false;
+                continueMissionJouable = false;
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+            RessourcesBdD.ReloadGame();
+        }
     }
-    */
 
     public IEnumerator UpdateDateDerniereCoEnBase()
     {
         for (; ; )
         {
             // execute block of code here
-            download = new WWW(url);
+            download = new WWW(url + "UpdateDateCo.php?id=" + IDJoueur);
             yield return new WaitForSeconds(SecondesUpdate);
         }
+    }
+
+    public IEnumerator WaitFor(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
     
     public IEnumerator transfertRessourcesEnBaseScript()
     {
         for (; ; )
         {
-            if (RessourcesBdD.listeDesRessources != null)
+            if (continueTransfertRessources)
             {
-                for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+                if (RessourcesBdD.listeDesRessources != null)
                 {
-                    string urlRessource = Configuration.url + "scripts/ChangeRessource.php?idRessource=" + (i + 1) + "&idJoueur=" + IDJoueur + "&value=" + MesRessources[i];
-                    download = new WWW(urlRessource);
+                    for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
+                    {
+                        string urlRessource = url + "ChangeRessource.php?idRessource=" + (i + 1) + "&idJoueur=" + IDJoueur + "&value=" + MesRessources[i];
+                        download = new WWW(urlRessource);
+                    }
                 }
-            }
-            else
-            {
-                // On détruit tout les objets
-                GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
-
-                for (int i = 0; i < GameObjects.Length; i++)
+                else
                 {
-                    Destroy(GameObjects[i]);
-                }
+                    // On détruit tout les objets
+                    GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
 
-                // On "relance" le jeu
-                SceneManager.LoadScene("Index");
-                ChargerPopup.Charger("Erreur");
-                MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
+                    for (int i = 0; i < GameObjects.Length; i++)
+                    {
+                        Destroy(GameObjects[i]);
+                    }
+
+                    // On "relance" le jeu
+                    SceneManager.LoadScene("Index");
+                    ChargerPopup.Charger("Erreur");
+                    MessageErreur.messageErreur = "Une erreur est survenue. Veuillez relancer le jeu.";
+                }
             }
 
             yield return new WaitForSeconds(SecondesUpdate);
@@ -111,254 +166,251 @@ public class Joueur : MonoBehaviour {
 
     // Fais la mise à jour depuis la base de toutes les données importantes
     void majdepuisBDD()
-    { 
-        majRessources();
-        majComp();
-        majObjet();
-        majDiplome();
-        majTrophee();
-        majArtefact();
+    {
+        StartCoroutine(majRessources(IDJoueur));
+        StartCoroutine(majComp(IDJoueur));
+        StartCoroutine(majObjet(IDJoueur));
+        StartCoroutine(majDiplome(IDJoueur));
+        StartCoroutine(majTrophee(IDJoueur));
+        StartCoroutine(majArtefact(IDJoueur));
     }
 
-    void majObjet()
+    // Met à jour les objets du joueur
+    IEnumerator majObjet(int idJoueur)
     {
-        string requete = "SELECT IDItem, Quantity FROM item_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = urlRess + "MAJObjet.php?id=" + idJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            for(int i = 0; i < RessourcesBdD.listeDesObjets.Length; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesObjets.Length; ++j)
             {
-                if ((int)lien["IDItem"] == RessourcesBdD.listeDesObjets[i].ID)
+                if ((int)Node["msg"][i]["IDItem"] == RessourcesBdD.listeDesObjets[j].ID)
                 {
-                    MesObjets[i] = (int)lien["Quantity"];
-                    //Debug.Log("Je possède "+MesObjets[i]+ " " + RessourcesBdD.listeNomObjets[i]);
+                    MesObjets[j] = (int)Node["msg"][i]["Quantity"];
+                    //if (MesObjets[i] > 0)
+                        //Debug.Log("Je possède "+ MesObjets[i] + " " + RessourcesBdD.listeDesObjets[j].Nom);
                 }
             }
         }
-        lien.Close();
     }
 
-    void majComp()
+    // Met à jour les compétences du joueur
+    IEnumerator majComp(int idJoueur)
     {
-        string requete = "SELECT * FROM skill_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = urlRess + "MAJComp.php?id=" + idJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            for(int i = 0; i < MesValeursCompetences.Length; ++i)
+            for (int j = 0; j < MesValeursCompetences.Length; ++j)
             {
-                if(Int32.Parse(lien["IDSkill"].ToString()) == RessourcesBdD.listeDesCompétences[i].ID)
+                if ((int)Node["msg"][i]["IDSkill"] == RessourcesBdD.listeDesCompétences[j].ID)
                 {
-                    MesValeursCompetences[i] = Int32.Parse(lien["SkillLevel"].ToString());
-                }
-                else
-                {
-                    continue;
+                    MesValeursCompetences[j] = (int)Node["msg"][i]["SkillLevel"];
+                    //Debug.Log("Valeur compétence Joueur " + RessourcesBdD.listeDesCompétences[j].NomCompétence + " : " + MesValeursCompetences[j]);
                 }
             }
         }
-        lien.Close();
     }
 
-    void majRessources()
+    // Met à jour les ressources du joueur
+    IEnumerator majRessources(int idJoueur)
     {
-        string requete = "SELECT * FROM association_ressource_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = urlRess + "MAJRessources.php?id=" + idJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            for(int i = 0; i<RessourcesBdD.listeDesRessources.Length; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesRessources.Length; ++j)
             {
-                if ((int)lien["IDRessource"] == RessourcesBdD.listeDesRessources[i].ID)
+                if ((int)Node["msg"][i]["IDRessource"] == RessourcesBdD.listeDesRessources[j].ID)
                 {
-                    MesRessources[i] = (int)lien["Value"];
-                }
-                else
-                {
-                    continue;
+                    MesRessources[j] = (int)Node["msg"][i]["Value"];
+                    //Debug.Log("Valeur ressource Joueur " + RessourcesBdD.listeDesRessources[j].NomRessource + " : " + MesRessources[j]);
                 }
             }
         }
-        lien.Close();
-        Debug.Log("MAJRessources : Social (" + MesRessources[2] + ") - Div (" + MesRessources[3] + ")");
+
+        continueTransfertRessources = true;
     }
 
-    void majDiplome()
+    // Met à jour les diplomes du joueur
+    IEnumerator majDiplome(int idJoueur)
     {
-        string requete = "SELECT * FROM diplom_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = urlRess + "MAJDiplome.php?id=" + idJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            for (int i = 0; i < RessourcesBdD.listeDesDiplomes.Length; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesDiplomes.Length; ++j)
             {
-                if ((int)lien["IDDiplom"] == RessourcesBdD.listeDesDiplomes[i].IDDiplome)
+                if ((int)Node["msg"][i]["IDDiplom"] == RessourcesBdD.listeDesDiplomes[j].IDDiplome)
                 {
-                    MesDiplomes[i] = true;
-                }
-                else
-                {
-                    continue;
+                    MesDiplomes[j] = true;
+                    //Debug.Log("Diplome Joueur " + RessourcesBdD.listeDesDiplomes[j].NomDiplome + " : " + MesDiplomes[j]);
                 }
             }
         }
-        lien.Close();
     }
-    void majTrophee()
+
+    // Met à jour les trophées du joueur
+    IEnumerator majTrophee(int idJoueur)
     {
-        string requete = "SELECT * FROM trophy_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = urlRess + "MAJTrophee.php?id=" + idJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            for (int i = 0; i < RessourcesBdD.listeDesTrophees.Length; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesTrophees.Length; ++j)
             {
-                if ((int)lien["IDTrophy"] == RessourcesBdD.listeDesTrophees[i].IDTrophee)
+                if ((int)Node["msg"][i]["IDTrophy"] == RessourcesBdD.listeDesTrophees[j].IDTrophee)
                 {
-                    MesTrophees[i] = true;
-                }
-                else
-                {
-                    continue;
+                    MesTrophees[j] = true;
+                    //Debug.Log("Trophée Joueur " + RessourcesBdD.listeDesTrophees[j].Description + " : " + MesTrophees[j]);
                 }
             }
         }
-        lien.Close();
     }
-    void majArtefact()
+
+
+    // Met à jour les artéfacts du joueur
+    IEnumerator majArtefact(int idJoueur)
     {
-        string requete = "SELECT * FROM artefact_pc WHERE IDPCharacter=" + IDJoueur;
-        MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-        MySqlDataReader lien = commande.ExecuteReader();
-        while (lien.Read())
+        string urlComp = urlRess + "MAJArtefact.php?id=" + idJoueur;
+
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        string Json = dl.text;
+        JSONNode Node = JSON.Parse(Json);
+        for (int i = 0; i < Node["msg"].Count; ++i)
         {
-            for (int i = 0; i < RessourcesBdD.listeDesArtefacts.Length; ++i)
+            for (int j = 0; j < RessourcesBdD.listeDesArtefacts.Length; ++j)
             {
-                if ((int)lien["IDArtefact"] == RessourcesBdD.listeDesArtefacts[i].IDArtefact)
+                if ((int)Node["msg"][i]["IDArtefact"] == RessourcesBdD.listeDesArtefacts[j].IDArtefact)
                 {
-                    MesArtefacts[i] = true;
-                }
-                else
-                {
-                    continue;
+                    MesArtefacts[j] = true;
+                    //Debug.Log("Artéfact Joueur " + RessourcesBdD.listeDesArtefacts[j].NomArtefact + " : " + MesArtefacts[j]);
                 }
             }
         }
-        lien.Close();
     }
 
-    public static void transfertEnBase()
+    public static IEnumerator transfertEnBase()
     {
-        // Les compétences
-        transfertCompetencesEnBase();
+        Debug.Log("Transfert des données du joueur en base");
 
-        // Les ressources
-        transfertRessourcesEnBase();
+        // Les Compétences
+        for (int i = 0; i < MesValeursCompetences.Length; ++i)
+        {
+            // On insère (ou update) en base le niveau de compétence du joueur
+            string urlCompetence = Configuration.url + "scripts/scriptsTransferts/TransfertCompetencesEnBase.php?id=" + IDJoueur
+                + "&idComp=" + RessourcesBdD.listeDesCompétences[i].ID + "&valeur=" + MesValeursCompetences[i];
 
-        //date de dernière connexion
-        string requete2 = "UPDATE `p_character` SET `LastConnection`=LOCALTIMESTAMP WHERE `IDPCharacter`=" + Joueur.IDJoueur+";";
-        MySqlCommand commande2 = new MySqlCommand(requete2, Connexion.connexion);
-        MySqlDataReader lien2 = commande2.ExecuteReader();
-        lien2.Close();
+            WWW dlCompetence = new WWW(urlCompetence);
+            yield return dlCompetence;
+        }
 
-        //Objets
-        transfertObjetsEnBase();
-    }
-
-    // Transfert des ressources en base
-    public static void transfertRessourcesEnBase()
-    {
-        //Ressources
+        // Les Ressources
         for (int i = 0; i < MesRessources.Length; ++i)
         {
-            int Total = 0;
-            string requete = "SELECT Count(*) AS Total, IDRessource from association_ressource_pc WHERE IDPCharacter=" + IDJoueur + " AND IDRessource=" + RessourcesBdD.listeDesRessources[i].ID;
-            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-            MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                Total = Int32.Parse(lien["Total"].ToString());
-            }
-            lien.Close();
-            if (Total == 0)
-            {
-                requete = "INSERT INTO association_ressource_pc VALUES (" + RessourcesBdD.listeDesRessources[i].ID + "," + IDJoueur + "," + MesRessources[i] + ");";
-            }
-            else
-            {
-                requete = "UPDATE association_ressource_pc SET Value=" + MesRessources[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDRessource=" + RessourcesBdD.listeDesRessources[i].ID;
-            }
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            lien.Close();
+            // On insère (ou update) en base le niveau de compétence du joueur
+            string urlRessource = Configuration.url + "scripts/scriptsTransferts/TransfertRessourcesEnBase.php?id=" + IDJoueur
+                + "&idRess=" + RessourcesBdD.listeDesRessources[i].ID + "&valeur=" + MesRessources[i];
 
-            //Debug.Log("Transfert ressources en base");
+            WWW dlRessource = new WWW(urlRessource);
+            yield return dlRessource;
+        }
+
+        // Date de dernière connexion
+        string urlComp = Configuration.url + "scripts/UpdateDateCo.php?id=" + IDJoueur;
+        WWW dl = new WWW(urlComp);
+        yield return dl;
+
+        // Les Objets
+        for (int i = 0; i < MesObjets.Length; ++i)
+        {
+            // On insère (ou update) en base le niveau de compétence du joueur
+            string urlObjet = Configuration.url + "scripts/scriptsTransferts/TransfertObjetsEnBase.php?id=" + IDJoueur
+                + "&idObjet=" + RessourcesBdD.listeDesObjets[i].ID + "&valeur=" + MesObjets[i];
+
+            WWW dlObjet = new WWW(urlObjet);
+            yield return dlObjet;
         }
     }
 
     // Transfert des compétences en base
-    public static void transfertCompetencesEnBase()
+    public static IEnumerator transfertCompetencesEnBase()
     {
         for (int i = 0; i < MesValeursCompetences.Length; ++i)
         {
-            int Total = 0;
-            string requete = "SELECT Count(*) AS Total, IDSkill from skill_pc WHERE IDPCharacter=" + IDJoueur + " AND IDSkill=" + RessourcesBdD.listeDesCompétences[i].ID;
-            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-            MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                Total = Int32.Parse(lien["Total"].ToString());
-            }
-            lien.Close();
-            if (Total == 0)
-            {
-                requete = "INSERT INTO skill_pc VALUES (" + RessourcesBdD.listeDesCompétences[i].ID + "," + IDJoueur + "," + MesValeursCompetences[i] + ");";
-            }
-            else
-            {
-                requete = "UPDATE skill_pc SET SkillLevel=" + MesValeursCompetences[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDSkill=" + RessourcesBdD.listeDesCompétences[i].ID + ";";
-            }
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            lien.Close();
+            // On insère (ou update) en base le niveau de compétence du joueur
+            string urlCompetence = Configuration.url + "scripts/scriptsTransferts/TransfertCompetencesEnBase.php?id=" + IDJoueur
+                + "&idComp=" + RessourcesBdD.listeDesCompétences[i].ID + "&valeur=" + MesValeursCompetences[i];
 
-            //Debug.Log("Transfert compétences en base");
+            WWW dlCompetence = new WWW(urlCompetence);
+            yield return dlCompetence;
+        }
+    }
+
+    // Transfert des ressources en base
+    public static IEnumerator transfertRessourcesEnBase()
+    {
+        for (int i = 0; i < MesRessources.Length; ++i)
+        {
+            // On insère (ou update) en base le niveau de compétence du joueur
+            string urlRessource = Configuration.url + "scripts/scriptsTransferts/TransfertRessourcesEnBase.php?id=" + IDJoueur
+                + "&idRess=" + RessourcesBdD.listeDesRessources[i].ID + "&valeur=" + MesRessources[i];
+
+            WWW dlRessource = new WWW(urlRessource);
+            yield return dlRessource;
+        }
+
+        if (AchatEnMagasin.continueAchatMagasin)
+        {
+            AchatEnMagasin.continueReloadMagasin = true;
         }
     }
 
     // Transfert des objets en base
-    public static void transfertObjetsEnBase()
+    public static IEnumerator transfertObjetsEnBase()
     {
         for (int i = 0; i < MesObjets.Length; ++i)
         {
-            int Total = 0;
-            string requete = "SELECT Count(*) AS Total, IDItem AS Total from item_pc WHERE IDPCharacter=" + IDJoueur + " AND IDItem=" + RessourcesBdD.listeDesObjets[i].ID;
-            MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-            MySqlDataReader lien = commande.ExecuteReader();
-            while (lien.Read())
-            {
-                Total = Int32.Parse(lien["Total"].ToString());
-            }
-            lien.Close();
-            if (Total == 0)
-            {
-                requete = "INSERT INTO item_pc VALUES (" + RessourcesBdD.listeDesObjets[i].ID + "," + IDJoueur + "," + MesObjets[i] + ");";
-            }
-            else
-            {
-                requete = "UPDATE item_pc SET Quantity=" + MesObjets[i] + " WHERE IDPCharacter=" + IDJoueur + " AND IDItem=" + RessourcesBdD.listeDesObjets[i].ID;
-            }
-            commande = new MySqlCommand(requete, Connexion.connexion);
-            lien = commande.ExecuteReader();
-            lien.Close();
+            // On insère (ou update) en base le niveau de compétence du joueur
+            string urlObjet = Configuration.url + "scripts/scriptsTransferts/TransfertObjetsEnBase.php?id=" + IDJoueur
+                + "&idObjet=" + RessourcesBdD.listeDesObjets[i].ID + "&valeur=" + MesObjets[i];
 
-            //Debug.Log("Transfert objets en base");
+            WWW dlObjet = new WWW(urlObjet);
+            yield return dlObjet;
         }
     }
     
     // Transfert des actions sociales en base
-    public static void transfertActionsSocialesEnBase()
+    public static IEnumerator transfertActionsSocialesEnBase()
     {
         Debug.Log("Transfert Actions Sociales en Base");
         for (int i = 0; i < Joueur.MesAmis.Length; ++i)
@@ -366,51 +418,25 @@ public class Joueur : MonoBehaviour {
             // Si l'action Sociale (ITEM) du joueur avec cet ami est vrai (effectuée)
             if (Joueur.MesActionsSocialesObjet[i])
             {
-                // On vérifie si le Joueur apparait dans la base (table action_sociale) : ITEM
-                int Total = 0;
-                string requete = "SELECT Count(*) AS Total from action_sociale WHERE IDPCharacter=" + IDJoueur + " AND IDPFriend=" + Joueur.MesAmis[i].SonID + " AND Type = 'ITEM'";
-                Debug.Log(requete);
-                MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-                MySqlDataReader lien = commande.ExecuteReader();
-                while (lien.Read())
-                {
-                    Total = Int32.Parse(lien["Total"].ToString());
-                }
-                lien.Close();
-            
-                if (Total == 0)
-                {
-                    requete = "INSERT INTO action_sociale VALUES (" + IDJoueur + "," + Joueur.MesAmis[i].SonID + ",'ITEM');";
-                    Debug.Log(requete);
-                    commande = new MySqlCommand(requete, Connexion.connexion);
-                    lien = commande.ExecuteReader();
-                    lien.Close();
-                }
+                // On insère (ou update) en base le niveau de compétence du joueur
+                string urlItem = Configuration.url + "scripts/scriptsTransferts/TransfertActionSocialeEnBase.php?id=" + IDJoueur
+                    + "&idAmi=" + Joueur.MesAmis[i].SonID + "&type=ITEM";
+                Debug.Log(urlItem);
+
+                WWW dlItem = new WWW(urlItem);
+                yield return dlItem;
             }
 
             // Si l'action Sociale (SKILL) du joueur avec cet ami est vrai (effectuée)
             if (Joueur.MesActionsSocialesSkill[i])
             {
-                // On vérifie si le Joueur apparait dans la base (table action_sociale) : SKILL
-                int Total = 0;
-                string requete = "SELECT Count(*) AS Total from action_sociale WHERE IDPCharacter=" + IDJoueur + " AND IDPFriend=" + Joueur.MesAmis[i].SonID + " AND Type = 'SKILL'";
-                Debug.Log(requete);
-                MySqlCommand commande = new MySqlCommand(requete, Connexion.connexion);
-                MySqlDataReader lien = commande.ExecuteReader();
-                while (lien.Read())
-                {
-                    Total = Int32.Parse(lien["Total"].ToString());
-                }
-                lien.Close();
+                // On insère (ou update) en base le niveau de compétence du joueur
+                string urlSkill = Configuration.url + "scripts/scriptsTransferts/TransfertActionSocialeEnBase.php?id=" + IDJoueur
+                    + "&idAmi=" + Joueur.MesAmis[i].SonID + "&type=SKILL";
+                Debug.Log(urlSkill);
 
-                if (Total == 0)
-                {
-                    requete = "INSERT INTO action_sociale VALUES (" + IDJoueur + "," + Joueur.MesAmis[i].SonID + ",'SKILL');";
-                    Debug.Log(requete);
-                    commande = new MySqlCommand(requete, Connexion.connexion);
-                    lien = commande.ExecuteReader();
-                    lien.Close();
-                }
+                WWW dlSkill = new WWW(urlSkill);
+                yield return dlSkill;
             }
         }
     }

@@ -26,8 +26,9 @@ public class VerifArtefactCliquer : MonoBehaviour {
         Debug.Log("Artefact utilisé : " + RessourcesBdD.listeDesArtefactsJouables[ArtefactChoisi].NomArtefact);
         
         Gain.utiliserUnArtefact();
-        Joueur.transfertRessourcesEnBase();
-        Joueur.transfertObjetsEnBase();
+        StartCoroutine(Gain.envoiArtefactUtiliseEnBase());
+        StartCoroutine(Joueur.transfertRessourcesEnBase());
+        StartCoroutine(Joueur.transfertObjetsEnBase());
         ChargerLieu charger = new ChargerLieu();
         charger.rechargerArtefact();
     }

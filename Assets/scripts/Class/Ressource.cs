@@ -14,4 +14,9 @@ public class Ressource : MonoBehaviour {
     {
         Debug.Log(ID + " -> Nom du rang -> " + NomRessource);
     }
+
+    public void toString()
+    {
+        Debug.Log("Ressource " + ID + "(" + NomRessource + ")");
+    }
 }

@@ -16,7 +16,6 @@ public class FabriqueExamen : MonoBehaviour {
 
     private void Start()
     {
-        Debug.Log("Nom examen : " + examen.NomExamen);
         //Debug.Log(VerificationMission.MissionChoisi);
         Gain.calculDesGains(examen);
         NomExamen.text = examen.NomExamen;
