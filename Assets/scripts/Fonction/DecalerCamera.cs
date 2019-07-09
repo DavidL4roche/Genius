@@ -23,7 +23,6 @@ public class DecalerCamera : MonoBehaviour {
         int suivantInt = Int32.Parse(suivant);
         ++suivantInt;
         string nomEcranSuivant = "Ecran (" + suivantInt.ToString() + ")";
-        Debug.Log(nomEcranSuivant);
 
         GameObject ecranSuivant = GameObject.Find(nomEcranSuivant);
 

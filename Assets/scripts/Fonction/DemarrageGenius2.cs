@@ -24,6 +24,8 @@ public class DemarrageGenius2 : MonoBehaviour {
     private JSONNode monNode;
 
     public GameObject EcranErreur;
+    DateTime dt;
+    DateTime dt2;
 
     public void Start()
     {
@@ -35,6 +37,16 @@ public class DemarrageGenius2 : MonoBehaviour {
         else
         {
             StartCoroutine(MyCoroutine());
+            dt = DateTime.Now;
+        }
+    }
+
+    public void Update()
+    {
+        if((DateTime.Now - dt).TotalSeconds > 20)
+        {
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Une erreur est survenue, veuillez relancer le jeu";
         }
     }
 

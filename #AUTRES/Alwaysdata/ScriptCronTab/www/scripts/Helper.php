@@ -618,6 +618,11 @@ class Helper {
         $result = $bdd->prepare($sql);
         $result->execute();
 
+        // On relance le tuto de démarrage
+        $sql = "UPDATE p_character SET isFirstConnection = 1 WHERE IDPCharacter = " . $id;
+        $result = $bdd->prepare($sql);
+        $result->execute();
+
         // On supprime les artéfacts qu'il a effectué
         $sql = "DELETE FROM artefact_used WHERE IDPCharacter = " . $id;
         $result = $bdd->prepare($sql);

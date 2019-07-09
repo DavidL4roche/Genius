@@ -66,6 +66,10 @@ public class FabriqueResultat : MonoBehaviour {
                     {
                         objets += "+ " + mission.SesObjets[j].Nom + "\n";
                     }
+                    if (mission.SesObjets.Length == 0)
+                    {
+                        objets += "Aucun objet obtenu";
+                    }
                     gainObjets.text = objets;
                     break;
                 default:

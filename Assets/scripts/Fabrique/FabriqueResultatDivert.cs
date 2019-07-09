@@ -49,7 +49,7 @@ public class FabriqueResultatDivert : MonoBehaviour {
         {
             if (divert.SesPertes[i].NomPerte == "Orcus")
             {
-                perteOrcus.text = "-" + divert.SesPertes[i].ValeurDeLaPerte.ToString() + "%";
+                perteOrcus.text = "-" + divert.SesPertes[i].ValeurDeLaPerte.ToString();
             }
             else
             {
