@@ -1,0 +1,169 @@
+<?php
+
+require_once "configuration.php";
+
+//Connexion à la base de Données
+
+$connexion = mysqli_connect($host,$login,$password,$database);
+
+
+$requete = "DELETE FROM `item_bought` WHERE 1";
+if($result = mysqli_query($connexion,$requete)){
+    echo "ça a marché le drop table item acheté<br><br>";
+}
+else{
+    echo "ça a pas marché le drop table item acheté<br><br>";
+}
+
+/*
+// on génère  la boutique
+$requete = "DELETE FROM `association_shop_item` WHERE 1";
+if($result = mysqli_query($connexion,$requete)){
+    echo "ça a marché le drop table de la boutique<br><br>";
+}
+else{
+    echo "ça a pas marché le drop table de la boutique<br><br>";
+}
+
+//3 tirages pour les objets de rang C
+$tableauobjetrangC = array();
+$requete = "SELECT IDItem FROM item WHERE IDRank in (Select IDRank from rank WHERE RankName ='C');";
+if($result = mysqli_query($connexion,$requete)){
+    while ($tuple = mysqli_fetch_assoc($result)){
+        array_push($tableauobjetrangC , $tuple['IDItem']);
+        //echo $tableauobjetrangC[0]." id de l'item";
+    }
+}
+else{
+
+}
+$tabitemCrandom = array();
+for($i=0 ; $i<3; ++$i){
+    $randomitemC = rand(0,sizeof($tableauobjetrangC)-1);
+    if($i>0){
+        $testprecense = false;
+        for($j = 0 ; $j < sizeof($tabitemCrandom); ++$j){
+            if ($tabitemCrandom[$j] == $tableauobjetrangC[$randomitemC]){
+                $testprecense = true;
+                break;
+            }
+            else{
+
+            }
+        }
+        if($testprecense){
+            --$i;
+            continue;
+        }
+        else{
+            array_push($tabitemCrandom,$tableauobjetrangC[$randomitemC]);
+        }
+    }
+    else{
+        array_push($tabitemCrandom,$tableauobjetrangC[$randomitemC]);
+    }
+}
+for($i = 0; $i<sizeof($tabitemCrandom) ;++$i){
+	echo "<br>ID dans le tableau ->".$tabitemCrandom[$i];
+    $requete = "INSERT INTO association_shop_item VALUES (1,".$tabitemCrandom[$i].");";
+    if($result = mysqli_query($connexion,$requete)){
+        echo "<br>Objet inséré<br>";
+    }
+    else{
+        echo "<br>Objet pas inséré<br>";
+    }
+}
+
+//2 tirages pour les objets de rang B
+$tableauobjetrangB = array();
+$requete = "SELECT IDItem FROM item WHERE IDRank in (Select IDRank from rank WHERE RankName ='B');";
+if($result = mysqli_query($connexion,$requete)){
+    while ($tuple = mysqli_fetch_assoc($result)){
+        array_push($tableauobjetrangB , $tuple['IDItem']);
+        echo $tuple['IDItem']." id de l'item";
+    }
+}
+else{
+
+}
+$tabitemBrandom = array();
+for($i=0 ; $i<2; ++$i){
+    $randomitemB = rand(0,sizeof($tableauobjetrangB)-1);
+    if($i>0){
+        $testprecense = false;
+        for($j = 0 ; $j < sizeof($tabitemBrandom); ++$j){
+            if ($tabitemBrandom[$j] == $tableauobjetrangB[$randomitemB]){
+                $testprecense = true;
+                break;
+            }
+            else{
+
+            }
+        }
+        if($testprecense){
+            --$i;
+            continue;
+        }
+        else{
+            array_push($tabitemBrandom,$tableauobjetrangB[$randomitemB]);
+        }
+    }
+    else{
+        array_push($tabitemBrandom,$tableauobjetrangB[$randomitemB]);
+    }
+}
+for($i = 0; $i<sizeof($tabitemBrandom) ;++$i){
+    echo "id de l'item dans le tableau tabBitemrandom ->".$tabitemBrandom[$i];
+    $requete = "INSERT INTO association_shop_item VALUES (1,".$tabitemBrandom[$i].");";
+    if($result = mysqli_query($connexion,$requete)){
+        echo "<br>Objet de rang B inséré<br>";
+    }
+    else{
+        echo "<br>Objet de rang B pas inséré<br>";
+    }
+}
+
+//1 tirages pour les objets de rang A
+$tableauobjetrangA = array();
+$requete = "SELECT IDItem FROM item WHERE IDRank in (Select IDRank from rank WHERE RankName ='A');";
+if($result = mysqli_query($connexion,$requete)){
+    while ($tuple = mysqli_fetch_assoc($result)){
+        array_push($tableauobjetrangA , $tuple['IDItem']);
+        echo $tuple['IDItem']." id de l'item";
+    }
+}
+else{
+
+}
+$randomitemA = rand(0,sizeof($tableauobjetrangA)-1);
+$requete = "INSERT INTO association_shop_item VALUES (1,".$tableauobjetrangA[$randomitemA].");";
+if($result = mysqli_query($connexion,$requete)){
+    echo "<br>Objet de rang A inséré<br>";
+}
+else{
+    echo "<br>Objet de rang A pas inséré<br>";
+}
+
+//1 tirages pour les objets de rang S
+$tableauobjetrangS = array();
+$requete = "SELECT IDItem FROM item WHERE IDRank in (Select IDRank from rank WHERE RankName ='S');";
+if($result = mysqli_query($connexion,$requete)){
+    while ($tuple = mysqli_fetch_assoc($result)){
+        array_push($tableauobjetrangS , $tuple['IDItem']);
+        echo $tuple['IDItem']." id de l'item";
+    }
+}
+else{
+
+}
+$randomitemS = rand(0,sizeof($tableauobjetrangS)-1);
+$requete = "INSERT INTO association_shop_item VALUES (1,".$tableauobjetrangS[$randomitemS].");";
+if($result = mysqli_query($connexion,$requete)){
+    echo "<br>Objet de rang S inséré<br>";
+}
+else{
+    echo "<br>Objet de rang S pas inséré<br>";
+}
+
+*/
+

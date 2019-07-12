@@ -1,5 +1,22 @@
 <?php
-    require_once "Helper.php";
+
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Get(
+ *     tags={"Get"},
+ *     path="/CheckFirstConnection/{id}",
+ *     description="Vérifie si on lance le tutoriel ou non",
+ *     @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          description="Identifiant du joueur",
+ *          required=true,
+ *          @OA\Schema(type="Integer"))
+ * )
+ */
+
+require_once "Helper.php";
 
     $helper = new Helper();
 

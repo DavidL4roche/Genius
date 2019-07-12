@@ -1,5 +1,27 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Put(
+ *     tags={"Création"},
+ *     path="/PNJEffectue/{idJoueur}{idArt}",
+ *     description="Insère un PNJ effectué par le joueur (Artéfact)",
+ *     @OA\Parameter(
+ *          name="idJoueur",
+ *          in="path",
+ *          description="Identifiant du joueur",
+ *          required=true,
+ *          @OA\Schema(type="Integer")),
+ *     @OA\Parameter(
+ *          name="idArt",
+ *          in="path",
+ *          description="Identifiant de l'artéfact",
+ *          required=true,
+ *          @OA\Schema(type="Integer"))
+ * )
+ */
+
 require_once "Helper.php";
 
 $helper = new Helper();

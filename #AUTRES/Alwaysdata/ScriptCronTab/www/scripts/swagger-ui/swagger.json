@@ -1,0 +1,760 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Genius",
+        "description": "Bienvenue sur la documentation des API de Genius. Ici, vous pouvez :\r\n *     Accéder à toutes les URL disponibles pour Genius\r\n *     Avoir la description de chaque URL (description, paramètres)",
+        "version": "0.6.5"
+    },
+    "paths": {
+        "/AddIP/{ip}{playerId}": {
+            "put": {
+                "tags": [
+                    "Création",
+                    "Update"
+                ],
+                "description": "Relie une adresse IP à un identifiant de joueur",
+                "parameters": [
+                    {
+                        "name": "ip",
+                        "in": "path",
+                        "description": "IP du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/AjouterAmi/{id}{idAmi}": {
+            "put": {
+                "tags": [
+                    "Création"
+                ],
+                "description": "Ajoute un ami à un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idAmi",
+                        "in": "path",
+                        "description": "Identifiant de l'ami à ajouter",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ArtefactUtilise/{id}{idArt}": {
+            "put": {
+                "tags": [
+                    "Création"
+                ],
+                "description": "Insert un artefact utilisé par un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idArt",
+                        "in": "path",
+                        "description": "Identifiant de l'artefact",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ChangePlayerStats/{stat}{value}{id}": {
+            "put": {
+                "tags": [
+                    "Update"
+                ],
+                "description": "Change la stat d'un joueur",
+                "parameters": [
+                    {
+                        "name": "stat",
+                        "in": "path",
+                        "description": "Statistique à changer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "in": "path",
+                        "description": "Valeur de la stat à ajouter",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ChangeRessource/{idRessource}{idJoueur}{value}": {
+            "put": {
+                "tags": [
+                    "Update"
+                ],
+                "description": "Change la ressource renseignée pour un joueur donnée",
+                "parameters": [
+                    {
+                        "name": "idRessource",
+                        "in": "path",
+                        "description": "Identifiant de la ressource",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idJoueur",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "in": "path",
+                        "description": "Valeur de la ressource à changer",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ChangeTutoStatus/{idTuto}{idPlayer}{status}": {
+            "put": {
+                "tags": [
+                    "Update"
+                ],
+                "description": "Change le status d'un tuto",
+                "parameters": [
+                    {
+                        "name": "idTuto",
+                        "in": "path",
+                        "description": "Identifiant du tutoriel",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idPlayer",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "description": "Status du tuto (0, 1)",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/CheckConnection/{pseudo}{pass}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Vérification connexion d'un utilisateur",
+                "parameters": [
+                    {
+                        "name": "pseudo",
+                        "in": "path",
+                        "description": "Pseudo du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    },
+                    {
+                        "name": "pass",
+                        "in": "path",
+                        "description": "Mot de passe du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ]
+            }
+        },
+        "/CheckConnectionByMail/{mail}{pass}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Vérification connexion par mail d'un utilisateur",
+                "parameters": [
+                    {
+                        "name": "pseudo",
+                        "in": "path",
+                        "description": "Mail du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    },
+                    {
+                        "name": "pass",
+                        "in": "path",
+                        "description": "Mot de passe du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ]
+            }
+        },
+        "/CheckFirstConnection/{id}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Vérifie si on lance le tutoriel ou non",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/CheckIP/{id}{ip}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Vérifier l'IP et renvoyer le compte correspondant",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "ip",
+                        "in": "path",
+                        "description": "IP du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ConnectOnIP/{connect}{playerId}": {
+            "put": {
+                "tags": [
+                    "Update"
+                ],
+                "description": "Change l'attribut isConnected pour un id de joueur donné",
+                "parameters": [
+                    {
+                        "name": "connect",
+                        "in": "path",
+                        "description": "Booléen estConnecte",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "playerId",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/CreateUser/{pseudo}{mail}{pass}": {
+            "put": {
+                "tags": [
+                    "Création"
+                ],
+                "description": "Création d'un utilisateur dans la base",
+                "parameters": [
+                    {
+                        "name": "connect",
+                        "in": "path",
+                        "description": "Pseudo du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "mail",
+                        "in": "path",
+                        "description": "Mail du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "pass",
+                        "in": "path",
+                        "description": "Mot de passe du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/EnvoiMail/{mail}": {
+            "put": {
+                "tags": [
+                    "Mail"
+                ],
+                "description": "Envoi d'un mail personnalisé à un destinataire",
+                "parameters": [
+                    {
+                        "name": "mail",
+                        "in": "path",
+                        "description": "Mail du destinataire",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ExamenEffectue/{idJoueur}{idExamen}": {
+            "put": {
+                "tags": [
+                    "Création"
+                ],
+                "description": "Insère un examen effectué par le joueur",
+                "parameters": [
+                    {
+                        "name": "idJoueur",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idExamen",
+                        "in": "path",
+                        "description": "Identifiant de l'examen",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/GetAmi/{nomAmi}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Récupère les informations d'un ami",
+                "parameters": [
+                    {
+                        "name": "nomAmi",
+                        "in": "path",
+                        "description": "Nom de l'ami",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ]
+            }
+        },
+        "/GetConnectOnIP/{ip}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Renvoie l'attribut isConnected pour un id de joueur donné",
+                "parameters": [
+                    {
+                        "name": "ip",
+                        "in": "path",
+                        "description": "IP du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/MissionDivertEffectuee/{idJoueur}{idMission}": {
+            "put": {
+                "tags": [
+                    "Création"
+                ],
+                "description": "Insère une mission divertissement effectuée par le joueur",
+                "parameters": [
+                    {
+                        "name": "idJoueur",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idMission",
+                        "in": "path",
+                        "description": "Identifiant de la mission",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/MissionEffectuee/{idJoueur}{idMission}": {
+            "put": {
+                "tags": [
+                    "Création"
+                ],
+                "description": "Insère une mission effectuée par le joueur",
+                "parameters": [
+                    {
+                        "name": "idJoueur",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idMission",
+                        "in": "path",
+                        "description": "Identifiant de la mission",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ObjetAchete/{id}{idObjet}": {
+            "put": {
+                "tags": [
+                    "Création"
+                ],
+                "description": "Ajoute un objet dans les objets achetés d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idObjet",
+                        "in": "path",
+                        "description": "Identifiant de l'objet",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/PNJEffectue/{idJoueur}{idArt}": {
+            "put": {
+                "tags": [
+                    "Création"
+                ],
+                "description": "Insère un PNJ effectué par le joueur (Artéfact)",
+                "parameters": [
+                    {
+                        "name": "idJoueur",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idArt",
+                        "in": "path",
+                        "description": "Identifiant de l'artéfact",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ReinitiatePassword/{mail}": {
+            "put": {
+                "tags": [
+                    "Mail"
+                ],
+                "description": "Réinitialise le mot de passe",
+                "parameters": [
+                    {
+                        "name": "mail",
+                        "in": "path",
+                        "description": "Mail du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ]
+            }
+        },
+        "/ResetAdmin/": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "description": "Reset l'admin (lui mets les valeurs de base pour test)"
+            }
+        },
+        "/scriptActionSociale/": {
+            "delete": {
+                "tags": [
+                    "Delete"
+                ],
+                "description": "Suppression de toutes les actions sociales"
+            }
+        },
+        "/scriptartefact/": {
+            "delete": {
+                "tags": [
+                    "Delete"
+                ],
+                "description": "Suppression de toutes les missions présentes"
+            }
+        },
+        "/scriptboutique/": {
+            "delete": {
+                "tags": [
+                    "Delete"
+                ],
+                "description": "Suppression de tous les objets achetés"
+            }
+        },
+        "/scriptConnection/": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Test de connexion à la base de données"
+            }
+        },
+        "/scriptmission/": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Script complet de missions pour générer toutes les missions quotidiennes"
+            }
+        },
+        "/SupprimerAmi/{id}{idAmi}": {
+            "delete": {
+                "tags": [
+                    "Delete"
+                ],
+                "description": "Supprimer l'ami d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idAmi",
+                        "in": "path",
+                        "description": "Identifiant de l'ami",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/UpdateDateCo/{id}": {
+            "put": {
+                "tags": [
+                    "Update"
+                ],
+                "description": "Actualise l'attribut LastConnection d'un Joueur donné",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/VerifierAmi/{id}{idAmi}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Verifie si l'ami est celui du joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idAmi",
+                        "in": "path",
+                        "description": "Identifiant de l'ami",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/VerifierArtefactMagasin/{id}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Verifie les objets Artefacts du Magasin",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/VerifierStatusTuto/{idTuto}{idPlayer}": {
+            "get": {
+                "tags": [
+                    "Get"
+                ],
+                "description": "Verifie le status d'un tuto pour un joueur",
+                "parameters": [
+                    {
+                        "name": "idTuto",
+                        "in": "path",
+                        "description": "Identifiant du tutoriel",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idPlayer",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

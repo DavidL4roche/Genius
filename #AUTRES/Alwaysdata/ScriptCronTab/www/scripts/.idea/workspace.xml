@@ -1,15 +1,690 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/CheckConnection.php" line="7" mnemonic="2" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Tuto PhpDoc.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../phpDocumentor.phar.pubkey" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/classes/Helper.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/bootstrap-combined.no-icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/jquery.iviewer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/phpdocumentor-clean-icons/Read Me.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.dev.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/phpdocumentor-clean-icons/lte-ie7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/phpdocumentor-clean-icons/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/prism.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/css/template.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.AddIP.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.AjouterAmi.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ArtefactUtilise.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ChangePlayerStats.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ChangeRessource.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ChangeTutoStatus.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.CheckConnection.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.CheckConnectionByMail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.CheckFirstConnection.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.CheckIP.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ConnectById.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ConnectOnIP.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.CreateUser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.EnvoiMail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ExamenEffectue.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.GetAmi.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.GetConnectOnIP.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.Helper.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.MissionDivertEffectuee.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.MissionEffectuee.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ObjetAchete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.PNJEffectue.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ReinitiatePassword.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.ResetAdmin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.SupprimerAmi.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.UpdateDateCo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.VerifierAmi.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.VerifierArtefactMagasin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.VerifierStatusTuto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.configuration.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptActionSociale.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptConnection.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptartefact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptboutique.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptmission.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.MAJArtefact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.MAJComp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.MAJDiplome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.MAJObjet.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.MAJRessources.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.MAJTrophee.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupActionsSocialesComp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupActionsSocialesObjet.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupArtefact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupArtefactJouable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupBonus.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupComp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupDeLaListeDesJoueurs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupDiplome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupDivert.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupDivertJouable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupDuree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupEmpEntreprise.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupEntreprise.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupExam.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupExamJouable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupExamensNonJouables.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupGain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupLieu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupMesAmis.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupMission.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupObjet.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupObjetMagasin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupPNJ.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupPNJJouable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupPerte.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupPresentMissions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupQuartier.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupQuartierPNJ.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupRang.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupRess.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupSpeEntreprise.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupTopicsAide.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsRessources.RecupTrophee.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsTransferts.TransfertActionSocialeEnBase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsTransferts.TransfertCompetencesEnBase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsTransferts.TransfertObjetsEnBase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts.scriptsTransferts.TransfertRessourcesEnBase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/AddIP.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/AjouterAmi.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ArtefactUtilise.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ChangePlayerStats.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ChangeRessource.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ChangeTutoStatus.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/CheckConnection.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/CheckConnectionByMail.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/CheckFirstConnection.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/CheckIP.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ConnectById.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ConnectOnIP.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/CreateUser.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/EnvoiMail.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ExamenEffectue.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/GetAmi.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/GetConnectOnIP.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/Helper.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/MissionDivertEffectuee.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/MissionEffectuee.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ObjetAchete.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/PNJEffectue.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ReinitiatePassword.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/ResetAdmin.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/SupprimerAmi.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/UpdateDateCo.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/VerifierAmi.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/VerifierArtefactMagasin.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/VerifierStatusTuto.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/configuration.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptActionSociale.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptConnection.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptartefact.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptboutique.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptmission.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/MAJArtefact.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/MAJComp.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/MAJDiplome.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/MAJObjet.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/MAJRessources.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/MAJTrophee.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupActionsSocialesComp.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupActionsSocialesObjet.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupArtefact.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupArtefactJouable.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupBonus.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupComp.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupDeLaListeDesJoueurs.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupDiplome.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupDivert.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupDivertJouable.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupDuree.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupEmpEntreprise.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupEntreprise.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupExam.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupExamJouable.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupExamensNonJouables.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupGain.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupLieu.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupMesAmis.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupMission.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupObjet.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupObjetMagasin.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupPNJ.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupPNJJouable.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupPerte.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupPresentMissions.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupQuartier.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupQuartierPNJ.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupRang.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupRess.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupSpeEntreprise.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupTopicsAide.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsRessources/RecupTrophee.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsTransferts/TransfertActionSocialeEnBase.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsTransferts/TransfertCompetencesEnBase.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsTransferts/TransfertObjetsEnBase.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/files/scripts/scriptsTransferts/TransfertRessourcesEnBase.php.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/font/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/font/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/font/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/font/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/font/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/graphs/class.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/apple-touch-icon-114x114.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/apple-touch-icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/custom-icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/hierarchy-item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/icon-class-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/icon-class.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/icon-interface-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/icon-interface.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/icon-trait-13x13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/icon-trait.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/iviewer/grab.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/iviewer/hand.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/iviewer/iviewer.rotate_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/iviewer/iviewer.rotate_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/iviewer/iviewer.zoom_fit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/iviewer/iviewer.zoom_in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/iviewer/iviewer.zoom_out.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/images/iviewer/iviewer.zoom_zero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/html5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/jquery-1.11.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/jquery.dotdotdot-1.5.9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/jquery.dotdotdot-1.5.9.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/jquery.iviewer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/jquery.iviewer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/jquery.mousewheel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/jquery.smooth-scroll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/prism.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/js/ui/1.10.4/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/namespaces/default.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/reports/deprecated.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/reports/errors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/reports/markers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/oauth2-redirect.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger-ui-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger-ui-bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger-ui-standalone-preset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger-ui-standalone-preset.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger-ui.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger-ui.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/swagger-ui/swagger.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/bin/openapi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/bin/openapi.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/docs/en/annotations.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/docs/en/custom.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/docs/en/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/docs/en/sidebar.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Attribute.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Attributes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Enum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/IgnoreAnnotation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Required.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Annotation/Target.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationReader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationRegistry.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/CachedReader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocLexer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/FileCacheReader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/IndexedReader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/PhpParser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/Reader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/SimpleAnnotationReader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/TokenParser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/annotations/phpstan.neon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/.doctrine-project.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/.github/FUNDING.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/docs/en/dql-parser.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/docs/en/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/docs/en/sidebar.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/docs/en/simple-parser-example.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/lib/Doctrine/Common/Lexer/AbstractLexer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/tests/Doctrine/Common/Lexer/AbstractLexerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/doctrine/lexer/tests/Doctrine/Common/Lexer/ConcreteLexer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Comparator/Comparator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Comparator/DateComparator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Comparator/NumberComparator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Exception/AccessDeniedException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Exception/DirectoryNotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Finder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Gitignore.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Glob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/CustomFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/DateRangeFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/DepthRangeFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/ExcludeDirectoryFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/FileTypeFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/FilecontentFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/FilenameFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/MultiplePcreFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/PathFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/RecursiveDirectoryIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/SizeRangeFilterIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/SortableIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/SplFileInfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Comparator/ComparatorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Comparator/DateComparatorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Comparator/NumberComparatorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/FinderTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/.dot/a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/.dot/b/c.neon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/.dot/b/d.neon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/A/B/C/abc.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/A/B/ab.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/A/a.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/copy/A/B/C/abc.dat.copy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/copy/A/B/ab.dat.copy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/copy/A/a.dat.copy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/dolor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/ipsum.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/lorem.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/one/.dot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/one/a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/one/b/c.neon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/one/b/d.neon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/r+e.gex[c]a(r)s/dir/bar.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Fixtures/with space/foo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/GitignoreTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/GlobTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/CustomFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/DateRangeFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/DepthRangeFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/ExcludeDirectoryFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/FileTypeFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/FilecontentFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/FilenameFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/Iterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/IteratorTestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/MockFileListIterator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/MockSplFileInfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/MultiplePcreFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/PathFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/RealIteratorTestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/RecursiveDirectoryIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/SizeRangeFilterIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/Tests/Iterator/SortableIteratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/finder/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/Ctype.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/bootstrap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Command/LintCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Dumper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Escaper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Exception/DumpException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Exception/ExceptionInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Exception/ParseException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Exception/RuntimeException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Inline.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Parser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tag/TaggedValue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Command/LintCommandTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/DumperTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsAnchorAlias.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsBasicTests.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsBlockMapping.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsDocumentSeparator.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsErrorTests.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsFlowCollections.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsFoldedScalars.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsNullsAndEmpties.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsSpecificationExamples.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsTypeTransfers.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/arrow.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/booleanMappingKeys.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/embededPhp.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/escapedCharacters.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/index.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/multiple_lines_as_literal_block.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/multiple_lines_as_literal_block_leading_space_in_first_line.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/nonStringKeys.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/not_readable.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/nullMappingKey.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/numericMappingKeys.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/sfComments.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/sfCompact.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/sfMergeKey.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/sfObjects.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/sfQuotes.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/sfTests.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/unindentedCollections.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/InlineTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/ParseExceptionTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/ParserTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/YamlTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Unescaper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Yaml.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/symfony/yaml/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Changelog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/Examples.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/example-object/example-object.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/misc/misc-api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/openapi-spec/PullRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/openapi-spec/RepositoriesControler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/openapi-spec/Repository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/openapi-spec/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/openapi-spec/UsersController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/openapi-spec/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/Pet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/Store.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/models/ApiResponse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Pet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/models/RequestBody.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/models/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore-3.0/security.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/ApiResponse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/PetController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/StoreController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Pet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/security.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/swagger-v3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/petstore.swagger.io/tags.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/SimplePet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/SimplePetsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/controllers/PetWithDocsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/docs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/models/ErrorModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/models/Pet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/Pet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/PetsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/using-refs/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/using-refs/ProductController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/Examples/using-refs/api-spec.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/LICENSE-2.0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/bin/openapi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/annotations.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/installation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/partials.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/searchindex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/basic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/comment-bright.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/comment-close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/comment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/dialog-note.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/dialog-seealso.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/dialog-todo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/dialog-topic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/dialog-warning.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/doctools.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/down-pressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/epub.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/file.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/footerbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/headerbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/ie6.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/jquery-1.11.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/middlebg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/minus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/pixel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/pygments.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/pyramid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/searchtools.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/transparent.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/underscore-1.3.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/underscore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/up-pressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/static/websupport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/using_swagger.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/.vuepress/public/1.x/welcome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/1.x/Readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/Getting-started.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/Migrating-to-v3.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/Related-projects.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/docs/swagger-php-internals.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Analyser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Analysis.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/AbstractAnnotation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/AdditionalProperties.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Components.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Delete.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Discriminator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Examples.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/ExternalDocumentation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Flow.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Get.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Head.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Info.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Items.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/JsonContent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/License.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Link.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/MediaType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/OpenApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Operation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Options.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Parameter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Patch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/PathItem.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Post.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Property.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Put.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/RequestBody.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Response.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Schema.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/SecurityScheme.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Server.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/ServerVariable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Trace.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Xml.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/XmlContent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Context.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Logger.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/AugmentOperations.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/AugmentParameters.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/AugmentProperties.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/AugmentSchemas.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/BuildPaths.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/CleanUnmerged.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/ImportTraits.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/InheritProperties.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/MergeIntoComponents.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/MergeIntoOpenApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/MergeJsonContent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/MergeXmlContent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Processors/OperationId.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Serializer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/StaticAnalyser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/Util.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/src/functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/AbstractAnnotationTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/AnalyserTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/AnalysisTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/AugmentOperationTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/AugmentParameterTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/AugmentPropertiesTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/AugmentSchemasTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/BuildPathsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/CleanUnmergedTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/CommandlineInterfaceTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ConstantsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ContextTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/dynamic-reference.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/example-object.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/misc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/openapi-spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore-3.0.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore-simple.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore-with-external-docs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore.swagger.io.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesOutput/using-refs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ExamplesTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/Customer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/DynamicReference.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/HelloTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/Ancestor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/AncestorWithoutDocBlocks.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/Base.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/Child.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/ChildWithDocBlocks.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/Extended.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/ExtendedWithTwoSchemas.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/ExtendedWithoutAllOf.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/InheritProperties/GrandAncestor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/NestedProperty.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/ThirdPartyAnnotations.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/UsingPhpDoc.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/UsingRefs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/UsingVar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/php7.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/Fixtures/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/InheritPropertiesTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ItemsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/MergeIntoComponentsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/MergeIntoOpenApiTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/MergeJsonContentTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/MergeXmlContentTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/NestedPropertyTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/OpenApiTestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/RefTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ResponseTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/SecuritySchemesTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/SerializerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/StaticAnalyserTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/UndefinedTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/UtilTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zircote/swagger-php/tests/ValidateRelationsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phpDocumentor.phar" beforeDir="false" afterPath="$PROJECT_DIR$/../phpDocumentor.phar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scripts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scripts.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddIP.php" beforeDir="false" afterPath="$PROJECT_DIR$/AddIP.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AjouterAmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/AjouterAmi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArtefactUtilise.php" beforeDir="false" afterPath="$PROJECT_DIR$/ArtefactUtilise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChangePlayerStats.php" beforeDir="false" afterPath="$PROJECT_DIR$/ChangePlayerStats.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChangeRessource.php" beforeDir="false" afterPath="$PROJECT_DIR$/ChangeRessource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChangeTutoStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/ChangeTutoStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CheckConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/CheckConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CheckConnectionByMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/CheckConnectionByMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CheckFirstConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/CheckFirstConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CheckIP.php" beforeDir="false" afterPath="$PROJECT_DIR$/CheckIP.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectById.php" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectById.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectOnIP.php" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectOnIP.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/CreateUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnvoiMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/EnvoiMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExamenEffectue.php" beforeDir="false" afterPath="$PROJECT_DIR$/ExamenEffectue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetAmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/GetAmi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetConnectOnIP.php" beforeDir="false" afterPath="$PROJECT_DIR$/GetConnectOnIP.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MissionDivertEffectuee.php" beforeDir="false" afterPath="$PROJECT_DIR$/MissionDivertEffectuee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MissionEffectuee.php" beforeDir="false" afterPath="$PROJECT_DIR$/MissionEffectuee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ObjetAchete.php" beforeDir="false" afterPath="$PROJECT_DIR$/ObjetAchete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PNJEffectue.php" beforeDir="false" afterPath="$PROJECT_DIR$/PNJEffectue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReinitiatePassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/ReinitiatePassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResetAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/ResetAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupprimerAmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/SupprimerAmi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UpdateDateCo.php" beforeDir="false" afterPath="$PROJECT_DIR$/UpdateDateCo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerifierAmi.php" beforeDir="false" afterPath="$PROJECT_DIR$/VerifierAmi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerifierArtefactMagasin.php" beforeDir="false" afterPath="$PROJECT_DIR$/VerifierArtefactMagasin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerifierStatusTuto.php" beforeDir="false" afterPath="$PROJECT_DIR$/VerifierStatusTuto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptActionSociale.php" beforeDir="false" afterPath="$PROJECT_DIR$/scriptActionSociale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/scriptConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptartefact.php" beforeDir="false" afterPath="$PROJECT_DIR$/scriptartefact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptboutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/scriptboutique.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptmission.php" beforeDir="false" afterPath="$PROJECT_DIR$/scriptmission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptmission.php.save" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptmission.php.save.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleListeAmis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleListeAmis.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Tutoriel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Tutoriel.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -27,38 +702,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MissionEffectuee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VerifierArtefactMagasin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="61" lean-forward="true" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VerifierStatusTuto.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SupprimerAmi.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VerifierAmi.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="589" column="35" selection-start-line="589" selection-start-column="35" selection-end-line="589" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CheckFirstConnection.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="42" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="42" />
+            <state relative-caret-position="206">
+              <caret line="746" column="49" lean-forward="true" selection-start-line="746" selection-start-column="7" selection-end-line="746" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -84,6 +786,8 @@
       <find>$missionsDejaPresentes</find>
       <find>$tabmissionA</find>
       <find>GetConn</find>
+      <find>echoDebug</find>
+      <find>$finalArray</find>
     </findStrings>
     <replaceStrings>
       <replace>ip</replace>
@@ -97,32 +801,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupObjetMagasin.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupDuree.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupRang.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupQuartier.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupTrophees.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupEntreprise.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupEmpEntreprise.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupSpeEntreprise.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupExam.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupMission.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupPNJ.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupQuartierPNJ.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupDivert.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupComp.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupRess.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupDiplome.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupTopicsAide.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJObjet.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJComp.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJDiplome.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJTrophee.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJRessources.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupExamJouable.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupPNJJouable.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJArtefact.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupDivertJouable.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupActionsSociales.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesObjet.php" />
@@ -135,27 +813,124 @@
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertRessourcesEnBase.php" />
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php" />
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php" />
-        <option value="$PROJECT_DIR$/SupprimerAmi.php" />
-        <option value="$PROJECT_DIR$/AjouterAmi.php" />
-        <option value="$PROJECT_DIR$/VerifierAmi.php" />
-        <option value="$PROJECT_DIR$/GetAmi.php" />
-        <option value="$PROJECT_DIR$/ArtefactUtilise.php" />
-        <option value="$PROJECT_DIR$/ObjetAchete.php" />
-        <option value="$PROJECT_DIR$/VerifierArtefactMagasin.php" />
-        <option value="$PROJECT_DIR$/MissionEffectuee.php" />
         <option value="$PROJECT_DIR$/MissionDIvertEffectuee.php" />
-        <option value="$PROJECT_DIR$/ExamenEffectue.php" />
-        <option value="$PROJECT_DIR$/PNJEffectue.php" />
-        <option value="$PROJECT_DIR$/CheckFirstConnection.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/swagger.php" />
+        <option value="$PROJECT_DIR$/swagger-ui/index.html" />
+        <option value="$PROJECT_DIR$/swagger-ui/swagger.json" />
         <option value="$PROJECT_DIR$/Helper.php" />
+        <option value="$PROJECT_DIR$/AddIP.php" />
+        <option value="$PROJECT_DIR$/ConnectOnIP.php" />
+        <option value="$PROJECT_DIR$/CheckIP.php" />
+        <option value="$PROJECT_DIR$/CheckFirstConnection.php" />
+        <option value="$PROJECT_DIR$/AjouterAmi.php" />
+        <option value="$PROJECT_DIR$/ChangePlayerStats.php" />
+        <option value="$PROJECT_DIR$/ChangeRessource.php" />
+        <option value="$PROJECT_DIR$/ChangeTutoStatus.php" />
+        <option value="$PROJECT_DIR$/CheckConnection.php" />
+        <option value="$PROJECT_DIR$/CheckConnectionByMail.php" />
+        <option value="$PROJECT_DIR$/ArtefactUtilise.php" />
+        <option value="$PROJECT_DIR$/CreateUser.php" />
+        <option value="$PROJECT_DIR$/ConnectById.php" />
+        <option value="$PROJECT_DIR$/ExamenEffectue.php" />
+        <option value="$PROJECT_DIR$/GetConnectOnIP.php" />
+        <option value="$PROJECT_DIR$/EnvoiMail.php" />
+        <option value="$PROJECT_DIR$/GetAmi.php" />
+        <option value="$PROJECT_DIR$/MissionDivertEffectuee.php" />
+        <option value="$PROJECT_DIR$/MissionEffectuee.php" />
+        <option value="$PROJECT_DIR$/ObjetAchete.php" />
+        <option value="$PROJECT_DIR$/ReinitiatePassword.php" />
+        <option value="$PROJECT_DIR$/ResetAdmin.php" />
+        <option value="$PROJECT_DIR$/scriptActionSociale.php" />
+        <option value="$PROJECT_DIR$/scriptartefact.php" />
+        <option value="$PROJECT_DIR$/scriptboutique.php" />
+        <option value="$PROJECT_DIR$/scriptConnection.php" />
+        <option value="$PROJECT_DIR$/scriptmission.php" />
+        <option value="$PROJECT_DIR$/SupprimerAmi.php" />
+        <option value="$PROJECT_DIR$/PNJEffectue.php" />
+        <option value="$PROJECT_DIR$/UpdateDateCo.php" />
+        <option value="$PROJECT_DIR$/VerifierAmi.php" />
+        <option value="$PROJECT_DIR$/VerifierArtefactMagasin.php" />
+        <option value="$PROJECT_DIR$/VerifierStatusTuto.php" />
       </list>
     </option>
   </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/hoa/file" />
+      <path value="$PROJECT_DIR$/vendor/hoa/stream" />
+      <path value="$PROJECT_DIR$/vendor/hoa/math" />
+      <path value="$PROJECT_DIR$/vendor/hoa/compiler" />
+      <path value="$PROJECT_DIR$/vendor/hoa/event" />
+      <path value="$PROJECT_DIR$/vendor/hoa/visitor" />
+      <path value="$PROJECT_DIR$/vendor/herrera-io/json" />
+      <path value="$PROJECT_DIR$/vendor/herrera-io/phar-update" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/cilex/console-service-provider" />
+      <path value="$PROJECT_DIR$/vendor/cilex/cilex" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/vendor/zetacomponents/document" />
+      <path value="$PROJECT_DIR$/vendor/zetacomponents/base" />
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/vendor/kherge/version" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/graphviz" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/fileset" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-filter" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/phpdocumentor" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-config" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-json" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-stdlib" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-hydrator" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-i18n" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-cache" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-servicemanager" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-serializer" />
+      <path value="$PROJECT_DIR$/vendor/container-interop/container-interop" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/hoa/exception" />
+      <path value="$PROJECT_DIR$/vendor/hoa/ustring" />
+      <path value="$PROJECT_DIR$/vendor/hoa/zformat" />
+      <path value="$PROJECT_DIR$/vendor/hoa/consistency" />
+      <path value="$PROJECT_DIR$/vendor/hoa/iterator" />
+      <path value="$PROJECT_DIR$/vendor/hoa/protocol" />
+      <path value="$PROJECT_DIR$/vendor/hoa/regex" />
+      <path value="$PROJECT_DIR$/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="98" />
-    <option name="y" value="58" />
-    <option name="width" value="2974" />
-    <option name="height" value="1624" />
+    <option name="x" value="4423" />
+    <option name="y" value="-13" />
+    <option name="width" value="290" />
+    <option name="height" value="158" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -171,6 +946,16 @@
             <path>
               <item name="scripts" type="b2602c69:ProjectViewProjectNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="scripts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="scriptsTransferts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="scripts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="swagger-ui" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -274,21 +1059,22 @@
       <workItem from="1562308960961" duration="4290000" />
       <workItem from="1562593544052" duration="2475000" />
       <workItem from="1562654610045" duration="2697000" />
+      <workItem from="1562826554071" duration="17065000" />
+      <workItem from="1562912994786" duration="16945000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169094000" />
+    <option name="totallyTimeSpent" value="203709000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1613" height="873" extended-state="7" />
-    <editor active="true" />
+    <frame x="3192" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22186495" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19029851" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -296,10 +1082,10 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="9" weight="0.3270525" />
+      <window_info anchor="bottom" id="File Transfer" order="9" weight="0.3261105" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -310,147 +1096,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDivert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupComp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupRess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDiplome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupTopicsAide.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupEmpEntreprise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupExamJouable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJRessources.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJDiplome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJTrophee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJComp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJObjet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPNJJouable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJArtefact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesObjet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupArtefactJouable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDeLaListeDesJoueurs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDivertJouable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/UpdateLastConnection.php" />
     <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -465,48 +1110,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertCompetencesEnBase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VerifierAmi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SupprimerAmi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CreateUser.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetAmi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AjouterAmi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -531,101 +1138,290 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptActionSociale.php">
+    <entry file="file://$PROJECT_DIR$/vendor/phpdocumentor/phpdocumentor/composer.json" />
+    <entry file="file://$PROJECT_DIR$/doc/index.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mysqli/mysqli.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="1601" column="53" selection-start-line="1601" selection-start-column="53" selection-end-line="1601" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swagger/swagger.json" />
+    <entry file="file://$PROJECT_DIR$/swagger.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swagger.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swagger-ui/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChangeRessource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChangeTutoStatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="48" lean-forward="true" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CheckConnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CheckConnectionByMail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CheckFirstConnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CheckIP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AddIP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AjouterAmi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtefactUtilise.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ObjetAchete.php">
+    <entry file="file://$PROJECT_DIR$/CreateUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PNJEffectue.php">
+    <entry file="file://$PROJECT_DIR$/ConnectOnIP.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        <state relative-caret-position="102">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EnvoiMail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConnectById.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ExamenEffectue.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetConnectOnIP.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mail.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetAmi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ObjetAchete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MissionDivertEffectuee.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swagger-ui/swagger.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3372">
+          <caret line="354" column="5" selection-start-line="354" selection-start-column="5" selection-end-line="354" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptartefact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptActionSociale.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptboutique.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptConnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptmission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PNJEffectue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReinitiatePassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MissionEffectuee.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="746" column="49" lean-forward="true" selection-start-line="746" selection-start-column="7" selection-end-line="746" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VerifierAmi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VerifierArtefactMagasin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="41" />
+          <caret line="8" column="61" lean-forward="true" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChangeRessource.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CheckConnection.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChangeTutoStatus.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CheckIP.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CheckConnectionByMail.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConnectById.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
+    <entry file="file://$PROJECT_DIR$/VerifierStatusTuto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="136">
+          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CheckFirstConnection.php">
+    <entry file="file://$PROJECT_DIR$/SupprimerAmi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="589" column="35" selection-start-line="589" selection-start-column="35" selection-end-line="589" selection-end-column="35" />
+        <state relative-caret-position="646">
+          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,21 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Get(
+ *     tags={"Get"},
+ *     path="/GetAmi/{nomAmi}",
+ *     description="Récupère les informations d'un ami",
+ *     @OA\Parameter(
+ *          name="nomAmi",
+ *          in="path",
+ *          description="Nom de l'ami",
+ *          required=true,
+ *          @OA\Schema(type="String"))
+ * )
+ */
+
 require_once "Helper.php";
 
 $helper = new Helper();

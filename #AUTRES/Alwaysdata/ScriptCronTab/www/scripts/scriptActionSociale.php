@@ -1,5 +1,15 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Delete(
+ *     tags={"Delete"},
+ *     path="/scriptActionSociale/",
+ *     description="Suppression de toutes les actions sociales"
+ * )
+ */
+
 require_once "configuration.php";
 
 //Connexion à la base de Données

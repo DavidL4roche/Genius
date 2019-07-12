@@ -1,5 +1,22 @@
 <?php
-    require_once "Helper.php";
+
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\(
+ *     tags={"Get"},
+ *     path="/ConnectById/{id}",
+ *     description="Connection par id",
+ *     @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          description="Identifiant du joueur",
+ *          required=true,
+ *          @OA\Schema(type="Integer"))
+ * )
+ */
+
+require_once "Helper.php";
 
     $helper = new Helper();
 
