@@ -755,6 +755,729 @@
                     }
                 ]
             }
+        },
+        "/TransfertActionSocialeEnBase/{id}{idAmi}{type}": {
+            "put": {
+                "tags": [
+                    "Update",
+                    "Transfert en base"
+                ],
+                "description": "Actualise l'action sociale d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idAmi",
+                        "in": "path",
+                        "description": "Identifiant de l'ami",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "Type d'action sociale (ITEM/SKILL)",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ]
+            }
+        },
+        "/TransfertCompetencesEnBase/{id}{idComp}{valeur}": {
+            "put": {
+                "tags": [
+                    "Update",
+                    "Transfert en base"
+                ],
+                "description": "Actualise la compétence d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idComp",
+                        "in": "path",
+                        "description": "Identifiant de la compétence",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "valeur",
+                        "in": "path",
+                        "description": "Valeur de la compétence",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/TransfertObjetsEnBase/{id}{idObjet}{type}": {
+            "put": {
+                "tags": [
+                    "Update",
+                    "Transfert en base"
+                ],
+                "description": "Actualise le nombre d'objets d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idObjet",
+                        "in": "path",
+                        "description": "Identifiant de l'objet",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "Nombre d'objets du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/TransfertRessourcesEnBase/{id}{idRess}{valeur}": {
+            "put": {
+                "tags": [
+                    "Update",
+                    "Transfert en base"
+                ],
+                "description": "Actualise l'action sociale d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "idRess",
+                        "in": "path",
+                        "description": "Identifiant de la ressource",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    },
+                    {
+                        "name": "valeur",
+                        "in": "path",
+                        "description": "Valeur de la ressource",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/MAJArtefact/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "MAJ Joueur"
+                ],
+                "description": "Récupère les artéfacts d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/MAJComp/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "MAJ Joueur"
+                ],
+                "description": "Récupère les compétences d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/MAJDiplome/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "MAJ Joueur"
+                ],
+                "description": "Récupère les diplomes d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/MAJObjet/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "MAJ Joueur"
+                ],
+                "description": "Récupère les objets d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/MAJRessources/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "MAJ Joueur"
+                ],
+                "description": "Récupère les ressources d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/MAJTrophee/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "MAJ Joueur"
+                ],
+                "description": "Récupère les trophées d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupActionsSocialesComp/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Actions Sociales (Compétences)",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupActionsSocialesObjet/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Actions Sociales (Objets)",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupArtefact/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Recupère les artefacts"
+            }
+        },
+        "/RecupArtefactJouable/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Artefacts jouables",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupBonus/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les bonus"
+            }
+        },
+        "/RecupComp/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Compétences"
+            }
+        },
+        "/RecupDeLaListeDesJoueurs/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère la liste des joueurs (hormi le joueur en paramètre)",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupDiplome/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Diplômes"
+            }
+        },
+        "/RecupDivert/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Divertissements"
+            }
+        },
+        "/RecupDivertJouable/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Divertissements jouables",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupDuree/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Durées"
+            }
+        },
+        "/RecupEmpEntreprise/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les emplacements des entreprises",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de l'entreprise",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupEntreprise/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Entreprises"
+            }
+        },
+        "/RecupExam/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Examens"
+            }
+        },
+        "/RecupExamensNonJouables/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Examens non Jouables",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupExamensJouable/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Examens Jouables",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupGain/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Gains"
+            }
+        },
+        "/RecupLieu/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Lieux"
+            }
+        },
+        "/RecupMesAmis/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Amis d'un joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupMission/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Missions"
+            }
+        },
+        "/RecupObjet/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Objets"
+            }
+        },
+        "/RecupObjetMagasin/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Objets d'un Joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupPerte/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Pertes"
+            }
+        },
+        "/RecupPNJ/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les PNJ"
+            }
+        },
+        "/RecupPNJJouable/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les PNJ Jouables (ceux dont lesquels on a pas l'artéfact lié)",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupPresentMissions/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Missions présentes du Joueur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du joueur",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupQuartier/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Quartiers"
+            }
+        },
+        "/RecupQuartierPNJ/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les quartiers des pnj",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du PNJ",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupRang/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Rangs"
+            }
+        },
+        "/RecupRess/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Ressources"
+            }
+        },
+        "/RecupSpeEntreprise/{id}": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les spécialisations des entreprises",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de l'entreprise",
+                        "required": true,
+                        "schema": {
+                            "type": "Integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/RecupTopicsAide/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Topics du menu Aide"
+            }
+        },
+        "/RecupTrophee/": {
+            "get": {
+                "tags": [
+                    "Get",
+                    "Récupération données"
+                ],
+                "description": "Récupère les Trophées"
+            }
         }
     }
 }

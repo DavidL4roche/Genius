@@ -1,5 +1,21 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Get(
+ *     tags={"Get", "Récupération données"},
+ *     path="/RecupQuartierPNJ/{id}",
+ *     description="Récupère les quartiers des pnj",
+ *     @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          description="Identifiant du PNJ",
+ *          required=true,
+ *          @OA\Schema(type="Integer"))
+ * )
+ */
+
 require_once "../Helper.php";
 
 $helper = new Helper();
