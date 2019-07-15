@@ -47,6 +47,7 @@ public class DemarrageGenius2 : MonoBehaviour {
         {
             ChargerPopup.Charger("Erreur");
             MessageErreur.messageErreur = "Une erreur est survenue, veuillez relancer le jeu";
+            RessourcesBdD.ReloadGame();
         }
     }
 

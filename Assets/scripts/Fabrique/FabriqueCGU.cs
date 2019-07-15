@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FabriqueCGU : MonoBehaviour {
 
-    public Text zoneTexte;
+    public TextMeshProUGUI zoneTexte;
 
     private void Start()
     {
@@ -14,9 +16,8 @@ public class FabriqueCGU : MonoBehaviour {
         {
             TextReader reader;
             string fileName = "#AUTRES/CGU.txt";
-            reader = new StreamReader(fileName);
+            reader = new StreamReader(fileName, Encoding.Default);
             string result = reader.ReadToEnd();
-            Debug.Log(result);
             zoneTexte.text = result;
             reader.Close();
         }
