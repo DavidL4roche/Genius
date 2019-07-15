@@ -1,0 +1,1667 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_TemporalCoherenceThreshold: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
+  m_LightmapEditorSettings:
+    serializedVersion: 10
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 0
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &123127487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123127488}
+  - component: {fileID: 123127490}
+  - component: {fileID: 123127489}
+  m_Layer: 0
+  m_Name: FondCorps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &123127488
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123127487}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.277781}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1974067634}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 306.1, y: 504.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &123127489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123127487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.20000002, g: 0.21176472, b: 0.32156864, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &123127490
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123127487}
+  m_CullTransparentMesh: 0
+--- !u!1001 &438214856
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943831033244828, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: -7.5556498
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67ac6a6192165274381ce01974d4525a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &502372849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502372850}
+  - component: {fileID: 502372853}
+  - component: {fileID: 502372852}
+  - component: {fileID: 502372851}
+  - component: {fileID: 502372854}
+  m_Layer: 5
+  m_Name: Fermer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &502372850
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502372849}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2143903829}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -139.49, y: 276}
+  m_SizeDelta: {x: 61.47, y: 52.01}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &502372851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502372849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: 3053abc5bb0030243a03fd8d6f2e029d, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!114 &502372852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502372849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 502372851}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2117200027}
+        m_MethodName: Fermer
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CGU
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 502372854}
+        m_MethodName: RendreVisibleEcran
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1511756344}
+        m_MethodName: Charger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Parametres
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!222 &502372853
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502372849}
+  m_CullTransparentMesh: 0
+--- !u!114 &502372854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502372849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed06d3e054fcb042ba15f20d1f31bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EcranChargement: {fileID: 1819765262}
+--- !u!1 &519052473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519052477}
+  - component: {fileID: 519052476}
+  - component: {fileID: 519052475}
+  - component: {fileID: 519052474}
+  m_Layer: 5
+  m_Name: Ecran
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &519052474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519052473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &519052475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519052473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &519052476
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519052473}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 1
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &519052477
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519052473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2143903829}
+  - {fileID: 2117200026}
+  - {fileID: 1511756343}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 360, y: 640}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &912506436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1366112405687806, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912506437}
+  - component: {fileID: 912506441}
+  - component: {fileID: 912506440}
+  - component: {fileID: 912506439}
+  - component: {fileID: 912506438}
+  m_Layer: 5
+  m_Name: CorpsTopicListe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &912506437
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 224322795592413102, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 912506436}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2109909554}
+  m_Father: {fileID: 1974067634}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.4552e-11, y: 1.4}
+  m_SizeDelta: {x: 272, y: 467.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &912506438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 912506436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1367256648, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 2109909554}
+  m_Horizontal: 0
+  m_Vertical: 1
+  m_MovementType: 2
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 60
+  m_Viewport: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &912506439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114597457111705598, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 912506436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
+--- !u!114 &912506440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114967270179934038, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 912506436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &912506441
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 222919997635681750, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 912506436}
+  m_CullTransparentMesh: 0
+--- !u!1 &964078504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964078505}
+  - component: {fileID: 964078507}
+  - component: {fileID: 964078506}
+  m_Layer: 5
+  m_Name: Cadre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &964078505
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 964078504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2143903829}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.6788418}
+  m_AnchoredPosition: {x: 0.000015259, y: -44}
+  m_SizeDelta: {x: 360, y: 558.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &964078506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 964078504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.1254902, g: 0.13333334, b: 0.21176472, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &964078507
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 964078504}
+  m_CullTransparentMesh: 0
+--- !u!1 &967285581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967285582}
+  - component: {fileID: 967285585}
+  - component: {fileID: 967285584}
+  m_Layer: 0
+  m_Name: CorpsTopic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &967285582
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 967285581}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.3263905}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2109909554}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 7999.3}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &967285584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 967285581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_text: "<b><color=#53CBFF>1) Objet</color></b>\r\r\nLes pr\xE9sentes conditions
+    g\xE9n\xE9rales ont pour objet de d\xE9finir les modalit\xE9s et conditions d\u2019utilisation
+    des services propos\xE9s sur le jeu, ainsi que de d\xE9finir les droits et obligations
+    des parties dans ce cadre.\r\nElles sont notamment accessibles et imprimables
+    \xE0 tout moment.\r\nElles peuvent \xEAtre compl\xE9t\xE9es, le cas \xE9ch\xE9ant,
+    par des conditions d\u2019utilisation particuli\xE8res \xE0 certains Services.
+    En cas de contradiction, les conditions particuli\xE8res pr\xE9valent sur ces
+    conditions g\xE9n\xE9rales.\r\n\r\n<b><color=#53CBFF>2) Exploitant des Services</color></b>\r\r\nLes
+    Services sont exploit\xE9s par l\u2019IUT d\u2019Aix-Marseille.\r\nL\u2019\xE9diteur
+    peut \xEAtre contact\xE9 aux coordonn\xE9es suivantes : iut-aix-soutien-info@univ-amu.fr\r\n\r\n<b><color=#53CBFF>3)
+    Acc\xE8s au jeu et aux Services</color></b>\r\r\nLes Services sont accessibles,
+    sous r\xE9serve des restrictions pr\xE9vues sur le jeu :\r\n\u2013 \xE0 toute
+    personne physique disposant de la pleine capacit\xE9 juridique pour s\u2019engager
+    au titre des pr\xE9sentes conditions g\xE9n\xE9rales. La personne physique qui
+    ne dispose pas de la pleine capacit\xE9 juridique ne peut acc\xE9der au jeu et
+    aux Services qu\u2019avec l\u2019accord de son repr\xE9sentant l\xE9gal ;\r\n\u2013
+    \xE0 toute personne morale agissant par l\u2019interm\xE9diaire d\u2019une personne
+    physique disposant de la capacit\xE9 juridique pour contracter au nom et pour
+    le compte de la personne morale.\r\n\r\n<b><color=#53CBFF>4) Acceptation des conditions
+    g\xE9n\xE9rales</color></b>\r\r\nL\u2019acceptation des pr\xE9sentes conditions
+    g\xE9n\xE9rales est mat\xE9rialis\xE9e par une case \xE0 cocher dans le formulaire
+    d\u2019inscription. Cette acceptation ne peut \xEAtre que pleine et enti\xE8re.
+    Toute adh\xE9sion sous r\xE9serve est consid\xE9r\xE9e comme nulle et non avenue.
+    L\u2019Utilisateur qui n\u2019accepte pas d\u2019\xEAtre li\xE9 par les pr\xE9sentes
+    conditions g\xE9n\xE9rales ne doit pas utiliser les Services.\r\n\r\n<b><color=#53CBFF>5)
+    Inscription sur le jeu</color></b>\r\r\nL\u2019utilisation des Services n\xE9cessite
+    que l\u2019Utilisateur s\u2019inscrive sur le jeu, en remplissant le formulaire
+    pr\xE9vu \xE0 cet effet. L\u2019Utilisateur doit fournir l\u2019ensemble des informations
+    marqu\xE9es comme obligatoires. Toute inscription incompl\xE8te ne sera pas valid\xE9e.\r\nL\u2019inscription
+    entra\xEEne automatiquement l\u2019ouverture d\u2019un compte au nom de l\u2019Utilisateur
+    renseign\xE9, lui donnant acc\xE8s \xE0 un espace personnel qui lui permet de
+    g\xE9rer son utilisation des Services sous une forme et selon les moyens techniques
+    que l\u2019\xE9diteur juge les plus appropri\xE9s pour rendre lesdits Services.\r\nL\u2019Utilisateur
+    garantit que toutes les informations qu\u2019il donne dans le formulaire d\u2019inscription
+    sont exactes, \xE0 jour et sinc\xE8res et ne sont entach\xE9es d\u2019aucun caract\xE8re
+    trompeur.\r\nIl s\u2019engage \xE0 mettre \xE0 jour ces informations dans son
+    Espace Personnel en cas de modifications, afin qu\u2019elles correspondent toujours
+    aux crit\xE8res susvis\xE9s.\r\nL\u2019Utilisateur est inform\xE9 et accepte que
+    les informations saisies aux fins de cr\xE9ation ou de mise \xE0 jour de son Compte
+    vaillent preuve de son identit\xE9. Les informations saisies par l\u2019Utilisateur
+    l\u2019engagent d\xE8s leur validation.\r\nL\u2019Utilisateur peut acc\xE9der
+    \xE0 tout moment \xE0 son Espace Personnel apr\xE8s s\u2019\xEAtre identifi\xE9
+    \xE0 l\u2019aide de son identifiant de connexion ainsi que de son mot de passe.\r\nL\u2019Utilisateur
+    s\u2019engage \xE0 utiliser personnellement les Services et \xE0 ne permettre
+    \xE0 aucun tiers de les utiliser \xE0 sa place ou pour son compte, sauf \xE0 en
+    supporter l\u2019enti\xE8re responsabilit\xE9.\r\nIl est pareillement responsable
+    du maintien de la confidentialit\xE9 de son identifiant et de son mot de passe.
+    Il doit imm\xE9diatement contacter l\u2019\xE9diteur aux coordonn\xE9es mentionn\xE9es
+    \xE0 l\u2019article 2 des pr\xE9sentes s\u2019il remarque que son Compte a \xE9t\xE9
+    utilis\xE9 \xE0 son insu. Il reconna\xEEt \xE0 l\u2019\xE9diteur le droit de prendre
+    toutes mesures appropri\xE9es en pareil cas.\r\n\r\n<b><color=#53CBFF>6) Description
+    des Services</color></b>\r\r\n\u2022 L\u2019Utilisateur a acc\xE8s aux Services
+    d\xE9crits sur le jeu, sous une forme et selon les fonctionnalit\xE9s et moyens
+    techniques que l\u2019\xE9diteur juge les plus appropri\xE9s.\r\n\u2022 L\u2019utilisation
+    de Genius \xE0 des fins frauduleuses ne saurait engager que l\u2019utilisateur.\r\n\u2022
+    L\u2019utilisateur est enti\xE8rement responsable de l\u2019utilisation de Genius.\r\n\u2022
+    La disponibilit\xE9 des adresses n\u2019a vocation qu\u2019\xE0 simulation des
+    tableaux d\u2019indemnit\xE9s kilom\xE9triques et \xE0 la bonne performance du
+    logiciel.\r\n\u2022 Nous ne recommandons en aucun cas d\u2019utiliser Genius pour
+    fournir \xE0 quelconque administration des tableaux volontairement simul\xE9s.\r\n\u2022
+    Ces derniers ne sont que le r\xE9sultat d\u2019une simulation \xE0 des fins de
+    projection comptable.\r\n\r\n<b><color=#53CBFF>8) Donn\xE9es</color></b>\r\r\nL\u2019Utilisateur
+    reconna\xEEt et accepte express\xE9ment :\r\n1) que les donn\xE9es recueillies
+    sur le jeu et sur les \xE9quipements informatiques de l\u2019\xE9diteur font foi
+    de la r\xE9alit\xE9 des op\xE9rations intervenues dans le cadre des pr\xE9sentes
+    ;\r\n2) que ces donn\xE9es constituent le seul mode de preuve admis entre les
+    parties, notamment pour le calcul des sommes dues \xE0 l\u2019\xE9diteur.\r\nL\u2019Utilisateur
+    peut acc\xE9der \xE0 ces donn\xE9es dans son Espace Personnel.\r\n\r\n<b><color=#53CBFF>9)
+    Obligations de l\u2019Utilisateur</color></b>\r\r\nSans pr\xE9judice des autres
+    obligations pr\xE9vues aux pr\xE9sentes, l\u2019Utilisateur s\u2019engage \xE0
+    respecter les obligations qui suivent :\r\n1. L\u2019Utilisateur s\u2019engage,
+    dans son usage des Services, \xE0 respecter les lois et r\xE8glements en vigueur
+    et \xE0 ne pas porter atteinte aux droits de tiers ou \xE0 l\u2019ordre public.
+    Il est notamment seul responsable du bon accomplissement de toutes les formalit\xE9s
+    notamment administratives, fiscales et/ou sociales et de tous les paiements de
+    cotisations, taxes ou imp\xF4ts de toutes natures qui lui incombent, le cas \xE9ch\xE9ant,
+    en relation avec son utilisation des Services. La responsabilit\xE9 de l\u2019\xE9diteur
+    ne pourra en aucun cas \xEAtre engag\xE9e \xE0 ce titre.\r\n2. L\u2019Utilisateur
+    reconna\xEEt avoir pris connaissance sur le jeu des caract\xE9ristiques et contraintes,
+    notamment techniques, de l\u2019ensemble des Services. Il est seul responsable
+    de son utilisation des Services.\r\n3. L\u2019Utilisateur est inform\xE9 et accepte
+    que la mise en \u0153uvre des Services n\xE9cessite qu\u2019il soit connect\xE9
+    \xE0 internet et que la qualit\xE9 des Services d\xE9pend directement de cette
+    connexion, dont il est seul responsable.\r\n4. L\u2019Utilisateur est \xE9galement
+    seul responsable des relations qu\u2019il pourra nouer avec les autres Utilisateurs
+    et des informations qu\u2019il leur communique dans le cadre des Services. Il
+    lui appartient d\u2019exercer la prudence et le discernement appropri\xE9s dans
+    ces relations et communications. L\u2019Utilisateur s\u2019engage en outre, dans
+    ses \xE9changes avec les autres Utilisateurs, \xE0 respecter les r\xE8gles usuelles
+    de politesse et de courtoisie.\r\n5. L\u2019Utilisateur s\u2019engage \xE0 faire
+    un usage strictement personnel des Services. Il s\u2019interdit en cons\xE9quence
+    de c\xE9der, conc\xE9der ou transf\xE9rer tout ou partie de ses droits ou obligations
+    au titre des pr\xE9sentes \xE0 un tiers, de quelque mani\xE8re que ce soit.\r\n6.
+    L\u2019Utilisateur s\u2019engage \xE0 fournir \xE0 l\u2019\xE9diteur toutes les
+    informations n\xE9cessaires \xE0 la bonne ex\xE9cution des Services. Plus g\xE9n\xE9ralement,
+    l\u2019Utilisateur s\u2019engage \xE0 coop\xE9rer activement avec l\u2019\xE9diteur
+    en vue de la bonne ex\xE9cution des pr\xE9sentes.\r\n7. L\u2019Utilisateur est
+    seul responsable des contenus de toute nature (r\xE9dactionnels, graphiques, audiovisuels
+    ou autres, en ce compris la d\xE9nomination et/ou l\u2019image \xE9ventuellement
+    choisies par l\u2019Utilisateur pour l\u2019identifier sur le jeu) qu\u2019il
+    diffuse dans le cadre des Services (ci-apr\xE8s d\xE9sign\xE9s : les \xAB Contenus
+    \xBB).\r\nIl garantit \xE0 l\u2019\xE9diteur qu\u2019il dispose de tous les droits
+    et autorisations n\xE9cessaires \xE0 la diffusion de ces Contenus.\r\nIl s\u2019engage
+    \xE0 ce que lesdits Contenus soient licites, ne portent pas atteinte \xE0 l\u2019ordre
+    public, aux bonnes m\u0153urs ou aux droits de tiers, n\u2019enfreignent aucune
+    disposition l\xE9gislative ou r\xE8glementaire et plus g\xE9n\xE9ralement, ne
+    soient aucunement susceptibles de mettre en jeu la responsabilit\xE9 civile ou
+    p\xE9nale de l\u2019\xE9diteur.\r\nL\u2019Utilisateur s\u2019interdit ainsi de
+    diffuser, notamment et sans que cette liste soit exhaustive :\r\n\u2022 des Contenus
+    susceptibles de porter atteinte aux droits de tiers ou d\u2019\xEAtre pr\xE9judiciables
+    \xE0 des tiers, de quelque mani\xE8re et sous quelque forme que ce soit.\r\n\u2022
+    L\u2019Utilisateur est inform\xE9 et accepte que la mise en \u0153uvre des Services
+    n\xE9cessite qu\u2019il soit connect\xE9 \xE0 internet et que la qualit\xE9 des
+    Services d\xE9pend directement de cette connexion, dont il est seul responsable.\r\n\r\n<b><color=#53CBFF>10)
+    Garantie de l\u2019Utilisateur</color></b>\r\r\nL\u2019Utilisateur garantit l\u2019\xE9diteur
+    contre toutes plaintes, r\xE9clamations, actions et/ou revendications quelconques
+    que l\u2019\xE9diteur pourrait subir du fait de la violation, par l\u2019Utilisateur
+    de l\u2019une quelconque de ses obligations ou garanties aux termes des pr\xE9sentes
+    conditions g\xE9n\xE9rales.\r\nIl s\u2019engage \xE0 indemniser l\u2019\xE9diteur
+    de tout pr\xE9judice qu\u2019elle subirait et \xE0 lui payer tous les frais, charges
+    et/ou condamnations qu\u2019elle pourrait avoir \xE0 supporter de ce fait.\r\n\r\n<b><color=#53CBFF>12)
+    Sanctions des manquements</color></b>\r\r\nEn cas de manquement \xE0 l\u2019une
+    quelconque des dispositions des pr\xE9sentes conditions g\xE9n\xE9rales ou plus
+    g\xE9n\xE9ralement, d\u2019infraction aux lois et r\xE8glements en vigueur par
+    un Utilisateur, l\u2019\xE9diteur se r\xE9serve le droit de prendre toute mesure
+    appropri\xE9e et notamment de :\r\n1. suspendre ou r\xE9silier l\u2019acc\xE8s
+    aux Services de l\u2019Utilisateur, auteur du manquement ou de l\u2019infraction,
+    ou y ayant particip\xE9,\r\n2. supprimer tout contenu mis en ligne sur le jeu,\r\n3.
+    publier sur le jeu tout message d\u2019information que l\u2019\xE9diteur jugera
+    utile,\r\n4. avertir toute autorit\xE9 concern\xE9e,\r\n5. engager toute action
+    judiciaire.\r\n\r\n<b><color=#53CBFF>13) Responsabilit\xE9 et garantie de l\u2019\xE9diteur</color></b>\r\r\n1.
+    L\u2019\xE9diteur s\u2019engage \xE0 fournir les Services avec diligence et selon
+    les r\xE8gles de l\u2019art, \xE9tant pr\xE9cis\xE9 qu\u2019il p\xE8se sur elle
+    une obligation de moyens, \xE0 l\u2019exclusion de toute obligation de r\xE9sultat,
+    ce que les Utilisateurs reconnaissent et acceptent express\xE9ment.\r\n2. L\u2019\xE9diteur
+    n\u2019a pas connaissance des Contenus mis en ligne par les Utilisateurs dans
+    le cadre des Services, sur lesquels elle n\u2019effectue aucune mod\xE9ration,
+    s\xE9lection, v\xE9rification ou contr\xF4le d\u2019aucune sorte et \xE0 l\u2019\xE9gard
+    desquels elle n\u2019intervient qu\u2019en tant que prestataire d\u2019h\xE9bergement.\r\nEn
+    cons\xE9quence, l\u2019\xE9diteur ne peut \xEAtre tenue pour responsable des Contenus,
+    dont les auteurs sont des tiers, toute r\xE9clamation \xE9ventuelle devant \xEAtre
+    dirig\xE9e en premier lieu vers l\u2019auteur des Contenus en question.\r\nLes
+    Contenus pr\xE9judiciables \xE0 un tiers peuvent faire l\u2019objet d\u2019une
+    notification \xE0 l\u2019\xE9diteur selon les modalit\xE9s pr\xE9vues par l\u2019article
+    6 I 5 de la loi n\xB0 2004-575 du 21 juin 2004 pour la confiance dans l\u2019\xE9conomie
+    num\xE9rique, l\u2019\xE9diteur se r\xE9servant de prendre les mesures d\xE9crites
+    \xE0 l\u2019article 12.\r\n3. L\u2019\xE9diteur d\xE9cline toute responsabilit\xE9
+    en cas de perte \xE9ventuelle des informations accessibles dans l\u2019Espace
+    Personnel de l\u2019Utilisateur, celui-ci devant en sauvegarder une copie et ne
+    pouvant pr\xE9tendre \xE0 aucun d\xE9dommagement \xE0 ce titre.\r\n4. L\u2019\xE9diteur
+    s\u2019engage \xE0 proc\xE9der r\xE9guli\xE8rement \xE0 des contr\xF4les afin
+    de v\xE9rifier le fonctionnement et l\u2019accessibilit\xE9 du jeu. A ce titre,
+    l\u2019\xE9diteur se r\xE9serve la facult\xE9 d\u2019interrompre momentan\xE9ment
+    l\u2019acc\xE8s au jeu pour des raisons de maintenance. De m\xEAme, l\u2019\xE9diteur
+    ne saurait \xEAtre tenue responsable des difficult\xE9s ou impossibilit\xE9s momentan\xE9es
+    d\u2019acc\xE8s au jeu qui auraient pour origine des circonstances qui lui sont
+    ext\xE9rieures, la force majeure, ou encore qui seraient dues \xE0 des perturbations
+    des r\xE9seaux de t\xE9l\xE9communication.\r\n5. L\u2019\xE9diteur ne garantit
+    pas aux Utilisateurs (i) que les Services, soumis \xE0 une recherche constante
+    pour en am\xE9liorer notamment la performance et le progr\xE8s, seront totalement
+    exempts d\u2019erreurs, de vices ou d\xE9fauts, (ii) que les Services, \xE9tant
+    standard et nullement propos\xE9s \xE0 la seule intention d\u2019un Utilisateur
+    donn\xE9 en fonction de ses propres contraintes personnelles, r\xE9pondront sp\xE9cifiquement
+    \xE0 ses besoins et attentes.\r\n6. En tout \xE9tat de cause, la responsabilit\xE9
+    susceptible d\u2019\xEAtre encourue par l\u2019\xE9diteur au titre des pr\xE9sentes
+    est express\xE9ment limit\xE9e aux seuls dommages directs av\xE9r\xE9s subis par
+    l\u2019Utilisateur.\r\n\r\n<b><color=#53CBFF>14) Propri\xE9t\xE9 intellectuelle</color></b>\r\r\nLes
+    syst\xE8mes, logiciels, structures, infrastructures, bases de donn\xE9es et contenus
+    de toute nature (textes, images, visuels, musiques, logos, marques, base de donn\xE9es,
+    etc\u2026) exploit\xE9s par l\u2019\xE9diteur au sein du jeu sont prot\xE9g\xE9s
+    par tous droits de propri\xE9t\xE9 intellectuelle ou droits des producteurs de
+    bases de donn\xE9es en vigueur. Tous d\xE9sassemblages, d\xE9compilations, d\xE9cryptages,
+    extractions, r\xE9utilisations, copies et plus g\xE9n\xE9ralement, tous actes
+    de reproduction, repr\xE9sentation, diffusion et utilisation de l\u2019un quelconque
+    de ces \xE9l\xE9ments, en tout ou partie, sans l\u2019autorisation de l\u2019\xE9diteur
+    sont strictement interdits et pourront faire l\u2019objet de poursuites judiciaires.\r\n\r\n<b><color=#53CBFF>15)
+    Donn\xE9es \xE0 caract\xE8re personnel</color></b>\r\r\nL\u2019\xE9diteur pratique
+    une politique de protection des donn\xE9es personnelles.\r\n\r\n<b><color=#53CBFF>16)
+    Publicit\xE9</color></b>\r\r\nL\u2019\xE9diteur se r\xE9serve la facult\xE9 d\u2019ins\xE9rer
+    sur toute page du jeu et dans toute communication aux Utilisateurs tous messages
+    publicitaires ou promotionnels sous une forme et dans des conditions dont l\u2019\xE9diteur
+    sera seule juge.\r\n\r\n<b><color=#53CBFF>17) Liens et jeux tiers</color></b>\r\r\nL\u2019\xE9diteur
+    ne pourra en aucun cas \xEAtre tenue pour responsable de la disponibilit\xE9 technique
+    de jeux internet ou d\u2019applications mobiles exploit\xE9s par des tiers (y
+    compris ses \xE9ventuels partenaires) auxquels l\u2019Utilisateur acc\xE9derait
+    par l\u2019interm\xE9diaire du jeu.\r\nL\u2019\xE9diteur n\u2019endosse aucune
+    responsabilit\xE9 au titre des contenus, publicit\xE9s, produits et/ou services
+    disponibles sur de tels jeux et applications mobiles tiers dont il est rappel\xE9
+    qu\u2019ils sont r\xE9gis par leurs propres conditions d\u2019utilisation.\r\nL\u2019\xE9diteur
+    n\u2019est pas non plus responsable des transactions intervenues entre l\u2019Utilisateur
+    et un quelconque annonceur, professionnel ou commer\xE7ant (y compris ses \xE9ventuels
+    partenaires) vers lequel l\u2019Utilisateur serait orient\xE9 par l\u2019interm\xE9diaire
+    du jeu et ne saurait en aucun cas \xEAtre partie \xE0 quelques litiges \xE9ventuels
+    que ce soit avec ces tiers concernant notamment la livraison de produits et/ou
+    services, les garanties, d\xE9clarations et autres obligations quelconques auxquelles
+    ces tiers sont tenus.\r\n\r\n<b><color=#53CBFF>18) Dur\xE9e des Services, d\xE9sinscription</color></b>\r\r\nLes
+    Services sont souscrits pour une dur\xE9e ind\xE9termin\xE9e.\r\nL\u2019Utilisateur
+    peut se d\xE9sinscrire des Services \xE0 tout moment, en adressant une demande
+    \xE0 cet effet \xE0 l\u2019\xE9diteur par email, aux coordonn\xE9es mentionn\xE9es
+    \xE0 l\u2019article 2 ou dans son Espace Personnel.\r\nLa d\xE9sinscription est
+    effective imm\xE9diatement.\r\n\r\n<b><color=#53CBFF>19) Modifications</color></b>\r\r\nL\u2019\xE9diteur
+    se r\xE9serve la facult\xE9 de modifier \xE0 tout moment les pr\xE9sentes conditions
+    g\xE9n\xE9rales.\r\nL\u2019Utilisateur sera inform\xE9 de ces modifications par
+    tout moyen utile.\r\nL\u2019Utilisateur qui n\u2019accepte pas les conditions
+    g\xE9n\xE9rales modifi\xE9es doit se d\xE9sinscrire des Services selon les modalit\xE9s
+    pr\xE9vues \xE0 l\u2019article 18.\r\nTout Utilisateur qui a recours aux Services
+    post\xE9rieurement \xE0 l\u2019entr\xE9e en vigueur des conditions g\xE9n\xE9rales
+    modifi\xE9es est r\xE9put\xE9 avoir accept\xE9 ces modifications.\r\n\r\n<b><color=#53CBFF>20)
+    Langue</color></b>\r\r\nDans l\u2019hypoth\xE8se d\u2019une traduction des pr\xE9sentes
+    conditions g\xE9n\xE9rales dans une ou plusieurs langues, la langue d\u2019interpr\xE9tation
+    sera la langue fran\xE7aise en cas de contradiction ou de contestation sur la
+    signification d\u2019un terme ou d\u2019une disposition.\r\n\r\n<b><color=#53CBFF>21)
+    Loi applicable et juridiction</color></b>\r\r\nLes pr\xE9sentes conditions g\xE9n\xE9rales
+    sont r\xE9gies par la loi fran\xE7aise.\r\nEn cas de contestation sur la validit\xE9,
+    l\u2019interpr\xE9tation et/ou l\u2019ex\xE9cution des pr\xE9sentes conditions
+    g\xE9n\xE9rales, les parties conviennent que les tribunaux de Paris seront exclusivement
+    comp\xE9tents pour en juger, sauf r\xE8gles de proc\xE9dure imp\xE9rative contraires.\r\n\r\n<b><color=#53CBFF>22)
+    Entr\xE9e en vigueur</color></b>\r\r\nLes pr\xE9sentes conditions g\xE9n\xE9rales
+    sont entr\xE9es en vigueur le 15/07/2019.\r\n"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 257
+  m_isAlignmentEnumConverted: 1
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 4
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -34.951035, y: 0, z: -34.951004, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 967285584}
+    characterCount: 15281
+    spriteCount: 0
+    spaceCount: 2250
+    wordCount: 2222
+    linkCount: 0
+    lineCount: 462
+    pageCount: 1
+    materialCount: 1
+  m_havePropertiesChanged: 0
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_isInputParsingRequired: 0
+  m_inputSource: 0
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &967285585
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 967285581}
+  m_CullTransparentMesh: 0
+--- !u!1 &1277178270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1277178271}
+  - component: {fileID: 1277178273}
+  - component: {fileID: 1277178272}
+  m_Layer: 5
+  m_Name: Titre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1277178271
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1277178270}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2143903829}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 13.149998, y: 271.89}
+  m_SizeDelta: {x: 209.8, y: 52.44}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1277178272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1277178270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: dd46b3cfdeea6a9468270db6ce9a7b1f, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Conditions d'utilisation
+--- !u!222 &1277178273
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1277178270}
+  m_CullTransparentMesh: 0
+--- !u!1 &1511756342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511756343}
+  - component: {fileID: 1511756344}
+  m_Layer: 5
+  m_Name: ScriptOuverture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1511756343
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1511756342}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 519052477}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 419, y: 41.4}
+  m_SizeDelta: {x: 100.2, y: 21.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1511756344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1511756342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f967581a98870e6478d7d33b7c154915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1819765261
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224705145380216526, guid: 107fb39543f69c0479c082747ae28312,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127456890101286, guid: 107fb39543f69c0479c082747ae28312, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 107fb39543f69c0479c082747ae28312, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &1819765262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1127456890101286, guid: 107fb39543f69c0479c082747ae28312,
+    type: 2}
+  m_PrefabInternal: {fileID: 1819765261}
+--- !u!1 &1974067633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974067634}
+  - component: {fileID: 1974067638}
+  - component: {fileID: 1974067637}
+  - component: {fileID: 1974067636}
+  - component: {fileID: 1974067635}
+  - component: {fileID: 1974067639}
+  m_Layer: 5
+  m_Name: Contenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1974067634
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974067633}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 123127488}
+  - {fileID: 912506437}
+  m_Father: {fileID: 2143903829}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -153, y: 185.5}
+  m_SizeDelta: {x: 306.1, y: 504.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1974067635
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974067633}
+  m_CullTransparentMesh: 0
+--- !u!114 &1974067636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974067633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1974067637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974067633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &1974067638
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974067633}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &1974067639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974067633}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a10a8daada636643961c964174f07e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoneTexte: {fileID: 0}
+--- !u!1 &2093697327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2093697330}
+  - component: {fileID: 2093697329}
+  - component: {fileID: 2093697328}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2093697328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093697327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &2093697329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093697327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &2093697330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093697327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2109909553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1056522650910056, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2109909554}
+  - component: {fileID: 2109909556}
+  - component: {fileID: 2109909555}
+  m_Layer: 5
+  m_Name: VerticalLayoutCorps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2109909554
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 224044766034409720, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109909553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 967285582}
+  m_Father: {fileID: 912506437}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchoredPosition: {x: 0, y: 373.76013}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2109909555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114313260763081526, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109909553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!114 &2109909556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114355176780992608, guid: 537a649e6459a254982fca68d61323a8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109909553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 8
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+--- !u!1 &2117200025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117200026}
+  - component: {fileID: 2117200027}
+  m_Layer: 5
+  m_Name: ScriptFermeture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2117200026
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117200025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 519052477}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 419, y: 41.4}
+  m_SizeDelta: {x: 100.2, y: 21.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2117200027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117200025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabb0534c511c3745bffde5998cd745e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2143903828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143903829}
+  - component: {fileID: 2143903832}
+  - component: {fileID: 2143903831}
+  - component: {fileID: 2143903830}
+  m_Layer: 5
+  m_Name: FenetreReseau
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2143903829
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143903828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 964078505}
+  - {fileID: 502372850}
+  - {fileID: 1277178271}
+  - {fileID: 1974067634}
+  m_Father: {fileID: 519052477}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000015258789, y: 5.399994}
+  m_SizeDelta: {x: -666.2, y: -202.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2143903830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143903828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &2143903831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143903828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &2143903832
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143903828}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 3
+  m_TargetDisplay: 0
