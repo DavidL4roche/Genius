@@ -12,8 +12,6 @@ use OpenApi\Annotations as OA;
 
 require_once "configuration.php";
 
-// Paramètre et fonction de debogage (afficher avec echo ou non)
-// Changer le paramètre $debug en true pour avoir tout les affichages
 /**
  * Affiche une string (ou non) avec la méthode echo (à utiliser en debug)
  * @param string $string Phrase à afficher

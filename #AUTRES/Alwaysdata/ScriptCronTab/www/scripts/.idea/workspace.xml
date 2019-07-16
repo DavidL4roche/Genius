@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptmission.php" beforeDir="false" afterPath="$PROJECT_DIR$/scriptmission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleListeAmis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleListeAmis.prefab" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,20 +34,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="18" />
+            <state relative-caret-position="527">
+              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupGain.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scriptmission.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -96,7 +107,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/scriptConnection.php" />
-        <option value="$PROJECT_DIR$/scriptmission.php" />
         <option value="$PROJECT_DIR$/SupprimerAmi.php" />
         <option value="$PROJECT_DIR$/PNJEffectue.php" />
         <option value="$PROJECT_DIR$/UpdateDateCo.php" />
@@ -146,6 +156,7 @@
         <option value="$PROJECT_DIR$/scriptsRessources/RecupSpeEntreprise.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupTopicsAide.php" />
         <option value="$PROJECT_DIR$/scriptsRessources/RecupTrophee.php" />
+        <option value="$PROJECT_DIR$/scriptmission.php" />
       </list>
     </option>
   </component>
@@ -220,11 +231,11 @@
       <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="3192" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-28" />
     <option name="y" value="-8" />
-    <option name="width" value="160" />
-    <option name="height" value="79" />
+    <option name="width" value="516" />
+    <option name="height" value="158" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -240,16 +251,6 @@
             <path>
               <item name="scripts" type="b2602c69:ProjectViewProjectNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="scripts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="scripts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-              <item name="swagger-ui" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -356,17 +357,19 @@
       <workItem from="1562826554071" duration="17065000" />
       <workItem from="1562912994786" duration="20121000" />
       <workItem from="1562942584505" duration="117000" />
-      <workItem from="1563172088106" duration="598000" />
+      <workItem from="1563172088106" duration="3128000" />
+      <workItem from="1563258718475" duration="1201000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207600000" />
+    <option name="totallyTimeSpent" value="211331000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3192" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-6" y="-6" width="1613" height="873" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1945629" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17234726" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -392,13 +395,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/VerifierStatusTuto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SupprimerAmi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -718,10 +714,10 @@
     <entry file="file://$PROJECT_DIR$/swagger-ui/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupGain.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="18" />
+        <state relative-caret-position="272">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -732,10 +728,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupGain.php">
+    <entry file="file://$PROJECT_DIR$/scriptmission.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state>
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
         </state>
       </provider>
     </entry>
