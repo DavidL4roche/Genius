@@ -448,7 +448,7 @@ public class Joueur : MonoBehaviour {
         while (!stop)
         {
             //long soustract = DateActuel.ToFileTimeUtc();
-            yield return new WaitForSeconds(5);//(60*6);
+            yield return new WaitForSeconds(600);//(60*6);
             for (int i = 0; i < MesRessources.Length; ++i)
             {
                 switch (RessourcesBdD.listeDesRessources[i].NomRessource)

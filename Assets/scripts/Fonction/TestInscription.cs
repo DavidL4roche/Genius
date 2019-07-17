@@ -11,6 +11,7 @@ public class TestInscription : MonoBehaviour {
     public InputField pseudo;
     public InputField mail;
     public InputField pass;
+    public InputField passVerif;
     private string requeteLoginMail;
     private string requeteInscription;
     
@@ -30,38 +31,46 @@ public class TestInscription : MonoBehaviour {
     // Permet de créer un utilisateur dans la base
     public IEnumerator CreateUser()
     {
-        urlComp = url;
-        urlComp += "?pseudo=" + pseudo.text + "&mail=" + mail.text + "&pass=" + pass.text;
-        download = new WWW(urlComp);
-        yield return download;
-
-        if ((!string.IsNullOrEmpty(download.error)))
+        if (pass.text == passVerif.text)
         {
-            print("Error downloading: " + download.error);
+            urlComp = url;
+            urlComp += "?pseudo=" + pseudo.text + "&mail=" + mail.text + "&pass=" + pass.text;
+            download = new WWW(urlComp);
+            yield return download;
+
+            if ((!string.IsNullOrEmpty(download.error)))
+            {
+                print("Error downloading: " + download.error);
+            }
+            else
+            {
+                monJson = download.text;
+                monNode = JSON.Parse(monJson);
+
+                // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
+                string result = monNode["result"].Value;
+
+                if (result.ToLower() == "false")
+                {
+                    ChargerPopup.Charger("Erreur");
+                    MessageErreur.messageErreur = monNode["msg"].Value;
+                }
+
+                // L'inscription s'est bien déroulée
+                else
+                {
+                    ChargerLieu loading = new ChargerLieu();
+                    loading.Charger("Login");
+
+                    ChargerPopup.Charger("Succes");
+                    MessageErreur.messageErreur = "Votre compte a bien été crée";
+                }
+            }
         }
         else
         {
-            monJson = download.text;
-            monNode = JSON.Parse(monJson);
-
-            // On vérifie si le JSON renvoyé est rempli (est-ce qu'un utilisateur est renvoyé)
-            string result = monNode["result"].Value;
-
-            if (result.ToLower() == "false")
-            {
-                ChargerPopup.Charger("Erreur");
-                MessageErreur.messageErreur = monNode["msg"].Value;
-            }
-            
-            // L'inscription s'est bien déroulée
-            else
-            {
-                ChargerLieu loading = new ChargerLieu();
-                loading.Charger("Login");
-
-                ChargerPopup.Charger("Succes");
-                MessageErreur.messageErreur = "Votre compte a bien été crée";
-            }
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Veuillez saisir un mot de passe identique";
         }
     }
 }

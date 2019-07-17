@@ -24,6 +24,9 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
     public RawImage IconeIA;
     public Text IA;
 
+    bool continueRessDiv;
+    bool continueRessSocial;
+
     GameObject instance;
 
     public void Start()
@@ -31,6 +34,34 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
         Gain.calculDesGainsPNJ(mr);
         Perte.calculDesPertesPNJ(mr);
         blockdesprerequis();
+    }
+
+    public void Update()
+    {
+        // On affiche le bouton Lancer si les ressources sont suffisantes
+        for (int i = 0; i < mr.SesPertes.Length; ++i)
+        {
+            switch (mr.SesPertes[i].NomPerte)
+            {
+                case "Divertissement":
+                    verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte, "Divertissement");
+                    break;
+                case "Social":
+                    verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte, "Social");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (!continueRessDiv || !continueRessSocial)
+        {
+            rendreActifLancer(false);
+        }
+        else
+        {
+            rendreActifLancer(true);
+        }
     }
 
     // Permet de remplir le bloc des prérequis
@@ -83,7 +114,7 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
                         break;
                 }
 
-                verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte);
+                //verificationRessAvecJoueur(mr.SesPertes[i].ValeurDeLaPerte, mr.SesPertes[i].NomPerte);
 
                 /*
                 ValeurTupleSlider.gameObject.SetActive(false);
@@ -154,7 +185,7 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
     }
 
     // Vérifie les ressources du joueur avec celles demandées et affiche le tuple avec la couleur correspondante
-    public void verificationRessAvecJoueur(int valeurressource, string nomPrerequis)
+    public void verificationRessAvecJoueur(int valeurressource, string nomPrerequis, string nomRess = null)
     {
         for (int i = 0; i < RessourcesBdD.listeDesRessources.Length; ++i)
         {
@@ -163,11 +194,28 @@ public class FabriquePreRequisPNJ : MonoBehaviour {
                 if (Joueur.MesRessources[i] >= valeurressource)
                 {
                     ImageTuple.color = changeColor(true);
+
+                    if (nomRess == "Divertissement")
+                    {
+                        continueRessDiv = true;
+                    }
+                    else if (nomRess == "Social")
+                    {
+                        continueRessSocial = true;
+                    }
                 }
                 else
                 {
                     // On rend les éléments de lancement de mission inactifs
-                    rendreActifLancer(false);
+                    //rendreActifLancer(false);
+                    if (nomRess == "Divertissement")
+                    {
+                        continueRessDiv = false;
+                    }
+                    else if (nomRess == "Social")
+                    {
+                        continueRessSocial = false;
+                    }
                 }
             }
         }

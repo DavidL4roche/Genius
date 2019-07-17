@@ -77,49 +77,59 @@ class Helper {
             $d = $result->fetchAll(PDO::FETCH_ASSOC);
 
             if (count($d) == 0) {
-                $sql = "INSERT INTO p_character(PCName, mail, Password) VALUES(";
-                foreach ($mySqlData as $k => $v) {
-                    if ($v != null) {
-                        $sql .= "'" . $v . "',";
-                    }
-                }
-                $sql = substr($sql, 0, strlen($sql) - 1);
-                $sql .= ");";
 
-                $result = $bdd->prepare($sql);
-                $result->execute();
-                $lastID = $bdd->lastInsertId();
-
-                if ($lastID > 0) {
-                    $this->sendMail($mail);
-
-                    // On affecte les ressources du joueur
-                    $sql = "INSERT INTO association_ressource_pc VALUES (1," . $lastID . ", 2000)";
-                    $result = $bdd->prepare($sql);
-                    $result->execute();
-
-                    $sql = "INSERT INTO association_ressource_pc VALUES (2," . $lastID . ", 2000)";
-                    $result = $bdd->prepare($sql);
-                    $result->execute();
-
-                    $sql = "INSERT INTO association_ressource_pc VALUES (3," . $lastID . ", 100)";
-                    $result = $bdd->prepare($sql);
-                    $result->execute();
-
-                    $sql = "INSERT INTO association_ressource_pc VALUES (4," . $lastID . ", 100)";
-                    $result = $bdd->prepare($sql);
-                    $result->execute();
-
+                // On vérifie que le mail est valide
+                if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     return json_encode(array(
-                        "result" => true,
-                        "msg" => "Utilisateur crée avec succès",
-                        "id" => $lastID
+                        "result" => false,
+                        "msg" => "Veuillez renseigner une adresse mail valide"
                     ));
+                }
+                else {
+                    $sql = "INSERT INTO p_character(PCName, mail, Password) VALUES(";
+                    foreach ($mySqlData as $k => $v) {
+                        if ($v != null) {
+                            $sql .= "'" . $v . "',";
+                        }
+                    }
+                    $sql = substr($sql, 0, strlen($sql) - 1);
+                    $sql .= ");";
+
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+                    $lastID = $bdd->lastInsertId();
+
+                    if ($lastID > 0) {
+                        $this->sendMail($mail);
+
+                        // On affecte les ressources du joueur
+                        $sql = "INSERT INTO association_ressource_pc VALUES (1," . $lastID . ", 2000)";
+                        $result = $bdd->prepare($sql);
+                        $result->execute();
+
+                        $sql = "INSERT INTO association_ressource_pc VALUES (2," . $lastID . ", 2000)";
+                        $result = $bdd->prepare($sql);
+                        $result->execute();
+
+                        $sql = "INSERT INTO association_ressource_pc VALUES (3," . $lastID . ", 100)";
+                        $result = $bdd->prepare($sql);
+                        $result->execute();
+
+                        $sql = "INSERT INTO association_ressource_pc VALUES (4," . $lastID . ", 100)";
+                        $result = $bdd->prepare($sql);
+                        $result->execute();
+
+                        return json_encode(array(
+                            "result" => true,
+                            "msg" => "Utilisateur crée avec succès",
+                            "id" => $lastID
+                        ));
+                    }
                 }
             } else {
                 return json_encode(array(
                     "result" => false,
-                    "msg" => "L'utilisateur n'as pas été inscrit car son pseudo ou son mail existe déjà"
+                    "msg" => "Le pseudo ou le mail existe déjà"
                 ));
             }
         }
