@@ -5,14 +5,35 @@ DEFINE("DBNAME", "seriousgameiut_bd");
 DEFINE("USERNAME", "171322");
 DEFINE("PASS", "azerty12345");
 
+/**
+ * @OA\Info(title="API Genius", version="0.6.5",
+ *     description="Bienvenue sur la documentation des API de Genius. Ici, vous pouvez :
+ *     Accéder à toutes les URL disponibles pour Genius
+ *     Avoir la description de chaque URL (description, paramètres)")
+ */
+
+/**
+ * Class Helper
+ *
+ * Bienvenue dans la classe Helper.
+ * C'est elle qui référence toutes les fonctions utiles à nos scripts.
+ * Ici seront décrites les fonctions et comment les utiliser
+ */
 class Helper {
 
-    // Fonction de connexion à la BD
+    /**
+     * Fonction de connexion à la BD
+     * @return PDO PDO (pour connexion à la base)
+     */
     function ConnectBDD() {
         return new PDO('mysql:host='.HOST.';dbname='.DBNAME, USERNAME, PASS);
     }
 
-    // Transforme un tableau PHP en chaîne JSON (pour un utilisateur)
+    /**
+     * Transforme un tableau PHP en chaîne JSON (pour un utilisateur)
+     * @param array $array
+     * @return string JSON avec les données de l'utilisateurs
+     */
     function ParseJson($array = array()) {
         $r = array();
 
@@ -30,7 +51,13 @@ class Helper {
         return json_encode($finalArray);
     }
 
-    // Création d'utilisateur dans la base
+    /**
+     * Création d'un utilisateur dans la base
+     * @param string $pseudo Pseudo (ex : "toto")
+     * @param string $mail Mail (ex : "toto@hotmail.fr")
+     * @param string $pass Mot de passe (ex "toto123")
+     * @return string JSON qui indique le succès ou l'échec de la création
+     */
     function CreateUser($pseudo = null, $mail = null, $pass = null) {
 
         if ($pseudo != null && $pass != null) {
@@ -50,49 +77,59 @@ class Helper {
             $d = $result->fetchAll(PDO::FETCH_ASSOC);
 
             if (count($d) == 0) {
-                $sql = "INSERT INTO p_character(PCName, mail, Password) VALUES(";
-                foreach ($mySqlData as $k => $v) {
-                    if ($v != null) {
-                        $sql .= "'" . $v . "',";
-                    }
-                }
-                $sql = substr($sql, 0, strlen($sql) - 1);
-                $sql .= ");";
 
-                $result = $bdd->prepare($sql);
-                $result->execute();
-                $lastID = $bdd->lastInsertId();
-
-                if ($lastID > 0) {
-                    $this->sendMail($mail);
-
-                    // On affecte les ressources du joueur
-                    $sql = "INSERT INTO association_ressource_pc VALUES (1," . $lastID . ", 2000)";
-                    $result = $bdd->prepare($sql);
-                    $result->execute();
-
-                    $sql = "INSERT INTO association_ressource_pc VALUES (2," . $lastID . ", 2000)";
-                    $result = $bdd->prepare($sql);
-                    $result->execute();
-
-                    $sql = "INSERT INTO association_ressource_pc VALUES (3," . $lastID . ", 100)";
-                    $result = $bdd->prepare($sql);
-                    $result->execute();
-
-                    $sql = "INSERT INTO association_ressource_pc VALUES (4," . $lastID . ", 100)";
-                    $result = $bdd->prepare($sql);
-                    $result->execute();
-
+                // On vérifie que le mail est valide
+                if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     return json_encode(array(
-                        "result" => true,
-                        "msg" => "Utilisateur crée avec succès",
-                        "id" => $lastID
+                        "result" => false,
+                        "msg" => "Veuillez renseigner une adresse mail valide"
                     ));
+                }
+                else {
+                    $sql = "INSERT INTO p_character(PCName, mail, Password) VALUES(";
+                    foreach ($mySqlData as $k => $v) {
+                        if ($v != null) {
+                            $sql .= "'" . $v . "',";
+                        }
+                    }
+                    $sql = substr($sql, 0, strlen($sql) - 1);
+                    $sql .= ");";
+
+                    $result = $bdd->prepare($sql);
+                    $result->execute();
+                    $lastID = $bdd->lastInsertId();
+
+                    if ($lastID > 0) {
+                        $this->sendMail($mail);
+
+                        // On affecte les ressources du joueur
+                        $sql = "INSERT INTO association_ressource_pc VALUES (1," . $lastID . ", 2000)";
+                        $result = $bdd->prepare($sql);
+                        $result->execute();
+
+                        $sql = "INSERT INTO association_ressource_pc VALUES (2," . $lastID . ", 2000)";
+                        $result = $bdd->prepare($sql);
+                        $result->execute();
+
+                        $sql = "INSERT INTO association_ressource_pc VALUES (3," . $lastID . ", 100)";
+                        $result = $bdd->prepare($sql);
+                        $result->execute();
+
+                        $sql = "INSERT INTO association_ressource_pc VALUES (4," . $lastID . ", 100)";
+                        $result = $bdd->prepare($sql);
+                        $result->execute();
+
+                        return json_encode(array(
+                            "result" => true,
+                            "msg" => "Utilisateur crée avec succès",
+                            "id" => $lastID
+                        ));
+                    }
                 }
             } else {
                 return json_encode(array(
                     "result" => false,
-                    "msg" => "L'utilisateur n'as pas été inscrit car son pseudo ou son mail existe déjà"
+                    "msg" => "Le pseudo ou le mail existe déjà"
                 ));
             }
         }
@@ -104,7 +141,12 @@ class Helper {
         }
     }
 
-    // Vérification connexion d'un utilisateur
+    /**
+     * Vérification connexion d'un utilisateur
+     * @param null $pseudo
+     * @param null $pass
+     * @return false|string
+     */
     function CheckConnexion($pseudo = null, $pass = null) {
         if ($pseudo != null && $pass != null) {
 
@@ -155,7 +197,12 @@ class Helper {
         }
     }
 
-    // Vérification connexion d'un utilisateur par mail
+    /**
+     * Vérification connexion d'un utilisateur par mail
+     * @param null $mail
+     * @param null $pass
+     * @return false|string
+     */
     function CheckConnexionByMail($mail = null, $pass = null) {
         if ($mail != null && $pass != null) {
 
@@ -206,7 +253,13 @@ class Helper {
         }
     }
 
-    // Changement de stat d'un joueur
+    /**
+     * Changement de stat d'un joueur
+     * @param $stat
+     * @param $value
+     * @param $id
+     * @return false|string
+     */
     function SetPlayerStat($stat, $value, $id) {
         if ($stat != null && $value != null && $id != null) {
 
@@ -265,7 +318,13 @@ class Helper {
         }
     }
 
-    // Change la ressource renseignée pour un joueur donnée
+    /**
+     * Change la ressource renseignée pour un joueur donnée
+     * @param $idRessource
+     * @param $idJoueur
+     * @param $value
+     * @return false|string
+     */
     function SetRessources($idRessource, $idJoueur, $value) {
         if ($idRessource != null && $idJoueur != null && $value != null) {
 
@@ -283,7 +342,11 @@ class Helper {
         }
     }
 
-    // Réninitalise le mot de passe
+    /**
+     * Réinitialise le mot de passe
+     * @param $mail
+     * @return false|string
+     */
     function reinitiatePassword($mail) {
 
         // Vérification mail dans la base
@@ -308,7 +371,10 @@ class Helper {
         }
     }
 
-    // Envoi de mails
+    /**
+     * Envoi de mails
+     * @param $destinataire
+     */
     function sendMail($destinataire) {
 
         ini_set( 'display_errors', 1 );
@@ -339,7 +405,11 @@ class Helper {
         }
     }
 
-    // Envoi de mails
+    /**
+     * Envoi de mails réinitialisation
+     * @param $destinataire
+     * @return false|string
+     */
     function sendReinitialisationMail($destinataire) {
 
         ini_set( 'display_errors', 1 );
@@ -373,7 +443,11 @@ class Helper {
         }
     }
 
-    // Vérifier l'IP et renvoyer le compte correspondant
+    /**
+     * Vérifier l'IP et renvoyer le compte correspondant
+     * @param $ip
+     * @return false|string
+     */
     function checkIP($ip) {
 
         // Vérification IP dans la base
@@ -401,7 +475,12 @@ class Helper {
         }
     }
 
-    // Ajoute l'adresse IP et le compte correspondant
+    /**
+     * Ajoute l'adresse IP et le compte correspondant
+     * @param $ip
+     * @param $playerId
+     * @return false|string
+     */
     function addIP($ip, $playerId) {
         if ($ip != null && $playerId != null) {
             // Connexion à la BD
@@ -414,7 +493,8 @@ class Helper {
 
             // L'IP n'existe pas dans la base
             if (count($d) == 0) {
-                $sql2 = "INSERT INTO association_ip_pc(ip, playerId, isConnected) VALUES('" . $ip . "', " . $playerId . ", 0)";
+                $sql2 = "INSERT INTO association_ip_pc(ip, playerId, isConnected) VALUES('" . $ip . "', " . $playerId . ", 0) 
+                         ON DUPLICATE KEY UPDATE playerId =  $playerId";
 
                 $result = $bdd->prepare($sql2);
                 $result->execute();
@@ -471,7 +551,11 @@ class Helper {
         }
     }
 
-    // Connection par id
+    /**
+     * Connection par id
+     * @param $id
+     * @return false|string
+     */
     function ConnectById($id){
         if ($id != null) {
 
@@ -504,7 +588,12 @@ class Helper {
         }
     }
 
-    // Change l'attribut isConnected pour un id de joueur donné
+    /**
+     * Change l'attribut isConnected pour un id de joueur donné
+     * @param $connect
+     * @param $ip
+     * @return false|string
+     */
     function connectOnIP($connect, $ip) {
         if ($connect != null && $ip != null) {
             if ($connect == "true" || $connect == "false") {
@@ -545,7 +634,11 @@ class Helper {
         }
     }
 
-    // Renvoie l'attribut isConnected pour un id de joueur donné
+    /**
+     * Renvoie l'attribut isConnected pour un id de joueur donné
+     * @param $ip
+     * @return false|string
+     */
     function getConnectOnIP($ip) {
         if ($ip != null) {
             // Vérification dans la base
@@ -575,7 +668,10 @@ class Helper {
         }
     }
 
-    // Actualise l'attribut LastConnection d'un Joueur donné
+    /**
+     * Actualise l'attribut LastConnection d'un Joueur donné
+     * @param string $id Identifiant (ex : "43")
+     */
     function updateDateCo($id) {
         if ($id != null) {
             // Vérification dans la base
@@ -588,9 +684,12 @@ class Helper {
         }
     }
 
-    // Reset l'admin (lui mets les valeurs de base pour test)
+    /**
+     * Reset l'admin (lui mets les valeurs de base pour test)
+     *
+     * @return string
+     */
     function resetAdmin() {
-
         $id = 43;
 
         // On met à jour ses ressources
@@ -631,7 +730,13 @@ class Helper {
         return "Le reset a fonctionné";
     }
 
-    // Change le status d'un tuto
+    /**
+     * Change le status d'un tuto
+     * @param $idTuto
+     * @param $idPlayer
+     * @param $status
+     * @return string
+     */
     function ChangeTutoStatus($idTuto, $idPlayer, $status) {
         if ($idTuto != null & $idPlayer != null & $status != null) {
             $bdd = $this->ConnectBDD();
@@ -649,7 +754,12 @@ class Helper {
         }
     }
 
-    // Verifie le status d'un tuto pour un joueur
+    /**
+     * Verifie le status d'un tuto pour un joueur
+     * @param $idTuto
+     * @param $idPlayer
+     * @return false|string
+     */
     function verifierStatusTuto($idTuto, $idPlayer) {
 
         if ($idTuto != null & $idPlayer != null) {
@@ -705,7 +815,10 @@ class Helper {
 
     // RESSOURCES
 
-    // Recupère les lieux
+    /**
+     * Recupère les lieux
+     * @return false|string
+     */
     function RecupLieu() {
         //$bdd = $this->ConnectBDD();
 
@@ -739,7 +852,10 @@ class Helper {
         }
     }
 
-    // Recupère les gains
+    /**
+     * Recupère les gains
+     * @return false|string
+     */
     function RecupGain() {
         //$bdd = $this->ConnectBDD();
 
@@ -773,7 +889,10 @@ class Helper {
         }
     }
 
-    // Recupère les pertes
+    /**
+     * Recupère les pertes
+     * @return false|string
+     */
     function RecupPerte() {
         //$bdd = $this->ConnectBDD();
 
@@ -807,7 +926,10 @@ class Helper {
         }
     }
 
-    // Recupère les bonus
+    /**
+     * Recupère les bonus
+     * @return false|string
+     */
     function RecupBonus() {
         //$bdd = $this->ConnectBDD();
 
@@ -841,7 +963,10 @@ class Helper {
         }
     }
 
-    // Recupère les objets
+    /**
+     * Recupère les objets
+     * @return false|string
+     */
     function RecupObjet() {
         //$bdd = $this->ConnectBDD();
 
@@ -875,7 +1000,10 @@ class Helper {
         }
     }
 
-    // Recupère les artefacts
+    /**
+     * Recupère les artefacts
+     * @return false|string
+     */
     function RecupArtefact() {
         //$bdd = $this->ConnectBDD();
 
@@ -909,7 +1037,11 @@ class Helper {
         }
     }
 
-    // Récupère les objets du magasin
+    /**
+     * Récupère les objets du magasin
+     * @param $id
+     * @return false|string
+     */
     function RecupObjetMagasin($id) {
 
         if ($id != null) {
@@ -947,7 +1079,10 @@ class Helper {
         }
     }
 
-    // Recupère les durées
+    /**
+     * Recupère les durées
+     * @return false|string
+     */
     function RecupDuree() {
         //$bdd = $this->ConnectBDD();
 
@@ -981,7 +1116,10 @@ class Helper {
         }
     }
 
-    // Recupère les rangs
+    /**
+     * Recupère les rangs
+     * @return false|string
+     */
     function RecupRang() {
         //$bdd = $this->ConnectBDD();
 
@@ -1015,7 +1153,10 @@ class Helper {
         }
     }
 
-    // Recupère les quartiers
+    /**
+     * Recupère les quartiers
+     * @return false|string
+     */
     function RecupQuartier() {
         //$bdd = $this->ConnectBDD();
 
@@ -1049,7 +1190,10 @@ class Helper {
         }
     }
 
-    // Recupère les trophées
+    /**
+     * Recupère les trophées
+     * @return false|string
+     */
     function RecupTrophee() {
         //$bdd = $this->ConnectBDD();
 
@@ -1083,7 +1227,10 @@ class Helper {
         }
     }
 
-    // Recupère les examens
+    /**
+     * Recupère les examens
+     * @return false|string
+     */
     function RecupExam() {
         //$bdd = $this->ConnectBDD();
 
@@ -1117,7 +1264,10 @@ class Helper {
         }
     }
 
-    // Recupère les entreprises
+    /**
+     * Recupère les entreprises
+     * @return false|string
+     */
     function RecupEntreprise() {
         //$bdd = $this->ConnectBDD();
 
@@ -1151,7 +1301,11 @@ class Helper {
         }
     }
 
-    // Récupère les emplacements des entreprises
+    /**
+     * Récupère les emplacements des entreprises
+     * @param $id
+     * @return false|string
+     */
     function RecupEmpEntreprise($id) {
 
         if ($id != null) {
@@ -1189,7 +1343,11 @@ class Helper {
         }
     }
 
-    // Récupère les spécialisations des entreprises
+    /**
+     * Récupère les spécialisations des entreprises
+     * @param $id
+     * @return false|string
+     */
     function RecupSpeEntreprise($id) {
 
         if ($id != null) {
@@ -1227,7 +1385,10 @@ class Helper {
         }
     }
 
-    // Recupère les missins
+    /**
+     * Recupère les missins
+     * @return false|string
+     */
     function RecupMission() {
         //$bdd = $this->ConnectBDD();
 
@@ -1261,7 +1422,10 @@ class Helper {
         }
     }
 
-    // Recupère les PNJ
+    /**
+     * Recupère les PNJ
+     * @return false|string
+     */
     function RecupPNJ() {
         //$bdd = $this->ConnectBDD();
 
@@ -1295,7 +1459,11 @@ class Helper {
         }
     }
 
-    // Récupère les quartiers des pnj
+    /**
+     * Récupère les quartiers des pnj
+     * @param $id
+     * @return false|string
+     */
     function RecupQuartierPNJ($id) {
 
         if ($id != null) {
@@ -1333,7 +1501,10 @@ class Helper {
         }
     }
 
-    // Recupère les Divertissements
+    /**
+     * Recupère les Divertissements
+     * @return false|string
+     */
     function RecupDivert() {
         //$bdd = $this->ConnectBDD();
 
@@ -1367,7 +1538,10 @@ class Helper {
         }
     }
 
-    // Recupère les Compétences
+    /**
+     * Recupère les Compétences
+     * @return false|string
+     */
     function RecupComp() {
         //$bdd = $this->ConnectBDD();
 
@@ -1401,7 +1575,10 @@ class Helper {
         }
     }
 
-    // Recupère les Ressources
+    /**
+     * Recupère les Ressources
+     * @return false|string
+     */
     function RecupRess() {
         //$bdd = $this->ConnectBDD();
 
@@ -1435,7 +1612,10 @@ class Helper {
         }
     }
 
-    // Recupère les Ressources
+    /**
+     * Recupère les Ressources
+     * @return false|string
+     */
     function RecupDiplome() {
         //$bdd = $this->ConnectBDD();
 
@@ -1469,7 +1649,10 @@ class Helper {
         }
     }
 
-    // Recupère les Ressources
+    /**
+     * Recupère les Topics Aide
+     * @return false|string
+     */
     function RecupTopicsAide() {
         //$bdd = $this->ConnectBDD();
 
@@ -1503,7 +1686,11 @@ class Helper {
         }
     }
 
-    // Récupère les objets d'un joueur
+    /**
+     * Récupère les objets d'un joueur
+     * @param $id
+     * @return false|string
+     */
     function MAJObjet($id) {
 
         if ($id != null) {
@@ -1532,7 +1719,11 @@ class Helper {
         }
     }
 
-    // Récupère les compétences d'un joueur
+    /**
+     * Récupère les compétences d'un joueur
+     * @param $id
+     * @return false|string
+     */
     function MAJComp($id) {
 
         if ($id != null) {
@@ -1561,7 +1752,11 @@ class Helper {
         }
     }
 
-    // Récupère les artéfacts d'un joueur
+    /**
+     * Récupère les artéfacts d'un joueur
+     * @param $id
+     * @return false|string
+     */
     function MAJArtefact($id) {
 
         if ($id != null) {
@@ -1590,7 +1785,11 @@ class Helper {
         }
     }
 
-    // Récupère les diplomes d'un joueur
+    /**
+     * Récupère les diplomes d'un joueur
+     * @param $id
+     * @return false|string
+     */
     function MAJDiplome($id) {
 
         if ($id != null) {
@@ -1618,7 +1817,11 @@ class Helper {
         }
     }
 
-    // Récupère les Resources d'un joueur
+    /**
+     * Récupère les Resources d'un joueur
+     * @param $id
+     * @return false|string
+     */
     function MAJRessources($id) {
 
         if ($id != null) {
@@ -1647,7 +1850,11 @@ class Helper {
         }
     }
 
-    // Récupère les trophées d'un joueur
+    /**
+     * Récupère les trophées d'un joueur
+     * @param $id
+     * @return false|string
+     */
     function MAJTrophee($id) {
 
         if ($id != null) {
@@ -1676,7 +1883,11 @@ class Helper {
         }
     }
 
-    // Récupère les missions d'un joueur
+    /**
+     * Récupère les missions d'un joueur
+     * @param $id
+     * @return false|string
+     */
     function RecupPresentMissions($id) {
 
         if ($id != null) {
@@ -1715,7 +1926,11 @@ class Helper {
         }
     }
 
-    // Récupère les PNJ jouables
+    /**
+     * Récupère les PNJ jouables
+     * @param $id
+     * @return false|string
+     */
     function RecupPNJJouable($id) {
 
         if ($id != null) {
@@ -1746,7 +1961,11 @@ class Helper {
         }
     }
 
-    // Récupère les Examens jouables
+    /**
+     * Récupère les Examens jouables
+     * @param $id
+     * @return false|string
+     */
     function RecupExamJouable($id) {
 
         if ($id != null) {
@@ -1783,7 +2002,11 @@ class Helper {
         }
     }
 
-    // Récupère les Divertissements jouables
+    /**
+     * Récupère les Divertissements jouables
+     * @param $id
+     * @return false|string
+     */
     function RecupDivertJouable($id) {
 
         if ($id != null) {
@@ -1814,7 +2037,11 @@ class Helper {
         }
     }
 
-    // Récupère les Actions Sociales (Compétences)
+    /**
+     * Récupère les Actions Sociales (Compétences)
+     * @param $id
+     * @return false|string
+     */
     function RecupActionsSocialesComp($id) {
 
         if ($id != null) {
@@ -1843,7 +2070,11 @@ class Helper {
         }
     }
 
-    // Récupère les Actions Sociales (Objets)
+    /**
+     * Récupère les Actions Sociales (Objets)
+     * @param $id
+     * @return false|string
+     */
     function RecupActionsSocialesObjet($id) {
 
         if ($id != null) {
@@ -1872,7 +2103,11 @@ class Helper {
         }
     }
 
-    // Récupère les Artefacts jouables
+    /**
+     * Récupère les Artefacts jouables
+     * @param $id
+     * @return false|string
+     */
     function RecupArtefactJouable($id) {
 
         if ($id != null) {
@@ -1904,7 +2139,11 @@ class Helper {
         }
     }
 
-    // Récupère la liste des joueurs
+    /**
+     * Récupère la liste des joueurs
+     * @param $id
+     * @return false|string
+     */
     function RecupDeLaListeDesJoueurs($id) {
 
         if ($id != null) {
@@ -1933,7 +2172,11 @@ class Helper {
         }
     }
 
-    // Récupère la liste des amis du joueur
+    /**
+     * Récupère la liste des amis du joueur
+     * @param $id
+     * @return false|string
+     */
     function RecupMesAmis($id) {
 
         if ($id != null) {
@@ -1965,7 +2208,11 @@ class Helper {
         }
     }
 
-    // Récupère les Examens non jouables
+    /**
+     * Récupère les Examens non jouables
+     * @param $id
+     * @return false|string
+     */
     function RecupExamensNonJouables($id) {
 
         if ($id != null) {
@@ -1995,7 +2242,13 @@ class Helper {
         }
     }
 
-    // Actualise la compétence d'un joueur
+    /**
+     * Actualise la compétence d'un joueur
+     * @param $id
+     * @param $idComp
+     * @param $valeur
+     * @return string
+     */
     function TransfertCompetencesEnBase($id, $idComp, $valeur) {
         if ($id != null && $idComp != null && $valeur != null) {
             // Vérification dans la base
@@ -2015,7 +2268,13 @@ class Helper {
         }
     }
 
-    // Actualise la ressource d'un joueur
+    /**
+     * Actualise la ressource d'un joueur
+     * @param $id
+     * @param $idRess
+     * @param $valeur
+     * @return string
+     */
     function TransfertRessourcesEnBase($id, $idRess, $valeur) {
         if ($id != null && $idRess != null && $valeur != null) {
             // Vérification dans la base
@@ -2035,7 +2294,13 @@ class Helper {
         }
     }
 
-    // Actualise le nombre d'objets d'un joueur
+    /**
+     * Actualise le nombre d'objets d'un joueur
+     * @param $id
+     * @param $idObjet
+     * @param $valeur
+     * @return string
+     */
     function TransfertObjetsEnBase($id, $idObjet, $valeur) {
         if ($id != null && $idObjet != null && $valeur != null) {
             // Vérification dans la base
@@ -2055,7 +2320,13 @@ class Helper {
         }
     }
 
-    // Actualise l'action sociale d'un joueur
+    /**
+     * Actualise l'action sociale d'un joueur
+     * @param $id
+     * @param $idAmi
+     * @param $type
+     * @return string
+     */
     function TransfertActionSocialeEnBase($id, $idAmi, $type) {
         if ($id != null && $idAmi != null && $type != null) {
             // Vérification dans la base
@@ -2075,7 +2346,12 @@ class Helper {
         }
     }
 
-    // Supprimer l'ami d'un joueur
+    /**
+     * Supprimer l'ami d'un joueur
+     * @param $id
+     * @param $idAmi
+     * @return string
+     */
     function SupprimerAmi($id, $idAmi) {
         if ($id != null && $idAmi != null) {
             // Vérification dans la base
@@ -2094,7 +2370,12 @@ class Helper {
         }
     }
 
-    // Ajouter l'ami d'un joueur
+    /**
+     * Ajouter l'ami d'un joueur
+     * @param $id
+     * @param $idAmi
+     * @return string
+     */
     function AjouterAmi($id, $idAmi) {
         if ($id != null && $idAmi != null) {
             // Vérification dans la base
@@ -2114,7 +2395,11 @@ class Helper {
         }
     }
 
-    // Récupère les informations d'un ami
+    /**
+     * Récupère les informations d'un ami
+     * @param $nomAmi
+     * @return false|string
+     */
     function GetAmi($nomAmi) {
 
         if ($nomAmi != null) {
@@ -2167,7 +2452,12 @@ class Helper {
         }
     }
 
-    // Verifie si l'ami est celui du joueur
+    /**
+     * Verifie si l'ami est celui du joueur
+     * @param $id
+     * @param $idAmi
+     * @return string
+     */
     function VerifierAmi($id, $idAmi) {
 
         if ($id != null && $idAmi != null) {
@@ -2201,7 +2491,12 @@ class Helper {
         }
     }
 
-    // Verifie si l'ami est celui du joueur
+    /**
+     * Insert un artefact utilisé par un joueur
+     * @param $id
+     * @param $idArt
+     * @return string
+     */
     function ArtefactUtilise($id, $idArt) {
 
         if ($id != null && $idArt != null) {
@@ -2219,7 +2514,12 @@ class Helper {
         }
     }
 
-    // Ajoute un objet dans les objets achetés d'un joueur
+    /**
+     * Ajoute un objet dans les objets achetés d'un joueur
+     * @param $id
+     * @param $idObjet
+     * @return string
+     */
     function ObjetAchete($id, $idObjet) {
 
         if ($id != null && $idObjet != null) {
@@ -2237,7 +2537,11 @@ class Helper {
         }
     }
 
-    // Verifie les objets Artefacts du Magasin
+    /**
+     * Verifie les objets Artefacts du Magasin
+     * @param $id
+     * @return false|string
+     */
     function VerifierArtefactMagasin($id) {
 
         if ($id != null) {
@@ -2264,7 +2568,12 @@ class Helper {
         }
     }
 
-    // Insère une mission effectuée par le joueur
+    /**
+     * Insère une mission effectuée par le joueur
+     * @param $idJoueur
+     * @param $idMission
+     * @return string
+     */
     function MissionEffectuee($idJoueur, $idMission) {
 
         if ($idJoueur != null && $idMission != null) {
@@ -2282,7 +2591,12 @@ class Helper {
         }
     }
 
-    // Insère une mission divertissement effectuée par le joueur
+    /**
+     * Insère une mission divertissement effectuée par le joueur
+     * @param $idJoueur
+     * @param $idMission
+     * @return string
+     */
     function MissionDivertEffectuee($idJoueur, $idMission) {
 
         if ($idJoueur != null && $idMission != null) {
@@ -2300,7 +2614,12 @@ class Helper {
         }
     }
 
-    // Insère un examen effectué par le joueur
+    /**
+     * Insère un examen effectué par le joueur
+     * @param $idJoueur
+     * @param $idExamen
+     * @return string
+     */
     function ExamenEffectue($idJoueur, $idExamen) {
 
         if ($idJoueur != null && $idExamen != null) {
@@ -2318,7 +2637,12 @@ class Helper {
         }
     }
 
-    // Insère un PNJ effectué par le joueur (Artéfact)
+    /**
+     * Insère un PNJ effectué par le joueur (Artéfact)
+     * @param $idJoueur
+     * @param $idArt
+     * @return string
+     */
     function PNJEffectue($idJoueur, $idArt) {
 
         if ($idJoueur != null && $idArt != null) {
@@ -2336,7 +2660,11 @@ class Helper {
         }
     }
 
-    // Vérifie si on lance le tutoriel ou non
+    /**
+     * Vérifie si on lance le tutoriel ou non
+     * @param $id
+     * @return false|string
+     */
     function checkFirstConnection($id){
         if ($id != null) {
 

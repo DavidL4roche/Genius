@@ -1,5 +1,15 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Get(
+ *     tags={"Get"},
+ *     path="/scriptConnection/",
+ *     description="Test de connexion à la base de données"
+ * )
+ */
+
 require_once "configuration.php";
 
 //Connexion à la base de Données

@@ -1,0 +1,3 @@
+Télécharger phpDocumentor.phar et phpDocumentor.phar.pubkey (manually)
+
+Lancer la commande : php phpDocumentor.phar -d scripts/ -t scripts/doc/

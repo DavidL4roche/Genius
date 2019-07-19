@@ -1,10 +1,15 @@
 <?php
+
+use OpenApi\Annotations as OA;
+
 /**
- * Created by PhpStorm.
- * User: Nathan BERNARD
- * Date: 05/06/2018
- * Time: 10:04
+ * @OA\Delete(
+ *     tags={"Delete"},
+ *     path="/scriptartefact/",
+ *     description="Suppression de toutes les missions présentes"
+ * )
  */
+
 require_once "configuration.php";
 
 //Connexion à la base de Données

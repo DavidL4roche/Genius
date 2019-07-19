@@ -39,78 +39,65 @@ public class Joueur : MonoBehaviour {
 
     // Use this for initialization
     public void Start() {
-        try
-        {
-            Debug.Log("Instanciation du joueur en cours");
-            DontDestroyOnLoad(gameObject);
+        StartCoroutine(StartCoroutine());
+    }
 
-            // On répète toutes les SecondesUpdate l'incrémentation des ressources
-            InvokeRepeating("IncrementationRessourcesStatic", 0, SecondesUpdate);
+    public IEnumerator StartCoroutine()
+    {
+        Debug.Log("Instanciation du joueur en cours");
+        DontDestroyOnLoad(gameObject);
 
-            // On envoie la date de dernière connexion et transfert les ressources en base toutes les SecondesUpdate
-            StartCoroutine(UpdateDateDerniereCoEnBase());
-            StartCoroutine(transfertRessourcesEnBaseScript());
-        }
-        catch (System.Exception e)
-        {
-            Debug.Log(e);
-            RessourcesBdD.ReloadGame();
-        }
+        // On répète toutes les SecondesUpdate l'incrémentation des ressources
+        InvokeRepeating("IncrementationRessourcesStatic", 0, SecondesUpdate);
+
+        // On envoie la date de dernière connexion et transfert les ressources en base toutes les SecondesUpdate
+        yield return StartCoroutine(UpdateDateDerniereCoEnBase());
+        yield return StartCoroutine(transfertRessourcesEnBaseScript());
     }
 	
 	// Update is called once per frame
 	void Update () {
-        try
+        StartCoroutine(UpdateCoroutine());
+    }
+
+    public IEnumerator UpdateCoroutine()
+    {
+        if (Configuration.continueJoueur)
         {
-            if (Configuration.continueJoueur)
-            {
-                //majdepuisBDD();
-                StartCoroutine(majRessources(IDJoueur));
-                StartCoroutine(majComp(IDJoueur));
-                StartCoroutine(majObjet(IDJoueur));
-                StartCoroutine(majDiplome(IDJoueur));
-                StartCoroutine(majTrophee(IDJoueur));
-                StartCoroutine(majArtefact(IDJoueur));
-                PendantAbsence();
-                StartCoroutine(RessourcesBdD.recupExamJouable());
-                StartCoroutine(RessourcesBdD.recupDivertJouable());
-                StartCoroutine(RessourcesBdD.recupPNJJouable());
-                StartCoroutine(RessourcesBdD.RecupArtefactJouable());
-                StartCoroutine(RessourcesBdD.RecupObjetMagasin());
-                StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
-            }
-
-            if (Configuration.continueJoueur && continueMesAmis)
-            {
-                continueMesAmis = false;
-                //Debug.Log("On rentre dans Joueur -> RecupMesAmis");
-                try
-                {
-                    StartCoroutine(RessourcesBdD.RecupMesAmis());
-                }
-                catch(MissingReferenceException e)
-                {
-                    Debug.Log(e);
-                    RessourcesBdD.ReloadGame();
-                }
-                //Debug.Log("On continue dans Joueur -> RecupMesAmis");
-                StartCoroutine(RessourcesBdD.RecupActionsSociales());
-                //Debug.Log("On finit dans Joueur -> RecupMesAmis");
-            }
-
-            if (Configuration.continueJoueur && continueMissionJouable)
-            {
-                // On récupère les missions jouables
-                StartCoroutine(RessourcesBdD.recupMissionJouable());
-
-                Configuration.continueJoueur = false;
-                continueMissionJouable = false;
-            }
+            //majdepuisBDD();
+            yield return StartCoroutine(majRessources(IDJoueur));
+            yield return StartCoroutine(majComp(IDJoueur));
+            yield return StartCoroutine(majObjet(IDJoueur));
+            yield return StartCoroutine(majDiplome(IDJoueur));
+            yield return StartCoroutine(majTrophee(IDJoueur));
+            yield return StartCoroutine(majArtefact(IDJoueur));
+            PendantAbsence();
+            yield return StartCoroutine(RessourcesBdD.recupExamJouable());
+            yield return StartCoroutine(RessourcesBdD.recupDivertJouable());
+            yield return StartCoroutine(RessourcesBdD.recupPNJJouable());
+            yield return StartCoroutine(RessourcesBdD.RecupArtefactJouable());
+            yield return StartCoroutine(RessourcesBdD.RecupObjetMagasin());
+            yield return StartCoroutine(RessourcesBdD.RecupDeLaListeDesJoueurs());
         }
-        catch (System.Exception e)
+
+        if (Configuration.continueJoueur && continueMesAmis)
         {
-            Debug.Log(e);
-            RessourcesBdD.ReloadGame();
+            continueMesAmis = false;
+            //Debug.Log("On rentre dans Joueur -> RecupMesAmis");
+            yield return StartCoroutine(RessourcesBdD.RecupMesAmis());
+
+            //Debug.Log("On continue dans Joueur -> RecupMesAmis");
+            yield return StartCoroutine(RessourcesBdD.RecupActionsSociales());
+            //Debug.Log("On finit dans Joueur -> RecupMesAmis");
+        }
+
+        if (Configuration.continueJoueur && continueMissionJouable)
+        {
+            // On récupère les missions jouables
+            yield return StartCoroutine(RessourcesBdD.recupMissionJouable());
+
+            Configuration.continueJoueur = false;
+            continueMissionJouable = false;
         }
     }
 
@@ -448,7 +435,7 @@ public class Joueur : MonoBehaviour {
         while (!stop)
         {
             //long soustract = DateActuel.ToFileTimeUtc();
-            yield return new WaitForSeconds(5);//(60*6);
+            yield return new WaitForSeconds(600);//(60*6);
             for (int i = 0; i < MesRessources.Length; ++i)
             {
                 switch (RessourcesBdD.listeDesRessources[i].NomRessource)

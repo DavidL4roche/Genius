@@ -5,7 +5,7 @@ using System.Collections;
 
 public class Connexion : MonoBehaviour {
 
-    public static MySqlConnection connexion;
+    //public static MySqlConnection connexion;
 
     public void Start()
     {

@@ -1,9 +1,21 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Get(
+ *     tags={"Get"},
+ *     path="/scriptmission/",
+ *     description="Script complet de missions pour générer toutes les missions quotidiennes"
+ * )
+ */
+
 require_once "configuration.php";
 
-// Paramètre et fonction de debogage (afficher avec echo ou non)
-// Changer le paramètre $debug en true pour avoir tout les affichages
+/**
+ * Affiche une string (ou non) avec la méthode echo (à utiliser en debug)
+ * @param string $string Phrase à afficher
+ */
 function echoDebug($string)
 {
     $debug = true;
@@ -216,6 +228,15 @@ foreach ($missionsPresentes as $result) {
 }
 echoDebug("Missions présentes : " . $res);
 
+/**
+ * Retourne une entreprise (identifiant) dans le quartier demandé
+ * @param int $idquartier Identifiant du quartier où se trouvera l'entreprise
+ * @param string $host Hôte de connexion à la bd)
+ * @param string $login Login de connexion à la bd)
+ * @param string $password Mot de passe de connexion à la bd)
+ * @param string $database Base de données ciblée
+ * @return int Identifiant de l'entreprise retournée
+ */
 function trouverUneEntreprise($idquartier, $host, $login, $password, $database)
 {
     $connexion = mysqli_connect($host, $login, $password, $database);

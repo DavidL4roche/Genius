@@ -96,7 +96,6 @@ public class TestConnexion : MonoBehaviour {
 
                     Debug.Log("Tutoriel");
                     loading.Charger("Tutoriel");
-                    //Instantiate(JoueurLoge);
                 }
                 else
                 {

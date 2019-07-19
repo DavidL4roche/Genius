@@ -1,5 +1,15 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Delete(
+ *     tags={"Delete"},
+ *     path="/scriptboutique/",
+ *     description="Suppression de tous les objets achetés"
+ * )
+ */
+
 require_once "configuration.php";
 
 //Connexion à la base de Données

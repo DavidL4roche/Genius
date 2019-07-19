@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/CheckConnection.php" line="7" mnemonic="2" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../Website/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Website/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Website/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadreExamen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadreExamen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/PNJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/PNJ.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadrePNJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadrePNJ.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCompétence.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleInventaire.prefab" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -30,37 +37,79 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scriptConnection.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CreateUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupGain.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scriptmission.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="621" column="90" selection-start-line="621" selection-start-column="90" selection-end-line="621" selection-end-column="90" />
+            <state>
+              <caret line="496" column="70" selection-start-line="496" selection-start-column="70" selection-end-line="496" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/CheckIP.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/GetConnectOnIP.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CheckFirstConnection.php">
+        <entry file="file://$PROJECT_DIR$/AddIP.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="42" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="42" />
+            <state relative-caret-position="527">
+              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -86,6 +135,8 @@
       <find>$missionsDejaPresentes</find>
       <find>$tabmissionA</find>
       <find>GetConn</find>
+      <find>echoDebug</find>
+      <find>$finalArray</find>
     </findStrings>
     <replaceStrings>
       <replace>ip</replace>
@@ -99,65 +150,136 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupObjetMagasin.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupDuree.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupRang.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupQuartier.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupTrophees.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupEntreprise.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupEmpEntreprise.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupSpeEntreprise.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupExam.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupMission.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupPNJ.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupQuartierPNJ.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupDivert.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupComp.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupRess.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupDiplome.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupTopicsAide.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJObjet.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJComp.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJDiplome.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJTrophee.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJRessources.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupExamJouable.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupPNJJouable.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/MAJArtefact.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupDivertJouable.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupActionsSociales.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesObjet.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupArtefactJouable.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupDeLaListeDesJoueurs.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupMesAmis.php" />
-        <option value="$PROJECT_DIR$/scriptsRessources/RecupExamensNonJouables.php" />
-        <option value="$PROJECT_DIR$/scriptsTransferts/TransfertCompetencesEnBase.php" />
+        <option value="$PROJECT_DIR$/SupprimerAmi.php" />
+        <option value="$PROJECT_DIR$/PNJEffectue.php" />
+        <option value="$PROJECT_DIR$/UpdateDateCo.php" />
+        <option value="$PROJECT_DIR$/VerifierAmi.php" />
+        <option value="$PROJECT_DIR$/VerifierArtefactMagasin.php" />
+        <option value="$PROJECT_DIR$/VerifierStatusTuto.php" />
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertRessourcesEnBase.php" />
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php" />
+        <option value="$PROJECT_DIR$/scriptsTransferts/TransfertCompetencesEnBase.php" />
         <option value="$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php" />
-        <option value="$PROJECT_DIR$/SupprimerAmi.php" />
-        <option value="$PROJECT_DIR$/AjouterAmi.php" />
-        <option value="$PROJECT_DIR$/VerifierAmi.php" />
-        <option value="$PROJECT_DIR$/GetAmi.php" />
-        <option value="$PROJECT_DIR$/ArtefactUtilise.php" />
-        <option value="$PROJECT_DIR$/ObjetAchete.php" />
-        <option value="$PROJECT_DIR$/VerifierArtefactMagasin.php" />
-        <option value="$PROJECT_DIR$/MissionEffectuee.php" />
-        <option value="$PROJECT_DIR$/MissionDIvertEffectuee.php" />
-        <option value="$PROJECT_DIR$/ExamenEffectue.php" />
-        <option value="$PROJECT_DIR$/PNJEffectue.php" />
-        <option value="$PROJECT_DIR$/CheckFirstConnection.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/MAJTrophee.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/MAJArtefact.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/MAJComp.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/MAJDiplome.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/MAJObjet.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/MAJRessources.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesObjet.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupArtefact.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupArtefactJouable.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupBonus.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupComp.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupDeLaListeDesJoueurs.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupDiplome.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupDivert.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupDivertJouable.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupDuree.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupEmpEntreprise.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupEntreprise.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupExam.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupExamensNonJouables.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupExamJouable.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupGain.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupLieu.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupMesAmis.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupMission.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupObjet.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupObjetMagasin.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupPerte.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupPNJ.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupPNJJouable.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupQuartier.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupQuartierPNJ.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupRang.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupRess.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupSpeEntreprise.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupTopicsAide.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupTrophee.php" />
+        <option value="$PROJECT_DIR$/scriptmission.php" />
         <option value="$PROJECT_DIR$/Helper.php" />
+        <option value="$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="98" />
-    <option name="y" value="58" />
-    <option name="width" value="2974" />
-    <option name="height" value="1624" />
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/hoa/file" />
+      <path value="$PROJECT_DIR$/vendor/hoa/stream" />
+      <path value="$PROJECT_DIR$/vendor/hoa/math" />
+      <path value="$PROJECT_DIR$/vendor/hoa/compiler" />
+      <path value="$PROJECT_DIR$/vendor/hoa/event" />
+      <path value="$PROJECT_DIR$/vendor/hoa/visitor" />
+      <path value="$PROJECT_DIR$/vendor/herrera-io/json" />
+      <path value="$PROJECT_DIR$/vendor/herrera-io/phar-update" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/cilex/console-service-provider" />
+      <path value="$PROJECT_DIR$/vendor/cilex/cilex" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/vendor/zetacomponents/document" />
+      <path value="$PROJECT_DIR$/vendor/zetacomponents/base" />
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/vendor/kherge/version" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/graphviz" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/fileset" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-filter" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/phpdocumentor" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-config" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-json" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-stdlib" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-hydrator" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-i18n" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-cache" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-servicemanager" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-serializer" />
+      <path value="$PROJECT_DIR$/vendor/container-interop/container-interop" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/hoa/exception" />
+      <path value="$PROJECT_DIR$/vendor/hoa/ustring" />
+      <path value="$PROJECT_DIR$/vendor/hoa/zformat" />
+      <path value="$PROJECT_DIR$/vendor/hoa/consistency" />
+      <path value="$PROJECT_DIR$/vendor/hoa/iterator" />
+      <path value="$PROJECT_DIR$/vendor/hoa/protocol" />
+      <path value="$PROJECT_DIR$/vendor/hoa/regex" />
+      <path value="$PROJECT_DIR$/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="882" />
+    <option name="y" value="-8" />
+    <option name="width" value="516" />
+    <option name="height" value="142" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -187,7 +309,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Website" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -275,22 +397,31 @@
       <workItem from="1562223166970" duration="5798000" />
       <workItem from="1562308960961" duration="4290000" />
       <workItem from="1562593544052" duration="2475000" />
-      <workItem from="1562654610045" duration="1126000" />
+      <workItem from="1562654610045" duration="2697000" />
+      <workItem from="1562826554071" duration="17065000" />
+      <workItem from="1562912994786" duration="20121000" />
+      <workItem from="1562942584505" duration="117000" />
+      <workItem from="1563172088106" duration="3128000" />
+      <workItem from="1563258718475" duration="2399000" />
+      <workItem from="1563347256541" duration="1485000" />
+      <workItem from="1563355858330" duration="868000" />
+      <workItem from="1563462721247" duration="693000" />
+      <workItem from="1563543818254" duration="966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167523000" />
+    <option name="totallyTimeSpent" value="216541000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1613" height="873" extended-state="7" />
+    <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22186495" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23665595" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -298,10 +429,10 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="9" weight="0.3270525" />
+      <window_info anchor="bottom" id="File Transfer" order="9" weight="0.3257066" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -312,322 +443,338 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDivert.php">
+    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertCompetencesEnBase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupComp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupRess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDiplome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupTopicsAide.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupEmpEntreprise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupExamJouable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJRessources.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJDiplome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJTrophee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJComp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJObjet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPNJJouable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJArtefact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJDiplome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJObjet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJRessources.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/MAJTrophee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesObjet.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <caret line="8" column="60" lean-forward="true" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupArtefact.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupArtefactJouable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="136">
+          <caret line="8" column="53" lean-forward="true" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupBonus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupComp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDeLaListeDesJoueurs.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="42" />
+        <state relative-caret-position="204">
+          <caret line="12" column="48" lean-forward="true" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDiplome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDivertJouable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        <state relative-caret-position="527">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/UpdateLastConnection.php" />
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDivert.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="119">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UpdateDateCo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertCompetencesEnBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VerifierAmi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SupprimerAmi.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupDuree.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CreateUser.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetAmi.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupEmpEntreprise.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="204">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AjouterAmi.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupEntreprise.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        <state relative-caret-position="136">
+          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertRessourcesEnBase.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupExam.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+        <state relative-caret-position="136">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupExamensNonJouables.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupExamJouable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupLieu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupMesAmis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state relative-caret-position="187">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scriptActionSociale.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtefactUtilise.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupMission.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+        <state relative-caret-position="119">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ObjetAchete.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupObjet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PNJEffectue.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupObjetMagasin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        <state relative-caret-position="408">
+          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExamenEffectue.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPerte.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPNJ.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPNJJouable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MissionDivertEffectuee.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupPresentMissions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+        <state relative-caret-position="238">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MissionEffectuee.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupQuartier.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        <state relative-caret-position="119">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VerifierArtefactMagasin.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupQuartierPNJ.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="41" />
+        <state relative-caret-position="204">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChangeRessource.php">
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupRang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupRess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupSpeEntreprise.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupTopicsAide.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupTrophee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4080" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/classes/Helper.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CheckConnection.php">
+    <entry file="file://$PROJECT_DIR$/swagger-ui/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChangeTutoStatus.php">
+    <entry file="file://$PROJECT_DIR$/configuration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptConnection.php">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CreateUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupGain.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptmission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CheckIP.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CheckConnectionByMail.php">
+    <entry file="file://$PROJECT_DIR$/GetConnectOnIP.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConnectById.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChangePlayerStats.php">
+    <entry file="file://$PROJECT_DIR$/AddIP.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CheckFirstConnection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResetAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="527">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="621" column="90" selection-start-line="621" selection-start-column="90" selection-end-line="621" selection-end-column="90" />
+        <state>
+          <caret line="496" column="70" selection-start-line="496" selection-start-column="70" selection-end-line="496" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scriptsRessources/RecupActionsSocialesComp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
         </state>
       </provider>
     </entry>

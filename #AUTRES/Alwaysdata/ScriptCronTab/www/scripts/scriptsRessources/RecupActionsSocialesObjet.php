@@ -1,5 +1,21 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
+/**
+ * @OA\Get(
+ *     tags={"Get", "Récupération données"},
+ *     path="/RecupActionsSocialesObjet/{id}",
+ *     description="Récupère les Actions Sociales (Objets)",
+ *     @OA\Parameter(
+ *          name="id",
+ *          in="path",
+ *          description="Identifiant du joueur",
+ *          required=true,
+ *          @OA\Schema(type="Integer"))
+ * )
+ */
+
 require_once "../Helper.php";
 
 $helper = new Helper();

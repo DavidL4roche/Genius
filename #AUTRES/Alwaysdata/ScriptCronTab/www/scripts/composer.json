@@ -1,0 +1,13 @@
+{
+    "name": "nouveau/scripts",
+    "authors": [
+        {
+            "name": "David",
+            "email": "davidlaroche@hotmail.fr"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "zircote/swagger-php": "^3.0"
+    }
+}
