@@ -1,0 +1,8 @@
+Voir tuto https://www.youtube.com/watch?v=no0y4ISItiw&t=1903s
+Pour installer Swagger + Swagger-UI
+
+Commenter les documents
+
+Taper la commande
+vendor/bin/openapi --format json --output swagger-ui/swagger.json 
+Helper.php *.php scriptsTransferts/* scriptsRessources/* <- fichiers analysés

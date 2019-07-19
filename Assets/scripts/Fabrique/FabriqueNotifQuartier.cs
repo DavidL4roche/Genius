@@ -15,8 +15,12 @@ public class FabriqueNotifQuartier : MonoBehaviour {
     bool continueNotifQuartier = true;
 
     void Start () {
-        
-	}
+        // On affiche pas les bulles de missions dispos en attendant qu'ils soient définis
+        foreach (GameObject quartier in NotifQuartiers)
+        {
+            quartier.SetActive(false);
+        }
+    }
 
     public void Update()
     {

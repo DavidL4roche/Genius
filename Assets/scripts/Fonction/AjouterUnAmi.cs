@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AjouterUnAmi : MonoBehaviour {
+public class AjouterUnAmi : MonoBehaviour
+{
 
     public Text nomAmi;
 
@@ -20,10 +21,48 @@ public class AjouterUnAmi : MonoBehaviour {
 
     public void AjouterAmi()
     {
-        // Recherche en base
-        StartCoroutine(fonctionAjouterAmi());
+        StartCoroutine(AjouterAmiCoroutine());
     }
 
+    private IEnumerator AjouterAmiCoroutine()
+    {
+        // Recherche en base
+        yield return StartCoroutine(fonctionAjouterAmi());
+
+        // Le joueur existe
+        if (verifSiAmiNul.Length > 0)
+        {
+            yield return StartCoroutine(verifierAmi(ami.SonID));
+
+            // On vérifie si le joueur ne l'a pas déjà en ami
+            if (estAmi)
+            {
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = "Ce joueur est déjà votre ami";
+            }
+            // On vérifie si ce n'est pas le joueur en cours
+            else if (ami.SonID == Joueur.IDJoueur)
+            {
+                ChargerPopup.Charger("Erreur");
+                MessageErreur.messageErreur = "Vous ne pouvez pas vous ajouter en tant qu'ami";
+            }
+            else
+            {
+                // Insertion en base
+                yield return StartCoroutine(insertionAmiEnBase(ami.SonID));
+                yield return StartCoroutine(RecupMesAmis());
+            }
+        }
+
+        // Il n'existe pas, on affiche l'erreur
+        else
+        {
+            ChargerPopup.Charger("Erreur");
+            MessageErreur.messageErreur = "Ce joueur n'existe pas";
+        }
+    }
+
+    /*
     public void Update()
     {
         if (continueAjouter)
@@ -71,16 +110,10 @@ public class AjouterUnAmi : MonoBehaviour {
             StartCoroutine(RecupMesAmis());
             continueRecupAmis = false;
         }
-
-        if (continueReload)
-        {
-            FermerUneFenetre fermerfen = new FermerUneFenetre();
-            ChargerFenetreSupp chargerfen = new ChargerFenetreSupp();
-            fermerfen.Fermer("ReseauSocial");
-            chargerfen.Charger("ReseauSocial");
-        }
     }
+    */
 
+    // Recherche l'ami (par son pseudo) : on regarde s'il existe
     public IEnumerator fonctionAjouterAmi()
     {
         string urlInfosAmi = Configuration.url + "scripts/GetAmi.php?nomAmi=" + nomAmi.text;
@@ -145,11 +178,15 @@ public class AjouterUnAmi : MonoBehaviour {
 
         foreach (AutreJoueur ami in Joueur.MesAmis)
         {
-            StartCoroutine(ami.majObjetAmi(ami.SonID));
-            StartCoroutine(ami.majComp(ami.SonID));
-            StartCoroutine(ami.majDiplome(ami.SonID));
+            yield return StartCoroutine(ami.majObjetAmi(ami.SonID));
+            yield return StartCoroutine(ami.majComp(ami.SonID));
+            yield return StartCoroutine(ami.majDiplome(ami.SonID));
+            yield return StartCoroutine(RessourcesBdD.RecupActionsSociales());
         }
 
-        continueReload = true;
+        FermerUneFenetre fermerfen = new FermerUneFenetre();
+        ChargerFenetreSupp chargerfen = new ChargerFenetreSupp();
+        fermerfen.Fermer("ReseauSocial");
+        chargerfen.Charger("ReseauSocial");
     }
 }

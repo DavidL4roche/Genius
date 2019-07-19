@@ -1,0 +1,16 @@
+<?php
+
+    require_once "Helper.php";
+
+    $helper = new Helper();
+
+    if (isset($_GET["ip"])) {
+        $ip = $_GET["ip"];
+        echo $helper->getConnectOnIP($ip);
+    }
+    else {
+        echo json_encode(array(
+            "result" => false,
+            "msg" => "Champ ip non renseigné"
+        ));
+    }
