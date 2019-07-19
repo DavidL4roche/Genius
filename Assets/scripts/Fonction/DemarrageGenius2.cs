@@ -41,6 +41,7 @@ public class DemarrageGenius2 : MonoBehaviour {
         }
     }
 
+    /*
     public void Update()
     {
         if((DateTime.Now - dt).TotalSeconds > 20)
@@ -50,6 +51,7 @@ public class DemarrageGenius2 : MonoBehaviour {
             RessourcesBdD.ReloadGame();
         }
     }
+    */
 
     IEnumerator MyCoroutine()
     {
@@ -159,6 +161,7 @@ public class DemarrageGenius2 : MonoBehaviour {
                                     Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
                                     ChargerLieu loading = new ChargerLieu();
                                     Instantiate(JoueurLoge);
+
                                     /*
                                     ChargerPopup.Charger("Succes");
                                     MessageErreur.messageErreur = "Connexion réussie. Lancement du jeu.";*/

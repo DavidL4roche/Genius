@@ -46,38 +46,6 @@ public class RessourcesBdD : MonoBehaviour
     public static string url = Configuration.url + "scripts/scriptsRessources/";
 
     // Valeurs pour continuer après effectué ces missions
-    bool continueTotalMissions = false;
-    public static bool continueLieu = false; // 1
-    public static bool continueGain = false;
-    public static bool continuePerte = false;
-    public static bool continueBonus = false;
-    public static bool continueDuree = false; // 5
-    public static bool continueRang = false;
-    public static bool continueQuartier = false;
-    public static bool continueDivert = false;
-    public static bool continueComp = false;
-    public static bool continueRess = false; // 10
-    public static bool continueDiplome = false;
-    public static bool continueEntreprise = false;
-    public static bool continueArtefact = false;
-    public static bool continuePNJ = false;
-    public static bool continueTopicsAide = false; // 15
-    public static bool continueExam = false;
-    public static bool continueMission = false;
-    public static bool continueTrophee = false;
-    public static bool continueObjet = false; // 19
-    
-    private static bool continueBonusLocal = true;
-    private static bool continueQuartierLocal = true;
-    private static bool continueDiplomeLocal = true;
-    private static bool continueEntrepriseLocal = true;
-    private static bool continueArtefactLocal = true;
-    private static bool continueRangLocal = true;
-    private static bool continueCompLocal = true;
-    private static bool continueMissionLocal = true;
-    private static bool continueRessourcesLocal = true;
-    private static bool continueDureeLocal = true;
-
     public static bool continueJoueur = false;
     public static bool continueRessJoueur = false;
     public static bool continuePNJJoueur = false;
@@ -98,90 +66,34 @@ public class RessourcesBdD : MonoBehaviour
     public static void Recup()
     {
         Debug.Log("Récupération des données du joueur");
-        lancementRecup = true;
-
-        try
-        {
-            instance.StartCoroutine(RecupLieu());
-            instance.StartCoroutine(RecupGain());
-            instance.StartCoroutine(RecupPerte());
-            instance.StartCoroutine(RecupBonus());
-            instance.StartCoroutine(RecupDuree());
-            instance.StartCoroutine(RecupRang());
-            instance.StartCoroutine(RecupQuartier());
-            instance.StartCoroutine(RecupDivert());
-            instance.StartCoroutine(RecupComp());
-            instance.StartCoroutine(RecupRess());
-            instance.StartCoroutine(RecupDiplome());
-            instance.StartCoroutine(RecupTopicsAide());
-        }
-        catch(System.Exception e)
-        {
-            Debug.Log(e);
-            ReloadGame();
-        }
-
-        /*
-        ChargerPopup.Charger("Succes");
-        MessageErreur.messageErreur = "Récupération des données en base réussie.";*/
+        instance.StartCoroutine(RecupCoroutine());
     }
 
-    // On lance ces fonctions après que celles données de Recup soient finies
-    public void Update()
+    public static IEnumerator RecupCoroutine()
     {
-        try
-        {
-            // Récupération Examen, Trophee, Objet et Artéfact
-            if (continueDiplome && continueComp && continueRang && continueDiplomeLocal && continueBonus && continueBonusLocal)
-            {
-                instance.StartCoroutine(RecupExam());
-                instance.StartCoroutine(RecupTrophee());
-                instance.StartCoroutine(RecupObjet());
-                instance.StartCoroutine(RecupArtefact());
-                continueBonusLocal = false;
-                continueDiplomeLocal = false;
-            }
+        yield return instance.StartCoroutine(RecupLieu());
+        yield return instance.StartCoroutine(RecupGain());
+        yield return instance.StartCoroutine(RecupPerte());
+        yield return instance.StartCoroutine(RecupBonus());
+        yield return instance.StartCoroutine(RecupDuree());
+        yield return instance.StartCoroutine(RecupRang());
+        yield return instance.StartCoroutine(RecupQuartier());
+        yield return instance.StartCoroutine(RecupDivert());
+        yield return instance.StartCoroutine(RecupComp());
+        yield return instance.StartCoroutine(RecupRess());
+        yield return instance.StartCoroutine(RecupDiplome());
+        yield return instance.StartCoroutine(RecupTopicsAide());
+        yield return instance.StartCoroutine(RecupExam());
+        yield return instance.StartCoroutine(RecupTrophee());
+        yield return instance.StartCoroutine(RecupObjet());
+        yield return instance.StartCoroutine(RecupArtefact());
+        yield return instance.StartCoroutine(RecupEntreprise());
+        yield return instance.StartCoroutine(RecupMission());
+        yield return instance.StartCoroutine(RecupPNJ());
 
-            // Récupération Entreprise
-            if (continueQuartier && continueQuartierLocal)
-            {
-                instance.StartCoroutine(RecupEntreprise());
-                continueQuartierLocal = false;
-            }
-
-            // Récupération Mission
-            if (continueEntreprise && continueRang && continueComp && continueEntrepriseLocal && continueRangLocal && continueCompLocal && continueDureeLocal && continueDuree)
-            {
-                instance.StartCoroutine(RecupMission());
-                continueEntrepriseLocal = false;
-                continueRangLocal = false;
-                continueCompLocal = false;
-                continueDureeLocal = false;
-            }
-
-            // Récupération PNJ
-            if (continueArtefact && continueArtefactLocal && continueMission && continueMissionLocal)
-            {
-                instance.StartCoroutine(RecupPNJ());
-                continueArtefactLocal = false;
-                continueMissionLocal = false;
-            }
-
-            // TODO : Attendre que tout soit validé pour lancer ça
-            if (continueLieu && continueGain && continuePerte && continueBonus && continueDuree && continueRang && continueQuartier && continueDivert &&
-                continueComp && continueRess && continueDiplome && continueEntreprise && continueArtefact && continuePNJ && continueTopicsAide &&
-                continueExam && continueMission && continueTrophee && continueObjet && continueRessourcesLocal)
-            {
-                SpawnerMission.continueTotalMissions = true;
-                Configuration.continueJoueur = true;
-                continueRessourcesLocal = false;
-            }
-        }
-        catch (System.Exception e)
-        {
-            Debug.Log(e);
-            ReloadGame();
-        }
+        SpawnerMission.continueTotalMissions = true;
+        Configuration.continueJoueur = true;
+        lancementRecup = true;
     }
 
     public static void ReloadGame()
@@ -261,8 +173,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesLieux[i].toString();
         }*/
-
-        continueLieu = true;
     }
 
     // Récupération des Gains
@@ -287,8 +197,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesGains[i].toString();
         }*/
-
-        continueGain = true;
     }
 
     // Récupération des Pertes
@@ -313,8 +221,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesPertes[i].toString();
         }*/
-
-        continuePerte = true;
     }
 
     // Récupération des Bonus
@@ -339,8 +245,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesBonus[i].toString();
         }*/
-
-        continueBonus = true;
     }
 
     // Récupération des Durées
@@ -365,8 +269,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesDurees[i].toString();
         }*/
-
-        continueDuree = true;
     }
 
     // Récupération des Rangs
@@ -391,8 +293,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesRangs[i].toString();
         }*/
-
-        continueRang = true;
     }
 
     // Récupération des Quartiers
@@ -417,8 +317,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesQuartiers[i].toString();
         }*/
-
-        continueQuartier = true;
     }
 
     // Récupération des Divertissements
@@ -444,7 +342,6 @@ public class RessourcesBdD : MonoBehaviour
             listeDesDivertissements[i].toString();
         }*/
 
-        continueDivert = true;
         continueDivertJoueur = true;
     }
 
@@ -471,7 +368,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesCompétences[i].toString();
         }*/
-        continueComp = true;
     }
 
     // Récupération des Ressources
@@ -497,8 +393,7 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesRessources[i].toString();
         }*/
-
-        continueRess = true;
+        
         continueRessJoueur = true;
     }
 
@@ -534,8 +429,7 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesObjets[i].toString();
         }*/
-
-        continueObjet = true;
+        
         continueObjetJoueur = true;
     }
 
@@ -562,8 +456,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesDiplomes[i].toString();
         }*/
-
-        continueDiplome = true;
     }
 
     // Récupération des Trophées
@@ -589,8 +481,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesTrophees[i].toString();
         }*/
-
-        continueTrophee = true;
     }
 
     // Récupération des Examens
@@ -617,8 +507,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesExamens[i].toString();
         }*/
-
-        continueExam = true;
     }
 
     // Récupération des Entreprises
@@ -654,8 +542,6 @@ public class RessourcesBdD : MonoBehaviour
             // On récupère les spécialités de l'entreprise (i)
             instance.StartCoroutine(RecupSpeEntreprise(i));
         }
-
-        continueEntreprise = true;
     }
 
     // Fonction d'ajout des emplacements d'une entreprise
@@ -793,11 +679,9 @@ public class RessourcesBdD : MonoBehaviour
         }
         lien.Close();
         */
-
-        continueMission = true;
+        
         continueMissionNotifQuartier = true;
         continueMissionJoueur = true;
-        continueMissionLocal = true;
     }
 
     // Récupération des Artéfacts
@@ -823,8 +707,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesArtefacts[i].toString();
         }*/
-
-        continueArtefact = true;
     }
 
     // Récupération des PNJ
@@ -870,7 +752,6 @@ public class RessourcesBdD : MonoBehaviour
             Debug.Log("Quartier PNJ " + listeDesPNJ[i].SonQuartier.NomQuartier);
         }*/
 
-        continuePNJ = true;
         continuePNJJoueur = true;
     }
 
@@ -896,8 +777,6 @@ public class RessourcesBdD : MonoBehaviour
         {
             listeDesTopicsAide[i].toString();
         }*/
-
-        continueTopicsAide = true;
     }
 
     // Récupération des Objets du Magasin
@@ -984,7 +863,6 @@ public class RessourcesBdD : MonoBehaviour
             listeDesMissionsPrésentes[i].SaMission = testMissionSpecialise(listeDesMissionsPrésentes[i].SaMission, listeDesMissionsPrésentes[i].SonQuartier);
         }
 
-        instance.continueTotalMissions = true;
         ChargerLieu chargement = new ChargerLieu();
         chargement.Recharger();
 
@@ -1314,16 +1192,5 @@ public class RessourcesBdD : MonoBehaviour
         }
 
         Joueur.continueMissionJouable = true;
-    }
-
-    // Change le booléen continueTotalMissions
-    public static void setTotalMissions(bool result)
-    {
-        instance.continueTotalMissions = result;
-    }
-
-    public static bool getTotalMissions()
-    {
-        return instance.continueTotalMissions;
     }
 }
