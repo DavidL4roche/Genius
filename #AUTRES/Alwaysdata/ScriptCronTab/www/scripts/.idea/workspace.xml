@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47921670-afa7-43ae-bed8-000d856596bb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/Mission.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/PNJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/PNJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleActionSociale.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleActionSociale.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadre.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadrePNJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/Prefab/TupleCadrePNJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Class/Joueur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueMission.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueNotifQuartier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriqueNotifQuartier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriquePreRequisPNJ.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fabrique/FabriquePreRequisPNJ.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/TestInscription.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/TestInscription.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/CompetencesAmi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/CompetencesAmi.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/Inscription.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/Inscription.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scènes/MissionPNJ.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scènes/MissionPNJ.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/FBholder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Assets/scripts/Fonction/FBholder.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,8 +90,27 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Helper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="131" column="46" selection-start-line="131" selection-start-column="46" selection-end-line="131" selection-end-column="46" />
+            <state relative-caret-position="248">
+              <caret line="496" column="70" selection-start-line="496" selection-start-column="70" selection-end-line="496" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CheckIP.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GetConnectOnIP.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AddIP.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -266,7 +276,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="882" />
     <option name="y" value="-8" />
     <option name="width" value="516" />
@@ -396,17 +406,17 @@
       <workItem from="1563258718475" duration="2399000" />
       <workItem from="1563347256541" duration="1485000" />
       <workItem from="1563355858330" duration="868000" />
+      <workItem from="1563462721247" duration="693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214882000" />
+    <option name="totallyTimeSpent" value="215575000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1613" height="873" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17620578" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17813505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -432,27 +442,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertRessourcesEnBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertObjetsEnBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertActionSocialeEnBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scriptsTransferts/TransfertCompetencesEnBase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -768,10 +757,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CheckIP.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetConnectOnIP.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AddIP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="131" column="46" selection-start-line="131" selection-start-column="46" selection-end-line="131" selection-end-column="46" />
+        <state relative-caret-position="248">
+          <caret line="496" column="70" selection-start-line="496" selection-start-column="70" selection-end-line="496" selection-end-column="70" />
         </state>
       </provider>
     </entry>

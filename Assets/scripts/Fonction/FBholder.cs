@@ -119,8 +119,8 @@ public class FBholder : MonoBehaviour {
     // Connexion ou redirection vers l'inscription de l'utilisateur
     private IEnumerator CheckConnection(string nom, string mail, string pass)
     {
+        Debug.Log("On rentre dans CheckConnection FB");
         string urlComp = urlCheckConnection + "?mail=" + mail + "&pass=" + pass;
-        Debug.Log(urlComp);
         download = new WWW(urlComp);
         yield return download;
 
@@ -151,6 +151,7 @@ public class FBholder : MonoBehaviour {
 
                 // On ajoute l'IP du téléphone au joueur
                 string urlComp2 = urlAddIP + "?ip=" + ipLocal + "&playerId=" + monNode["utilisateur"][0]["id"];
+                Debug.Log("urlComp2 : " + urlComp2);
                 download = new WWW(urlComp2);
                 yield return download;
 
@@ -161,32 +162,22 @@ public class FBholder : MonoBehaviour {
                 yield return download2;
 
                 // On récupère les données du Joueur pour l'attribuer à notre objet
+                /*
                 int.TryParse(monNode["utilisateur"][0]["id"].Value, out Joueur.IDJoueur);
                 Joueur.NomJoueur = monNode["utilisateur"][0]["pseudo"].Value;
                 Joueur.dateDerniereCo = Convert.ToDateTime(monNode["utilisateur"][0]["lastConnection"].Value);
+                */
                 ChargerLieu loading = new ChargerLieu();
-                Instantiate(JoueurLoge);
 
-                // On vérifie si c'est la première connection de l'utilisateur
-                if (monNode["utilisateur"][0]["isFirstConnection"] == 1)
-                {
-                    // On change le booléen isFirstConnection du joueur en faux (0)
-                    string urlStat = "http://seriousgameiut.alwaysdata.net/scripts/ChangePlayerStats.php";
-                    urlStat += "?stat=isFirstConnection&value=0&id=" + monNode["utilisateur"][0]["id"].Value;
-                    download = new WWW(urlStat);
-                    yield return download;
-
-                    loading.Charger("Tutoriel");
-                }
-                else
-                {
-                    loading.Charger("Daedelus");
-                }
+                Debug.Log("Connection !");
+                // On connecte automatiquement au compte lié
+                loading.Charger("Index1");
+                //Instantiate(JoueurLoge);
             }
         }
     }
 
-    // Connection à Genius
+    // Inscription à Genius
     public IEnumerator Connect(string pseudo, string mail, string pass)
     {
         string urlComp2 = urlCreateUser;

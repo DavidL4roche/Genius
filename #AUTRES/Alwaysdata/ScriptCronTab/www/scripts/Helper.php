@@ -493,7 +493,8 @@ class Helper {
 
             // L'IP n'existe pas dans la base
             if (count($d) == 0) {
-                $sql2 = "INSERT INTO association_ip_pc(ip, playerId, isConnected) VALUES('" . $ip . "', " . $playerId . ", 0)";
+                $sql2 = "INSERT INTO association_ip_pc(ip, playerId, isConnected) VALUES('" . $ip . "', " . $playerId . ", 0) 
+                         ON DUPLICATE KEY UPDATE playerId =  $playerId";
 
                 $result = $bdd->prepare($sql2);
                 $result->execute();
